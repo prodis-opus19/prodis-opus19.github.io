@@ -34,13 +34,13 @@ body.hide_polish :lang(pl) {
   display: none;
 }
 
-.image_resize_on_hover {
-  /* resize on hover */
+/* resize on hover */
+.image_highlight_on_hover {
   transition: 0.1s;
 }
 
-.image_resize_on_hover:hover {
-  /* resize on hover */
+.image_highlight_on_hover:hover {
+  filter: brightness(110%) saturate(120%);
   transform: scale(0.95);
 }
 
