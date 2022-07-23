@@ -26,6 +26,11 @@ li {
   list-style: none;
 }
 
+img {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
 /* hide polish or english version based on button click */
 body.hide_english :lang(en) {
   display: none;
