@@ -290,6 +290,10 @@ input[type=checkbox] {
   width: 100%;
 }
 
+.tab_per_person_content a {
+  color: #bb4b4b;
+}
+
 .contact_info table {
   background-color: #141414;
   border-collapse: separate;
