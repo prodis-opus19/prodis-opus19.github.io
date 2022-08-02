@@ -13,16 +13,16 @@
 </head>
 
 <body class="hide_polish">
-  <nav class="navbar">
-    <!-- navbar_title -->
-    <div id="navbar_title" class="enable_select">PRODIS</div>
+  <header>
+    <!-- header_title -->
+    <div id="header_title" class="enable_select">PRODIS</div>
     <!-- navigation menu -->
     <ul class="nav-links">
       <!-- using checkbox hack -->
       <input type="checkbox" id="checkbox_toggle">
       <label for="checkbox_toggle" class="hamburger">&#9776;</label>
       <!-- navigation menus -->
-      <div class="navbar_menu">
+      <nav>
         <!-- open_tab also runs close_hamburger_menu() -->
         <li title="Open Project tab" class="navbar_link" id="default_full_page_tab_open" onclick="open_tab('Project', this)"><i class="fa fa-home"></i> Project</li>
         <li title="Open Team tab" class="navbar_link" onclick="open_tab('Team', this)"><i class="fa fa-users"></i> Team</li>
@@ -30,9 +30,9 @@
         <li title="Open Contact tab" class="navbar_link" onclick="open_tab('Contact', this)"><i class="fa fa-envelope-o"></i> Contact</li>
         <li title="Switch language to English" class="navbar_link" onclick="document.body.className='hide_polish';close_hamburger_menu()"><i class="fa fa-flag"></i> English</li>
         <li title="Switch language to Polish" class="navbar_link" onclick="document.body.className='hide_english';close_hamburger_menu()"><i class="fa fa-flag"></i> Polish</li>
-      </div>
+      </nav>
     </ul>
-  </nav>
+  </header>
   <!-- full page tab: project -->
   <div id="Project" class="full_page_tab">
     <div class="tab_title">
@@ -51,7 +51,7 @@
       </a>
       <hr> <!-- horizontal line -->
     </div>
-    <div class="project_desc enable_select">
+    <article class="enable_select">
       <!-- 1. Purpose of the project -->
       <p lang="en">The project aims to study <b>why speakers lengthen or reduce speech sounds as well as pronounce them more or less carefully</b>. For instance, some of the factors that influence this mechanism are <em>​word frequency</em> ​and the effect of <em>​surprisal​</em>, that is,​ ​the predictability of a word in relation to the words in its immediate context.</p>
       <p lang="pl">W proponowanym projekcie chcemy badać <b>jak to się dokładnie dzieje, że dźwięki w mowie są mniej lub bardziej wzdłużane i uwypuklane</b>. W szczególności chcemy skupić się na mechanizmach, które na to uwypuklenie wpływają. Na przykład, takim mechanizmem jest <emp>​częstość</emp> występowania elementów mowy oraz tzw. <emp>​efekt zaskoczenia​</emp> jaki posiada element w relacji do kontekstu.</p>
@@ -66,13 +66,13 @@
       <!-- 4. The most important expected effects -->
       <p lang="en">Our research on Polish is important because it has a specific accentual grammar. Studying Polish will <b>expand our knowledge of how surprisal and frequency affect human speech</b>. In addition, at the end of the project, <b>we will examine whether the listener is able to actually hear the surprisal effect when it is produced by speakers</b>. This research question has not been answered yet.</p>
       <p lang="pl">Nasze badania są ważne dlatego, że język polski ze względu na to, że ma specyficzną gramatykę akcentowania <b>wnosi nowe wnioski do badań nad uwypukleniem i nad wpływem efektu zaskoczenia w mowie</b>. Wniesiemy więc te wyniki do światowej nauki. Poza tym <b>zbadamy, pod koniec projektu, czy słuchacze w ogóle słyszą efekt zaskoczenia kiedy jest produkowany przez mówców</b>. Na to pytanie światowa nauka nie ma jeszcze odpowiedzi.</p>
-    </div>
+    </article>
     <!-- footer with ukrainian flag at the bottom -->
-    <div class="footer">
+    <footer>
       <hr> <!-- horizontal line -->
       <p class="enable_select">OPUS, 2022</p>
       <img src="img/ukrainian_flag_circle.png" alt="ukrainian flag" draggable="false" ondragstart="return false;">
-    </div>
+    </footer>
   </div>
   <!-- full page tab: team -->
   <div id="Team" class="full_page_tab">
@@ -83,11 +83,11 @@
       </div>
       <hr> <!-- horizontal line -->
       <!-- Per-person tab links -->
-      <nav class="navbar_per_person">
+      <div class="navbar_per_person">
         <button class="tab_per_person_link" onclick="open_person_desc(event, 'm_kul')" id="default_per_person_tab_open"><i class="fa fa-user-circle"></i> Małgorzata Kul</button>
         <button class="tab_per_person_link" onclick="open_person_desc(event, 'z_malisz')"><i class="fa fa-user-circle"></i> Zofia Malisz</button>
         <button class="tab_per_person_link" onclick="open_person_desc(event, 'j_for')"><i class="fa fa-user-circle"></i> Jan Foremski</button>
-      </nav>
+      </div>
     </div>
     <!-- Per-person tab content -->
     <!-- małgorzata kul -->
@@ -192,10 +192,10 @@
           <td></td>
         </tr>
       </table>
-      <div class="enable_select">
-        <p lang="en" class="email_explanation">E-mails are embedded as images to prevent bot spam.</p>
-        <p lang="pl" class="email_explanation">Adresy e-mail są umieszczone jako zdjęcia aby zapobiec zautomatyzowanemu spamowi.</p>
-      </div>
+      <aside class="email_explanation enable_select">
+        <p lang="en">E-mails are embedded as images to prevent bot spam.</p>
+        <p lang="pl">Adresy e-mail są umieszczone jako zdjęcia aby zapobiec zautomatyzowanemu spamowi.</p>
+      </aside>
     </div>
   </div>
 </body>

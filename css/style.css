@@ -55,8 +55,8 @@ body.hide_polish :lang(pl) {
   transform: scale(0.95);
 }
 
-/* navbar at the top */
-.navbar {
+/* header at the top; contains website name and navigation links */
+header {
   align-items: center;
   background-color: #141414;
   border-radius: 20px;
@@ -75,21 +75,21 @@ body.hide_polish :lang(pl) {
   z-index: 100;
 }
 
-/* text on left side of navbar */
-#navbar_title {
+/* text on left side of header */
+#header_title {
   font-size: 35px;
   padding-left: 10px;
 }
 
-/* buttons on right side of navbar */
-.navbar_menu {
+/* buttons on right side of header */
+nav {
   display: flex;
   font-size: 20px;
   gap: 15px;
   z-index: 101;
 }
 
-.navbar_menu li {
+nav li {
   border-radius: 15px;
   cursor: pointer;
   padding-bottom: 18px;
@@ -98,7 +98,7 @@ body.hide_polish :lang(pl) {
   padding-top: 18px;
 }
 
-.navbar_menu li:hover {
+nav li:hover {
   background-color: #808080;
 }
 
@@ -176,37 +176,37 @@ input[type=checkbox] {
 }
 
 /* main project's description under project tab */
-.project_desc {
+article {
   text-align: left;
 }
 
-.project_desc h1 {
+article h1 {
   font-size: 200%;
   margin-top: 30px;
 }
 
-.project_desc p {
+article p {
   color: #d3d3d3;
   line-height: 1.8;
   margin-bottom: 40px;
 }
 
 /* footer with ukrainian flag at the bottom */
-.footer {
+footer {
   color: gray;
   margin-top: 50px;
 }
 
-.footer hr {
+footer hr {
   color: gray;
   size: 2;
 }
 
-.footer p {
+footer p {
   margin-top: 30px;
 }
 
-.footer img {
+footer img {
   height: 20px;
   margin-top: 10px;
 }
@@ -342,15 +342,15 @@ input[type=checkbox] {
 /* responsive design */
 /* narrow device */
 @media only screen and (max-width: 1350px) {
-  .navbar {
+  header {
     width: 95%;
   }
 
-  .navbar_menu {
+  nav {
     gap: 5px;
   }
 
-  .navbar_menu li {
+  nav li {
     padding-left: 10px;
     padding-right: 10px;
   }
@@ -362,7 +362,7 @@ input[type=checkbox] {
 
 /* mobile device */
 @media (max-width: 950px) {
-  .navbar_menu {
+  nav {
     background-color: #0d0d0d;
     border-radius: 20px;
     border: 3px solid #262626;
@@ -379,17 +379,17 @@ input[type=checkbox] {
     top: 105px;
   }
 
-  .navbar_menu li:hover {
+  nav li:hover {
     background-color: #808080;
     width: 100%;
     display: inline-block;
   }
 
-  .navbar_menu li+li {
+  nav li+li {
     margin-top: 12px;
   }
 
-  input[type=checkbox]:checked~.navbar_menu {
+  input[type=checkbox]:checked~nav {
     display: block;
   }
 
