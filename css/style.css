@@ -47,7 +47,7 @@ body.hide_polish :lang(pl) {
 
 /* resize on hover */
 .image_highlight_on_hover {
-  transition: 0.1s;
+  transition: 0.2s;
 }
 
 .image_highlight_on_hover:hover {
@@ -336,7 +336,7 @@ input[type=checkbox] {
   margin-left: auto;
   margin-right: auto;
   margin-top: 35px;
-  width: 70%;
+  width: 90%;
 }
 
 /* responsive design */
