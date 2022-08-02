@@ -26,9 +26,14 @@ li {
   list-style: none;
 }
 
-img {
+.disable_select {
   -webkit-user-select: none;
   user-select: none;
+}
+
+.enable_select {
+  -webkit-user-select: text;
+  user-select: text;
 }
 
 /* hide polish or english version based on button click */
@@ -72,10 +77,8 @@ body.hide_polish :lang(pl) {
 
 /* text on left side of navbar */
 #navbar_title {
-  -webkit-user-select: text;
   font-size: 35px;
   padding-left: 10px;
-  user-select: text;
 }
 
 /* buttons on right side of navbar */
@@ -117,7 +120,6 @@ input[type=checkbox] {
 
 /* full page tabs */
 .full_page_tab {
-  -webkit-user-select: text;
   background-color: #262626;
   border-radius: 50px;
   border: 2px solid #333333;
@@ -128,7 +130,6 @@ input[type=checkbox] {
   margin-right: auto;
   margin-top: 50px;
   padding: 50px;
-  user-select: text;
   width: 40%;
 }
 
