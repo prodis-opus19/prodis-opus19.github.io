@@ -1,0 +1,430 @@
+body {
+  -webkit-user-select: none;
+  background-color: #1a1a1a;
+  border: none;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  height: 100%;
+  margin-bottom: 70px;
+  outline: none;
+  overflow-x: hidden;
+  text-align: center;
+  user-select: none;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+.disable_select {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.enable_select {
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+/* resize on hover */
+.image_highlight_on_hover {
+  transition: 0.2s;
+}
+
+.image_highlight_on_hover:hover {
+  filter: brightness(110%) saturate(120%);
+  transform: scale(0.95);
+}
+
+/* header at the top; contains website name and navigation links */
+header {
+  align-items: center;
+  background-color: #141414;
+  border-radius: 20px;
+  border: 3px solid #262626;
+  box-shadow: 0px 0px 15px #0d0d0d;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  overflow: hidden;
+  padding: 10px;
+  width: 80%;
+  z-index: 100;
+}
+
+/* text on left side of header */
+#header_title {
+  font-size: 35px;
+  padding-left: 10px;
+}
+
+/* buttons on right side of header */
+nav {
+  display: flex;
+  font-size: 20px;
+  gap: 15px;
+  z-index: 101;
+}
+
+nav li {
+  border-radius: 15px;
+  cursor: pointer;
+  padding-bottom: 18px;
+  padding-left: 14px;
+  padding-right: 16px;
+  padding-top: 18px;
+}
+
+nav li:hover:not(.navbar_splitter) {
+  background-color: #808080;
+}
+
+nav .navbar_splitter {
+  color: gray;
+  pointer-events: none;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+#lang_flag {
+  /* this is stupid but i tried to center the img vertically and IT DOESN'T WORK!!! */
+  border: 0;
+  padding: 0;
+  transform: translateY(3px);
+}
+
+/* responsive navbar menu for navbar */
+/* checkbox hack */
+input[type=checkbox] {
+  display: none;
+}
+
+.hamburger {
+  border-radius: 15px;
+  display: none;
+  font-size: 24px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+}
+
+/* full page tabs */
+.full_page_tab {
+  background-color: #262626;
+  border-radius: 50px;
+  border: 2px solid #333333;
+  box-shadow: 0px 0px 15px #0d0d0d;
+  display: none;
+  display: none;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  padding: 50px;
+  width: 40%;
+}
+
+#Information,
+#Survey,
+#Contact {
+  display: none;
+}
+
+#polish_corpus_img {
+  width: 400px;
+}
+
+/* welcome title */
+.tab_title h1 {
+  font-size: 300%;
+  margin-bottom: 40px;
+}
+
+.tab_title h2 {
+  font-size: 130%;
+  margin-bottom: 40px;
+}
+
+/* project number */
+.tab_title p {
+  color: #d3d3d3;
+  font-size: 120%;
+  letter-spacing: 0.1em;
+  margin-bottom: 40px;
+}
+
+.tab_title img {
+  filter: drop-shadow(0 0px 3px #1a1a1a);
+  height: 90px;
+  margin: 30px;
+}
+
+.tab_title hr {
+  color: gray;
+  margin-bottom: 40px;
+  margin-top: 10px;
+  size: 2;
+}
+
+/* main project's description under project tab */
+article {
+  text-align: left;
+}
+
+article h1 {
+  font-size: 200%;
+  margin-top: 30px;
+}
+
+article p {
+  color: #d3d3d3;
+  line-height: 1.8;
+  margin-bottom: 40px;
+}
+
+/* footer with ukrainian flag at the bottom */
+footer {
+  color: gray;
+  margin-top: 50px;
+}
+
+footer hr {
+  color: gray;
+  size: 2;
+}
+
+footer p {
+  margin-top: 30px;
+}
+
+footer img {
+  height: 20px;
+  margin-top: 10px;
+}
+
+/* style the navbar container */
+.navbar_per_person {
+  background-color: #141414;
+  border-radius: 20px;
+  border: 2px solid #333333;
+  display: block;
+  margin: auto;
+  overflow: hidden;
+  padding-bottom: 7px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 7px;
+  width: 60%;
+}
+
+/* style the buttons that are used to open the tab content */
+.navbar_per_person button {
+  background-color: #404040;
+  border-radius: 10px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 150%;
+  height: 60px;
+  margin-bottom: 7px;
+  margin-top: 7px;
+  outline: none;
+  overflow: hidden;
+  width: 100%;
+}
+
+/* change background color of buttons on hover */
+.navbar_per_person button:hover {
+  background-color: #808080;
+}
+
+/* selected button */
+.navbar_per_person button.active {
+  background-color: #a35858;
+}
+
+/* style the tab content */
+.tab_per_person_content {
+  background-color: #141414;
+  border-radius: 25px;
+  border: 2px solid #333333;
+  display: none;
+  margin-top: 40px;
+  overflow: hidden;
+  padding-bottom: 30px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 50px;
+  width: 100%;
+}
+
+.tab_per_person_content h1 {
+  font-size: 300%;
+  margin-bottom: 30px;
+}
+
+.tab_per_person_content p {
+  color: #d3d3d3;
+  line-height: 1.6;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.tab_per_person_content img {
+  border-radius: 8px;
+  margin: 10px;
+  width: 50px;
+}
+
+.tab_per_person_content hr {
+  margin-bottom: 40px;
+  margin-top: 30px;
+  width: 100%;
+}
+
+.tab_per_person_content a {
+  color: #bb4b4b;
+}
+
+.contact_info table {
+  background-color: #141414;
+  border-collapse: separate;
+  border-radius: 20px;
+  border-spacing: 25px;
+  border: 2px solid #333333;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 55px;
+  width: 100%;
+}
+
+/* columns */
+.contact_info table th {
+  border-bottom: 2px solid #1a1a1a;
+  font-size: 160%;
+  font-weight: bold;
+  padding-bottom: 15px;
+}
+
+/* rows */
+.contact_info table td {
+  color: #808080;
+  font-size: 120%;
+  padding-bottom: 15px;
+  padding-top: 15px;
+}
+
+/* rows - images */
+.contact_info table td img {
+  background-color: transparent;
+  height: 25px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+.contact_info .email_explanation {
+  color: #d3d3d3;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 35px;
+  width: 90%;
+}
+
+/* responsive design */
+/* narrow device */
+@media only screen and (max-width: 1350px) {
+  header {
+    width: 95%;
+  }
+
+  nav li {
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+
+  #header_title {
+    padding-left: 5px;
+  }
+
+  .full_page_tab {
+    width: 70%;
+  }
+}
+
+/* mobile device */
+/* navbar only */
+@media (max-width: 980px) {
+  nav {
+    background-color: #0d0d0d;
+    border-radius: 20px;
+    border: 3px solid #262626;
+    box-shadow: 0px 0px 15px #0d0d0d;
+    display: none;
+    font-size: 22px;
+    left: 0;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding: 20px;
+    position: absolute;
+    position: absolute;
+    right: 0;
+    top: 105px;
+  }
+
+  nav li:hover {
+    background-color: #808080;
+    width: 100%;
+    display: inline-block;
+  }
+
+  nav li+li {
+    margin-top: 12px;
+  }
+
+  input[type=checkbox]:checked~nav {
+    display: block;
+  }
+
+  .hamburger {
+    display: block;
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+
+  nav .navbar_splitter {
+    display: none;
+  }
+
+}
+
+/* side padding for article */
+@media (max-width: 950px) {
+  .full_page_tab {
+    border-radius: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 95%;
+  }
+
+  .navbar_per_person {
+    width: 90%;
+  }
+
+  .contact_info table td img {
+    height: 15px;
+  }
+}
