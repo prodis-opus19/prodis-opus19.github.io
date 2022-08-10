@@ -26,10 +26,11 @@
         <!-- open_tab also runs close_hamburger_menu() -->
         <li title="Open Project tab" class="navbar_link" id="default_full_page_tab_open" onclick="open_tab('Project', this)"><i class="fa fa-home"></i> Project</li>
         <li title="Open Team tab" class="navbar_link" onclick="open_tab('Team', this)"><i class="fa fa-users"></i> Team</li>
-        <li title="Open Github profile in new tab" onclick="window.open('https://github.com/prodis-opus19','_blank')"><i class="fa fa-code"></i> Github</li>
         <li title="Open Contact tab" class="navbar_link" onclick="open_tab('Contact', this)"><i class="fa fa-envelope-o"></i> Contact</li>
-        <li title="Switch language to English" class="navbar_link" onclick="document.body.className='hide_polish';close_hamburger_menu()"><i class="fa fa-flag"></i> English</li>
-        <li title="Switch language to Polish" class="navbar_link" onclick="document.body.className='hide_english';close_hamburger_menu()"><i class="fa fa-flag"></i> Polish</li>
+        <li title="Open Github profile in new tab" onclick="window.open('https://github.com/prodis-opus19','_blank')"><i class="fa fa-paperclip"></i> Github</li>
+        <li title="Open Recruitment page (Polish only)" onclick="window.open('rekrutacja/index.html','_blank')"><i class="fa fa-paperclip"></i> Recruitment</li>
+        <li class="navbar_splitter">|</li>
+        <li title="Switch language between Polish and English" class="navbar_link" onclick="switch_language('lang_flag');close_hamburger_menu()"><img id="lang_flag" src="img/flag_us.png" alt="polish or us flag" height="20px"> Language</li>
       </nav>
     </ul>
   </header>
@@ -49,6 +50,12 @@
       <a title="Open AMU Faculty of English in new tab" href="https://amu.edu.pl/" target="_blank" rel="noopener noreferrer" draggable="false" ondragstart="return false;">
         <img class="image_highlight_on_hover" src="img/uam_logo.png" alt="uam logo">
       </a>
+      <!-- Within the same folder, just use the file name:
+        <a href="thefile.html">my link</a>
+      Within the parent folder's directory:
+        <a href="../thefile.html">my link</a>
+      Within a sub-directory:
+        <a href="subdir/thefile.html">my link</a> -->
       <hr> <!-- horizontal line -->
     </div>
     <article class="enable_select">

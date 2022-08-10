@@ -93,13 +93,27 @@ nav li {
   border-radius: 15px;
   cursor: pointer;
   padding-bottom: 18px;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 14px;
+  padding-right: 16px;
   padding-top: 18px;
 }
 
-nav li:hover {
+nav li:hover:not(.navbar_splitter) {
   background-color: #808080;
+}
+
+nav .navbar_splitter {
+  color: gray;
+  pointer-events: none;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+#lang_flag {
+  /* this is stupid but i tried to center the img vertically and IT DOESN'T WORK!!! */
+  border: 0;
+  padding: 0;
+  transform: translateY(3px);
 }
 
 /* responsive navbar menu for navbar */
@@ -346,13 +360,13 @@ footer img {
     width: 95%;
   }
 
-  nav {
-    gap: 5px;
+  nav li {
+    padding-left: 6px;
+    padding-right: 6px;
   }
 
-  nav li {
-    padding-left: 10px;
-    padding-right: 10px;
+  #header_title {
+    padding-left: 5px;
   }
 
   .full_page_tab {
@@ -361,7 +375,8 @@ footer img {
 }
 
 /* mobile device */
-@media (max-width: 950px) {
+/* navbar only */
+@media (max-width: 980px) {
   nav {
     background-color: #0d0d0d;
     border-radius: 20px;
@@ -395,8 +410,18 @@ footer img {
 
   .hamburger {
     display: block;
+    padding-top: 16px;
+    padding-bottom: 16px;
   }
 
+  nav .navbar_splitter {
+    display: none;
+  }
+
+}
+
+/* side padding for article */
+@media (max-width: 950px) {
   .full_page_tab {
     border-radius: 20px;
     padding-left: 20px;

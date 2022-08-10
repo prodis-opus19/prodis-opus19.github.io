@@ -44,6 +44,18 @@ function open_person_desc(evt, person_name) {
     evt.currentTarget.className += " active";
 }
 
+function switch_language(img_class) {
+    // Toggle between Polish and English
+    if (document.body.className === "hide_polish") {
+        document.body.className = "hide_english"; // hide tags with "en" ID
+        document.getElementById(img_class).src = "img/flag_poland.png"; // set polish flag
+    }
+    else {
+        document.body.className = "hide_polish"; // hide tags with "pl" ID
+        document.getElementById(img_class).src = "img/flag_us.png"; // set american flag
+    }
+}
+
 
 // on script load...
 // get the element with id="default_full_page_tab_open" and click on it
