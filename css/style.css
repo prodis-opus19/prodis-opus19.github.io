@@ -8,6 +8,7 @@ body {
   margin-bottom: 70px;
   outline: none;
   overflow-x: hidden;
+  overflow-y: scroll;
   text-align: center;
   user-select: none;
 }
@@ -19,6 +20,7 @@ body {
 }
 
 a {
+  color: #bb4b4b;
   text-decoration: none;
 }
 
@@ -303,10 +305,6 @@ footer img {
   margin-bottom: 40px;
   margin-top: 30px;
   width: 100%;
-}
-
-.tab_per_person_content a {
-  color: #bb4b4b;
 }
 
 .contact_info table {
