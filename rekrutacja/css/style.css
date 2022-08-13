@@ -118,11 +118,16 @@ input[type=checkbox] {
 .hamburger {
   border-radius: 15px;
   display: none;
-  font-size: 24px;
+  font-size: 46px;
   padding-bottom: 10px;
   padding-left: 20px;
   padding-right: 20px;
   padding-top: 10px;
+}
+
+.hamburger #menu_text {
+  color: #d3d3d3;
+  font-size: 16px;
 }
 
 /* full page tabs */
@@ -418,8 +423,7 @@ footer img {
 
   .hamburger {
     display: block;
-    padding-top: 16px;
-    padding-bottom: 16px;
+    margin-bottom: 10px;
   }
 
   nav .navbar_splitter {
