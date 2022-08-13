@@ -119,10 +119,9 @@ input[type=checkbox] {
   border-radius: 15px;
   display: none;
   font-size: 46px;
-  padding-bottom: 10px;
+  padding-bottom: 4px;
   padding-left: 20px;
   padding-right: 20px;
-  padding-top: 10px;
 }
 
 .hamburger #menu_text {
@@ -417,13 +416,20 @@ footer img {
     margin-top: 12px;
   }
 
+  #header_title {
+    transform: translateY(3px);
+  }
+
   input[type=checkbox]:checked~nav {
     display: block;
   }
 
+  input[type=checkbox]:checked~.hamburger {
+    background-color: #808080;
+  }
+
   .hamburger {
     display: block;
-    margin-bottom: 10px;
   }
 
   nav .navbar_splitter {
