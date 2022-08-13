@@ -384,7 +384,7 @@ footer img {
 
 /* mobile device */
 /* navbar only */
-@media (max-width: 980px) {
+@media (max-width: 1060px) {
   nav {
     background-color: #0d0d0d;
     border-radius: 20px;
