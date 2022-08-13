@@ -142,7 +142,8 @@ input[type=checkbox] {
 
 #Information,
 #Survey,
-#Contact {
+#Contact,
+#Location {
   display: none;
 }
 
