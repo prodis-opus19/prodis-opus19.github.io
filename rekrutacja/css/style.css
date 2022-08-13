@@ -151,6 +151,12 @@ input[type=checkbox] {
   width: 400px;
 }
 
+#google_map {
+  margin-top: 20px;
+  width: 100%;
+  border-radius: 25px;
+}
+
 /* welcome title */
 .tab_title h1 {
   font-size: 300%;
