@@ -8,6 +8,7 @@ body {
   margin-bottom: 70px;
   outline: none;
   overflow-x: hidden;
+  overflow-y: scroll;
   text-align: center;
   user-select: none;
 }
@@ -19,6 +20,7 @@ body {
 }
 
 a {
+  color: #bb4b4b;
   text-decoration: none;
 }
 
@@ -196,6 +198,18 @@ article p {
   margin-bottom: 40px;
 }
 
+/* list within article */
+article .article_list h1 {
+  font-size: 150%;
+  margin-bottom: 40px;
+  margin-top: 60px;
+  text-align: center;
+}
+
+article .article_list p {
+  margin-bottom: 10px;
+}
+
 /* footer with ukrainian flag at the bottom */
 footer {
   color: gray;
@@ -294,10 +308,6 @@ footer img {
   margin-bottom: 40px;
   margin-top: 30px;
   width: 100%;
-}
-
-.tab_per_person_content a {
-  color: #bb4b4b;
 }
 
 .contact_info table {
