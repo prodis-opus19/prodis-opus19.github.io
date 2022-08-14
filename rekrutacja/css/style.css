@@ -155,10 +155,10 @@ input[type=checkbox] {
   width: 400px;
 }
 
-#google_map {
+.img_wide {
+  border-radius: 25px;
   margin-top: 20px;
   width: 100%;
-  border-radius: 25px;
 }
 
 /* welcome title */
