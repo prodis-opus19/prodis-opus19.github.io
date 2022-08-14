@@ -210,6 +210,10 @@ article p {
 }
 
 /* list within article */
+article .article_list {
+  margin-bottom: 60px;
+}
+
 article .article_list h1 {
   font-size: 150%;
   margin-bottom: 40px;
