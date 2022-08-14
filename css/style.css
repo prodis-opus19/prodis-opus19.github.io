@@ -28,6 +28,13 @@ li {
   list-style: none;
 }
 
+#js_disabled {
+  padding: 30px;
+  background-color: black;
+  color: yellow;
+  font-size: 180%;
+}
+
 .disable_select {
   -webkit-user-select: none;
   user-select: none;
