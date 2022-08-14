@@ -26,8 +26,8 @@
         <!-- open_tab also runs close_hamburger_menu() -->
         <li title="Otwórz kartę Informacja" class="navbar_link" id="default_full_page_tab_open" onclick="open_tab('Information', this)"><i class="fa fa-home"></i> Informacja</li>
         <li title="Otwórz kartę Ankieta" class="navbar_link" onclick="open_tab('Survey', this)"><i class="fa fa-vcard"></i> Ankieta</li>
-        <li title="Otwórz kartę Terminarz" class="navbar_link" onclick="open_tab('Schedule', this)"><i class="fa fa-calendar"></i> Harmonogram</li>
         <li title="Otwórz kartę Lokalizacja" class="navbar_link" onclick="open_tab('Location', this)"><i class="fa fa-map-marker"></i> Lokalizacja</li>
+        <li title="Otwórz kartę Terminarz" class="navbar_link" onclick="open_tab('Schedule', this)"><i class="fa fa-calendar"></i> Harmonogram</li>
         <li title="Otwórz stronę główną projektu w nowej karcie" onclick="window.open('../index.html','_blank')"><i class="fa fa-paperclip"></i> O projekcie</li>
       </nav>
     </ul>
@@ -92,6 +92,20 @@
     </article>
   </div>
 
+  <!-- full page tab: location -->
+  <div id="Location" class="full_page_tab">
+    <div class="tab_title enable_select">
+      <h1>Lokalizacja</h1>
+      <hr>
+    </div>
+    <!-- actual content -->
+    <article class="enable_select">
+      <p>Laboratorium Mowy i Języka (pok. nr 07), Wydział Anglistyki UAM.</p>
+      <p>ul. Grunwaldzka 6 (Collegium Heliodori Święcicki), 60-780, Poznań.</p>
+      <img class="img_wide" src="img/map_location.jpeg" alt="google maps screenshot">
+    </article>
+  </div>
+
   <!-- full page tab: schedule -->
   <div id="Schedule" class="full_page_tab">
     <div class="tab_title enable_select">
@@ -100,28 +114,12 @@
     </div>
     <!-- actual content -->
     <article class="enable_select">
-      <p>Po wypełnieniu ankiety i potwierdzeniu przyjęcia, uczestnik zostanie dopisany do harmonogramu.</p>
-      <p>Data oraz godziny badania zostaną wysłane na adres e-mail podany w ankiecie.</p>
       <p>Aby chronić prywatność uczestników, harmogram nie jest dostępny publicznie.</p>
+      <p>Po wypełnieniu ankiety i potwierdzeniu przyjęcia, uczestnik otrzyma dokładną datę oraz godzinę badania na adres e-mail podany w ankiecie.</p>
       <p>Rezygnacja z udziału w badaniu: <u>polish_corpus@protonmail.com</u></p>
     </article>
   </div>
 
-  <!-- full page tab: schedule -->
-  <div id="Location" class="full_page_tab">
-    <div class="tab_title enable_select">
-      <h1>Lokalizacja</h1>
-      <hr>
-    </div>
-    <!-- actual content -->
-    <article class="enable_select">
-      <div class="article_list">
-        <p>Laboratorium Mowy i Języka (pok. nr 07), Wydział Anglistyki UAM.</p>
-        <p>ul. Grunwaldzka 6 (Collegium Heliodori Święcicki), 60-780, Poznań.</p>
-      </div>
-      <img class="img_wide" src="img/map_location.jpeg" alt="google maps screenshot">
-    </article>
-  </div>
 
 </body>
 
