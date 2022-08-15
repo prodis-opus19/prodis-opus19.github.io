@@ -27,12 +27,11 @@
       <label for="checkbox_toggle" class="hamburger">&#9776;<div id="menu_text">Menu</div></label>
       <!-- navigation menus -->
       <nav>
-        <!-- open_tab also runs close_hamburger_menu() -->
-        <li title="Otwórz kartę Informacja" id="information_button" class="navbar_link" id="default_full_page_tab_open" onclick="open_tab('information')"><i class="fa fa-home"></i> Informacja</li>
-        <li title="Otwórz kartę Ankieta" id="survey_button" class="navbar_link" onclick="open_tab('survey')"><i class="fa fa-vcard"></i> Ankieta</li>
-        <li title="Otwórz kartę Lokalizacja" id="location_button" class="navbar_link" onclick="open_tab('location')"><i class="fa fa-map-marker"></i> Lokalizacja</li>
-        <li title="Otwórz kartę Harmonogram" id="schedule_button" class="navbar_link" onclick="open_tab('schedule')"><i class="fa fa-calendar"></i> Harmonogram</li>
-        <li title="Otwórz stronę główną projektu w nowej karcie" onclick="window.open('../index.html?lang=pl','_blank')"><i class="fa fa-paperclip"></i> O projekcie</li>
+        <li title="Otwórz kartę Informacja" id="information_button" class="navbar_link" onclick="open_full_page_tab('information')"><i class="fa fa-home"></i> Informacja</li>
+        <li title="Otwórz kartę Ankieta" id="survey_button" class="navbar_link" onclick="open_full_page_tab('survey')"><i class="fa fa-vcard"></i> Ankieta</li>
+        <li title="Otwórz kartę Lokalizacja" id="location_button" class="navbar_link" onclick="open_full_page_tab('location')"><i class="fa fa-map-marker"></i> Lokalizacja</li>
+        <li title="Otwórz kartę Harmonogram" id="schedule_button" class="navbar_link" onclick="open_full_page_tab('schedule')"><i class="fa fa-calendar"></i> Harmonogram</li>
+        <li title="Otwórz stronę główną projektu w nowej karcie" onclick="open_in_new_tab('../index.html?lang=pl')"><i class="fa fa-paperclip"></i> O projekcie</li>
       </nav>
     </ul>
   </header>
@@ -64,9 +63,9 @@
       <p>W zamian za około godziny pracy oferujemy <b>kartę podarunkową Empik o wartości 50 zł</b>.</p>
       <div class="article_list">
         <h1>Przystąpienie do badania:</h1>
-        <p>1. Wypełnienie ankiety - <wbr><span class="span_open_tab" title="Otwórz kartę Ankieta" onclick="open_tab('survey')">kliknij tutaj</span>.</p>
+        <p>1. Wypełnienie ankiety - <wbr><span class="span_open_full_page_tab" title="Otwórz kartę Ankieta" onclick="open_full_page_tab('survey')">kliknij tutaj</span>.</p>
         <p>2. Otrzymanie odpowiedzi e-mail <wbr>o przyjęciu (lub odrzuceniu) na listę uczestników.</p>
-        <p>3. Przyjście i udział w badaniu mowy - <wbr><span class="span_open_tab" title="Otwórz kartę Lokalizacja" onclick="open_tab('location')">kliknij tutaj</span>.</p>
+        <p>3. Przyjście i udział w badaniu mowy - <wbr><span class="span_open_full_page_tab" title="Otwórz kartę Lokalizacja" onclick="open_full_page_tab('location')">kliknij tutaj</span>.</p>
         <p>4. Odebranie karty Empik o wartości 50 zł.</p>
       </div>
     </article>

@@ -3,9 +3,27 @@ function close_hamburger_menu() {
 }
 
 
-function open_tab(category) {
-    // close mobile hamburger menu on tab select
-    close_hamburger_menu();
+function open_in_new_tab(url) {
+    /*
+    Open target URL in a new tab.
+    */
+    window.open(url, "_blank");
+}
+
+
+function open_full_page_tab(category) {
+    /*
+    Unhide full page tab and highlight its corresponding button.
+    * Tab = "category_tab"
+    * Button = "category_button"
+    If invalid category is provided, ignore.
+    */
+    // check if target tab exists
+    const target_full_page_tab = document.getElementById(`${category}_tab`);
+    if (target_full_page_tab == null) {
+        console.log(`warning: unknown open_full_page_tab() target '${category}', ignoring`);
+        return;
+    }
     // hide all elements with class="full_page_tab" by default
     const full_page_tab = document.getElementsByClassName("full_page_tab");
     for (let i = 0; i < full_page_tab.length; i++) {
@@ -20,14 +38,43 @@ function open_tab(category) {
     document.getElementById(`${category}_tab`).style.display = "block";
     // set active tab's button color to red
     document.getElementById(`${category}_button`).style.backgroundColor = "#bb4b4b";
-    // set webpage's title
-    // document.title = `PRODIS - ${capitalize_first_letter(category)}`;
+    // close mobile hamburger menu
+    close_hamburger_menu();
     // scroll to top
     document.documentElement.scrollTop = 0; // for Chrome, Firefox, IE and Opera
     document.body.scrollTop = 0; // for Safari
+    // set webpage's title
+    const new_title = category[0].toUpperCase() + category.slice(1);
+    document.title = `REKRUTACJA - ${new_title}`;
+    // create new history entry for current tab
+    window.history.pushState(category, "");
 }
 
 
-// on script load, open default tabs
-open_tab("information");
+window.addEventListener("popstate", (event) => {
+    console.log(`ok: opening tab based on history: ${event.state}`);
+    open_full_page_tab(event.state);
+});
+
+
+function get_url_parameters() {
+    /*
+    Set tab using URL parameters.
+    If no parameters are provided, then use default - Home tab.
+    */
+    const url_parameters = new URLSearchParams(window.location.search);
+    // tab parameter (team, contact), e.g., prodis-opus19.github.io/index.html?tab=team
+    const param_tab = url_parameters.get("tab");
+    if (param_tab !== null) {
+        console.log(`ok: received tab parameter to open '${param_tab}'`);
+        open_full_page_tab(param_tab);
+    }
+    else {
+        console.log("info: no tab parameter available");
+        open_full_page_tab("information");
+    }
+}
+
+// on script load, open tabs
+get_url_parameters()
 
