@@ -47,11 +47,11 @@ li {
 
 /* resize on hover */
 .image_highlight_on_hover {
-  transition: 0.2s;
+  transition: 0.5s ease-in-out;
 }
 
 .image_highlight_on_hover:hover {
-  filter: brightness(110%) saturate(120%);
+  filter: brightness(120%) saturate(130%);
   transform: scale(0.95);
 }
 
@@ -71,6 +71,7 @@ header {
   margin-top: 20px;
   overflow: hidden;
   padding: 10px;
+  transition: width 0.2s linear;
   width: 80%;
   z-index: 100;
 }
@@ -96,6 +97,7 @@ nav li {
   padding-left: 14px;
   padding-right: 16px;
   padding-top: 18px;
+  transition: padding-left 0.2s linear, padding-right 0.2s linear;
 }
 
 nav li:hover {
@@ -133,6 +135,7 @@ input[type=checkbox] {
   margin-right: auto;
   margin-top: 50px;
   padding: 50px;
+  transition: width 0.3s linear, border-radius 0.5s linear, padding 0.9s linear;
   width: 40%;
 }
 
@@ -240,7 +243,7 @@ footer img {
 
 /* responsive design */
 /* narrow device */
-@media only screen and (max-width: 1350px) {
+@media only screen and (max-width: 1380px) {
   header {
     width: 95%;
   }
@@ -273,7 +276,6 @@ footer img {
     margin-left: 10%;
     margin-right: 10%;
     padding: 20px;
-    position: absolute;
     position: absolute;
     right: 0;
     top: 105px;
