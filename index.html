@@ -27,14 +27,13 @@
       <label for="checkbox_toggle" class="hamburger">&#9776;<div id="menu_text">Menu</div></label>
       <!-- navigation menus -->
       <nav>
-        <!-- open_tab also runs close_hamburger_menu() -->
-        <li title="Open Project tab" id="project_button" class="navbar_link" onclick="open_tab('project')"><i class="fa fa-home"></i> Project</li>
-        <li title="Open Team tab" id="team_button" class="navbar_link" onclick="open_tab('team')"><i class="fa fa-users"></i> Team</li>
-        <li title="Open Contact tab" id="contact_button" class="navbar_link" onclick="open_tab('contact')"><i class="fa fa-envelope-o"></i> Contact</li>
-        <li title="Open Github profile in new tab" onclick="window.open('https://github.com/prodis-opus19','_blank');close_hamburger_menu()"><i class="fa fa-paperclip"></i> Github</li>
-        <li title="Open Recruitment page (Polish only) in new tab" onclick="window.open('rekrutacja/index.html','_blank');close_hamburger_menu()"><i class="fa fa-paperclip"></i> Recruitment</li>
+        <li title="Open Project tab" id="project_button" class="navbar_link" onclick="open_full_page_tab('project')"><i class="fa fa-home"></i> Project</li>
+        <li title="Open Team tab" id="team_button" class="navbar_link" onclick="open_full_page_tab('team')"><i class="fa fa-users"></i> Team</li>
+        <li title="Open Contact tab" id="contact_button" class="navbar_link" onclick="open_full_page_tab('contact')"><i class="fa fa-envelope-o"></i> Contact</li>
+        <li title="Open Github profile in new tab" onclick="open_in_new_tab('https://github.com/prodis-opus19')"><i class="fa fa-paperclip"></i> Github</li>
+        <li title="Open Recruitment page (Polish only) in new tab" onclick="open_in_new_tab('rekrutacja/index.html','_blank')"><i class="fa fa-paperclip"></i> Recruitment</li>
         <li class="navbar_splitter">|</li>
-        <li title="Switch language between Polish and English" class="navbar_link" onclick="switch_language();close_hamburger_menu()"><img id="lang_flag" src="img/flag_us.png" alt="polish or us flag" height="20px"> Language</li>
+        <li title="Switch language between Polish and English" class="navbar_link" onclick="switch_language()"><img id="lang_flag" src="img/flag_us.png" alt="polish or us flag" height="20px"> Language</li>
       </nav>
     </ul>
   </header>
