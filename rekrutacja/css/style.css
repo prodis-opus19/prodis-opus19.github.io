@@ -149,11 +149,13 @@ input[type=checkbox] {
 .tab_title h1 {
   font-size: 300%;
   margin-bottom: 40px;
+  transition: font-size 0.3s;
 }
 
 .tab_title h2 {
   font-size: 130%;
   margin-bottom: 40px;
+  transition: font-size 0.3s;
 }
 
 /* project number */
@@ -162,6 +164,7 @@ input[type=checkbox] {
   font-size: 120%;
   letter-spacing: 0.1em;
   margin-bottom: 40px;
+  transition: font-size 0.3s;
 }
 
 .tab_title img {
@@ -311,6 +314,18 @@ footer img {
 
 /* side padding for article */
 @media (max-width: 950px) {
+  .tab_title h1 {
+    font-size: 230%;
+  }
+
+  .tab_title h2 {
+    font-size: 100%;
+  }
+
+  .tab_title p {
+    font-size: 100%;
+  }
+
   .full_page_tab {
     border-radius: 20px;
     padding-left: 20px;
