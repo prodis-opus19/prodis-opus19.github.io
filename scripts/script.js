@@ -1,6 +1,6 @@
-function capitalize_first_letter(string) {
-    return string[0].toUpperCase() + string.slice(1);
-}
+// function capitalize_first_letter(string) {
+//     return string[0].toUpperCase() + string.slice(1);
+// }
 
 
 function close_hamburger_menu() {
@@ -62,11 +62,6 @@ function switch_language() {
     }
 }
 
-// on script load...
-// get the element with id="default_full_page_tab_open" and click on it
-document.getElementById("project_button").click();
-// get the element with id="default_per_person_tab_open" and click on it
-document.getElementById("m_kul_button").click();
 // if set language parameter (en, pl) passed, set language
 // file:///Users/hikari/Work/prodis-opus19.github.io/index.html?lang=pl
 const param_lang = new URLSearchParams(location.search).get("lang");
@@ -78,3 +73,7 @@ else if (param_lang === "en") {
     document.body.className = "hide_polish"; // hide tags with "pl" ID
     document.getElementById('lang_flag').src = "img/flag_us.png"; // set american flag
 }
+
+// on script load, open default tabs
+open_tab("project");
+open_person_desc("m_kul");
