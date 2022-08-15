@@ -39,7 +39,7 @@ function open_full_page_tab(category, create_entry = true) {
     // show the specific tab content
     document.getElementById(`${category}_tab`).style.display = "block";
     // set active tab's button color to red
-    document.getElementById(`${category}_button`).style.backgroundColor = "#bb4b4b";
+    document.getElementById(`${category}_button`).style.backgroundColor = "#437043";
     // close mobile hamburger menu
     close_hamburger_menu();
     // scroll to top
