@@ -7,6 +7,8 @@ function open_in_new_tab(url) {
     /*
     Open target URL in a new tab.
     */
+    // close mobile hamburger menu
+    close_hamburger_menu();
     window.open(url, "_blank");
 }
 
@@ -20,6 +22,8 @@ function open_full_page_tab(category, create_entry = true) {
     If create_entry is False, then no history entry will be created.
     This is a hack for when the listener aims to re-open full page from history.
     */
+    // close mobile hamburger menu
+    close_hamburger_menu();
     // check if target tab exists
     const target_full_page_tab = document.getElementById(`${category}_tab`);
     if (target_full_page_tab == null) {
@@ -40,8 +44,6 @@ function open_full_page_tab(category, create_entry = true) {
     document.getElementById(`${category}_tab`).style.display = "block";
     // set active tab's button color to red
     document.getElementById(`${category}_button`).style.backgroundColor = "#437043";
-    // close mobile hamburger menu
-    close_hamburger_menu();
     // scroll to top
     document.documentElement.scrollTop = 0; // for Chrome, Firefox, IE and Opera
     document.body.scrollTop = 0; // for Safari

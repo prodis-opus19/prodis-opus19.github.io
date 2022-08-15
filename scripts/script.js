@@ -10,6 +10,8 @@ function open_in_new_tab(url) {
     /*
     Open target URL in a new tab.
     */
+    // close mobile hamburger menu
+    close_hamburger_menu();
     window.open(url, "_blank");
 }
 
@@ -23,6 +25,8 @@ function open_full_page_tab(category, create_entry = true) {
     If create_entry is False, then no history entry will be created.
     This is a hack for when the listener aims to re-open full page from history.
     */
+    // close mobile hamburger menu
+    close_hamburger_menu();
     // check if target tab exists
     const target_full_page_tab = document.getElementById(`${category}_tab`);
     if (target_full_page_tab == null) {
@@ -43,8 +47,6 @@ function open_full_page_tab(category, create_entry = true) {
     document.getElementById(`${category}_tab`).style.display = "block";
     // set active tab's button color to red
     document.getElementById(`${category}_button`).style.backgroundColor = "#bb4b4b";
-    // close mobile hamburger menu
-    close_hamburger_menu();
     // scroll to top
     document.documentElement.scrollTop = 0; // for Chrome, Firefox, IE and Opera
     document.body.scrollTop = 0; // for Safari
@@ -90,6 +92,8 @@ function switch_language(target) {
     If "en" is provided, then switch to English.
     If "pl" is provided, then switch to Polish.
     */
+    // close mobile hamburger menu
+    close_hamburger_menu();
     function set_english() {
         document.body.className = "hide_polish"; // hide tags with lang="pl" ID
         document.getElementById("lang_flag").src = "img/flag_us.png"; // set american flag src
@@ -118,8 +122,6 @@ function switch_language(target) {
                 set_english();
             }
     }
-    // close mobile hamburger menu
-    close_hamburger_menu();
 }
 
 
