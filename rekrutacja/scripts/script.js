@@ -47,18 +47,18 @@ function open_full_page_tab(category, create_entry = true) {
     document.body.scrollTop = 0; // for Safari
     // set webpage's title
     const new_title = category[0].toUpperCase() + category.slice(1);
-    document.title = `PRODIS - ${new_title}`;
+    document.title = `REKRUTACJA - ${new_title}`;
     // create new history entry for current tab
     // prevent duplicates when function called from listener to open tab from history
     if (create_entry) {
         window.history.pushState(category, "");
-        console.log(`created entry - ${category}`);
+        // console.log(`created entry - ${category}`);
     }
 }
 
 
 window.addEventListener("popstate", (event) => {
-    console.log(`ok: opening tab based on history: ${event.state}`);
+    // console.log(`ok: opening tab based on history: ${event.state}`);
     open_full_page_tab(event.state, false);
 });
 
@@ -72,11 +72,11 @@ function get_url_parameters() {
     // tab parameter (team, contact), e.g., prodis-opus19.github.io/index.html?tab=team
     const param_tab = url_parameters.get("tab");
     if (param_tab !== null) {
-        console.log(`ok: received tab parameter to open '${param_tab}'`);
+        // console.log(`ok: received tab parameter to open '${param_tab}'`);
         open_full_page_tab(param_tab);
     }
     else {
-        console.log("info: no tab parameter available");
+        // console.log("info: no tab parameter available");
         open_full_page_tab("information");
     }
 }

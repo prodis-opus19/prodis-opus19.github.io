@@ -55,7 +55,7 @@ function open_full_page_tab(category, create_entry = true) {
     // prevent duplicates when function called from listener to open tab from history
     if (create_entry) {
         window.history.pushState(category, "");
-        console.log(`created entry - ${category}`);
+        // console.log(`created entry - ${category}`);
     }
 }
 
@@ -101,15 +101,15 @@ function switch_language(target) {
     // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch
     switch (target) {
         case "en":
-            console.log("ok: switching to english")
+            // console.log("ok: switching to english")
             set_english();
             break;
         case "pl":
-            console.log("ok: switching to polish")
+            // console.log("ok: switching to polish")
             set_polish();
             break;
         default:
-            console.log("ok: toggling language")
+            // console.log("ok: toggling language")
             // if polish is hidden, then current language must be english
             if (document.body.className === "hide_polish") {
                 set_polish();
@@ -124,7 +124,7 @@ function switch_language(target) {
 
 
 window.addEventListener("popstate", (event) => {
-    console.log(`ok: opening tab based on history: ${event.state}`);
+    // console.log(`ok: opening tab based on history: ${event.state}`);
     open_full_page_tab(event.state, false);
 });
 
@@ -138,21 +138,21 @@ function get_url_parameters() {
     // tab parameter (team, contact), e.g., prodis-opus19.github.io/index.html?tab=team
     const param_tab = url_parameters.get("tab");
     if (param_tab !== null) {
-        console.log(`ok: received tab parameter to open '${param_tab}'`);
+        // console.log(`ok: received tab parameter to open '${param_tab}'`);
         open_full_page_tab(param_tab);
     }
     else {
-        console.log("info: no tab parameter available");
+        // console.log("info: no tab parameter available");
         open_full_page_tab("project");
     }
     // language parameter (en, pl), e.g., prodis-opus19.github.io/index.html?lang=pl
     const param_lang = url_parameters.get("lang");
     if (param_lang !== null) {
-        console.log(`ok: received lang parameter to set '${param_lang}'`);
+        // console.log(`ok: received lang parameter to set '${param_lang}'`);
         switch_language(param_lang);
     }
     else {
-        console.log("info: no lang parameter available");
+        // console.log("info: no lang parameter available");
     }
 
 }
