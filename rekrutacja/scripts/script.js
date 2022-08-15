@@ -77,7 +77,7 @@ function get_url_parameters() {
     }
     else {
         // console.log("info: no tab parameter available");
-        open_full_page_tab("information");
+        open_full_page_tab("informacja");
     }
 }
 

@@ -27,17 +27,17 @@
       <label for="checkbox_toggle" class="hamburger">&#9776;<div id="menu_text">Menu</div></label>
       <!-- navigation menus -->
       <nav>
-        <li title="Otwórz kartę Informacja" id="information_button" class="navbar_link" onclick="open_full_page_tab('information')"><i class="fa fa-home"></i> Informacja</li>
-        <li title="Otwórz kartę Ankieta" id="survey_button" class="navbar_link" onclick="open_full_page_tab('survey')"><i class="fa fa-vcard"></i> Ankieta</li>
-        <li title="Otwórz kartę Lokalizacja" id="location_button" class="navbar_link" onclick="open_full_page_tab('location')"><i class="fa fa-map-marker"></i> Lokalizacja</li>
-        <li title="Otwórz kartę Harmonogram" id="schedule_button" class="navbar_link" onclick="open_full_page_tab('schedule')"><i class="fa fa-calendar"></i> Harmonogram</li>
+        <li title="Otwórz kartę Informacja" id="informacja_button" class="navbar_link" onclick="open_full_page_tab('informacja')"><i class="fa fa-home"></i> Informacja</li>
+        <li title="Otwórz kartę Ankieta" id="ankieta_button" class="navbar_link" onclick="open_full_page_tab('ankieta')"><i class="fa fa-vcard"></i> Ankieta</li>
+        <li title="Otwórz kartę Lokalizacja" id="lokalizacja_button" class="navbar_link" onclick="open_full_page_tab('lokalizacja')"><i class="fa fa-map-marker"></i> Lokalizacja</li>
+        <li title="Otwórz kartę Harmonogram" id="harmonogram_button" class="navbar_link" onclick="open_full_page_tab('harmonogram')"><i class="fa fa-calendar"></i> Harmonogram</li>
         <li title="Otwórz stronę główną projektu w nowej karcie" onclick="open_in_new_tab('../index.html?lang=pl')"><i class="fa fa-paperclip"></i> O projekcie</li>
       </nav>
     </ul>
   </header>
 
-  <!-- full page tab: information -->
-  <div id="information_tab" class="full_page_tab">
+  <!-- full page tab: informacja -->
+  <div id="informacja_tab" class="full_page_tab">
     <div class="tab_title">
       <div class="enable_select">
         <h1>REKRUTACJA</h1>
@@ -60,12 +60,12 @@
     </div>
     <article class="enable_select">
       <p>Celem badania mowy jest zebranie <emp>wysokiej jakości nagrań audio</emp> w różnych warunkach (np. mowie spontanicznej).</p>
-      <p>W zamian za około godziny pracy oferujemy <b>kartę podarunkową Empik o wartości 50 zł</b>.</p>
+      <p>W zamian za około godzinę pracy oferujemy <b>kartę podarunkową Empik o wartości 50 zł</b>.</p>
       <div class="article_list">
         <h1>Przystąpienie do badania:</h1>
-        <p>1. Wypełnienie ankiety - <wbr><span class="span_open_full_page_tab" title="Otwórz kartę Ankieta" onclick="open_full_page_tab('survey')">kliknij tutaj</span>.</p>
+        <p>1. Wypełnienie ankiety - <wbr><span class="span_open_full_page_tab" title="Otwórz kartę Ankieta" onclick="open_full_page_tab('ankieta')">kliknij tutaj</span>.</p>
         <p>2. Otrzymanie odpowiedzi e-mail <wbr>o przyjęciu (lub odrzuceniu) na listę uczestników.</p>
-        <p>3. Przyjście i udział w badaniu mowy - <wbr><span class="span_open_full_page_tab" title="Otwórz kartę Lokalizacja" onclick="open_full_page_tab('location')">kliknij tutaj</span>.</p>
+        <p>3. Przyjście i udział w badaniu mowy - <wbr><span class="span_open_full_page_tab" title="Otwórz kartę Lokalizacja" onclick="open_full_page_tab('lokalizacja')">kliknij tutaj</span>.</p>
         <p>4. Odebranie karty Empik o wartości 50 zł.</p>
       </div>
     </article>
@@ -78,8 +78,8 @@
     </footer>
   </div>
 
-  <!-- full page tab: survey -->
-  <div id="survey_tab" class="full_page_tab">
+  <!-- full page tab: ankieta -->
+  <div id="ankieta_tab" class="full_page_tab">
     <div class="tab_title enable_select">
       <h1>Ankieta</h1>
       <hr>
@@ -91,15 +91,15 @@
       <p>Z powodu natury badania, <b>osoby z wadami poznawczymi, mowy, wzroku, lub słuchu (np. dysleksja, jąkanie, klaustrofobia)</b> nie mogą przystąpić do badania.</p>
       <p><b>Osoby z aparatami ortodontycznymi</b> również nie mogą przystąpić do badania.</p>
       <p>Po wypełnieniu ankiety uczestnik otrzyma potwierdzenie (lub odrzucenie) udziału w ankiecie oraz precyzyjny termin.</p>
-      <div class="survey_links">
+      <div class="ankieta_links">
         <h3>&#9655; Link do ankiety: <wbr><a title="Otwórz link do ankiety w nowej karcie" href="https://amu.edu.pl/" target="_blank" rel="noopener noreferrer" draggable="false" ondragstart="return false;">kliknij tutaj</a>.</h3>
         <h3>Kontakt: <wbr><a title="Otwórz adres e-mail w domyślnym programie poczty" href="mailto:polish_corpus@protonmail.com">polish_corpus@protonmail.com</a>.</h3>
       </div>
     </article>
   </div>
 
-  <!-- full page tab: location -->
-  <div id="location_tab" class="full_page_tab">
+  <!-- full page tab: lokalizacja -->
+  <div id="lokalizacja_tab" class="full_page_tab">
     <div class="tab_title enable_select">
       <h1>Lokalizacja</h1>
       <hr>
@@ -109,11 +109,11 @@
       <p>Laboratorium Mowy i Języka (pok. nr 07), Wydział Anglistyki UAM.</p>
       <p>ul. Grunwaldzka 6 (Collegium Heliodori Święcicki), 60-780, Poznań.</p>
     </article>
-    <img class="img_wide" src="img/map_location.jpeg" alt="google maps screenshot" draggable="false" ondragstart="return false;">
+    <img class="img_wide" src="img/map_lokalizacja.jpeg" alt="google maps screenshot" draggable="false" ondragstart="return false;">
   </div>
 
-  <!-- full page tab: schedule -->
-  <div id="schedule_tab" class="full_page_tab">
+  <!-- full page tab: harmonogram -->
+  <div id="harmonogram_tab" class="full_page_tab">
     <div class="tab_title enable_select">
       <h1>Harmonogram</h1>
       <hr>
