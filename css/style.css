@@ -60,7 +60,7 @@ body.hide_polish :lang(pl) {
 }
 
 .image_highlight_on_hover:hover {
-  filter: brightness(110%) saturate(120%);
+  filter: brightness(120%) saturate(120%);
   transform: scale(0.95);
 }
 
@@ -82,6 +82,7 @@ header {
   padding: 10px;
   width: 80%;
   z-index: 100;
+  transition: width 0.2s linear;
 }
 
 /* text on left side of header */
@@ -96,6 +97,7 @@ nav {
   font-size: 20px;
   gap: 15px;
   z-index: 101;
+  transition: ease all .5s;
 }
 
 nav li {
@@ -105,6 +107,7 @@ nav li {
   padding-left: 14px;
   padding-right: 16px;
   padding-top: 18px;
+  transition: padding-left 0.3s linear, padding-right 0.3s linear;
 }
 
 nav li:hover:not(.navbar_splitter) {
@@ -156,6 +159,7 @@ input[type=checkbox] {
   margin-right: auto;
   margin-top: 50px;
   padding: 50px;
+  transition: width 0.3s linear, border-radius 0.5s linear, padding 0.9s linear;
   width: 40%;
 }
 
@@ -251,6 +255,7 @@ footer img {
   padding-left: 15px;
   padding-right: 15px;
   padding-top: 7px;
+  transition: width 0.4s linear;
   width: 60%;
 }
 
@@ -353,6 +358,7 @@ footer img {
   height: 25px;
   margin-bottom: 5px;
   margin-top: 5px;
+  transition: height 0.4s linear;
 }
 
 .contact_info .email_explanation {
@@ -365,7 +371,7 @@ footer img {
 
 /* responsive design */
 /* narrow device */
-@media only screen and (max-width: 1350px) {
+@media only screen and (max-width: 1400px) {
   header {
     width: 95%;
   }
@@ -399,7 +405,6 @@ footer img {
     margin-right: 10%;
     padding: 20px;
     position: absolute;
-    position: absolute;
     right: 0;
     top: 105px;
   }
@@ -428,6 +433,9 @@ footer img {
 
   .hamburger {
     display: block;
+
+    opacity: 1;
+    height: auto;
   }
 
   nav .navbar_splitter {
