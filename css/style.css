@@ -373,7 +373,7 @@ footer img {
 
 /* responsive design */
 /* narrow device */
-@media only screen and (max-width: 1320px) {
+@media (max-width: 1320px) {
   header {
     width: 95%;
   }
@@ -394,7 +394,7 @@ footer img {
 
 /* mobile device */
 /* navbar only */
-@media (max-width: 1000px) {
+@media only screen and (max-width: 1000px) {
   nav {
     background-color: #0d0d0d;
     border-radius: 20px;
@@ -447,13 +447,13 @@ footer img {
 }
 
 /* side padding for article */
-@media (max-width: 950px) {
+@media only screen and (max-width: 950px) {
   .tab_title h1 {
     font-size: 230%;
   }
 
   .tab_title h2 {
-    font-size: 100%;
+    font-size: 120%;
   }
 
   .tab_title p {
