@@ -28,9 +28,9 @@
       <!-- navigation menus -->
       <nav>
         <!-- open_tab also runs close_hamburger_menu() -->
-        <li title="Open Project tab" class="navbar_link" id="default_full_page_tab_open" onclick="open_tab('Project', this)"><i class="fa fa-home"></i> Project</li>
-        <li title="Open Team tab" class="navbar_link" onclick="open_tab('Team', this)"><i class="fa fa-users"></i> Team</li>
-        <li title="Open Contact tab" class="navbar_link" onclick="open_tab('Contact', this)"><i class="fa fa-envelope-o"></i> Contact</li>
+        <li title="Open Project tab" id="project_button" class="navbar_link" id="default_full_page_tab_open" onclick="open_tab('project')"><i class="fa fa-home"></i> Project</li>
+        <li title="Open Team tab" id="team_button" class="navbar_link" onclick="open_tab('team')"><i class="fa fa-users"></i> Team</li>
+        <li title="Open Contact tab" id="contact_button" class="navbar_link" onclick="open_tab('contact')"><i class="fa fa-envelope-o"></i> Contact</li>
         <li title="Open Github profile in new tab" onclick="window.open('https://github.com/prodis-opus19','_blank')"><i class="fa fa-paperclip"></i> Github</li>
         <li title="Open Recruitment page (Polish only) in new tab" onclick="window.open('rekrutacja/index.html','_blank')"><i class="fa fa-paperclip"></i> Recruitment</li>
         <li class="navbar_splitter">|</li>
@@ -39,7 +39,7 @@
     </ul>
   </header>
   <!-- full page tab: project -->
-  <div id="Project" class="full_page_tab">
+  <div id="project_tab" class="full_page_tab">
     <div class="tab_title">
       <div class="enable_select">
         <h1>PRODIS</h1>
@@ -86,7 +86,7 @@
     </footer>
   </div>
   <!-- full page tab: team -->
-  <div id="Team" class="full_page_tab">
+  <div id="team_tab" class="full_page_tab">
     <div class="tab_title">
       <div class="enable_select">
         <h1 lang="en">Our team</h1>
@@ -95,14 +95,14 @@
       <hr> <!-- horizontal line -->
       <!-- Per-person tab links -->
       <div class="navbar_per_person">
-        <button class="tab_per_person_link" onclick="open_person_desc(event, 'm_kul')" id="default_per_person_tab_open"><i class="fa fa-user-circle"></i> Małgorzata Kul</button>
-        <button class="tab_per_person_link" onclick="open_person_desc(event, 'z_malisz')"><i class="fa fa-user-circle"></i> Zofia Malisz</button>
-        <button class="tab_per_person_link" onclick="open_person_desc(event, 'j_for')"><i class="fa fa-user-circle"></i> Jan Foremski</button>
+        <button id="m_kul_button" class="tab_per_person_link" onclick="open_person_desc('m_kul')" id="default_per_person_tab_open"><i class="fa fa-user-circle"></i> Małgorzata Kul</button>
+        <button id="z_malisz_button" class="tab_per_person_link" onclick="open_person_desc('z_malisz')"><i class="fa fa-user-circle"></i> Zofia Malisz</button>
+        <button id="j_for_button" class="tab_per_person_link" onclick="open_person_desc('j_for')"><i class="fa fa-user-circle"></i> Jan Foremski</button>
       </div>
     </div>
     <!-- Per-person tab content -->
     <!-- małgorzata kul -->
-    <div id="m_kul" class="tab_per_person_content">
+    <div id="m_kul_tab" class="tab_per_person_content">
       <h1 class="enable_select">Małgorzata <wbr>Kul</h1>
       <span draggable="false" ondragstart="return false;">
         <!-- employer -->
@@ -127,7 +127,7 @@
       </div>
     </div>
     <!-- zofia malisz -->
-    <div id="z_malisz" class="tab_per_person_content">
+    <div id="z_malisz_tab" class="tab_per_person_content">
       <h1 class="enable_select">Zofia <wbr>Malisz</h1>
       <span draggable="false" ondragstart="return false;">
         <!-- employer -->
@@ -150,7 +150,7 @@
       </div>
     </div>
     <!-- jan foremski -->
-    <div id="j_for" class="tab_per_person_content">
+    <div id="j_for_tab" class="tab_per_person_content">
       <h1 class="enable_select">Jan <wbr>Foremski</h1>
       <span draggable="false" ondragstart="return false;">
         <!-- github -->
@@ -170,7 +170,7 @@
     </div>
   </div>
   <!-- full page tab: contact -->
-  <div id="Contact" class="full_page_tab">
+  <div id="contact_tab" class="full_page_tab">
     <div class="tab_title">
       <div class="enable_select">
         <h1 lang="en">Contact</h1>
