@@ -190,6 +190,11 @@ article p {
   margin-bottom: 40px;
 }
 
+article .span_open_tab {
+  color: #bb4b4b;
+  cursor: pointer;
+}
+
 /* list within article */
 article .article_list {
   margin-bottom: 60px;
