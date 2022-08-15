@@ -28,17 +28,17 @@
       <!-- navigation menus -->
       <nav>
         <!-- open_tab also runs close_hamburger_menu() -->
-        <li title="Otwórz kartę Informacja" class="navbar_link" id="default_full_page_tab_open" onclick="open_tab('Information', this)"><i class="fa fa-home"></i> Informacja</li>
-        <li title="Otwórz kartę Ankieta" class="navbar_link" onclick="open_tab('Survey', this)"><i class="fa fa-vcard"></i> Ankieta</li>
-        <li title="Otwórz kartę Lokalizacja" class="navbar_link" onclick="open_tab('Location', this)"><i class="fa fa-map-marker"></i> Lokalizacja</li>
-        <li title="Otwórz kartę Harmonogram" class="navbar_link" onclick="open_tab('Schedule', this)"><i class="fa fa-calendar"></i> Harmonogram</li>
+        <li title="Otwórz kartę Informacja" id="information_button" class="navbar_link" id="default_full_page_tab_open" onclick="open_tab('information')"><i class="fa fa-home"></i> Informacja</li>
+        <li title="Otwórz kartę Ankieta" id="survey_button" class="navbar_link" onclick="open_tab('survey')"><i class="fa fa-vcard"></i> Ankieta</li>
+        <li title="Otwórz kartę Lokalizacja" id="location_button" class="navbar_link" onclick="open_tab('location')"><i class="fa fa-map-marker"></i> Lokalizacja</li>
+        <li title="Otwórz kartę Harmonogram" id="schedule_button" class="navbar_link" onclick="open_tab('schedule')"><i class="fa fa-calendar"></i> Harmonogram</li>
         <li title="Otwórz stronę główną projektu w nowej karcie" onclick="window.open('../index.html?lang=pl','_blank')"><i class="fa fa-paperclip"></i> O projekcie</li>
       </nav>
     </ul>
   </header>
 
   <!-- full page tab: information -->
-  <div id="Information" class="full_page_tab">
+  <div id="information_tab" class="full_page_tab">
     <div class="tab_title">
       <div class="enable_select">
         <h1>REKRUTACJA</h1>
@@ -80,7 +80,7 @@
   </div>
 
   <!-- full page tab: survey -->
-  <div id="Survey" class="full_page_tab">
+  <div id="survey_tab" class="full_page_tab">
     <div class="tab_title enable_select">
       <h1>Ankieta</h1>
       <hr>
@@ -100,7 +100,7 @@
   </div>
 
   <!-- full page tab: location -->
-  <div id="Location" class="full_page_tab">
+  <div id="location_tab" class="full_page_tab">
     <div class="tab_title enable_select">
       <h1>Lokalizacja</h1>
       <hr>
@@ -114,7 +114,7 @@
   </div>
 
   <!-- full page tab: schedule -->
-  <div id="Schedule" class="full_page_tab">
+  <div id="schedule_tab" class="full_page_tab">
     <div class="tab_title enable_select">
       <h1>Harmonogram</h1>
       <hr>
