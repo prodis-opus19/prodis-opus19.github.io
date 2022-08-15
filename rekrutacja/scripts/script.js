@@ -11,12 +11,14 @@ function open_in_new_tab(url) {
 }
 
 
-function open_full_page_tab(category) {
+function open_full_page_tab(category, create_entry = true) {
     /*
     Unhide full page tab and highlight its corresponding button.
     * Tab = "category_tab"
     * Button = "category_button"
-    If invalid category is provided, ignore.
+    If category is invalid, ignore.
+    If create_entry is False, then no history entry will be created.
+    This is a hack for when the listener aims to re-open full page from history.
     */
     // check if target tab exists
     const target_full_page_tab = document.getElementById(`${category}_tab`);
@@ -45,15 +47,19 @@ function open_full_page_tab(category) {
     document.body.scrollTop = 0; // for Safari
     // set webpage's title
     const new_title = category[0].toUpperCase() + category.slice(1);
-    document.title = `REKRUTACJA - ${new_title}`;
+    document.title = `PRODIS - ${new_title}`;
     // create new history entry for current tab
-    window.history.pushState(category, "");
+    // prevent duplicates when function called from listener to open tab from history
+    if (create_entry) {
+        window.history.pushState(category, "");
+        console.log(`created entry - ${category}`);
+    }
 }
 
 
 window.addEventListener("popstate", (event) => {
     console.log(`ok: opening tab based on history: ${event.state}`);
-    open_full_page_tab(event.state);
+    open_full_page_tab(event.state, false);
 });
 
 
