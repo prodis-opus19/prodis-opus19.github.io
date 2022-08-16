@@ -264,6 +264,11 @@ footer img {
 /* mobile device */
 /* navbar only */
 @media only screen and (max-width: 1060px) {
+  header {
+    /* disable animation on mobile */
+    transition: none !important;
+  }
+
   nav {
     background-color: #0d0d0d;
     border-radius: 20px;
