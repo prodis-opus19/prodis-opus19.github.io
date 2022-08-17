@@ -80,7 +80,6 @@ header {
   margin-top: 20px;
   overflow: hidden;
   padding: 10px;
-  transition: width 0.1s linear;
   width: 80%;
   z-index: 100;
 }
@@ -385,11 +384,6 @@ footer img {
 /* mobile device */
 /* navbar only */
 @media only screen and (max-width: 1000px) {
-  header {
-    /* disable animation on mobile */
-    transition: none !important;
-  }
-
   nav {
     background-color: #0d0d0d;
     border-radius: 20px;
@@ -440,6 +434,11 @@ footer img {
 
 /* match screen width if less than full tab's 600px width (+ padding) */
 @media only screen and (max-width: 620px) {
+  .image_highlight_on_hover {
+    /* disable animation on mobile */
+    transition: none !important;
+  }
+
   .tab_title h1 {
     font-size: 230%;
   }
