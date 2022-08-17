@@ -70,10 +70,6 @@ function open_full_page_tab(category, create_entry = true, first_run = false) {
     document.getElementById(`${category}_tab`).style.display = "block";
     // set active tab's button color to red
     document.getElementById(`${category}_button`).style.backgroundColor = "#437043";
-    // scroll to top
-    // document.documentElement.scrollTop = 0; // for Chrome, Firefox, IE and Opera
-    // document.body.scrollTop = 0; // for Safari
-    smooth_scroll(0);
     // set webpage's title
     const new_title = category[0].toUpperCase() + category.slice(1);
     document.title = `PRODIS - ${new_title}`;
@@ -87,6 +83,8 @@ function open_full_page_tab(category, create_entry = true, first_run = false) {
         }
         else {
             window.history.pushState(category, "", `?tab=${category}`);
+            // scroll to top
+            smooth_scroll(0);
             // console.log(`created entry - ${category} (not first run)`);
         }
     }
