@@ -440,8 +440,8 @@ footer img {
   }
 }
 
-/* side padding for article */
-@media only screen and (max-width: 800px) {
+/* match screen width if less than full tab's 600px width (+ padding) */
+@media only screen and (max-width: 630px) {
   .tab_title h1 {
     font-size: 230%;
   }
