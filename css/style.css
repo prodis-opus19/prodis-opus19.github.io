@@ -446,7 +446,7 @@ footer img {
 }
 
 /* side padding for article */
-@media only screen and (max-width: 950px) {
+@media only screen and (max-width: 800px) {
   .tab_title h1 {
     font-size: 230%;
   }
