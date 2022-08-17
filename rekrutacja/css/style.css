@@ -46,10 +46,6 @@ li {
 }
 
 /* resize on hover */
-.image_highlight_on_hover {
-  transition: 0.2s;
-}
-
 .image_highlight_on_hover:hover {
   filter: brightness(120%) saturate(130%);
   transform: scale(0.95);

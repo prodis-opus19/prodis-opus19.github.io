@@ -55,10 +55,6 @@ body.hide_polish :lang(pl) {
 }
 
 /* resize on hover */
-.image_highlight_on_hover {
-  transition: 0.2s;
-}
-
 .image_highlight_on_hover:hover {
   filter: brightness(120%) saturate(120%);
   transform: scale(0.95);
@@ -434,11 +430,6 @@ footer img {
 
 /* match screen width if less than full tab's 600px width (+ padding) */
 @media only screen and (max-width: 620px) {
-  .image_highlight_on_hover {
-    /* disable animation on mobile */
-    transition: none !important;
-  }
-
   .tab_title h1 {
     font-size: 230%;
   }
