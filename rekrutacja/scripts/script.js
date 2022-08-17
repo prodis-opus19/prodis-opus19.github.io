@@ -12,6 +12,30 @@ function open_in_new_tab(url) {
     window.open(url, "_blank");
 }
 
+function smooth_scroll(pos) {
+    /*
+    Smooth scroll to position on Y-axis over N time.
+    */
+    let currentPos = window.pageYOffset;
+    if (currentPos == pos) return
+    let start = null;
+    let time = 150;
+    pos = +pos, time = +time;
+    window.requestAnimationFrame(function step(currentTime) {
+        start = !start ? currentTime : start;
+        var progress = currentTime - start;
+        if (currentPos < pos) {
+            window.scrollTo(0, ((pos - currentPos) * progress / time) + currentPos);
+        } else {
+            window.scrollTo(0, currentPos - ((currentPos - pos) * progress / time));
+        }
+        if (progress < time) {
+            window.requestAnimationFrame(step);
+        } else {
+            window.scrollTo(0, pos);
+        }
+    });
+}
 
 function open_full_page_tab(category, create_entry = true, first_run = false) {
     /*
@@ -47,8 +71,9 @@ function open_full_page_tab(category, create_entry = true, first_run = false) {
     // set active tab's button color to red
     document.getElementById(`${category}_button`).style.backgroundColor = "#437043";
     // scroll to top
-    document.documentElement.scrollTop = 0; // for Chrome, Firefox, IE and Opera
-    document.body.scrollTop = 0; // for Safari
+    // document.documentElement.scrollTop = 0; // for Chrome, Firefox, IE and Opera
+    // document.body.scrollTop = 0; // for Safari
+    smooth_scroll(0);
     // set webpage's title
     const new_title = category[0].toUpperCase() + category.slice(1);
     document.title = `PRODIS - ${new_title}`;
@@ -66,7 +91,6 @@ function open_full_page_tab(category, create_entry = true, first_run = false) {
         }
     }
 }
-
 
 window.addEventListener("popstate", (event) => {
     // console.log(`ok: opening tab based on history: ${event.state}`);
