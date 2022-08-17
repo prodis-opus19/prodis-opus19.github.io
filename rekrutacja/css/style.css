@@ -134,8 +134,7 @@ input[type=checkbox] {
   margin-right: auto;
   margin-top: 50px;
   padding: 50px;
-  transition: width 0.1s linear;
-  width: 40%;
+  width: 600px;
 }
 
 .img_wide {
@@ -255,10 +254,6 @@ footer img {
   #header_title {
     padding-left: 5px;
   }
-
-  .full_page_tab {
-    width: 70%;
-  }
 }
 
 /* mobile device */
@@ -329,10 +324,6 @@ footer img {
 
   .full_page_tab {
     border-radius: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
     width: 95%;
-    /* disable animation on mobile */
-    transition: none !important;
   }
 }
