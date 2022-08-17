@@ -246,13 +246,14 @@ footer img {
   border-radius: 20px;
   border: 2px solid #333333;
   display: block;
-  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
   overflow: hidden;
   padding-bottom: 7px;
   padding-left: 15px;
   padding-right: 15px;
   padding-top: 7px;
-  width: 60%;
+  width: 280px;
 }
 
 /* style the buttons that are used to open the tab content */
@@ -461,8 +462,18 @@ footer img {
     width: 95%;
   }
 
-  .navbar_per_person {
-    width: 90%;
+  .tab_per_person_content {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .tab_per_person_content h1 {
+    font-size: 200%;
+  }
+
+  .tab_per_person_content img {
+    margin: 8px;
+    width: 40px;
   }
 
   .contact_info table {
