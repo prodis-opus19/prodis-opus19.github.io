@@ -465,6 +465,18 @@ footer img {
     width: 90%;
   }
 
+  .contact_info table {
+    border-spacing: 12px;
+  }
+
+  .contact_info table th {
+    font-size: 120%;
+  }
+
+  .contact_info table td {
+    font-size: 90%;
+  }
+
   .contact_info table td img {
     height: 15px;
   }
