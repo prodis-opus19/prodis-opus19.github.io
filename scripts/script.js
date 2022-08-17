@@ -16,7 +16,7 @@ function open_in_new_tab(url) {
 }
 
 
-function open_full_page_tab(category, create_entry = true) {
+function open_full_page_tab(category, create_entry = true, first_run = false) {
     /*
     Unhide full page tab and highlight its corresponding button.
     * Tab = "category_tab"
@@ -24,6 +24,8 @@ function open_full_page_tab(category, create_entry = true) {
     If category is invalid, ignore.
     If create_entry is False, then no history entry will be created.
     This is a hack for when the listener aims to re-open full page from history.
+    If first_run is True, then "?tab=xyz" will not be appended to URL.
+    This is purely for aesthetics.
     */
     // close mobile hamburger menu
     close_hamburger_menu();
@@ -56,8 +58,15 @@ function open_full_page_tab(category, create_entry = true) {
     // create new history entry for current tab
     // prevent duplicates when function called from listener to open tab from history
     if (create_entry) {
-        window.history.pushState(category, "");
-        // console.log(`created entry - ${category}`);
+        // if first run, then do not append "?tab=xyz"
+        if (first_run) {
+            window.history.pushState(category, "");
+            // console.log(`created entry - ${category} (first run)`);
+        }
+        else {
+            window.history.pushState(category, "", `?tab=${category}`);
+            // console.log(`created entry - ${category} (not first run)`);
+        }
     }
 }
 
@@ -127,7 +136,7 @@ function switch_language(target) {
 
 window.addEventListener("popstate", (event) => {
     // console.log(`ok: opening tab based on history: ${event.state}`);
-    open_full_page_tab(event.state, false);
+    open_full_page_tab(event.state, create_entry = false);
 });
 
 
@@ -145,7 +154,7 @@ function get_url_parameters() {
     }
     else {
         // console.log("info: no tab parameter available");
-        open_full_page_tab("project");
+        open_full_page_tab("project", create_entry = true, first_run = true);
     }
     // language parameter (en, pl), e.g., prodis-opus19.github.io/index.html?lang=pl
     const param_lang = url_parameters.get("lang");
