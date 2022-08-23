@@ -40,12 +40,12 @@ li {
 }
 
 #top_alert {
-  background-color: black;
+  background-color: #141414;
   border-bottom: 1px solid #437043;
   color: #437043;
   font-size: 120%;
   opacity: 0;
-  padding: 10px;
+  padding: 16px;
   pointer-events: none;
   position: fixed;
   top: 66px;
