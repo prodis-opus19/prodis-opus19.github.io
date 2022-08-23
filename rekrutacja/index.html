@@ -32,7 +32,7 @@
         <li title="Otwórz kartę Ankieta" id="ankieta_button" class="navbar_link" onclick="open_full_page_tab('ankieta')" oncontextmenu="copy_to_clipboard(`${window.location.href.split('?')[0]}?tab=ankieta`);show_top_alert('Skopiowano link Ankieta do schowka.');return false"><i class="fa fa-vcard"></i> Ankieta</li>
         <li title="Otwórz kartę Lokalizacja" id="lokalizacja_button" class="navbar_link" onclick="open_full_page_tab('lokalizacja')" oncontextmenu="copy_to_clipboard(`${window.location.href.split('?')[0]}?tab=lokalizacja`);show_top_alert('Skopiowano link Lokalizacja do schowka.');return false"><i class="fa fa-map-marker"></i> Lokalizacja</li>
         <li title="Otwórz kartę Harmonogram" id="harmonogram_button" class="navbar_link" onclick="open_full_page_tab('harmonogram')" oncontextmenu="copy_to_clipboard(`${window.location.href.split('?')[0]}?tab=harmonogram`);show_top_alert('Skopiowano link Harmonogram do schowka.');return false"><i class="fa fa-calendar"></i> Harmonogram</li>
-        <li title="Otwórz stronę główną projektu w nowej karcie" onclick="open_in_new_tab('../index.html?lang=pl')" oncontextmenu="copy_to_clipboard(`${window.location.href.split('?')[0].split('/rekrutacja')[0]}`);show_top_alert('Skopiowano link strona główna do schowka.');return false"><i class="fa fa-paperclip"></i> O projekcie</li>
+        <li title="Otwórz stronę główną projektu w nowej karcie" onclick="open_in_new_tab('../index.html?lang=pl')" oncontextmenu="copy_to_clipboard(`${window.location.href.split('?')[0].split('/rekrutacja')[0]}`);show_top_alert('Skopiowano link Strona Główna do schowka.');return false"><i class="fa fa-paperclip"></i> O projekcie</li>
       </nav>
     </ul>
   </header>
@@ -43,7 +43,7 @@
       <div class="enable_select">
         <h1>REKRU<wbr>TACJA</h1>
         <h2>Probabilistyczne, prozodyczne i<wbr> dyskursowe efekty <wbr>na odrębność akustyczną <wbr>w mowie</h2>
-        <p>Projekt nr. 2020/37/<wbr>B/HS2/04161 <wbr>(OPUS 19)</p>
+        <p>Projekt nr. <span class="project_id" title="Kliknij tutaj, aby skopiować Identyfikator Projektu do schowka" onclick="copy_to_clipboard('2020/37/B/HS2/04161');show_top_alert('Skopiowiano Identyfikator Projektu do schowka.')" oncontextmenu="copy_to_clipboard('2020/37/B/HS2/04161');show_top_alert('Skopiowiano Identyfikator Projektu do schowka.');return false">2020/37/<wbr>B/HS2/04161</span> <wbr>(OPUS 19)</p>
       </div>
       <a title="Otwórz Narodowe Centrum Nauki w nowej karcie" href="https://www.ncn.gov.pl/" target="_blank" rel="noopener noreferrer" draggable="false" ondragstart="return false;">
         <img class="image_highlight_on_hover" src="../img/ncn_logo.png" alt="ncn logo">

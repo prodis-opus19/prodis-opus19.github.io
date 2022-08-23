@@ -213,6 +213,11 @@ input[type=checkbox] {
   size: 2;
 }
 
+.tab_title .project_id:hover {
+  background-color: #437043;
+  cursor: pointer;
+}
+
 /* main project's description under project tab */
 article {
   text-align: left;
