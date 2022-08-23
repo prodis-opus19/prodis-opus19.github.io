@@ -12,6 +12,7 @@ function open_in_new_tab(url) {
     window.open(url, "_blank");
 }
 
+
 function smooth_scroll(pos) {
     /*
     Smooth scroll to position on Y-axis over N time.
@@ -36,6 +37,7 @@ function smooth_scroll(pos) {
         }
     });
 }
+
 
 function open_full_page_tab(category, create_entry = true, first_run = false) {
     /*
@@ -88,6 +90,37 @@ function open_full_page_tab(category, create_entry = true, first_run = false) {
     }
 }
 
+
+function show_top_alert(content) {
+    /*
+    Show alert at the top.
+    If no argument is provided, then show placeholder message.
+    */
+    const div = document.getElementById("top_alert");
+    // change text content to sth like "Copied link"
+    if (content == null) {
+        console.log("warning: show_top_alert() was not given a text to display, using placeholder");
+        content = "default message";
+    }
+    div.textContent = content;
+    // remove animation, trigger reflow, add animation
+    div.classList.remove("elementToFadeInAndOut");
+    void div.offsetWidth;
+    div.classList.add("elementToFadeInAndOut");
+}
+
+
+function copy_to_clipboard(to_copy) {
+    /*
+    Copy content provided to clipboard.
+    */
+    // copy text to clipboard
+    navigator.clipboard.writeText(to_copy);
+    // console.log("link copied: " + to_copy);
+    return false;
+}
+
+
 window.addEventListener("popstate", (event) => {
     // console.log(`ok: opening tab based on history: ${event.state}`);
     open_full_page_tab(event.state, create_entry = false);
@@ -111,6 +144,7 @@ function get_url_parameters() {
         open_full_page_tab("informacja", create_entry = true, first_run = true);
     }
 }
+
 
 // on script load, open tabs
 get_url_parameters()

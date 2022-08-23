@@ -17,6 +17,7 @@
   <noscript>
     <p id="js_disabled">Uwaga: <wbr>JavaScript jest wyłączony.</p>
   </noscript>
+  <div id="top_alert">default message</div>
   <header>
     <!-- header_title -->
     <div id="header_title" class="enable_select">REKRU<wbr>TACJA</div>
@@ -27,11 +28,11 @@
       <label for="checkbox_toggle" class="hamburger">&#9776;<div id="menu_text">Menu</div></label>
       <!-- navigation menus -->
       <nav draggable="false" ondragstart="return false;">
-        <li title="Otwórz kartę Informacja" id="informacja_button" class="navbar_link" onclick="open_full_page_tab('informacja')"><i class="fa fa-home"></i> Informacja</li>
-        <li title="Otwórz kartę Ankieta" id="ankieta_button" class="navbar_link" onclick="open_full_page_tab('ankieta')"><i class="fa fa-vcard"></i> Ankieta</li>
-        <li title="Otwórz kartę Lokalizacja" id="lokalizacja_button" class="navbar_link" onclick="open_full_page_tab('lokalizacja')"><i class="fa fa-map-marker"></i> Lokalizacja</li>
-        <li title="Otwórz kartę Harmonogram" id="harmonogram_button" class="navbar_link" onclick="open_full_page_tab('harmonogram')"><i class="fa fa-calendar"></i> Harmonogram</li>
-        <li title="Otwórz stronę główną projektu w nowej karcie" onclick="open_in_new_tab('../index.html?lang=pl')"><i class="fa fa-paperclip"></i> O projekcie</li>
+        <li title="Otwórz kartę Informacja" id="informacja_button" class="navbar_link" onclick="open_full_page_tab('informacja')" oncontextmenu="copy_to_clipboard(`${window.location.href.split('?')[0]}?tab=informacja`);show_top_alert('Skopiowano link Informacja do schowka.');return false"><i class="fa fa-home"></i> Informacja</li>
+        <li title="Otwórz kartę Ankieta" id="ankieta_button" class="navbar_link" onclick="open_full_page_tab('ankieta')" oncontextmenu="copy_to_clipboard(`${window.location.href.split('?')[0]}?tab=ankieta`);show_top_alert('Skopiowano link Ankieta do schowka.');return false"><i class="fa fa-vcard"></i> Ankieta</li>
+        <li title="Otwórz kartę Lokalizacja" id="lokalizacja_button" class="navbar_link" onclick="open_full_page_tab('lokalizacja')" oncontextmenu="copy_to_clipboard(`${window.location.href.split('?')[0]}?tab=lokalizacja`);show_top_alert('Skopiowano link Lokalizacja do schowka.');return false"><i class="fa fa-map-marker"></i> Lokalizacja</li>
+        <li title="Otwórz kartę Harmonogram" id="harmonogram_button" class="navbar_link" onclick="open_full_page_tab('harmonogram')" oncontextmenu="copy_to_clipboard(`${window.location.href.split('?')[0]}?tab=harmonogram`);show_top_alert('Skopiowano link Harmonogram do schowka.');return false"><i class="fa fa-calendar"></i> Harmonogram</li>
+        <li title="Otwórz stronę główną projektu w nowej karcie" onclick="open_in_new_tab('../index.html?lang=pl')" oncontextmenu="copy_to_clipboard(`${window.location.href.split('?')[0].split('/rekrutacja')[0]}`);show_top_alert('Skopiowano link strona główna do schowka.');return false"><i class="fa fa-paperclip"></i> O projekcie</li>
       </nav>
     </ul>
   </header>
