@@ -156,8 +156,8 @@ function copy_to_clipboard(to_copy) {
     Copy content provided to clipboard.
     */
     // copy text to clipboard
-    // navigator.clipboard.writeText(to_copy);
-    console.log("link copied: " + to_copy);
+    navigator.clipboard.writeText(to_copy);
+    // console.log("link copied: " + to_copy);
     return false;
 }
 
