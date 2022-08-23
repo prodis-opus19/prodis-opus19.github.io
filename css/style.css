@@ -55,8 +55,8 @@ li {
 
 @keyframes FadeAlert {
   0% {
-    opacity: 0;
-    transform: translateY(-30px);
+    opacity: 1;
+    transform: translateY(-50px);
 
   }
 
