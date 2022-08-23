@@ -204,7 +204,7 @@ nav li {
   cursor: pointer;
   padding-bottom: 12px;
   padding-left: 14px;
-  padding-right: 16px;
+  padding-right: 14px;
   padding-top: 12px;
 }
 
@@ -468,7 +468,7 @@ footer img {
 
 /* responsive design */
 /* reduce desktop navbar padding */
-@media (max-width: 1020px) {
+@media (max-width: 1030px) {
   nav li {
     padding-left: 6px;
     padding-right: 10px;
@@ -477,7 +477,7 @@ footer img {
 
 /* mobile device */
 /* navbar and reduce top margin */
-@media only screen and (max-width: 950px) {
+@media only screen and (max-width: 960px) {
   #top_alert {
     top: 0px;
     z-index: 105;
