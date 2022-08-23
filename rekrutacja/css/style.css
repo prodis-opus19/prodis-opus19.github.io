@@ -28,10 +28,15 @@ li {
 }
 
 #js_disabled {
-  background-color: black;
+  background-color: darkred;
+  border-top: 1px solid red;
+  bottom: 0;
   color: yellow;
   font-size: 180%;
   padding: 30px;
+  position: fixed;
+  width: 100%;
+  z-index: 50;
 }
 
 #top_alert {
