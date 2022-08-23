@@ -154,7 +154,9 @@ function show_top_alert(content) {
 
 function show_copy_popup(tag) {
     /*
-    Show popup 150px under the div passed using "this"
+    Show popup under the div passed using "this".
+    If "isMobile" is True, then reduce Y offset from 150 to 20.
+    This is because on mobile the div is moved down for some reason.
     */
     // get body & tag position
     const body_rect = document.body.getBoundingClientRect();
@@ -165,7 +167,11 @@ function show_copy_popup(tag) {
     const left = tag_rect.left - body_rect.left;
     // set popup tag to relative position
     var copy_element = document.getElementById("copy_popup");
-    copy_element.style.top = (top + 150) + "px";
+    let add_vertical_value = 150;
+    if (isMobile) {
+        add_vertical_value = 20;
+    }
+    copy_element.style.top = (top + add_vertical_value) + "px";
     copy_element.style.left = left + "px";
     // remove animation, trigger reflow, add animation
     copy_element.classList.remove("class_AnimCopy");
@@ -222,6 +228,7 @@ function get_url_parameters() {
 }
 
 
-// on script load, open tabs & set language
+// on script load, check if mobile, open tabs & set language
+const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 get_url_parameters()
 open_person_desc("m_kul");
