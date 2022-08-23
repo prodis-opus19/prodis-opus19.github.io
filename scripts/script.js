@@ -16,7 +16,7 @@ function open_in_new_tab(url) {
 }
 
 
-function open_full_page_tab(category, create_entry = true, url_has_parameters = false, scroll_up = true) {
+function open_full_page_tab(category, create_entry = true, scroll_up = true) {
     /*
     Unhide full page tab and highlight its corresponding button.
     * Tab = "category_tab"
@@ -24,8 +24,6 @@ function open_full_page_tab(category, create_entry = true, url_has_parameters = 
     If "category" is invalid, ignore.
     If "create_entry" is False, then no history entry will be created.
     This is a hack for when the listener aims to re-open full page from history.
-    If "url_has_parameters" is True, then "?tab=xyz" will not be appended to URL.
-    This is purely for aesthetics.
     If "scroll_up" is False, then page will not be scrolled to the top.
     This is useful when opening a page from pseudo-history, as it will stay at previous scroll position.
     */
@@ -34,8 +32,8 @@ function open_full_page_tab(category, create_entry = true, url_has_parameters = 
     // check if target tab exists
     const target_full_page_tab = document.getElementById(`${category}_tab`);
     if (target_full_page_tab == null) {
-        console.log(`warning: unknown open_full_page_tab() target '${category}', ignoring`);
-        return;
+        // console.log(`unknown open_full_page_tab() target '${category}', using default 'project'`);
+        category = "project";
     }
     // hide all elements with class="full_page_tab" by default
     const full_page_tab = document.getElementsByClassName("full_page_tab");
@@ -57,15 +55,8 @@ function open_full_page_tab(category, create_entry = true, url_has_parameters = 
     // create new history entry for current tab
     // prevent duplicates when function called from listener to open tab from history
     if (create_entry) {
-        // if first run, then do not append "?tab=xyz"
-        if (url_has_parameters) {
-            window.history.pushState(category, "");
-            // console.log(`created entry - ${category} (first run)`);
-        }
-        else {
-            window.history.pushState(category, "", `?tab=${category}`);
-            // console.log(`created entry - ${category} (not first run)`);
-        }
+        window.history.pushState(category, "", `?tab=${category}`);
+        // console.log(`created entry - ${category} (not first run)`);
     }
     // always scroll up, unless first run
     if (scroll_up) {
@@ -150,7 +141,7 @@ function show_top_alert(content) {
     const div = document.getElementById("top_alert");
     // change text content to sth like "Copied link"
     if (content == null) {
-        console.log("warning: show_top_alert() was not given a text to display, using placeholder");
+        // console.log("warning: show_top_alert() was not given a text to display, using placeholder");
         content = "default message";
     }
     div.textContent = content;
@@ -188,11 +179,11 @@ function get_url_parameters() {
     const param_tab = url_parameters.get("tab");
     if (param_tab !== null) {
         // console.log(`ok: received tab parameter to open '${param_tab}'`);
-        open_full_page_tab(param_tab, create_entry = false, url_has_parameters = false, scroll_up = false);
+        open_full_page_tab(param_tab, create_entry = false, scroll_up = false);
     }
     else {
         // console.log("info: no tab parameter available");
-        open_full_page_tab("project", create_entry = true, url_has_parameters = true, scroll_up = false);
+        open_full_page_tab("project", create_entry = false, scroll_up = false);
     }
     // language parameter (en, pl), e.g., prodis-opus19.github.io/index.html?lang=pl
     const param_lang = url_parameters.get("lang");
