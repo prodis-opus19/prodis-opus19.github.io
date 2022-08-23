@@ -1,4 +1,7 @@
 function close_hamburger_menu() {
+    /*
+    Close floating menu that appears after clicking the hamburger menu icon on mobile.
+    */
     document.getElementById("checkbox_toggle").checked = false;
 }
 
@@ -7,7 +10,6 @@ function open_in_new_tab(url) {
     /*
     Open target URL in a new tab.
     */
-    // close mobile hamburger menu
     close_hamburger_menu();
     window.open(url, "_blank");
 }
@@ -24,12 +26,10 @@ function open_full_page_tab(category, create_entry = true, scroll_up = true) {
     If "scroll_up" is False, then page will not be scrolled to the top.
     This is useful when opening a page from pseudo-history, as it will stay at previous scroll position.
     */
-    // close mobile hamburger menu
     close_hamburger_menu();
-    // check if target tab exists
+    // check if target tab exists, set default if doesn't
     const target_full_page_tab = document.getElementById(`${category}_tab`);
     if (target_full_page_tab == null) {
-        // console.log(`unknown open_full_page_tab() target '${category}', using default 'project'`);
         category = "informacja";
     }
     // hide all elements with class="full_page_tab" by default
@@ -50,16 +50,14 @@ function open_full_page_tab(category, create_entry = true, scroll_up = true) {
     const new_title = category[0].toUpperCase() + category.slice(1);
     document.title = `REKRUTACJA - ${new_title}`;
     // create new history entry for current tab
-    // prevent duplicates when function called from listener to open tab from history
+    // prevents duplicates when function called from listener to open tab from history
     if (create_entry) {
         window.history.pushState(category, "", `?tab=${category}`);
-        // console.log(`created entry - ${category} (not first run)`);
     }
     // always scroll up, unless first run
     if (scroll_up) {
         // scroll to top
         window.scrollTo(0, 0);
-        // console.log("scrolling to top!");
     }
 }
 
@@ -120,8 +118,11 @@ function show_copy_popup(tag) {
             case (combo_count < 30):
                 append_text = "GODLIKE";
                 break;
-            default:
+            case (combo_count < 40):
                 append_text = "WICKED SICK";
+                break;
+            default:
+                append_text = "マジで";
                 break;
         }
         div.textContent = `${append_text} ${combo_count}!`;
@@ -140,7 +141,7 @@ function show_copy_popup(tag) {
     const top = tag_rect.bottom - body_rect.top;
     const left = tag_rect.left - body_rect.left;
     // set popup tag to relative position
-    var copy_element = document.getElementById("copy_popup");
+    const copy_element = document.getElementById("copy_popup");
     let add_vertical_value = 130;
     if (isMobile) {
         add_vertical_value = 10;
