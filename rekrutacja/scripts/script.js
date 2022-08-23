@@ -99,7 +99,32 @@ function show_copy_popup(tag) {
     // if same tag as previous, enable combo
     if (tag === combo_last_tag) {
         combo_count += 1;
-        div.textContent = `COMBO ${combo_count}!`;
+        let append_text;
+        // Unreal Tournament 2004 killstreaks because why not
+        switch (true) {
+            case (combo_count < 4):
+                append_text = "COMBO";
+                break;
+            case (combo_count < 11):
+                append_text = "KILLING SPREE";
+                break;
+            case (combo_count < 16):
+                append_text = "RAMPAGE";
+                break;
+            case (combo_count < 21):
+                append_text = "DOMINATING";
+                break;
+            case (combo_count < 26):
+                append_text = "UNSTOPPABLE";
+                break;
+            case (combo_count < 31):
+                append_text = "GODLIKE";
+                break;
+            default:
+                append_text = "WICKED SICK";
+                break;
+        }
+        div.textContent = `${append_text} ${combo_count}!`;
     }
     // if different tag, reset combo
     else {
