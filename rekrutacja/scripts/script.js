@@ -83,12 +83,30 @@ function show_top_alert(content) {
 }
 
 
+let combo_count = 1;
+let combo_last_tag = null;
+
+
 function show_copy_popup(tag) {
     /*
     Show popup under the div passed using "this".
     If "isMobile" is True, then reduce Y offset from 150 to 20.
     This is because on mobile the div is moved down for some reason.
+    If clicked same tag multiple times, count how many times clicked and show as "COMBO!".
     */
+    // catch combos (clicked same element multiple times)
+    const div = document.getElementById("copy_popup");
+    // if same tag as previous, enable combo
+    if (tag === combo_last_tag) {
+        combo_count += 1;
+        div.textContent = `COMBO ${combo_count}!`;
+    }
+    // if different tag, reset combo
+    else {
+        combo_last_tag = tag;
+        combo_count = 1; // set to 2, because already clicked once when ran this
+        div.textContent = "COPIED!";
+    }
     // get body & tag position
     const body_rect = document.body.getBoundingClientRect();
     const tag_rect = tag.getBoundingClientRect();
