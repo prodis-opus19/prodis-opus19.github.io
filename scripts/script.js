@@ -16,6 +16,32 @@ function open_in_new_tab(url) {
 }
 
 
+function smooth_scroll(pos) {
+    /*
+    Smooth scroll to position on Y-axis over N time.
+    */
+    let currentPos = window.pageYOffset;
+    if (currentPos == pos) return
+    let start = null;
+    let time = 150;
+    pos = +pos, time = +time;
+    window.requestAnimationFrame(function step(currentTime) {
+        start = !start ? currentTime : start;
+        var progress = currentTime - start;
+        if (currentPos < pos) {
+            window.scrollTo(0, ((pos - currentPos) * progress / time) + currentPos);
+        } else {
+            window.scrollTo(0, currentPos - ((currentPos - pos) * progress / time));
+        }
+        if (progress < time) {
+            window.requestAnimationFrame(step);
+        } else {
+            window.scrollTo(0, pos);
+        }
+    });
+}
+
+
 function open_full_page_tab(category, create_entry = true, first_run = false) {
     /*
     Unhide full page tab and highlight its corresponding button.
@@ -29,6 +55,8 @@ function open_full_page_tab(category, create_entry = true, first_run = false) {
     */
     // close mobile hamburger menu
     close_hamburger_menu();
+    // scroll to top
+    window.scrollTo(0, 0);
     // check if target tab exists
     const target_full_page_tab = document.getElementById(`${category}_tab`);
     if (target_full_page_tab == null) {

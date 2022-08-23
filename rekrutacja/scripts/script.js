@@ -52,6 +52,8 @@ function open_full_page_tab(category, create_entry = true, first_run = false) {
     */
     // close mobile hamburger menu
     close_hamburger_menu();
+    // scroll to top
+    window.scrollTo(0, 0);
     // check if target tab exists
     const target_full_page_tab = document.getElementById(`${category}_tab`);
     if (target_full_page_tab == null) {
