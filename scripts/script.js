@@ -171,22 +171,22 @@ function show_copy_popup(tag) {
         let append_text;
         // Unreal Tournament 2004 killstreaks because why not
         switch (true) {
-            case (combo_count < 4):
+            case (combo_count < 5):
                 append_text = "COMBO";
                 break;
-            case (combo_count < 11):
+            case (combo_count < 10):
                 append_text = "KILLING SPREE";
                 break;
-            case (combo_count < 16):
+            case (combo_count < 15):
                 append_text = "RAMPAGE";
                 break;
-            case (combo_count < 21):
+            case (combo_count < 20):
                 append_text = "DOMINATING";
                 break;
-            case (combo_count < 26):
+            case (combo_count < 25):
                 append_text = "UNSTOPPABLE";
                 break;
-            case (combo_count < 31):
+            case (combo_count < 30):
                 append_text = "GODLIKE";
                 break;
             default:
