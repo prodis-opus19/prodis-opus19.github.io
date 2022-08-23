@@ -41,24 +41,24 @@ li {
 
 #top_alert {
   background-color: black;
-  border-bottom: 1px solid #bb4b4b;
-  color: #bb4b4b;
+  border-bottom: 1px solid #437043;
+  color: #437043;
   font-size: 120%;
   opacity: 0;
   padding: 10px;
   pointer-events: none;
   position: fixed;
-  top: 68px;
+  top: 66px;
   transform: translateY(-50px);
   width: 100%;
   z-index: 5;
 }
 
-.elementToFadeInAndOut {
-  animation: FadeAlert 2s linear forwards;
+.class_AnimAlert {
+  animation: AnimAlert 2s linear forwards;
 }
 
-@keyframes FadeAlert {
+@keyframes AnimAlert {
   0% {
     opacity: 0;
     transform: translateY(-50px);
@@ -79,6 +79,51 @@ li {
   100% {
     opacity: 0;
     transform: translateY(-50px);
+  }
+}
+
+#copy_popup {
+  background-color: #141414;
+  border-radius: 8px;
+  border: 1px solid #262626;
+  font-size: 80%;
+  letter-spacing: 0.2em;
+  opacity: 0;
+  padding-bottom: 8px;
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-top: 8px;
+  pointer-events: none;
+  position: absolute;
+  transform: translateX(-50px);
+  z-index: 110;
+}
+
+.class_AnimCopy {
+  animation: AnimCopy 0.8s linear forwards;
+}
+
+@keyframes AnimCopy {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+
+  }
+
+  10% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+
+  85% {
+    opacity: 1;
+    transform: translateX(0px);
+
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(50px);
   }
 }
 

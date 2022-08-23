@@ -17,7 +17,9 @@
   <noscript>
     <p id="js_disabled">Uwaga: <wbr>JavaScript jest wyłączony.</p>
   </noscript>
+  <!-- popups hidden by default, shown with javascript -->
   <div id="top_alert">default message</div>
+  <div id="copy_popup">&#9986; COPIED!</div>
   <header>
     <!-- header_title -->
     <div id="header_title" class="enable_select">REKRU<wbr>TACJA</div>
@@ -28,11 +30,11 @@
       <label for="checkbox_toggle" class="hamburger">&#9776;<div id="menu_text">Menu</div></label>
       <!-- navigation menus -->
       <nav draggable="false" ondragstart="return false;">
-        <li title="Otwórz kartę Informacja" id="informacja_button" class="navbar_link" onclick="open_full_page_tab('informacja');" oncontextmenu="copy_to_clipboard(`${window.location.href.split('?')[0]}?tab=informacja`);show_top_alert('Skopiowano link Informacja do schowka.');return false;"><i class="fa fa-home"></i> Informacja</li>
-        <li title="Otwórz kartę Ankieta" id="ankieta_button" class="navbar_link" onclick="open_full_page_tab('ankieta');" oncontextmenu="copy_to_clipboard(`${window.location.href.split('?')[0]}?tab=ankieta`);show_top_alert('Skopiowano link Ankieta do schowka.');return false;"><i class="fa fa-vcard"></i> Ankieta</li>
-        <li title="Otwórz kartę Lokalizacja" id="lokalizacja_button" class="navbar_link" onclick="open_full_page_tab('lokalizacja');" oncontextmenu="copy_to_clipboard(`${window.location.href.split('?')[0]}?tab=lokalizacja`);show_top_alert('Skopiowano link Lokalizacja do schowka.');return false;"><i class="fa fa-map-marker"></i> Lokalizacja</li>
-        <li title="Otwórz kartę Harmonogram" id="harmonogram_button" class="navbar_link" onclick="open_full_page_tab('harmonogram');" oncontextmenu="copy_to_clipboard(`${window.location.href.split('?')[0]}?tab=harmonogram`);show_top_alert('Skopiowano link Harmonogram do schowka.');return false;"><i class="fa fa-calendar"></i> Harmonogram</li>
-        <li title="Otwórz stronę główną projektu w nowej karcie" onclick="open_in_new_tab('../index.html?lang=pl');" oncontextmenu="copy_to_clipboard(`${window.location.href.split('?')[0].split('/rekrutacja')[0]}`);show_top_alert('Skopiowano link Strona Główna do schowka.');return false;"><i class="fa fa-paperclip"></i> O projekcie</li>
+        <li title="Otwórz kartę Informacja" id="informacja_button" class="navbar_link" onclick="open_full_page_tab('informacja');" oncontextmenu="copy_to_clipboard(this,`${window.location.href.split('?')[0]}?tab=informacja`);show_top_alert('Skopiowano link Informacja do schowka.');return false;"><i class="fa fa-home"></i> Informacja</li>
+        <li title="Otwórz kartę Ankieta" id="ankieta_button" class="navbar_link" onclick="open_full_page_tab('ankieta');" oncontextmenu="copy_to_clipboard(this,`${window.location.href.split('?')[0]}?tab=ankieta`);show_top_alert('Skopiowano link Ankieta do schowka.');return false;"><i class="fa fa-vcard"></i> Ankieta</li>
+        <li title="Otwórz kartę Lokalizacja" id="lokalizacja_button" class="navbar_link" onclick="open_full_page_tab('lokalizacja');" oncontextmenu="copy_to_clipboard(this,`${window.location.href.split('?')[0]}?tab=lokalizacja`);show_top_alert('Skopiowano link Lokalizacja do schowka.');return false;"><i class="fa fa-map-marker"></i> Lokalizacja</li>
+        <li title="Otwórz kartę Harmonogram" id="harmonogram_button" class="navbar_link" onclick="open_full_page_tab('harmonogram');" oncontextmenu="copy_to_clipboard(this,`${window.location.href.split('?')[0]}?tab=harmonogram`);show_top_alert('Skopiowano link Harmonogram do schowka.');return false;"><i class="fa fa-calendar"></i> Harmonogram</li>
+        <li title="Otwórz stronę główną projektu w nowej karcie" onclick="open_in_new_tab('../index.html?lang=pl');" oncontextmenu="copy_to_clipboard(this,`${window.location.href.split('?')[0].split('/rekrutacja')[0]}`);show_top_alert('Skopiowano link Strona Główna do schowka.');return false;"><i class="fa fa-paperclip"></i> O projekcie</li>
       </nav>
     </ul>
   </header>
@@ -43,7 +45,7 @@
       <div class="enable_select">
         <h1>REKRU<wbr>TACJA</h1>
         <h2>Probabilistyczne, prozodyczne i<wbr> dyskursowe efekty <wbr>na odrębność akustyczną <wbr>w mowie</h2>
-        <p>Projekt nr. <span class="link_background" title="Kliknij tutaj, aby skopiować identyfikator projektu do schowka" onclick="copy_to_clipboard('2020/37/B/HS2/04161');show_top_alert('Skopiowiano Identyfikator Projektu do schowka.');">2020/37/<wbr>B/HS2/04161</span> <wbr>(OPUS 19)</p>
+        <p>Projekt nr. <span class="link_background" title="Kliknij tutaj, aby skopiować identyfikator projektu do schowka" onclick="copy_to_clipboard(this,'2020/37/B/HS2/04161');show_top_alert('Skopiowiano Identyfikator Projektu do schowka.');">2020/37/<wbr>B/HS2/04161</span> <wbr>(OPUS 19)</p>
       </div>
       <a title="Otwórz Narodowe Centrum Nauki w nowej karcie" href="https://www.ncn.gov.pl/" target="_blank" rel="noopener noreferrer" draggable="false" ondragstart="return false;">
         <img class="image_highlight_on_hover" src="../img/ncn_logo.png" alt="ncn logo">
@@ -94,7 +96,7 @@
       <p>Po wypełnieniu ankiety uczestnik otrzyma potwierdzenie (lub odrzucenie) udziału w ankiecie oraz precyzyjny termin.</p>
       <div class="survey_links">
         <h3>&#9655; Link do ankiety: <wbr><a class="link_background link_default" title="Otwórz link do ankiety w nowej karcie" href="https://amu.edu.pl/" target="_blank" rel="noopener noreferrer" draggable="false" ondragstart="return false;">kliknij tutaj</a>.</h3>
-        <h3>Kontakt: <wbr><a class="link_background link_default" title="Kliknij tutaj, aby skopiować adres e-mail do schowka" onclick="copy_to_clipboard('polish_corpus@protonmail.com');show_top_alert('Skopiowiano Adres E-mail do schowka.');return false;" href="mailto:polish_corpus@protonmail.com">polish_corpus@protonmail.com</a>.</h3>
+        <h3>Kontakt: <wbr><a class="link_background link_default" title="Kliknij tutaj, aby skopiować adres e-mail do schowka" onclick="copy_to_clipboard(this,'polish_corpus@protonmail.com');show_top_alert('Skopiowiano Adres E-mail do schowka.');return false;" href="mailto:polish_corpus@protonmail.com">polish_corpus@protonmail.com</a>.</h3>
       </div>
     </article>
   </div>

@@ -141,23 +141,47 @@ function show_top_alert(content) {
     const div = document.getElementById("top_alert");
     // change text content to sth like "Copied link"
     if (content == null) {
-        // console.log("warning: show_top_alert() was not given a text to display, using placeholder");
+        console.log("warning: show_top_alert() was not given a text to display, using placeholder");
         content = "default message";
     }
     div.textContent = content;
     // remove animation, trigger reflow, add animation
-    div.classList.remove("elementToFadeInAndOut");
+    div.classList.remove("class_AnimAlert");
     void div.offsetWidth;
-    div.classList.add("elementToFadeInAndOut");
+    div.classList.add("class_AnimAlert");
 }
 
 
-function copy_to_clipboard(to_copy) {
+function show_copy_popup(tag) {
+    /*
+    Show popup 150px under the div passed using "this"
+    */
+    // get body & tag position
+    const body_rect = document.body.getBoundingClientRect();
+    const tag_rect = tag.getBoundingClientRect();
+    // const padding_bottom = parseFloat(document.defaultView.getComputedStyle(tag).paddingBottom);
+    // calculate relative postion (otherwise breaks on scroll)
+    const top = tag_rect.top - body_rect.top;
+    const left = tag_rect.left - body_rect.left;
+    // set popup tag to relative position
+    var copy_element = document.getElementById("copy_popup");
+    copy_element.style.top = (top + 150) + "px";
+    copy_element.style.left = left + "px";
+    // remove animation, trigger reflow, add animation
+    copy_element.classList.remove("class_AnimCopy");
+    void copy_element.offsetWidth;
+    copy_element.classList.add("class_AnimCopy");
+}
+
+
+function copy_to_clipboard(tag, to_copy) {
     /*
     Copy content provided to clipboard.
     */
     // copy text to clipboard
     navigator.clipboard.writeText(to_copy);
+    // show popup under element clicked
+    show_copy_popup(tag);
     // console.log("link copied: " + to_copy);
     return false;
 }
