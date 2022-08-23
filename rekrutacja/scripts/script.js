@@ -13,16 +13,18 @@ function open_in_new_tab(url) {
 }
 
 
-function open_full_page_tab(category, create_entry = true, first_run = false) {
+function open_full_page_tab(category, create_entry = true, url_has_parameters = false, scroll_up = true) {
     /*
     Unhide full page tab and highlight its corresponding button.
     * Tab = "category_tab"
     * Button = "category_button"
-    If category is invalid, ignore.
-    If create_entry is False, then no history entry will be created.
+    If "category" is invalid, ignore.
+    If "create_entry" is False, then no history entry will be created.
     This is a hack for when the listener aims to re-open full page from history.
-    If first_run is True, then "?tab=xyz" will not be appended to URL.
+    If "url_has_parameters" is True, then "?tab=xyz" will not be appended to URL.
     This is purely for aesthetics.
+    If "scroll_up" is False, then page will not be scrolled to the top.
+    This is useful when opening a page from pseudo-history, as it will stay at previous scroll position.
     */
     // close mobile hamburger menu
     close_hamburger_menu();
@@ -52,17 +54,21 @@ function open_full_page_tab(category, create_entry = true, first_run = false) {
     // create new history entry for current tab
     // prevent duplicates when function called from listener to open tab from history
     if (create_entry) {
-        // if first run, then do not append "?tab=xyz" and do not scroll to top
-        if (first_run) {
+        // if first run, then do not append "?tab=xyz"
+        if (url_has_parameters) {
             window.history.pushState(category, "");
             // console.log(`created entry - ${category} (first run)`);
         }
         else {
             window.history.pushState(category, "", `?tab=${category}`);
-            // scroll to top
-            window.scrollTo(0, 0);
             // console.log(`created entry - ${category} (not first run)`);
         }
+    }
+    // always scroll up, unless first run
+    if (scroll_up) {
+        // scroll to top
+        window.scrollTo(0, 0);
+        // console.log("scrolling to top!");
     }
 }
 
@@ -113,11 +119,11 @@ function get_url_parameters() {
     const param_tab = url_parameters.get("tab");
     if (param_tab !== null) {
         // console.log(`ok: received tab parameter to open '${param_tab}'`);
-        open_full_page_tab(param_tab);
+        open_full_page_tab(param_tab, create_entry = false, url_has_parameters = false, scroll_up = false);
     }
     else {
         // console.log("info: no tab parameter available");
-        open_full_page_tab("informacja", create_entry = true, first_run = true);
+        open_full_page_tab("informacja", create_entry = true, url_has_parameters = true, scroll_up = false);
     }
 }
 
