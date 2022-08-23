@@ -53,7 +53,7 @@ function open_full_page_tab(category, create_entry = true, url_has_parameters = 
     document.getElementById(`${category}_button`).style.backgroundColor = "#bb4b4b";
     // set webpage's title
     const new_title = category[0].toUpperCase() + category.slice(1);
-    document.title = `PRODIS - ${new_title}`;
+    document.title = `REKRUTACJA - ${new_title}`;
     // create new history entry for current tab
     // prevent duplicates when function called from listener to open tab from history
     if (create_entry) {
