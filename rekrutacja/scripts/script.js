@@ -94,13 +94,13 @@ function show_copy_popup(tag) {
     const tag_rect = tag.getBoundingClientRect();
     // const padding_bottom = parseFloat(document.defaultView.getComputedStyle(tag).paddingBottom);
     // calculate relative postion (otherwise breaks on scroll)
-    const top = tag_rect.top - body_rect.top;
+    const top = tag_rect.bottom - body_rect.top;
     const left = tag_rect.left - body_rect.left;
     // set popup tag to relative position
     var copy_element = document.getElementById("copy_popup");
-    let add_vertical_value = 150;
+    let add_vertical_value = 130;
     if (isMobile) {
-        add_vertical_value = 20;
+        add_vertical_value = 10;
     }
     copy_element.style.top = (top + add_vertical_value) + "px";
     copy_element.style.left = left + "px";
