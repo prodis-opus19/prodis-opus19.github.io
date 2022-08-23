@@ -104,7 +104,7 @@ function show_copy_popup(tag) {
                 append_text = "COMBO";
                 break;
             case (combo_count < 10):
-                append_text = "KILLING SPREE";
+                append_text = "COMBO SPREE";
                 break;
             case (combo_count < 15):
                 append_text = "RAMPAGE";
