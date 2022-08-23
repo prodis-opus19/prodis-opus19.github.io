@@ -20,7 +20,6 @@ body {
 }
 
 a {
-  color: #568f56;
   text-decoration: none;
 }
 
@@ -91,6 +90,20 @@ li {
 .image_highlight_on_hover:hover {
   filter: brightness(120%) saturate(130%);
   transform: scale(0.95);
+}
+
+.link_default {
+  color: #568f56;
+  cursor: pointer;
+}
+
+.link_background {
+  cursor: pointer;
+}
+
+.link_background:hover {
+  background-color: #437043;
+  color: #99ff99;
 }
 
 /* header at the top; contains website name and navigation links */
@@ -213,11 +226,6 @@ input[type=checkbox] {
   size: 2;
 }
 
-.tab_title .project_id:hover {
-  background-color: #437043;
-  cursor: pointer;
-}
-
 /* main project's description under project tab */
 article {
   text-align: left;
@@ -232,11 +240,6 @@ article p {
   color: #d3d3d3;
   line-height: 1.8;
   margin-bottom: 40px;
-}
-
-article .span_open_full_page_tab {
-  color: #568f56;
-  cursor: pointer;
 }
 
 /* list within article */
@@ -260,7 +263,6 @@ article .survey_links {
   margin-bottom: 10px;
   margin-top: 30px;
 }
-
 
 /* footer with ukrainian flag at the bottom */
 footer {
