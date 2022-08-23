@@ -50,7 +50,7 @@ li {
 }
 
 .elementToFadeInAndOut {
-  animation: FadeAlert 1.2s linear forwards;
+  animation: FadeAlert 2s linear forwards;
 }
 
 @keyframes FadeAlert {
@@ -60,7 +60,7 @@ li {
 
   }
 
-  15% {
+  5% {
     opacity: 1;
     transform: translateY(0px);
   }
