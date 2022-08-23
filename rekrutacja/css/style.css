@@ -137,10 +137,6 @@ li {
   user-select: text;
 }
 
-.force_select {
-  user-select: all;
-}
-
 /* resize on hover */
 .image_highlight_on_hover:hover {
   filter: brightness(120%) saturate(130%);
