@@ -17,6 +17,7 @@
   <noscript>
     <p id="js_disabled">Warning: <wbr>JavaScript is disabled.</p>
   </noscript>
+  <div id="top_alert">default message</div>
   <header>
     <!-- header_title -->
     <div id="header_title" class="enable_select">PRODIS</div>
@@ -27,13 +28,13 @@
       <label for="checkbox_toggle" class="hamburger">&#9776;<div id="menu_text">Menu</div></label>
       <!-- navigation menus -->
       <nav draggable="false" ondragstart="return false;">
-        <li title="Open Project tab" id="project_button" class="navbar_link" onclick="open_full_page_tab('project')"><i class="fa fa-home"></i> Project</li>
-        <li title="Open Team tab" id="team_button" class="navbar_link" onclick="open_full_page_tab('team')"><i class="fa fa-users"></i> Team</li>
-        <li title="Open Contact tab" id="contact_button" class="navbar_link" onclick="open_full_page_tab('contact')"><i class="fa fa-envelope-o"></i> Contact</li>
-        <li title="Open Github profile in new tab" onclick="open_in_new_tab('https://github.com/prodis-opus19')"><i class="fa fa-paperclip"></i> Github</li>
-        <li title="Open Recruitment page (Polish only) in new tab" onclick="open_in_new_tab('rekrutacja/index.html')"><i class="fa fa-paperclip"></i> Recruitment</li>
+        <li title="Open Project tab" id="project_button" class="navbar_link" onclick="open_full_page_tab('project')" oncontextmenu="copy_to_clipboard(`${window.location.href.split('?')[0]}?tab=project`);show_top_alert('Copied Project link to clipboard.');return false"><i class="fa fa-home"></i> Project</li>
+        <li title="Open Team tab" id="team_button" class="navbar_link" onclick="open_full_page_tab('team')" oncontextmenu="copy_to_clipboard(`${window.location.href.split('?')[0]}?tab=team`);show_top_alert('Copied Team link to clipboard.');return false"><i class="fa fa-users"></i> Team</li>
+        <li title="Open Contact tab" id="contact_button" class="navbar_link" onclick="open_full_page_tab('contact')" oncontextmenu="copy_to_clipboard(`${window.location.href.split('?')[0]}?tab=contact`);show_top_alert('Copied Contact link to clipboard.');return false"><i class="fa fa-envelope-o"></i> Contact</li>
+        <li title="Open Github profile in new tab" onclick="open_in_new_tab('https://github.com/prodis-opus19')" oncontextmenu="copy_to_clipboard('https://github.com/prodis-opus19');show_top_alert('Copied Github link to clipboard.');return false"><i class="fa fa-paperclip"></i> Github</li>
+        <li title="Open Recruitment page (Polish only) in new tab" onclick="open_in_new_tab('rekrutacja/index.html')" oncontextmenu="copy_to_clipboard(`${window.location.href.split('?')[0]}/rekrutacja/`);show_top_alert('Copied Recruitment link to clipboard.');return false"><i class="fa fa-paperclip"></i> Recruitment</li>
         <li class="navbar_splitter">|</li>
-        <li title="Switch language between Polish and English" class="navbar_link" onclick="switch_language()"><img id="lang_flag" src="img/flag_us.png" alt="polish or us flag" height="20px"> Language</li>
+        <li title="Switch language between Polish and English" class="navbar_link" onclick="switch_language()" oncontextmenu="show_top_alert('Available languages: English, Polish.');return false"><img id="lang_flag" src="img/flag_us.png" alt="polish or us flag" height="20px"> Language</li>
       </nav>
     </ul>
   </header>
