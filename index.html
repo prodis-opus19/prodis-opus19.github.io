@@ -30,11 +30,11 @@
       <label for="checkbox_toggle" class="hamburger">&#9776;<div id="menu_text">Menu</div></label>
       <!-- navigation menus -->
       <nav draggable="false" ondragstart="return false;">
-        <li title="Open Project tab" id="project_button" class="navbar_link" onclick="open_full_page_tab('project');" oncontextmenu="copy_to_clipboard(this,`${window.location.href.split('?')[0]}?tab=project`);show_top_alert('Copied Project link to clipboard.');return false;"><i class="fa fa-home"></i> Project</li>
-        <li title="Open Team tab" id="team_button" class="navbar_link" onclick="open_full_page_tab('team');" oncontextmenu="copy_to_clipboard(this,`${window.location.href.split('?')[0]}?tab=team`);show_top_alert('Copied Team link to clipboard.');return false;"><i class="fa fa-users"></i> Team</li>
-        <li title="Open Contact tab" id="contact_button" class="navbar_link" onclick="open_full_page_tab('contact');" oncontextmenu="copy_to_clipboard(this,`${window.location.href.split('?')[0]}?tab=contact`);show_top_alert('Copied Contact link to clipboard.');return false;"><i class="fa fa-envelope-o"></i> Contact</li>
-        <li title="Open Github profile in new tab" onclick="open_in_new_tab('https://github.com/prodis-opus19');" oncontextmenu="copy_to_clipboard(this,'https://github.com/prodis-opus19');show_top_alert('Copied Github link to clipboard.');return false;"><i class="fa fa-paperclip"></i> Github</li>
-        <li title="Open Recruitment page (Polish only) in new tab" onclick="open_in_new_tab('rekrutacja/index.html');" oncontextmenu="copy_to_clipboard(this,`${window.location.href.split('?')[0]}/rekrutacja/`);show_top_alert('Copied Recruitment link to clipboard.');return false;"><i class="fa fa-paperclip"></i> Recruitment</li>
+        <li title="Open Project tab" id="project_button" class="navbar_link" onclick="open_full_page_tab('project');" oncontextmenu="copy_to_clipboard(this,`${window.location.href.split('?')[0]}?tab=project`);return false;"><i class="fa fa-home"></i> Project</li>
+        <li title="Open Team tab" id="team_button" class="navbar_link" onclick="open_full_page_tab('team');" oncontextmenu="copy_to_clipboard(this,`${window.location.href.split('?')[0]}?tab=team`);return false;"><i class="fa fa-users"></i> Team</li>
+        <li title="Open Contact tab" id="contact_button" class="navbar_link" onclick="open_full_page_tab('contact');" oncontextmenu="copy_to_clipboard(this,`${window.location.href.split('?')[0]}?tab=contact`);return false;"><i class="fa fa-envelope-o"></i> Contact</li>
+        <li title="Open Github profile in new tab" onclick="open_in_new_tab('https://github.com/prodis-opus19');" oncontextmenu="copy_to_clipboard(this,'https://github.com/prodis-opus19');return false;"><i class="fa fa-paperclip"></i> Github</li>
+        <li title="Open Recruitment page (Polish only) in new tab" onclick="open_in_new_tab('rekrutacja/index.html');" oncontextmenu="copy_to_clipboard(this,`${window.location.href.split('?')[0]}/rekrutacja/`);return false;"><i class="fa fa-paperclip"></i> Recruitment</li>
         <li class="navbar_splitter">|</li>
         <li title="Switch language between Polish and English" class="navbar_link" onclick="switch_language();" oncontextmenu="show_top_alert('Available languages: English, Polish.');return false;"><img id="lang_flag" src="img/flag_us.png" alt="polish or us flag" height="20px"> Language</li>
       </nav>
@@ -48,9 +48,9 @@
         <h2 lang="en">Probabilistic, prosodic and<wbr> discourse effects <wbr>on acoustic distinctiveness <wbr>in speech</h2>
         <h2 lang="pl">Probabilistyczne, prozodyczne i<wbr> dyskursowe efekty <wbr>na odrębność akustyczną <wbr>w mowie</h2>
         <p lang="en">Project no.
-          <span class="link_background" title="Click to copy Project ID to clipboard" onclick="copy_to_clipboard(this,'2020/37/B/HS2/04161');show_top_alert('Copied Project ID to clipboard.');">2020/37/<wbr>B/HS2/04161</span> <wbr>(OPUS 19)
+          <span class="link_background" title="Click to copy Project ID to clipboard" onclick="copy_to_clipboard(this,'2020/37/B/HS2/04161');return false;">2020/37/<wbr>B/HS2/04161</span> <wbr>(OPUS 19)
         </p>
-        <p lang="pl">Projekt nr. <span class="link_background" title="Click to copy Project ID to clipboard" onclick="copy_to_clipboard(this,'2020/37/B/HS2/04161');show_top_alert('Copied Project ID to clipboard.');">2020/37/<wbr>B/HS2/04161</span> <wbr>(OPUS 19)</p>
+        <p lang="pl">Projekt nr. <span class="link_background" title="Click to copy Project ID to clipboard" onclick="copy_to_clipboard(this,'2020/37/B/HS2/04161');return false;">2020/37/<wbr>B/HS2/04161</span> <wbr>(OPUS 19)</p>
       </div>
       <a title="Open National Science Center in new tab" href="https://www.ncn.gov.pl/" target="_blank" rel="noopener noreferrer" draggable="false" ondragstart="return false;">
         <img class="image_highlight_on_hover" src="img/ncn_logo.png" alt="ncn logo">
