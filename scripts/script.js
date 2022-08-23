@@ -190,9 +190,9 @@ function get_url_parameters() {
         // console.log(`ok: received lang parameter to set '${param_lang}'`);
         switch_language(param_lang);
     }
-    else {
-        // console.log("info: no lang parameter available");
-    }
+    // else {
+    // console.log("info: no lang parameter available");
+    // }
 
 }
 
