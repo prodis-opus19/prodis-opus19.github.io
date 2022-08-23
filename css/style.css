@@ -301,10 +301,10 @@ footer img {
   margin-left: auto;
   margin-right: auto;
   overflow: hidden;
-  padding-bottom: 7px;
-  padding-left: 15px;
-  padding-right: 15px;
-  padding-top: 7px;
+  padding-bottom: 6px;
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-top: 6px;
   width: 280px;
 }
 
@@ -317,8 +317,8 @@ footer img {
   cursor: pointer;
   font-size: 150%;
   height: 60px;
-  margin-bottom: 7px;
-  margin-top: 7px;
+  margin-bottom: 6px;
+  margin-top: 6px;
   outline: none;
   overflow: hidden;
   width: 100%;
