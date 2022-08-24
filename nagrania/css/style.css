@@ -84,7 +84,7 @@ li {
 
 #copy_popup {
   background-color: #141414;
-  border-radius: 8px;
+  border-radius: 6px;
   border: 1px solid #262626;
   font-size: 80%;
   letter-spacing: 0.2em;
@@ -191,10 +191,10 @@ nav {
 }
 
 nav li {
-  border-radius: 15px;
+  border-radius: 12px;
   cursor: pointer;
   padding-bottom: 12px;
-  padding-left: 14px;
+  padding-left: 12px;
   padding-right: 14px;
   padding-top: 12px;
 }
@@ -344,7 +344,7 @@ footer img {
 
 /* responsive design */
 /* reduce desktop navbar padding */
-@media (max-width: 1100px) {
+@media (max-width: 1030px) {
   nav li {
     padding-left: 6px;
     padding-right: 10px;
@@ -353,7 +353,7 @@ footer img {
 
 /* mobile device */
 /* navbar and reduce top margin */
-@media only screen and (max-width: 1030px) {
+@media only screen and (max-width: 990px) {
   #top_alert {
     top: 0px;
     z-index: 105;
