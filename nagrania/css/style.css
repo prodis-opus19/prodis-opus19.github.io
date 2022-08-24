@@ -147,6 +147,18 @@ li {
   color: #99ff99;
 }
 
+/* Uncomment this and the div in the HTML to show notification when enough participants */
+/* .notice_participants {
+  background-color: yellow;
+  border-radius: 10px;
+  color: red;
+  font-size: 200%;
+  font-weight: 800;
+  margin-bottom: 20px;
+  padding: 10px;
+  text-align: left;
+} */
+
 /* header at the top; contains website name and navigation links */
 header {
   align-items: center;
