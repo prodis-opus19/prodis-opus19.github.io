@@ -137,10 +137,6 @@ li {
   user-select: text;
 }
 
-.force_select {
-  user-select: all;
-}
-
 /* hide polish or english version based on button click */
 body.hide_english :lang(en) {
   display: none;
