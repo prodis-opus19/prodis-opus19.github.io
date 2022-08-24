@@ -257,7 +257,8 @@ input[type=checkbox] {
   margin-right: auto;
   margin-top: 120px;
   overflow-wrap: break-word;
-  padding: 50px;
+  /* top, right, bottom, left */
+  padding: 40px 50px 40px 50px;
   width: 600px;
 }
 
@@ -306,7 +307,7 @@ article h1 {
 article p {
   color: #d3d3d3;
   line-height: 1.8;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 /* list within article */
