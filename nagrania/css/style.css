@@ -426,4 +426,8 @@ footer img {
     padding-right: 14px;
     width: 98%;
   }
+
+  article #reduce_email {
+    font-size: 90%;
+  }
 }
