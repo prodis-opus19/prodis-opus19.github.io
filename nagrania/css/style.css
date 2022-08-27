@@ -99,7 +99,7 @@ li {
 }
 
 .class_AnimCopy {
-  animation: AnimCopy 0.8s linear forwards;
+  animation: AnimCopy 1s linear forwards;
 }
 
 @keyframes AnimCopy {
@@ -107,14 +107,12 @@ li {
     opacity: 1;
   }
 
-  85% {
+  90% {
     opacity: 1;
-    transform: translateX(0px);
   }
 
   100% {
     opacity: 0;
-    transform: translateX(50px);
   }
 }
 
