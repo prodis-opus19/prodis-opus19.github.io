@@ -48,7 +48,7 @@ li {
   padding: 16px;
   pointer-events: none;
   position: fixed;
-  top: 66px;
+  top: 62px;
   transform: translateY(-50px);
   width: 100%;
   z-index: 5;
@@ -191,10 +191,10 @@ nav {
 nav li {
   border-radius: 12px;
   cursor: pointer;
-  padding-bottom: 12px;
+  padding-bottom: 10px;
   padding-left: 12px;
   padding-right: 14px;
-  padding-top: 12px;
+  padding-top: 10px;
 }
 
 nav li:hover:not(.navbar_splitter) {
