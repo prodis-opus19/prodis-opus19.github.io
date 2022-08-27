@@ -96,6 +96,9 @@ function show_copy_popup(tag) {
     */
     // get copy popup element that will be shown on click
     const copy_element = document.getElementById("copy_popup");
+    // remove animation, trigger reflow
+    copy_element.classList.remove("class_AnimCopy");
+    void copy_element.offsetWidth;
     // if same tag as previous, enable combo & keep previous position (do not re-calculate)
     if (tag === global_last_tag_obj) {
         global_combo_count += 1;
@@ -145,9 +148,7 @@ function show_copy_popup(tag) {
         copy_element.style.top = (top + global_add_vertical_value) + "px";
         copy_element.style.left = left + "px";
     }
-    // remove animation, trigger reflow, add animation
-    copy_element.classList.remove("class_AnimCopy");
-    void copy_element.offsetWidth;
+    // add animation
     copy_element.classList.add("class_AnimCopy");
 }
 
