@@ -81,8 +81,10 @@ function show_top_alert(content) {
 }
 
 
-let combo_count = 1;
-let combo_last_tag = null;
+let global_combo_count = 1;
+let global_last_tag_obj = null;
+// 10px down on mobile, 130px on desktop, but not a big deal if it fails to detect useragent
+const global_add_vertical_value = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) ? 10 : 130;
 
 
 function show_copy_popup(tag) {
@@ -94,44 +96,44 @@ function show_copy_popup(tag) {
     */
     // get copy popup element that will be shown on click
     const copy_element = document.getElementById("copy_popup");
-    // if same tag as previous, enable combo (clicked same element multiple times) & keep previous position
-    if (tag === combo_last_tag) {
-        combo_count += 1;
+    // if same tag as previous, enable combo & keep previous position (do not re-calculate)
+    if (tag === global_last_tag_obj) {
+        global_combo_count += 1;
         let append_text;
-        // Unreal Tournament 2004 killstreaks because why not
+        // Unreal Tournament 2004
         switch (true) {
-            case (combo_count < 5):
+            case (global_combo_count < 5):
                 append_text = "COMBO";
                 break;
-            case (combo_count < 10):
+            case (global_combo_count < 10):
                 append_text = "COMBO SPREE";
                 break;
-            case (combo_count < 15):
+            case (global_combo_count < 15):
                 append_text = "RAMPAGE";
                 break;
-            case (combo_count < 20):
+            case (global_combo_count < 20):
                 append_text = "DOMINATING";
                 break;
-            case (combo_count < 25):
+            case (global_combo_count < 25):
                 append_text = "UNSTOPPABLE";
                 break;
-            case (combo_count < 30):
+            case (global_combo_count < 30):
                 append_text = "GODLIKE";
                 break;
-            case (combo_count < 40):
+            case (global_combo_count < 40):
                 append_text = "WICKED SICK";
                 break;
             default:
                 append_text = "マジで";
                 break;
         }
-        copy_element.textContent = `${append_text} ${combo_count}!`;
+        copy_element.textContent = `${append_text} ${global_combo_count}!`;
     }
-    // if different tag, reset combo & get new position
+    // if different tag, reset combo & get new position (re-calculate)
     else {
         // set global values that will be used to check if clicked same tag
-        combo_last_tag = tag; // global
-        combo_count = 1; // global
+        global_last_tag_obj = tag;
+        global_combo_count = 1;
         copy_element.textContent = "COPIED!";
         // get body & tag position
         const body_rect = document.body.getBoundingClientRect();
@@ -139,9 +141,8 @@ function show_copy_popup(tag) {
         // calculate relative postion (otherwise breaks on scroll)
         const top = tag_rect.bottom - body_rect.top;
         const left = tag_rect.left - body_rect.left;
-        // set popup tag to relative position: 10 on mobile, 130 on desktop
-        const add_vertical_value = isMobile ? 10 : 130;
-        copy_element.style.top = (top + add_vertical_value) + "px";
+        // set popup tag to relative position
+        copy_element.style.top = (top + global_add_vertical_value) + "px";
         copy_element.style.left = left + "px";
     }
     // remove animation, trigger reflow, add animation
@@ -189,7 +190,5 @@ function get_url_parameters() {
 }
 
 
-// on script load, check if mobile, open tabs
-const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+// on script load, open tabs
 get_url_parameters()
-
