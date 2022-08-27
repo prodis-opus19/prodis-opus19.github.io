@@ -152,12 +152,12 @@ function show_copy_popup(tag) {
     /*
     Show popup under the div passed using "this".
     If "isMobile" is True, then reduce Y offset from 150 to 20.
-    This is because on mobile the div is moved down for some reason.
-    If clicked same tag multiple times, count how many times clicked and show as "COMBO!".
+    This is because the div is moved down on mobile for some reason (tested on iOS Safari).
+    If clicked same tag multiple times, do not re-calculate position & count how many times clicked.
     */
-    // catch combos (clicked same element multiple times)
-    const div = document.getElementById("copy_popup");
-    // if same tag as previous, enable combo
+    // get copy popup element that will be shown on click
+    const copy_element = document.getElementById("copy_popup");
+    // if same tag as previous, enable combo (clicked same element multiple times) & keep previous position
     if (tag === combo_last_tag) {
         combo_count += 1;
         let append_text;
@@ -188,29 +188,25 @@ function show_copy_popup(tag) {
                 append_text = "マジで";
                 break;
         }
-        div.textContent = `${append_text} ${combo_count}!`;
+        copy_element.textContent = `${append_text} ${combo_count}!`;
     }
-    // if different tag, reset combo
+    // if different tag, reset combo & get new position
     else {
-        combo_last_tag = tag;
-        combo_count = 1;
-        div.textContent = "COPIED!";
+        // set global values that will be used to check if clicked same tag
+        combo_last_tag = tag; // global
+        combo_count = 1; // global
+        copy_element.textContent = "COPIED!";
+        // get body & tag position
+        const body_rect = document.body.getBoundingClientRect();
+        const tag_rect = tag.getBoundingClientRect();
+        // calculate relative postion (otherwise breaks on scroll)
+        const top = tag_rect.bottom - body_rect.top;
+        const left = tag_rect.left - body_rect.left;
+        // set popup tag to relative position: 10 on mobile, 130 on desktop
+        const add_vertical_value = isMobile ? 10 : 130;
+        copy_element.style.top = (top + add_vertical_value) + "px";
+        copy_element.style.left = left + "px";
     }
-    // get body & tag position
-    const body_rect = document.body.getBoundingClientRect();
-    const tag_rect = tag.getBoundingClientRect();
-    // const padding_bottom = parseFloat(document.defaultView.getComputedStyle(tag).paddingBottom);
-    // calculate relative postion (otherwise breaks on scroll)
-    const top = tag_rect.bottom - body_rect.top;
-    const left = tag_rect.left - body_rect.left;
-    // set popup tag to relative position
-    const copy_element = document.getElementById("copy_popup");
-    let add_vertical_value = 130;
-    if (isMobile) {
-        add_vertical_value = 10;
-    }
-    copy_element.style.top = (top + add_vertical_value) + "px";
-    copy_element.style.left = left + "px";
     // remove animation, trigger reflow, add animation
     copy_element.classList.remove("class_AnimCopy");
     void copy_element.offsetWidth;
