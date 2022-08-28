@@ -153,7 +153,7 @@ const global_add_vertical_value = /iPhone|iPad|iPod|Android/i.test(navigator.use
 function show_copy_popup(tag) {
     /*
     Show popup under the div passed using "this".
-    If "isMobile" is True, then reduce Y offset from 150 to 20.
+    If "isMobile" is True, then reduce Y offset from 130 to 10.
     This is because the div is moved down on mobile for some reason (tested on iOS Safari).
     If clicked same tag multiple times, do not re-calculate position & count how many times clicked.
     */
