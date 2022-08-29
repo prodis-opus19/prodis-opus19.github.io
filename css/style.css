@@ -354,8 +354,8 @@ footer img {
   border: none;
   color: white;
   cursor: pointer;
-  font-size: 150%;
-  height: 60px;
+  font-size: 140%;
+  height: 50px;
   margin-bottom: 6px;
   margin-top: 6px;
   outline: none;
@@ -548,6 +548,11 @@ footer img {
     padding-left: 14px;
     padding-right: 14px;
     width: 98%;
+  }
+
+  .navbar_per_person button {
+    font-size: 150%;
+    height: 60px;
   }
 
   .tab_per_person_content {
