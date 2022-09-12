@@ -13,10 +13,17 @@
 </head>
 
 <body class="hide_polish">
-  <!-- display warning message if javascript disabled -->
+  <!-- display warning message and show all tabs if javascript disabled -->
   <noscript>
-    <p id="js_disabled">Warning: <wbr>JavaScript is disabled.</p>
+    <p id="js_disabled">Warning: <wbr>JavaScript is disabled, displaying all tabs as fallback.</p>
+    <style type="text/css">
+      .full_page_tab {
+        display: block;
+      }
+
+    </style>
   </noscript>
+
   <!-- popups hidden by default, shown with javascript -->
   <div id="top_alert">default message</div>
   <div id="copy_popup">COPIED!</div>
