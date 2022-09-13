@@ -31,9 +31,9 @@
       <!-- navigation menus -->
       <nav draggable="false" ondragstart="return false;">
         <li title="Otwórz kartę Informacja" id="informacja_button" class="navbar_link" onclick="open_full_page_tab('informacja');" oncontextmenu="copy_to_clipboard(this,`${window.location.href.split('?')[0]}?tab=informacja`);return false;"><i class="fa fa-home"></i> Informacja</li>
-        <li title="Otwórz kartę Ankieta" id="ankieta_button" class="navbar_link" onclick="open_full_page_tab('ankieta');" oncontextmenu="copy_to_clipboard(this,`${window.location.href.split('?')[0]}?tab=ankieta`);return false;"><i class="fa fa-vcard"></i> Ankieta</li>
         <li title="Otwórz kartę Lokalizacja" id="lokalizacja_button" class="navbar_link" onclick="open_full_page_tab('lokalizacja');" oncontextmenu="copy_to_clipboard(this,`${window.location.href.split('?')[0]}?tab=lokalizacja`);return false;"><i class="fa fa-map-marker"></i> Lokalizacja</li>
         <li title="Otwórz kartę Harmonogram" id="harmonogram_button" class="navbar_link" onclick="open_full_page_tab('harmonogram');" oncontextmenu="copy_to_clipboard(this,`${window.location.href.split('?')[0]}?tab=harmonogram`);return false;"><i class="fa fa-calendar"></i> Harmonogram</li>
+        <li title="Otwórz kartę Ulotka" id="ulotka_button" class="navbar_link" onclick="open_full_page_tab('ulotka');" oncontextmenu="copy_to_clipboard(this,`${window.location.href.split('?')[0]}?tab=ulotka`);return false;"><i class="fa fa-vcard"></i> Ulotka</li>
         <li class="navbar_splitter">|</li>
         <li title="Otwórz stronę główną projektu w nowej karcie" onclick="open_in_new_tab('../index.html?lang=pl');" oncontextmenu="copy_to_clipboard(this,`${window.location.href.split('?')[0].split('/nagrania')[0]}`);return false;"><i class="fa fa-paperclip"></i> O projekcie</li>
       </nav>
@@ -69,13 +69,16 @@
       <p>W zamian za około godzinę nagrań oferujemy <b>kartę podarunkową Empik o wartości 50 zł</b>.</p>
       <div class="article_list">
         <h1>Jak przystąpić do badania?</h1>
-        <p>1. Najpierw prosimy o wypełnienie ankiety - <wbr><a class="link_background link_default" title="Otwórz kartę Ankieta" onclick="open_full_page_tab('ankieta');show_top_alert('Otwarto kartę Ankieta.'); return false;" href="?tab=ankieta">ankieta</a>.</p>
-        <p>2. Po otrzymaniu odpowiedzi e-mail <wbr>o przyjęciu (lub ewentualnym odrzuceniu) na listę uczestników prosimy o udział w badaniu mowy - <wbr><a class="link_background link_default" title="Otwórz kartę Ankieta" onclick="open_full_page_tab('lokalizacja');show_top_alert('Otwarto kartę Lokalizacja.');return false;" href="?tab=ankieta">lokalizacja</a>.</p>
-        <p>3. W studiu poprosimy Cię o podpisanie zgody na wykorzystanie nagrań do celów naukowych (niekomercyjnych).</p>
+        <p>1. Najpierw prosimy o wypełnienie ankiety.</p>
+        <p>Ankieta zawiera pytania demograficzne i wypełnienie jej nie powinno zająć więcej, niż 6 minut.</p>
+        <p class="big_link">&#9655; Link do ankiety: <wbr><a class="link_background link_default" title="Otwórz link do ankiety w nowej karcie" href="https://amu.edu.pl/" target="_blank" rel="noopener noreferrer">kliknij tutaj</a>.</p>
+        <p>2. Po otrzymaniu odpowiedzi e-mail <wbr>o przyjęciu (lub ewentualnym odrzuceniu) na listę uczestników prosimy o udział w badaniu mowy.</p>
+        <p>W studiu poprosimy Cię o podpisanie zgody na wykorzystanie nagrań do celów naukowych (niekomercyjnych).</p>
+        <p class="big_link">&#9655; Lokalizacja studia: <wbr><a class="link_background link_default" title="Otwórz kartę Lokalizacja" onclick="open_full_page_tab('lokalizacja');show_top_alert('Otwarto kartę Lokalizacja.');return false;" href="?tab=lokalizacja">kliknij tutaj</a>.</p>
         <p>4. Po około godzinie nagrań, odbierzesz kartę Empik o wartości 50 zł.</p>
+
       </div>
     </article>
-    <img class="img_wide" src="img/poster.png" alt="recruitment poster" draggable="false" ondragstart="return false;">
     <!-- footer with ukrainian flag at the bottom -->
     <footer>
       <hr> <!-- horizontal line -->
@@ -84,25 +87,13 @@
     </footer>
   </div>
 
-  <!-- full page tab: ankieta -->
-  <div id="ankieta_tab" class="full_page_tab">
+  <!-- full page tab: ulotka -->
+  <div id="ulotka_tab" class="full_page_tab">
     <div class="tab_title enable_select">
-      <h1>Ankieta</h1>
+      <h1>Ulotka</h1>
       <hr>
     </div>
-    <!-- actual content -->
-    <article class="enable_select">
-      <p>W celu przystąpienia do badania, prosimy o wypełnienie krótkiej ankiety.</p>
-      <p>Ankieta zawiera pytania demograficzne i wypełnienie jej nie powinno zająć więcej, niż 6 minut.</p>
-      <p>Z powodu natury badania, <b>osoby z wadami poznawczymi, mowy, wzroku, lub słuchu (np. dysleksja, jąkanie, klaustrofobia)</b> nie powinny przystąpić do badania.</p>
-      <p><b>Osoby z aparatami ortodontycznymi</b> również nie powinny przystąpić do badania.</p>
-      <p>Po wypełnieniu ankiety uczestnik na adres e-mail otrzyma potwierdzenie (lub ewentualne odrzucenie) udziału w ankiecie oraz dokładny termin - data i godzina.</p>
-      <p>Odrzucenie zależy wyłącznie od uwarunkowań eksperymentalnych, np. równa pula kobiet i mężczyzn.</p>
-      <div class="survey_links">
-        <h3>&#9655; Link do ankiety: <wbr><a class="link_background link_default" title="Otwórz link do ankiety w nowej karcie" href="https://amu.edu.pl/" target="_blank" rel="noopener noreferrer" draggable="false" ondragstart="return false;">kliknij tutaj</a>.</h3>
-        <h3 id="reduce_email">Kontakt: <wbr><a class="link_background link_default" title="Kliknij tutaj, aby skopiować adres e-mail do schowka" onclick="copy_to_clipboard(this,'polish_corpus@protonmail.com');return false;" href="mailto:polish_corpus@protonmail.com">polish_corpus@protonmail.com</a>.</h3>
-      </div>
-    </article>
+    <img id="ulotka" src="img/poster.png" alt="recruitment poster" draggable="false" ondragstart="return false;">
     <!-- footer with ukrainian flag at the bottom -->
     <footer>
       <hr> <!-- horizontal line -->
@@ -121,13 +112,17 @@
     <article class="enable_select">
       <div class="article_list">
         <h1>1. Adres studia nagrań</h1>
-        <p>Laboratorium Mowy i Języka (pok. nr 07), Wydział Anglistyki UAM.</p>
+        <p>Laboratorium Mowy i Języka (pok. nr 004), Wydział Anglistyki UAM.</p>
         <p>ul. Grunwaldzka 6 (Collegium Heliodori Święcicki), 60-780, Poznań.</p>
         <img class="img_wide" src="img/map_location.jpeg" alt="google maps screenshot" draggable="false" ondragstart="return false;">
         <h1>2. Wejście do budynku</h1>
-        <p>Po wejściu do budynku, wystaczy iść cały czas prosto (wnęka pod schodami)</p>
-        <p>Przy wejściu można również spytać portiera o dokładną lokalizację.</p>
+        <p>Po wejściu do budynku, należy iść cały czas prosto przez wnękę pod schodami.</p>
+        <img class="img_wide" src="img/irl1.jpeg" alt="building plan map" draggable="false" ondragstart="return false;">
+        <p>Po klikunastu metrach, po lewej stronie znajdziesz studio nagrań przed windą dla osób niepełnosprawnych.</p>
+        <img class="img_wide" src="img/irl2.jpeg" alt="building plan map" draggable="false" ondragstart="return false;">
+        <img class="img_wide" src="img/irl3.jpeg" alt="building plan map" draggable="false" ondragstart="return false;">
         <p>W razie ewentualnych problemów - <a class="link_background link_default" title="Otwórz plan budynku w nowej karcie" href="http://wa.amu.edu.pl/wa/Collegium_Heliodori/" target="_blank">plan całego budynku</a>.</p>
+        <p>Przy wejściu (po lewej stronie) można również spytać portiera o dokładną lokalizację.</p>
         <img class="img_wide" src="img/map_building_plan.jpg" alt="building plan map" draggable="false" ondragstart="return false;">
       </div>
     </article>
@@ -148,7 +143,8 @@
     <!-- actual content -->
     <article class="enable_select">
       <p>Aby chronić prywatność uczestników, harmogram nie jest dostępny publicznie.</p>
-      <p>Po wypełnieniu ankiety i potwierdzeniu przyjęcia, uczestnik otrzyma dokładną datę oraz godzinę badania na adres e-mail podany w ankiecie.</p>
+      <p>Po wypełnieniu ankiety i potwierdzeniu przyjęcia, uczestnik na podany w ankiecie adres e-mail otrzyma unikalny identyfikator (np. M003) oraz dokładną datę i godzinę badania.</p>
+      <p>Co ważne, ww. identyfikator jest niezbędny do przystąpienia do badania - prosimy o zapisanie go (np. w notatkach w telefonie).</p>
     </article>
     <!-- footer with ukrainian flag at the bottom -->
     <footer>
