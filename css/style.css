@@ -254,12 +254,12 @@ input[type=checkbox] {
 /* welcome title */
 .tab_title h1 {
   font-size: 300%;
-  margin-bottom: 40px;
+  margin-bottom: 26px;
 }
 
 .tab_title h2 {
   font-size: 130%;
-  margin-bottom: 40px;
+  margin-bottom: 26px;
 }
 
 /* project number */
@@ -267,18 +267,18 @@ input[type=checkbox] {
   color: #d3d3d3;
   font-size: 120%;
   letter-spacing: 0.1em;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 .tab_title img {
   filter: drop-shadow(0 0px 3px #1a1a1a);
-  height: 90px;
-  margin: 30px;
+  height: 70px;
+  margin: 20px;
 }
 
 .tab_title hr {
   color: gray;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   margin-top: 10px;
   size: 2;
 }
