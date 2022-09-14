@@ -46,15 +46,15 @@ function open_full_page_tab(category, create_entry = true, scroll_up = true) {
     for (let i = 0; i < full_page_tab.length; i++) {
         full_page_tab[i].style.display = "none";
     }
-    // remove the background color of all navbar_links/buttons
-    const navbar_links = document.getElementsByClassName("navbar_link");
-    for (let i = 0; i < navbar_links.length; i++) {
-        navbar_links[i].style.backgroundColor = "";
+    // remove the background color of all tab_links/buttons
+    const tab_links = document.getElementsByClassName("tab_link");
+    for (let i = 0; i < tab_links.length; i++) {
+        tab_links[i].className = tab_links[i].className.replace(" active", "");
     }
     // show the specific tab content
     document.getElementById(`${category}_tab`).style.display = "block";
     // set active tab's button color to red
-    document.getElementById(`${category}_button`).style.backgroundColor = "#bb4b4b";
+    document.getElementById(`${category}_button`).className += " active";
     // set webpage's title
     const new_title = category[0].toUpperCase() + category.slice(1);
     document.title = `${APPENDED_TITLE} - ${new_title}`;
@@ -63,7 +63,7 @@ function open_full_page_tab(category, create_entry = true, scroll_up = true) {
     if (create_entry) {
         window.history.pushState(category, "", `?tab=${category}`);
     }
-    // always scroll up, unless first run
+    // scroll up, unless first run
     if (scroll_up) {
         // scroll to top
         window.scrollTo(0, 0);

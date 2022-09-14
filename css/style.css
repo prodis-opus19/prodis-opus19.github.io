@@ -1,18 +1,42 @@
+/* variables*/
+:root {
+  --almost_white: #d3d3d3;
+  --body_background: #1a1a1a;
+  --header_background: #141414;
+  --header_border: #262626;
+  --header_shadow: #0d0d0d;
+  --nav_button_active_hover: #c76b6b;
+  --nav_button_active: #bb4b4b;
+  --nav_button_background: #404040;
+  --nav_hover: #808080;
+  --splitter_color: #404040;
+  --tab_background: #262626;
+  --tab_border: #333333;
+  --tab_shadow: #0d0d0d;
+  --table_background: #141414;
+  --table_border: #333333;
+  --table_link_background_hover: #440000;
+  --table_link_color: #ff6961;
+  --table_td_color: #808080;
+  --table_th_border: #1a1a1a;
+  --table_th_color: #bfbfbf;
+  --white: white;
+}
+
 body {
   -webkit-user-select: none;
-  background-color: #1a1a1a;
+  background-color: var(--body_background);
   border: none;
-  color: white;
+  color: var(--white);
   font-family: Arial, Helvetica, sans-serif;
   height: 100%;
-  margin-bottom: 70px;
-  outline: none;
   overflow-x: hidden;
   overflow-y: scroll;
   text-align: center;
   user-select: none;
 }
 
+/* do not stretch when padding or border is added; if div defined as 100px width and 10px padding, then it will still be 100px wide */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -23,23 +47,30 @@ a {
   text-decoration: none;
 }
 
-li {
-  list-style: none;
+.link {
+  color: #bb4b4b;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.link:hover {
+  background-color: #704343;
+  color: #ff9999;
 }
 
 #top_alert {
-  background-color: #141414;
-  border-bottom: 1px solid #bb4b4b;
-  color: #bb4b4b;
+  background-color: var(--header_background);
+  border-bottom: 1px solid var(--nav_button_active);
+  color: var(--nav_button_active);
   font-size: 120%;
   opacity: 0;
   padding: 16px;
   pointer-events: none;
   position: fixed;
-  top: 62px;
+  top: 60px;
   transform: translateY(-50px);
   width: 100%;
-  z-index: 5;
+  z-index: 0;
 }
 
 .class_AnimAlert {
@@ -83,7 +114,7 @@ li {
   padding-top: 8px;
   pointer-events: none;
   position: absolute;
-  z-index: 110;
+  z-index: 1;
 }
 
 .class_AnimCopy {
@@ -128,72 +159,84 @@ body.hide_polish :lang(pl) {
   filter: brightness(120%) saturate(120%);
 }
 
-.link_default {
-  color: #bb4b4b;
-  cursor: pointer;
-}
-
-.link_background {
-  cursor: pointer;
-}
-
-.link_background:hover {
-  background-color: #704343;
-  color: #ff9999;
-}
-
 /* header at the top; contains website name and navigation links */
 header {
   align-items: center;
-  background-color: #141414;
-  border-bottom: 3px solid #262626;
-  box-shadow: 0px 0px 15px #0d0d0d;
-  color: white;
+  background-color: var(--header_background);
+  border-bottom: 3px solid var(--header_border);
+  box-shadow: 0px 0px 15px var(--header_shadow);
   display: flex;
+  height: 60px;
   justify-content: space-between;
-  margin-bottom: 50px;
-  margin-left: auto;
-  margin-right: auto;
-  overflow: hidden;
-  padding: 8px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 3px;
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 100;
+  z-index: 2;
 }
 
-/* text on left side of header */
-#header_title {
-  font-size: 35px;
-  padding-left: 10px;
+header a {
+  color: var(--white);
 }
 
-/* buttons on right side of header */
-nav {
+/* webpage title */
+header>#header_logo {
+  font-size: 28px;
+  margin-right: 20px;
+}
+
+/* responsive navbar menu for navbar */
+header>#checkbox_toggle {
+  display: none;
+}
+
+header>#hamburger {
+  display: none;
+}
+
+/* container aligned to the right; contains links to tabs and websites */
+header>nav {
+  align-items: center;
   display: flex;
-  font-size: 20px;
-  gap: 15px;
-  z-index: 101;
+  height: 100%;
+  justify-content: space-between;
+  margin-left: auto;
+  margin-right: 0;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
-nav li {
+/* all direct children (incl. separator) have margin on the right */
+header>nav>*:not(:last-child) {
+  margin-right: 10px;
+}
+
+header>nav>.tab_link {
   border-radius: 12px;
-  cursor: pointer;
+  font-size: 20px;
   padding-bottom: 10px;
-  padding-left: 12px;
-  padding-right: 14px;
+  padding-left: 22px;
+  padding-right: 24px;
   padding-top: 10px;
 }
 
-nav li:hover:not(.navbar_splitter) {
-  background-color: #808080;
+header>nav>.tab_link:hover {
+  background-color: var(--nav_hover);
 }
 
-nav .navbar_splitter {
-  color: gray;
-  pointer-events: none;
-  padding-left: 0px;
-  padding-right: 0px;
+header>nav>.tab_link.active {
+  background-color: var(--nav_button_active);
+}
+
+header>nav>.tab_link.active:hover {
+  background-color: var(--nav_button_active_hover);
+}
+
+header>nav>.navbar_splitter {
+  border-left: 2px solid var(--splitter_color);
+  height: 40%;
 }
 
 #lang_flag {
@@ -203,36 +246,17 @@ nav .navbar_splitter {
   transform: translateY(3px);
 }
 
-/* responsive navbar menu for navbar */
-/* checkbox hack */
-input[type=checkbox] {
-  display: none;
-}
-
-.hamburger {
-  border-radius: 15px;
-  display: none;
-  font-size: 46px;
-  padding-bottom: 4px;
-  padding-left: 20px;
-  padding-right: 20px;
-}
-
-.hamburger #menu_text {
-  color: #d3d3d3;
-  font-size: 16px;
-}
-
 /* full page tabs */
 .full_page_tab {
-  background-color: #262626;
+  background-color: var(--tab_background);
   border-radius: 50px;
-  border: 2px solid #333333;
-  box-shadow: 0px 0px 15px #0d0d0d;
+  border: 2px solid var(--tab_border);
+  box-shadow: 0px 0px 15px var(--tab_shadow);
   display: none;
+  margin-bottom: 100px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 120px;
+  margin-top: 110px;
   overflow-wrap: break-word;
   /* top, right, bottom, left */
   padding: 40px 50px 40px 50px;
@@ -252,14 +276,14 @@ input[type=checkbox] {
 
 /* project number */
 .tab_title p {
-  color: #d3d3d3;
+  color: var(--almost_white);
   font-size: 120%;
   letter-spacing: 0.1em;
   margin-bottom: 20px;
 }
 
 .tab_title img {
-  filter: drop-shadow(0 0px 3px #1a1a1a);
+  filter: drop-shadow(0 0px 3px var(--table_th_border));
   height: 70px;
   margin: 20px;
 }
@@ -282,7 +306,7 @@ article h1 {
 }
 
 article p {
-  color: #d3d3d3;
+  color: var(--almost_white);
   line-height: 1.8;
   margin-bottom: 20px;
 }
@@ -401,11 +425,11 @@ footer img {
 }
 
 .contact_info table {
-  background-color: #141414;
+  background-color: var(--table_background);
   border-collapse: separate;
   border-radius: 20px;
   border-spacing: 25px;
-  border: 2px solid #333333;
+  border: 2px solid var(--table_border);
   margin-left: auto;
   margin-right: auto;
   margin-top: 55px;
@@ -414,7 +438,7 @@ footer img {
 
 /* columns */
 .contact_info table th {
-  border-bottom: 2px solid #1a1a1a;
+  border-bottom: 2px solid var(--table_th_border);
   font-size: 160%;
   font-weight: bold;
   padding-bottom: 15px;
@@ -422,7 +446,7 @@ footer img {
 
 /* rows */
 .contact_info table td {
-  color: #808080;
+  color: var(--table_td_color);
   font-size: 120%;
   padding-bottom: 15px;
   padding-top: 15px;
@@ -437,88 +461,117 @@ footer img {
 }
 
 .contact_info .email_explanation {
-  color: #d3d3d3;
+  color: var(--almost_white);
   margin-left: auto;
   margin-right: auto;
   margin-top: 35px;
   width: 90%;
 }
 
-/* responsive design */
-/* reduce desktop navbar padding */
-@media (max-width: 1026px) {
-  nav li {
-    padding-left: 6px;
-    padding-right: 10px;
+/* narrow */
+@media only screen and (max-width: 1070px) {
+  header>#header_logo {
+    display: none;
+  }
+
+  header>nav {
+    width: 100%;
+  }
+
+  header>nav>*:not(:last-child) {
+    margin-right: 5px;
+  }
+
+  header>nav>.tab_link {
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 100%;
   }
 }
 
-/* mobile device */
-/* navbar and reduce top margin */
-@media only screen and (max-width: 960px) {
+
+/* mobile navbar only */
+@media only screen and (max-width: 720px) {
   #top_alert {
     top: 0px;
-    z-index: 105;
+    z-index: 3;
   }
 
   header {
-    position: static;
-  }
-
-  nav {
-    background-color: #0d0d0d;
-    border-radius: 20px;
-    border: 3px solid #262626;
-    box-shadow: 0px 0px 15px #0d0d0d;
-    display: none;
-    font-size: 22px;
-    left: 0;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 20px;
+    height: 80px;
+    padding-left: 0;
+    padding-right: 0;
     position: absolute;
-    right: 0;
-    top: 110px;
-    width: 90%;
   }
 
-  nav li:hover {
-    background-color: #808080;
-    width: 100%;
-    display: inline-block;
-  }
-
-  nav li+li {
-    margin-top: 12px;
-  }
-
-  #header_title {
-    transform: translateY(3px);
-  }
-
-  input[type=checkbox]:checked~nav {
+  /* re-add left/right padding to logo and hamburger after we removed header's padding */
+  header>#header_logo {
     display: block;
+    font-size: 32px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 
-  input[type=checkbox]:checked~.hamburger {
-    background-color: #808080;
+  header>#checkbox_toggle:checked~#hamburger {
+    color: var(--nav_button_active);
   }
 
-  .hamburger {
+  header>#checkbox_toggle:checked~nav {
+    display: flex;
+  }
+
+  header>#hamburger {
+    cursor: pointer;
     display: block;
+    font-size: 46px;
+    height: 100%;
+    padding-bottom: 8px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 8px;
   }
 
-  nav .navbar_splitter {
+  header>nav {
+    background-color: var(--header_background);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom: 3px solid var(--header_border);
     display: none;
+    flex-direction: column;
+    height: 450px;
+    padding: 18px;
+    position: absolute;
+    top: 80px;
+    width: 100%;
   }
 
-  .full_page_tab {
-    margin-top: 50px;
+  header>nav>*:not(:last-child) {
+    margin-right: 0px;
+  }
+
+  header>nav>.tab_link {
+    background-color: var(--nav_button_background);
+    font-size: 24px;
+    padding-bottom: 14px;
+    padding-top: 14px;
+    width: 100%;
+  }
+
+  header>nav>.navbar_splitter {
+    display: none;
   }
 }
 
-/* match screen width if less than full tab's 600px width (+ padding) */
-@media only screen and (max-width: 620px) {
+
+/* mobile all */
+@media only screen and (max-width: 610px) {
+  .full_page_tab {
+    border-radius: 20px;
+    padding-left: 14px;
+    padding-right: 14px;
+    width: 98%;
+  }
+
   .tab_title h1 {
     font-size: 230%;
   }
@@ -529,13 +582,6 @@ footer img {
 
   .tab_title p {
     font-size: 100%;
-  }
-
-  .full_page_tab {
-    border-radius: 20px;
-    padding-left: 14px;
-    padding-right: 14px;
-    width: 98%;
   }
 
   .navbar_per_person button {
@@ -572,4 +618,5 @@ footer img {
   .contact_info table td img {
     height: 15px;
   }
+
 }
