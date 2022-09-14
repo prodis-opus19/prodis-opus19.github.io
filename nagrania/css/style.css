@@ -6,7 +6,7 @@
   --header_border: #262626;
   --header_shadow: #0d0d0d;
   --nav_button_active_hover: #609f60;
-  --nav_button_active: #568f56;
+  --nav_button_active: #4d804d;
   --nav_button_background: #404040;
   --nav_hover: #808080;
   --splitter_color: #404040;
@@ -207,15 +207,15 @@ header>nav {
 
 /* all direct children (incl. separator) have margin on the right */
 header>nav>*:not(:last-child) {
-  margin-right: 10px;
+  margin-right: 6px;
 }
 
 header>nav>.tab_link {
   border-radius: 12px;
   font-size: 20px;
   padding-bottom: 10px;
-  padding-left: 22px;
-  padding-right: 24px;
+  padding-left: 18px;
+  padding-right: 20px;
   padding-top: 10px;
 }
 
@@ -357,7 +357,7 @@ footer img {
 }
 
 /* narrow */
-@media only screen and (max-width: 1090px) {
+@media only screen and (max-width: 1020px) {
   header>#header_logo {
     display: none;
   }
