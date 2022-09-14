@@ -1,17 +1,16 @@
+// GLOBAL VARIABLES
+const DEFAULT_TAB = "informacja"; // full page tab to open on page load
+const APPENDED_TITLE = "NAGRANIA"; // appended before tab in <title>, e.g., NAGRANIA - Informacja
+let COMBO_COUNT = 1; // how many times the same element was copied
+let LAST_TAG_OBJ = null; // which element was copied last time
+const VERTICAL_OFFSET = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) ? 10 : 120; // offset for "COPIED!" popup based on mobile/desktop
+
+
 function close_hamburger_menu() {
     /*
     Close floating menu that appears after clicking the hamburger menu icon on mobile.
     */
     document.getElementById("checkbox_toggle").checked = false;
-}
-
-
-function open_in_new_tab(url) {
-    /*
-    Open target URL in a new tab.
-    */
-    close_hamburger_menu();
-    window.open(url, "_blank");
 }
 
 
@@ -30,31 +29,31 @@ function open_full_page_tab(category, create_entry = true, scroll_up = true) {
     // check if target tab exists, set default if doesn't
     const target_full_page_tab = document.getElementById(`${category}_tab`);
     if (target_full_page_tab == null) {
-        category = "informacja";
+        category = DEFAULT_TAB;
     }
     // hide all elements with class="full_page_tab" by default
     const full_page_tab = document.getElementsByClassName("full_page_tab");
     for (let i = 0; i < full_page_tab.length; i++) {
         full_page_tab[i].style.display = "none";
     }
-    // remove the background color of all navbar_links/buttons
-    const navbar_links = document.getElementsByClassName("navbar_link");
-    for (let i = 0; i < navbar_links.length; i++) {
-        navbar_links[i].style.backgroundColor = "";
+    // remove the background color of all tab_links/buttons
+    const tab_links = document.getElementsByClassName("tab_link");
+    for (let i = 0; i < tab_links.length; i++) {
+        tab_links[i].className = tab_links[i].className.replace(" active", "");
     }
     // show the specific tab content
     document.getElementById(`${category}_tab`).style.display = "block";
     // set active tab's button color to red
-    document.getElementById(`${category}_button`).style.backgroundColor = "#437043";
+    document.getElementById(`${category}_button`).className += " active";
     // set webpage's title
     const new_title = category[0].toUpperCase() + category.slice(1);
-    document.title = `NAGRANIA - ${new_title}`;
+    document.title = `${APPENDED_TITLE} - ${new_title}`;
     // create new history entry for current tab
     // prevents duplicates when function called from listener to open tab from history
     if (create_entry) {
         window.history.pushState(category, "", `?tab=${category}`);
     }
-    // always scroll up, unless first run
+    // scroll up, unless first run
     if (scroll_up) {
         // scroll to top
         window.scrollTo(0, 0);
@@ -81,12 +80,6 @@ function show_top_alert(content) {
 }
 
 
-let global_combo_count = 1;
-let global_last_tag_obj = null;
-// 10px down on mobile, 130px on desktop, but not a big deal if it fails to detect useragent
-const global_add_vertical_value = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) ? 10 : 130;
-
-
 function show_copy_popup(tag) {
     /*
     Show popup under the div passed using "this".
@@ -100,43 +93,43 @@ function show_copy_popup(tag) {
     copy_element.classList.remove("class_AnimCopy");
     void copy_element.offsetWidth;
     // if same tag as previous, enable combo & keep previous position (do not re-calculate)
-    if (tag === global_last_tag_obj) {
-        global_combo_count += 1;
+    if (tag === LAST_TAG_OBJ) {
+        COMBO_COUNT += 1;
         let append_text;
         // Unreal Tournament 2004
         switch (true) {
-            case (global_combo_count < 5):
+            case (COMBO_COUNT < 5):
                 append_text = "COMBO";
                 break;
-            case (global_combo_count < 10):
+            case (COMBO_COUNT < 10):
                 append_text = "COMBO SPREE";
                 break;
-            case (global_combo_count < 15):
+            case (COMBO_COUNT < 15):
                 append_text = "RAMPAGE";
                 break;
-            case (global_combo_count < 20):
+            case (COMBO_COUNT < 20):
                 append_text = "DOMINATING";
                 break;
-            case (global_combo_count < 25):
+            case (COMBO_COUNT < 25):
                 append_text = "UNSTOPPABLE";
                 break;
-            case (global_combo_count < 30):
+            case (COMBO_COUNT < 30):
                 append_text = "GODLIKE";
                 break;
-            case (global_combo_count < 40):
+            case (COMBO_COUNT < 40):
                 append_text = "WICKED SICK";
                 break;
             default:
                 append_text = "マジで";
                 break;
         }
-        copy_element.textContent = `${append_text} ${global_combo_count}!`;
+        copy_element.textContent = `${append_text} ${COMBO_COUNT}!`;
     }
     // if different tag, reset combo & get new position (re-calculate)
     else {
         // set global values that will be used to check if clicked same tag
-        global_last_tag_obj = tag;
-        global_combo_count = 1;
+        LAST_TAG_OBJ = tag;
+        COMBO_COUNT = 1;
         copy_element.textContent = "COPIED!";
         // get body & tag position
         const body_rect = document.body.getBoundingClientRect();
@@ -145,7 +138,7 @@ function show_copy_popup(tag) {
         const top = tag_rect.bottom - body_rect.top;
         const left = tag_rect.left - body_rect.left;
         // set popup tag to relative position
-        copy_element.style.top = (top + global_add_vertical_value) + "px";
+        copy_element.style.top = (top + VERTICAL_OFFSET) + "px";
         copy_element.style.left = left + "px";
     }
     // add animation
@@ -168,14 +161,15 @@ function copy_to_clipboard(tag, to_copy) {
 
 window.addEventListener("popstate", (event) => {
     // console.log(`ok: opening tab based on history: ${event.state}`);
-    open_full_page_tab(event.state, create_entry = false);
+    open_full_page_tab(event.state, create_entry = false, scroll_up = false);
 });
+
 
 
 function get_url_parameters() {
     /*
-    Set tab using URL parameters.
-    If no parameters are provided, then use default - Home tab.
+    Set tab and language using URL parameters.
+    If no parameters are provided, then use default - Home tab, English language.
     */
     const url_parameters = new URLSearchParams(window.location.search);
     // tab parameter (team, contact), e.g., prodis-opus19.github.io/index.html?tab=team
@@ -186,7 +180,7 @@ function get_url_parameters() {
     }
     else {
         // console.log("info: no tab parameter available");
-        open_full_page_tab("informacja", create_entry = false, scroll_up = false);
+        open_full_page_tab(DEFAULT_TAB, create_entry = false, scroll_up = false);
     }
 }
 

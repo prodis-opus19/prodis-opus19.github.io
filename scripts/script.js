@@ -4,7 +4,7 @@ const DEFAULT_PERSON_TAB = "m_kul"; // person description opened in team tab
 const APPENDED_TITLE = "PRODIS"; // appended before tab in <title>, e.g., PRODIS - Contact
 let COMBO_COUNT = 1; // how many times the same element was copied
 let LAST_TAG_OBJ = null; // which element was copied last time
-const VERTICAL_OFFSET = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) ? 10 : 130; // offset for "COPIED!" popup based on mobile/desktop
+const VERTICAL_OFFSET = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) ? 10 : 120; // offset for "COPIED!" popup based on mobile/desktop
 
 
 function close_hamburger_menu() {
@@ -12,15 +12,6 @@ function close_hamburger_menu() {
     Close floating menu that appears after clicking the hamburger menu icon on mobile.
     */
     document.getElementById("checkbox_toggle").checked = false;
-}
-
-
-function open_in_new_tab(url) {
-    /*
-    Open target URL in a new tab.
-    */
-    close_hamburger_menu();
-    window.open(url, "_blank");
 }
 
 
