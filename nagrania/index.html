@@ -15,13 +15,25 @@
 <body>
   <!-- display warning message and show all tabs if javascript disabled -->
   <noscript>
-    <p id="js_disabled">Warning: <wbr>JavaScript is disabled, displaying all tabs as fallback.</p>
     <style type="text/css">
+      #js_disabled {
+        background-color: darkred;
+        border-top: 1px solid red;
+        bottom: 0;
+        color: yellow;
+        font-size: 120%;
+        padding: 10px;
+        position: fixed;
+        width: 100%;
+        z-index: 1;
+      }
+
       .full_page_tab {
         display: block;
       }
 
     </style>
+    <p id="js_disabled">Warning: <wbr>JavaScript is disabled, displaying all tabs as fallback.</p>
   </noscript>
 
   <!-- popups hidden by default, shown with javascript -->

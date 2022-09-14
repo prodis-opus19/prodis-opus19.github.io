@@ -27,18 +27,6 @@ li {
   list-style: none;
 }
 
-#js_disabled {
-  background-color: darkred;
-  border-top: 1px solid red;
-  bottom: 0;
-  color: yellow;
-  font-size: 120%;
-  padding: 10px;
-  position: fixed;
-  width: 100%;
-  z-index: 1;
-}
-
 #top_alert {
   background-color: #141414;
   border-bottom: 1px solid #bb4b4b;
