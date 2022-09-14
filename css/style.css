@@ -15,8 +15,6 @@
   --tab_shadow: #0d0d0d;
   --table_background: #141414;
   --table_border: #333333;
-  --table_link_background_hover: #440000;
-  --table_link_color: #ff6961;
   --table_td_color: #808080;
   --table_th_border: #1a1a1a;
   --table_th_color: #bfbfbf;
@@ -439,6 +437,7 @@ footer img {
 /* columns */
 .contact_info table th {
   border-bottom: 2px solid var(--table_th_border);
+  color: var(--table_th_color);
   font-size: 160%;
   font-weight: bold;
   padding-bottom: 15px;
@@ -469,7 +468,7 @@ footer img {
 }
 
 /* narrow */
-@media only screen and (max-width: 1070px) {
+@media only screen and (max-width: 1090px) {
   header>#header_logo {
     display: none;
   }
@@ -488,7 +487,6 @@ footer img {
     width: 100%;
   }
 }
-
 
 /* mobile navbar only */
 @media only screen and (max-width: 720px) {
