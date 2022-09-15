@@ -377,7 +377,6 @@ footer img {
   }
 }
 
-
 /* mobile navbar only */
 @media only screen and (max-width: 720px) {
   #top_alert {
@@ -392,12 +391,12 @@ footer img {
     position: absolute;
   }
 
-  /* re-add left/right padding to logo and hamburger after we removed header's padding */
+  /* re-add left padding to logo and hamburger after we removed header's padding */
   header>#header_logo {
     display: block;
     font-size: 32px;
     padding-left: 20px;
-    padding-right: 20px;
+    padding-right: 0px;
   }
 
   header>#checkbox_toggle:checked~#hamburger {
