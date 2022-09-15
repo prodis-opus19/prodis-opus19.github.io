@@ -380,8 +380,7 @@ footer img {
 /* mobile navbar only */
 @media only screen and (max-width: 720px) {
   #top_alert {
-    top: 0px;
-    z-index: 3;
+    top: 80px;
   }
 
   header {
