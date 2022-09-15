@@ -3,7 +3,7 @@ const DEFAULT_TAB = "informacja"; // full page tab to open on page load
 const APPENDED_TITLE = "NAGRANIA"; // appended before tab in <title>, e.g., NAGRANIA - Informacja
 let COMBO_COUNT = 1; // how many times the same element was copied
 let LAST_TAG_OBJ = null; // which element was copied last time
-const VERTICAL_OFFSET = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) ? 10 : 120; // offset for "COPIED!" popup based on mobile/desktop
+// const VERTICAL_OFFSET = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) ? 20 : 120; // offset for "COPIED!" popup based on mobile/desktop
 
 
 function close_hamburger_menu() {
@@ -138,7 +138,7 @@ function show_copy_popup(tag) {
         const top = tag_rect.bottom - body_rect.top;
         const left = tag_rect.left - body_rect.left;
         // set popup tag to relative position
-        copy_element.style.top = (top + VERTICAL_OFFSET) + "px";
+        copy_element.style.top = (top + 120) + "px";
         copy_element.style.left = left + "px";
     }
     // add animation
