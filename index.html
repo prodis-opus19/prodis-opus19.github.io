@@ -42,19 +42,19 @@
 
   <!-- header with links at the top -->
   <header draggable="false" ondragstart="return false;">
-    <a id="header_logo" onclick="open_full_page_tab('project'); return false;" href="?tab=project">PRODIS</a>
+    <a id="header_logo" title="Open main tab" onclick="open_full_page_tab('project'); return false;" href="?tab=project">PRODIS</a>
     <!-- mobile hamburger menu -->
     <input type="checkbox" id="checkbox_toggle">
     <label for="checkbox_toggle" id="hamburger">&#9776;</label>
     <nav>
-      <a id="project_button" class="tab_link" onclick="open_full_page_tab('project'); return false;" href="?tab=project"><i class="fa fa-home"></i> Project</a>
-      <a id="team_button" class="tab_link" onclick="open_full_page_tab('team'); return false;" href="?tab=team"><i class="fa fa-users"></i> Team</a>
-      <a id="contact_button" class="tab_link" onclick="open_full_page_tab('contact'); return false;" href="?tab=contact"><i class="fa fa-envelope-o"></i> Contact</a>
+      <a id="project_button" class="tab_link" title="Open Project tab" onclick="open_full_page_tab('project'); return false;" href="?tab=project"><i class="fa fa-home"></i> Project</a>
+      <a id="team_button" class="tab_link" title="Open Team tab" onclick="open_full_page_tab('team'); return false;" href="?tab=team"><i class="fa fa-users"></i> Team</a>
+      <a id="contact_button" class="tab_link" title="Open Contact tab" onclick="open_full_page_tab('contact'); return false;" href="?tab=contact"><i class="fa fa-envelope-o"></i> Contact</a>
       <div class="navbar_splitter"></div>
-      <a class="tab_link" href="https://github.com/prodis-opus19/" target="_blank"><i class="fa fa-paperclip"></i> Github</a>
-      <a class="tab_link" href="nagrania/index.html" target="_blank"><i class="fa fa-paperclip"></i> Recordings</a>
+      <a class="tab_link" title="Open Github profile in new tab" href="https://github.com/prodis-opus19/" target="_blank"><i class="fa fa-paperclip"></i> Github</a>
+      <a class="tab_link" title="Open Recordings in new tab" href="nagrania/index.html" target="_blank"><i class="fa fa-paperclip"></i> Recordings</a>
       <div class="navbar_splitter"></div>
-      <a class="tab_link" href="#" onclick="switch_language(); return false" oncontextmenu="show_top_alert('Available languages: English, Polish.');return false;"><img id="lang_flag" src="img/flag_us.png" alt="polish or us flag" height="20px"> Language</a>
+      <a class="tab_link" title="Change language (English, Polish)" href="#" onclick="switch_language(); return false" oncontextmenu="show_top_alert('Available languages: English, Polish.');return false;"><img id="lang_flag" src="img/flag_us.png" alt="polish or us flag" height="20px"> Language</a>
     </nav>
   </header>
 
