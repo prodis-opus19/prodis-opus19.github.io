@@ -147,7 +147,7 @@ function get_url_parameters() {
     // language parameter (en, pl), e.g., prodis-opus19.github.io/index.html?lang=pl
     const param_lang = url_parameters.get("lang");
     if (param_lang !== null) {
-        // console.log(`ok: received lang parameter to set '${param_lang}'`);
+        console.log(`ok: received lang parameter to set '${param_lang}'`);
         switch_language(param_lang);
     }
 }
