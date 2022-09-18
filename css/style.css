@@ -62,10 +62,10 @@ a {
   color: var(--nav_button_active);
   font-size: 120%;
   opacity: 0;
-  padding: 16px;
+  padding: 10px;
   pointer-events: none;
   position: fixed;
-  top: 60px;
+  top: 50px;
   transform: translateY(-50px);
   width: 100%;
   z-index: 0;
@@ -164,7 +164,7 @@ header {
   border-bottom: 3px solid var(--header_border);
   box-shadow: 0px 0px 15px var(--header_shadow);
   display: flex;
-  height: 60px;
+  height: 50px;
   justify-content: space-between;
   padding-left: 20px;
   padding-right: 20px;
@@ -181,7 +181,7 @@ header a {
 
 /* webpage title */
 header>#header_logo {
-  font-size: 28px;
+  font-size: 24px;
   margin-right: 20px;
 }
 
@@ -212,12 +212,12 @@ header>nav>*:not(:last-child) {
 }
 
 header>nav>.tab_link {
-  border-radius: 12px;
+  border-radius: 10px;
   font-size: 20px;
-  padding-bottom: 10px;
+  padding-bottom: 6px;
   padding-left: 18px;
   padding-right: 20px;
-  padding-top: 10px;
+  padding-top: 6px;
 }
 
 header>nav>.tab_link:hover {
@@ -254,7 +254,7 @@ header>nav>.navbar_splitter {
   margin-bottom: 100px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 80px;
+  margin-top: 70px;
   overflow-wrap: break-word;
   /* top, right, bottom, left */
   padding: 40px 50px 40px 50px;
@@ -468,7 +468,7 @@ footer img {
 }
 
 /* narrow */
-@media only screen and (max-width: 990px) {
+@media only screen and (max-width: 998px) {
   header>#header_logo {
     display: none;
   }
@@ -548,6 +548,7 @@ footer img {
 
   header>nav>.tab_link {
     background-color: var(--nav_button_background);
+    border-radius: 12px;
     font-size: 24px;
     padding-bottom: 14px;
     padding-top: 14px;
