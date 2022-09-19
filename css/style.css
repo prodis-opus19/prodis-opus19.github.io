@@ -238,10 +238,10 @@ header>nav>.navbar_splitter {
 }
 
 #lang_flag {
-  /* this is stupid but i tried to center the img vertically and IT DOESN'T WORK!!! */
-  /* transform: translateY(1px); */
-  height: 14px;
-  width: 24px;
+  height: 15px;
+  margin-right: 2px;
+  transform: translateY(1px);
+  width: 25px;
 }
 
 /* full page tabs */
@@ -468,7 +468,7 @@ footer img {
 }
 
 /* narrow */
-@media only screen and (max-width: 998px) {
+@media only screen and (max-width: 1010px) {
   header>#header_logo {
     display: none;
   }
@@ -557,6 +557,13 @@ footer img {
 
   header>nav>.navbar_splitter {
     display: none;
+  }
+
+  #lang_flag {
+    /* 15, 25 */
+    height: 17px;
+    transform: translateY(1px);
+    width: 28px;
   }
 
   .full_page_tab {
