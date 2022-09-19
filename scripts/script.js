@@ -95,12 +95,12 @@ function switch_language(target) {
     function set_english() {
         show_top_alert("Changed language to English.")
         document.body.className = "hide_polish"; // hide tags with lang="pl" ID
-        document.getElementById("lang_flag").src = "img/flag_us.png"; // set american flag src
+        document.getElementById("lang_flag").src = "img/flag/us.png"; // set american flag src
     }
     function set_polish() {
         show_top_alert("Changed language to Polish.")
         document.body.className = "hide_english"; // hide tags with lang="en" ID
-        document.getElementById("lang_flag").src = "img/flag_poland.png"; // set polish flag src
+        document.getElementById("lang_flag").src = "img/flag/pl.png"; // set polish flag src
     }
     // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch
     switch (target) {

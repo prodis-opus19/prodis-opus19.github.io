@@ -239,9 +239,9 @@ header>nav>.navbar_splitter {
 
 #lang_flag {
   /* this is stupid but i tried to center the img vertically and IT DOESN'T WORK!!! */
-  border: 0;
-  padding: 0;
-  transform: translateY(3px);
+  /* transform: translateY(1px); */
+  height: 14px;
+  width: 24px;
 }
 
 /* full page tabs */
