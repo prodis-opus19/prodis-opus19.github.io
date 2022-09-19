@@ -383,6 +383,10 @@ footer img {
     position: absolute;
   }
 
+  /* if not inherit then hover color doesn't unhover on mobile */
+  header>nav>.tab_link.active:hover {
+    background-color: inherit;
+  }
 }
 
 /* mobile navbar only */
