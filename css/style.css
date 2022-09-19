@@ -5,7 +5,6 @@
   --header_background: #141414;
   --header_border: #262626;
   --header_shadow: #0d0d0d;
-  --nav_button_active_hover: #c76b6b;
   --nav_button_active: #bb4b4b;
   --nav_button_background: #404040;
   --nav_hover: #808080;
@@ -226,10 +225,6 @@ header>nav>.tab_link:hover {
 
 header>nav>.tab_link.active {
   background-color: var(--nav_button_active);
-}
-
-header>nav>.tab_link.active:hover {
-  background-color: var(--nav_button_active_hover);
 }
 
 header>nav>.navbar_splitter {
