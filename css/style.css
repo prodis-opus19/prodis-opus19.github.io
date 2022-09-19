@@ -489,7 +489,7 @@ footer img {
 }
 
 /* mobile navbar only */
-@media only screen and (max-width: 720px) {
+@media only screen and (max-width: 760px) {
   #top_alert {
     top: 80px;
   }
