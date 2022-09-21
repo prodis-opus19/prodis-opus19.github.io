@@ -1,5 +1,5 @@
 import { show_top_alert, copy_to_clipboard } from "./modules/alert.js";
-import { open_full_page_tab } from "./modules/base.js";
+import { open_full_page_tab } from "./modules/tab.js";
 
 
 const DEFAULT_PERSON_TAB = "m_kul"; // person description opened in team tab
