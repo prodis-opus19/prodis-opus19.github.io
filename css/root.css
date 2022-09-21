@@ -185,7 +185,7 @@ header>#header_logo {
 }
 
 /* responsive navbar menu for navbar */
-header>#checkbox_toggle {
+header>#mobile_menu_toggle {
   display: none;
 }
 
@@ -517,11 +517,11 @@ footer img {
     padding-right: 0px;
   }
 
-  header>#checkbox_toggle:checked~#hamburger {
+  header>#mobile_menu_toggle:checked~#hamburger {
     color: var(--nav_button_active);
   }
 
-  header>#checkbox_toggle:checked~nav {
+  header>#mobile_menu_toggle:checked~nav {
     display: flex;
   }
 
