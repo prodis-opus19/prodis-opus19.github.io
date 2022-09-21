@@ -1,4 +1,4 @@
-import { show_top_alert } from "./modules/alert.js";
+import { show_top_alert, copy_to_clipboard } from "./modules/alert.js";
 import { open_full_page_tab } from "./modules/base.js";
 
 
@@ -101,5 +101,6 @@ open_person_desc(DEFAULT_PERSON_TAB);
 // allow global access within HTML
 window.open_full_page_tab = open_full_page_tab;
 window.show_top_alert = show_top_alert;
+window.copy_to_clipboard = copy_to_clipboard;
 window.switch_language = switch_language;
 window.open_person_desc = open_person_desc;
