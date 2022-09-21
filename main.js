@@ -68,8 +68,8 @@ function switch_language(target) {
 }
 
 
-window.addEventListener("popstate", () => {
-    open_full_page_tab(null, false, false);
+window.addEventListener("popstate", (event) => {
+    open_full_page_tab(event.state, false, false);
 });
 
 

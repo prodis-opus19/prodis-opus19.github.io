@@ -2,8 +2,8 @@ import { show_top_alert, copy_to_clipboard } from "../modules/alert.js";
 import { open_full_page_tab } from "../modules/base.js";
 
 
-window.addEventListener("popstate", () => {
-    open_full_page_tab(null, false, false);
+window.addEventListener("popstate", (event) => {
+    open_full_page_tab(event.state, false, false);
 });
 
 
