@@ -25,6 +25,7 @@ export function show_top_alert(content) {
 
 function show_copy_popup(tag) {
     /*
+    Helper function, called by copy_to_clipboard().
     Show popup under the div passed using "this".
     If "isMobile" is True, then reduce Y offset from 130 to 10.
     This is because the div is moved down on mobile for some reason (tested on iOS Safari).
