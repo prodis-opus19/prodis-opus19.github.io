@@ -11,7 +11,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script type="module" src="main.js" defer></script>
   <script>
-    /*to prevent Firefox FOUC, this must be here*/
+    /* prevent Firefox FOUC (Flash of unstyled content) warning */
     let FF_FOUC_FIX;
   </script>
 </head>
@@ -35,7 +35,7 @@
       <a class="tab_link" title="Open Github profile in new tab" href="https://github.com/prodis-opus19/" target="_blank"><i class="fa fa-paperclip"></i> Github</a>
       <a class="tab_link" title="Open Recordings in new tab" href="nagrania/index.html" target="_blank"><i class="fa fa-paperclip"></i> Recordings</a>
       <div class="navbar_splitter"></div>
-      <a class="tab_link" title="Change language (English, Polish)" href="#" onclick="switch_language(); return false" oncontextmenu="show_top_alert('Available languages: English, Polish.');return false;"><img id="lang_flag" src="img/root/flag/us.png" alt="polish or us flag"> Language</a>
+      <a class="tab_link" title="Change language (English, Polish)" href="#" onclick="switch_language(); return false" oncontextmenu="show_top_alert('Available languages: English, Polish.'); return false;"><img id="lang_flag" src="img/root/flag/us.png" alt="polish or us flag"> Language</a>
     </nav>
   </header>
 
@@ -46,8 +46,8 @@
         <h1>PRODIS</h1>
         <h2 lang="en">Probabilistic, prosodic and<wbr> discourse effects <wbr>on acoustic distinctiveness <wbr>in speech</h2>
         <h2 lang="pl">Probabilistyczne, prozodyczne i<wbr> dyskursowe efekty <wbr>na odrębność akustyczną <wbr>w mowie</h2>
-        <p lang="en">Project no. <span class="link" title="Copy Project ID to clipboard" onclick="copy_to_clipboard(this,'2020/37/B/HS2/04161');return false;">2020/37/<wbr>B/HS2/04161</span> <wbr>(OPUS 19)</p>
-        <p lang="pl">Projekt nr. <span class="link" title="Copy Project ID to clipboard" onclick="copy_to_clipboard(this,'2020/37/B/HS2/04161');return false;">2020/37/<wbr>B/HS2/04161</span> <wbr>(OPUS 19)</p>
+        <p lang="en">Project no. <span class="link" title="Copy Project ID to clipboard" onclick="copy_to_clipboard(this,'2020/37/B/HS2/04161'); return false;">2020/37/<wbr>B/HS2/04161</span> <wbr>(OPUS 19)</p>
+        <p lang="pl">Projekt nr. <span class="link" title="Copy Project ID to clipboard" onclick="copy_to_clipboard(this,'2020/37/B/HS2/04161'); return false;">2020/37/<wbr>B/HS2/04161</span> <wbr>(OPUS 19)</p>
       </div>
       <a title="Open National Science Center in new tab" href="https://www.ncn.gov.pl/" target="_blank" rel="noopener noreferrer" draggable="false" ondragstart="return false;">
         <img class="image_highlight_on_hover" src="img/ncn_logo.png" alt="ncn logo">
