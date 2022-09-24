@@ -126,11 +126,6 @@ a {
   }
 }
 
-.disable_select {
-  -webkit-user-select: none;
-  user-select: none;
-}
-
 .enable_select {
   -webkit-user-select: text;
   user-select: text;
