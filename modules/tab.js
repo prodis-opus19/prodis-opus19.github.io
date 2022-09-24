@@ -35,13 +35,13 @@ export function open_full_page_tab(category, create_entry = true, scroll_up = tr
     document.getElementById(`${category}_tab`).style.display = "block";
     // set active tab's button color to red
     document.getElementById(`${category}_button`).className += " active";
-    // append category to webpage's title
-    const category_upper = category[0].toUpperCase() + category.slice(1);
-    document.title = `${DEFAULT_TITLE} - ${category_upper}`;
     // create new history entry for current tab
     // prevents duplicates when function called from listener to open tab from history
     if (create_entry) {
         window.history.pushState(category, "", `?tab=${category}`);
+        // append category to webpage's title
+        const category_upper = category[0].toUpperCase() + category.slice(1);
+        document.title = `${DEFAULT_TITLE} - ${category_upper}`;
     }
     // scroll to the top, unless first run
     if (scroll_up) {
