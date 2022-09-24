@@ -29,22 +29,29 @@ function open_person_desc(category) {
 }
 
 
-function switch_language(target) {
+function switch_language(target, show_alert = true) {
     /*
     Switch between Polish or English.
     If no argument is provided, then automatically toggle between two languages.
     If "en" is provided, then switch to English.
     If "pl" is provided, then switch to Polish.
+    If "show_alert" is false, then do not show top alert "Switched language to XYZ".
     */
     // close mobile floating menu that appears after clicking the hamburger icon
     document.getElementById("mobile_menu_toggle").checked = false;
     function set_english() {
-        show_top_alert("Changed language to English.")
+        // show top alert, unless first page load
+        if (show_alert) {
+            show_top_alert("Changed language to English.")
+        }
         document.body.className = "hide_polish"; // hide tags with lang="pl" ID
         document.getElementById("lang_flag").src = "img/root/flag/us.png"; // set american flag src
     }
     function set_polish() {
-        show_top_alert("Changed language to Polish.")
+        // show top alert, unless first page load
+        if (show_alert) {
+            show_top_alert("Changed language to Polish.")
+        }
         document.body.className = "hide_english"; // hide tags with lang="en" ID
         document.getElementById("lang_flag").src = "img/root/flag/pl.png"; // set polish flag src
     }
@@ -88,8 +95,7 @@ function get_url_parameters() {
     // language parameter (en, pl), e.g., website.com/index.html?lang=pl
     const param_lang = url_parameters.get("lang");
     if (param_lang !== null) { // we can't pass null directly, because that toggles between languages (en -> pl, pl -> en)
-        // console.log(`ok: received lang parameter to set '${param_lang}'`);
-        switch_language(param_lang);
+        switch_language(param_lang, false);
     }
 }
 
