@@ -1,5 +1,5 @@
 import { show_top_alert, copy_to_clipboard } from "./modules/alert.js";
-import { open_full_page_tab } from "./modules/tab.js";
+import { open_tab } from "./modules/tab.js";
 
 
 const DEFAULT_PERSON_TAB = "m_kul"; // person description opened in team tab
@@ -69,7 +69,7 @@ function switch_language(target) {
 
 
 window.addEventListener("popstate", (event) => {
-    open_full_page_tab(event.state, false, false);
+    open_tab(event.state, false, false);
 });
 
 
@@ -84,7 +84,7 @@ function get_url_parameters() {
     // tab parameter (about, projects), e.g., website.com/index.html?tab=about
     const param_tab = url_parameters.get("tab");
     // if null, use first tab in <nav>
-    open_full_page_tab(param_tab, false, false);
+    open_tab(param_tab, false, false);
     // language parameter (en, pl), e.g., website.com/index.html?lang=pl
     const param_lang = url_parameters.get("lang");
     if (param_lang !== null) { // we can't pass null directly, because that toggles between languages (en -> pl, pl -> en)
@@ -99,7 +99,7 @@ open_person_desc(DEFAULT_PERSON_TAB);
 
 
 // allow global access within HTML
-window.open_full_page_tab = open_full_page_tab;
+window.open_tab = open_tab;
 window.show_top_alert = show_top_alert;
 window.copy_to_clipboard = copy_to_clipboard;
 window.switch_language = switch_language;

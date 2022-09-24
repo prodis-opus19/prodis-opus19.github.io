@@ -1,9 +1,9 @@
 import { show_top_alert, copy_to_clipboard } from "../modules/alert.js";
-import { open_full_page_tab } from "../modules/tab.js";
+import { open_tab } from "../modules/tab.js";
 
 
 window.addEventListener("popstate", (event) => {
-    open_full_page_tab(event.state, false, false);
+    open_tab(event.state, false, false);
 });
 
 
@@ -17,7 +17,7 @@ function get_url_parameters() {
     // tab parameter (about, projects), e.g., website.com/index.html?tab=about
     const param_tab = new URLSearchParams(window.location.search).get("tab");
     // if null, use first tab in <nav>
-    open_full_page_tab(param_tab, false, false);
+    open_tab(param_tab, false, false);
 }
 
 
@@ -25,6 +25,6 @@ get_url_parameters()
 
 
 // allow global access within HTML
-window.open_full_page_tab = open_full_page_tab;
+window.open_tab = open_tab;
 window.show_top_alert = show_top_alert;
 window.copy_to_clipboard = copy_to_clipboard;

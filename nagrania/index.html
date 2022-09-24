@@ -23,15 +23,15 @@
 
   <!-- header with links at the top -->
   <header draggable="false" ondragstart="return false;">
-    <a id="header_logo" title="Otwórz kartę główną" onclick="open_full_page_tab('informacja'); return false;" href="?tab=informacja">NAGRANIA</a>
+    <a id="header_logo" title="Otwórz kartę główną" onclick="open_tab('informacja'); return false;" href="?tab=informacja">NAGRANIA</a>
     <!-- mobile hamburger menu -->
     <input type="checkbox" id="mobile_menu_toggle">
     <label for="mobile_menu_toggle" id="hamburger">&#9776;</label>
     <nav>
-      <a id="informacja_button" class="tab_link" title="Otwórz kartę Informacja" onclick="open_full_page_tab('informacja'); return false;" href="?tab=informacja"><i class="fa fa-home"></i> Informacja</a>
-      <a id="lokalizacja_button" class="tab_link" title="Otwórz kartę Lokalizacja" onclick="open_full_page_tab('lokalizacja'); return false;" href="?tab=lokalizacja"><i class="fa fa-map-marker"></i> Lokalizacja</a>
-      <a id="harmonogram_button" class="tab_link" title="Otwórz kartę Harmonogram" onclick="open_full_page_tab('harmonogram'); return false;" href="?tab=harmonogram"><i class="fa fa-calendar"></i> Harmonogram</a>
-      <a id="ulotka_button" class="tab_link" title="Otwórz kartę Ulotka" onclick="open_full_page_tab('ulotka'); return false;" href="?tab=ulotka"><i class="fa fa-vcard"></i> Ulotka</a>
+      <a id="informacja_button" class="tab_link" title="Otwórz kartę Informacja" onclick="open_tab('informacja'); return false;" href="?tab=informacja"><i class="fa fa-home"></i> Informacja</a>
+      <a id="lokalizacja_button" class="tab_link" title="Otwórz kartę Lokalizacja" onclick="open_tab('lokalizacja'); return false;" href="?tab=lokalizacja"><i class="fa fa-map-marker"></i> Lokalizacja</a>
+      <a id="harmonogram_button" class="tab_link" title="Otwórz kartę Harmonogram" onclick="open_tab('harmonogram'); return false;" href="?tab=harmonogram"><i class="fa fa-calendar"></i> Harmonogram</a>
+      <a id="ulotka_button" class="tab_link" title="Otwórz kartę Ulotka" onclick="open_tab('ulotka'); return false;" href="?tab=ulotka"><i class="fa fa-vcard"></i> Ulotka</a>
       <div class="navbar_splitter"></div>
       <a class="tab_link" title="Otwórz O projekcie w nowej karcie" href="../index.html?lang=pl" target="_blank"><i class="fa fa-paperclip"></i> O projekcie</a>
     </nav>
@@ -72,7 +72,7 @@
         <p class="big_link">&#9655; Kontakt: <wbr><wbr><a class="link" title="Skopiuj adres e-mail do schowka" href="mailto:polish_corpus@protonmail.com" onclick="copy_to_clipboard(this,'polish_corpus@protonmail.com');return false;">polish_corpus<wbr>@protonmail.com</a>.</p>
         <p>2. Po otrzymaniu odpowiedzi e-mail <wbr>o przyjęciu (lub ewentualnym odrzuceniu) na listę uczestników prosimy o udział w badaniu mowy.</p>
         <p>W studiu poprosimy Cię o podpisanie zgody na wykorzystanie nagrań do celów naukowych (niekomercyjnych).</p>
-        <p class="big_link">&#9655; Lokalizacja studia: <wbr><a class="link" title="Otwórz kartę Lokalizacja" onclick="open_full_page_tab('lokalizacja');show_top_alert('Otwarto kartę Lokalizacja.');return false;" href="?tab=lokalizacja">kliknij tutaj</a>.</p>
+        <p class="big_link">&#9655; Lokalizacja studia: <wbr><a class="link" title="Otwórz kartę Lokalizacja" onclick="open_tab('lokalizacja');show_top_alert('Otwarto kartę Lokalizacja.');return false;" href="?tab=lokalizacja">kliknij tutaj</a>.</p>
         <p>4. Po około godzinie nagrań, odbierzesz kartę Empik o wartości 50 zł.</p>
       </div>
     </article>

@@ -6,7 +6,7 @@ const FULL_PAGE_TABS = document.getElementsByClassName("full_page_tab");
 const BUTTON_LINKS = document.getElementsByClassName("tab_link");
 
 
-export function open_full_page_tab(category, create_entry = true, scroll_up = true) {
+export function open_tab(category, create_entry = true, scroll_up = true) {
     /*
     Unhide full page tab and highlight its corresponding button.
     * category = "project"
