@@ -405,8 +405,17 @@ footer img {
   margin-bottom: 20px;
 }
 
-.tab_per_person_content img {
+.tab_per_person_content>.img_flex {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.tab_per_person_content>.img_flex img {
   border-radius: 8px;
+  height: auto;
   margin: 10px;
   width: 50px;
 }
@@ -617,8 +626,8 @@ footer img {
     font-size: 200%;
   }
 
-  .tab_per_person_content img {
-    margin: 8px;
+  .tab_per_person_content>.img_flex img {
+    margin: 5px;
     width: 40px;
   }
 
