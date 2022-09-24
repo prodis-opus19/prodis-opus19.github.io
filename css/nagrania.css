@@ -74,7 +74,6 @@ a {
   0% {
     opacity: 0;
     transform: translateY(-50px);
-
   }
 
   7% {
@@ -85,7 +84,6 @@ a {
   85% {
     opacity: 1;
     transform: translateY(0px);
-
   }
 
   100% {
@@ -381,7 +379,6 @@ footer img {
   header {
     position: absolute;
   }
-
 }
 
 /* mobile navbar only */
@@ -460,7 +457,6 @@ footer img {
     margin-top: 100px;
   }
 }
-
 
 /* mobile all */
 @media only screen and (max-width: 610px) {
