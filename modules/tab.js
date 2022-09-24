@@ -31,10 +31,16 @@ export function open_tab(category, create_entry = true, scroll_up = true) {
     for (let i = 0; i < BUTTON_LINKS.length; i++) {
         BUTTON_LINKS[i].className = BUTTON_LINKS[i].className.replace(" active", "");
     }
-    // show the specific tab content
-    document.getElementById(`${category}_tab`).style.display = "block";
-    // set active tab's button color to red
-    document.getElementById(`${category}_button`).className += " active";
+    try {
+        // show the specific tab content and set active tab's button color
+        document.getElementById(`${category}_tab`).style.display = "block";
+        document.getElementById(`${category}_button`).className += " active";
+    }
+    catch (TypeError) {
+        document.getElementById(`${DEFAULT_TAB}_tab`).style.display = "block";
+        document.getElementById(`${DEFAULT_TAB}_button`).className += " active";
+        console.log(`unknown tab provided '${category}', opening default '${DEFAULT_TAB}'`);
+    }
     // create new history entry for current tab
     // prevents duplicates when function called from listener to open tab from history
     if (create_entry) {
