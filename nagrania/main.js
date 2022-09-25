@@ -1,5 +1,5 @@
-import { show_top_alert, copy_to_clipboard } from "../modules/alert.js";
-import { open_tab } from "../modules/tab.js";
+import { show_top_alert, copy_to_clipboard } from "../scripts/alert.js";
+import { open_tab } from "../scripts/tab.js";
 
 
 window.addEventListener("popstate", (event) => {

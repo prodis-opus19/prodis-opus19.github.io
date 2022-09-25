@@ -1,5 +1,5 @@
-import { show_top_alert, copy_to_clipboard } from "./modules/alert.js";
-import { open_tab } from "./modules/tab.js";
+import { show_top_alert, copy_to_clipboard } from "./scripts/alert.js";
+import { open_tab } from "./scripts/tab.js";
 
 
 const DEFAULT_PERSON_TAB = "m_kul"; // person description opened in team tab
@@ -45,7 +45,7 @@ function switch_language(target, show_alert = true) {
             show_top_alert("Changed language to English.")
         }
         document.body.className = "hide_polish"; // hide tags with lang="pl" ID
-        document.getElementById("lang_flag").src = "img/root/flag/us.png"; // set american flag src
+        document.getElementById("lang_flag").src = "images/root/flag/us.png"; // set american flag src
     }
     function set_polish() {
         // show top alert, unless first page load
@@ -53,7 +53,7 @@ function switch_language(target, show_alert = true) {
             show_top_alert("Changed language to Polish.")
         }
         document.body.className = "hide_english"; // hide tags with lang="en" ID
-        document.getElementById("lang_flag").src = "img/root/flag/pl.png"; // set polish flag src
+        document.getElementById("lang_flag").src = "images/root/flag/pl.png"; // set polish flag src
     }
     // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch
     switch (target) {
