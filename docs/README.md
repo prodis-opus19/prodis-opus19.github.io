@@ -5,8 +5,9 @@ Click [here](https://prodis-opus19.github.io/) to open.
 
 
 # Structure
-* css - stylesheets
-* img - images
-* modules - javascript module
+* styles - css stylesheets, sorted by type
+* images - images, sorted by type
+* scripts - javascript scripts and modules
+
 
 Each page consists of a html file, main.js and a stylesheet.
