@@ -92,6 +92,8 @@ function get_url_parameters() {
     const param_tab = url_parameters.get("tab");
     // if null, use first tab in <nav>
     open_tab(param_tab, false, false);
+    // fixes history bug - when opened with parameter, then going to first history entry, it opens default tab instead BECAUSE the state is null
+    window.history.replaceState(param_tab, "");
     // language parameter (en, pl), e.g., website.com/index.html?lang=pl
     const param_lang = url_parameters.get("lang");
     if (param_lang !== null) { // we can't pass null directly, because that toggles between languages (en -> pl, pl -> en)
