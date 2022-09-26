@@ -12,7 +12,6 @@ function get_url_parameters() {
     /*
     Set tab and language using URL parameters.
     If no tab parameters are provided, then use first <a> inside <nav>.
-    I no lang parameters are provided, then use Englsh
     */
     // tab parameter (about, projects), e.g., website.com/index.html?tab=about
     const param_tab = new URLSearchParams(window.location.search).get("tab");
