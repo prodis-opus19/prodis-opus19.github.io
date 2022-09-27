@@ -20,12 +20,12 @@ function open_person_desc(category) {
     // get all elements with class="tab_per_person_link" and remove the class "active"
     const tab_per_person_link = document.getElementsByClassName("tab_per_person_link");
     for (let i = 0; i < tab_per_person_link.length; i++) {
-        tab_per_person_link[i].className = tab_per_person_link[i].className.replace(" active", "");
+        tab_per_person_link[i].classList.remove("active");
     }
     // show the current tab
     document.getElementById(`${category}_tab`).style.display = "block";
     // add an "active" class to the button that opened the tab
-    document.getElementById(`${category}_button`).className += " active";
+    document.getElementById(`${category}_button`).classList.add("active");
 }
 
 
