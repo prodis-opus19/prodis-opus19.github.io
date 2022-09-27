@@ -28,7 +28,7 @@ export function open_tab(category, create_entry = true, scroll_up = true) {
     }
     // remove the background color of all buttons in navbar with class="tab_link"
     for (let i = 0; i < BUTTON_LINKS.length; i++) {
-        BUTTON_LINKS[i].className = BUTTON_LINKS[i].className.replace(" active", "");
+        BUTTON_LINKS[i].classList.remove("active");
     }
     // set default tab using first <a> tag from within <nav>
     if (category === null) {
@@ -37,11 +37,11 @@ export function open_tab(category, create_entry = true, scroll_up = true) {
     try {
         // show the specific tab content and set active tab's button color
         document.getElementById(`${category}_tab`).style.display = "block";
-        document.getElementById(`${category}_button`).className += " active";
+        document.getElementById(`${category}_button`).classList.add("active");
     }
     catch (TypeError) {
         document.getElementById(`${DEFAULT_TAB}_tab`).style.display = "block";
-        document.getElementById(`${DEFAULT_TAB}_button`).className += " active";
+        document.getElementById(`${DEFAULT_TAB}_button`).classList.add("active");
         // console.log(`unknown tab provided '${category}', opening default '${DEFAULT_TAB}'`);
     }
     // create new history entry for current tab; prevents duplicates when called from popstate listener
