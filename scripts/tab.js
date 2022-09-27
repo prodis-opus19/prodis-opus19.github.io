@@ -15,13 +15,12 @@ export function open_tab(category, create_entry = true, scroll_up = true) {
     This is a hack for when the listener aims to re-open full page from history.
     If "scroll_up" is False, then page will not be scrolled to the top.
     This is useful when opening a page from pseudo-history, as it will stay at previous scroll position.
-    // */
-    // console.log(category);
+    */
     // close mobile floating menu that appears after clicking the hamburger icon
-    document.getElementById("mobile_menu_toggle").checked = false;
-    // set default tab using first <a> tag from within <nav>
-    if (category === null) {
-        category = DEFAULT_TAB;
+    MOBILE_MENU_TOGGLE.checked = false;
+    // scroll to the top, unless first run or opened from history
+    if (scroll_up) {
+        window.scrollTo(0, 0);
     }
     // hide all elements with class="full_page_tab" by default
     for (let i = 0; i < FULL_PAGE_TABS.length; i++) {
@@ -31,6 +30,10 @@ export function open_tab(category, create_entry = true, scroll_up = true) {
     for (let i = 0; i < BUTTON_LINKS.length; i++) {
         BUTTON_LINKS[i].className = BUTTON_LINKS[i].className.replace(" active", "");
     }
+    // set default tab using first <a> tag from within <nav>
+    if (category === null) {
+        category = DEFAULT_TAB;
+    }
     try {
         // show the specific tab content and set active tab's button color
         document.getElementById(`${category}_tab`).style.display = "block";
@@ -39,16 +42,11 @@ export function open_tab(category, create_entry = true, scroll_up = true) {
     catch (TypeError) {
         document.getElementById(`${DEFAULT_TAB}_tab`).style.display = "block";
         document.getElementById(`${DEFAULT_TAB}_button`).className += " active";
-        console.log(`unknown tab provided '${category}', opening default '${DEFAULT_TAB}'`);
+        // console.log(`unknown tab provided '${category}', opening default '${DEFAULT_TAB}'`);
     }
-    // create new history entry for current tab
-    // prevents duplicates when function called from listener to open tab from history
+    // create new history entry for current tab; prevents duplicates when called from popstate listener
     if (create_entry) {
         window.history.pushState(category, "", `?tab=${category}`);
-    }
-    // scroll to the top, unless first run
-    if (scroll_up) {
-        window.scrollTo(0, 0);
     }
     // append category to webpage's title
     const category_upper = category[0].toUpperCase() + category.slice(1);
