@@ -1,9 +1,9 @@
 // GLOBAL VARIABLES
-// get first <a> from <nav>, then remove "_button" at the end to get raw category
-const DEFAULT_TAB = document.querySelectorAll("nav a")[0].id.slice(0, -7);
 const DEFAULT_TITLE = document.title; // get content between <title> tag
 const FULL_PAGE_TABS = document.getElementsByClassName("full_page_tab");
 const BUTTON_LINKS = document.getElementsByClassName("tab_link");
+// get first <a> from <nav>, then remove "_button" at the end to get raw category
+const DEFAULT_TAB = BUTTON_LINKS[0].id.slice(0, -7);
 
 
 export function open_tab(category, create_entry = true, scroll_up = true) {
