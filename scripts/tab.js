@@ -17,7 +17,7 @@ export function open_tab(category, create_entry = true, scroll_up = true) {
     This is useful when opening a page from pseudo-history, as it will stay at previous scroll position.
     */
     // close mobile floating menu that appears after clicking the hamburger icon
-    MOBILE_MENU_TOGGLE.checked = false;
+    document.getElementById("mobile_menu_toggle").checked = false;
     // scroll to the top, unless first run or opened from history
     if (scroll_up) {
         window.scrollTo(0, 0);
