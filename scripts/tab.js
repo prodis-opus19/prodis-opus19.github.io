@@ -6,12 +6,11 @@ const BUTTON_LINKS = document.getElementsByClassName("tab_link");
 const DEFAULT_TAB = BUTTON_LINKS[0].id.slice(0, -7);
 
 
-export function open_tab(category, create_entry = true, scroll_up = true) {
+export function open_tab(category, add_history = true, scroll_up = true) {
     /*
     Unhide full page tab and highlight its corresponding button.
-    * category = "project"
     If "category" is invalid, use default category (first <a> tag inside <nav>).
-    If "create_entry" is False, then no history entry will be created for the previous tab.
+    If "add_history" is False, then no history entry will be created for the previous tab.
     This is a hack for when the listener aims to re-open full page from history.
     If "scroll_up" is False, then page will not be scrolled to the top.
     This is useful when opening a page from pseudo-history, as it will stay at previous scroll position.
@@ -45,7 +44,7 @@ export function open_tab(category, create_entry = true, scroll_up = true) {
         // console.log(`unknown tab provided '${category}', opening default '${DEFAULT_TAB}'`);
     }
     // create new history entry for current tab; prevents duplicates when called from popstate listener
-    if (create_entry) {
+    if (add_history) {
         window.history.pushState(category, "", `?tab=${category}`);
     }
     // append category to webpage's title
