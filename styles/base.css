@@ -1,9 +1,4 @@
 /* variables*/
-/* :root { */
-/* --color_primary: #bb4b4b;
-    calc(var(--colorPrimary-l) + var(--lighten-percentage)) */
-/* } */
-/* variables*/
 :root {
   --almost_white: #d3d3d3;
   --header_background: #141414;
@@ -334,4 +329,175 @@ footer p {
 footer img {
   height: 20px;
   margin-top: 10px;
+}
+
+
+/* Uncomment this and the div in the HTML to show notification when enough participants */
+/* .notice_participants {
+  background-color: yellow;
+  border-radius: 10px;
+  color: red;
+  font-size: 200%;
+  font-weight: 800;
+  margin-bottom: 20px;
+  padding: 10px;
+  text-align: left;
+} */
+
+#ulotka {
+  border-radius: 25px;
+  width: 100%;
+}
+
+/* style the navbar container */
+.navbar_per_person {
+  background-color: #141414;
+  border-radius: 15px;
+  border: 2px solid #333333;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  width: 280px;
+}
+
+/* style the buttons that are used to open the tab content */
+.navbar_per_person button {
+  background-color: #404040;
+  border-radius: 8px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 130%;
+  height: 48px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  outline: none;
+  overflow: hidden;
+  width: 100%;
+}
+
+/* change background color of buttons on hover */
+.navbar_per_person button:hover {
+  background-color: #808080;
+}
+
+/* selected button */
+.navbar_per_person button.active {
+  background-color: #a35858;
+}
+
+/* style the tab content */
+.tab_per_person_content {
+  background-color: #141414;
+  border-radius: 20px;
+  border: 2px solid #333333;
+  display: none;
+  margin-top: 40px;
+  overflow: hidden;
+  padding-bottom: 30px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 50px;
+  width: 100%;
+}
+
+.tab_per_person_content h1 {
+  font-size: 300%;
+  margin-bottom: 30px;
+}
+
+.tab_per_person_content p {
+  color: #d3d3d3;
+  line-height: 1.6;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.tab_per_person_content>.img_flex {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.tab_per_person_content>.img_flex img {
+  border-radius: 8px;
+  height: auto;
+  margin: 10px;
+  width: 50px;
+}
+
+.tab_per_person_content hr {
+  margin-bottom: 40px;
+  margin-top: 30px;
+  width: 100%;
+}
+
+.contact_info table {
+  background-color: var(--table_background);
+  border-collapse: separate;
+  border-radius: 20px;
+  border-spacing: 25px;
+  border: 2px solid var(--table_border);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 55px;
+  width: 100%;
+}
+
+/* columns */
+.contact_info table th {
+  border-bottom: 2px solid var(--table_th_border);
+  color: var(--table_th_color);
+  font-size: 160%;
+  font-weight: bold;
+  padding-bottom: 15px;
+}
+
+/* rows */
+.contact_info table td {
+  color: var(--table_td_color);
+  font-size: 120%;
+  padding-bottom: 15px;
+  padding-top: 15px;
+}
+
+/* rows - images */
+.contact_info table td img {
+  background-color: transparent;
+  height: 25px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+.contact_info .email_explanation {
+  color: var(--almost_white);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 35px;
+  width: 90%;
+}
+
+/* hide polish or english version based on button click */
+body.hide_english :lang(en) {
+  display: none;
+}
+
+body.hide_polish :lang(pl) {
+  display: none;
+}
+
+#lang_flag {
+  height: 15px;
+  margin-right: 2px;
+  transform: translateY(1px);
+  width: 25px;
 }

@@ -1,5 +1,6 @@
 @import "/styles/responsive/narrow.css" screen and (max-width: 1000px);
-@import "/styles/responsive/mobile.css" screen and (max-width: 760px);
+@import "/styles/responsive/mobile_navbar.css" screen and (max-width: 760px);
+@import "/styles/responsive/mobile_all.css" screen and (max-width: 610px);
 
 /* variables*/
 :root {
@@ -7,21 +8,4 @@
   --link_color_hover: #99ff99;
   --link_color: #568f56;
   --nav_button_active: #4d804d;
-}
-
-/* Uncomment this and the div in the HTML to show notification when enough participants */
-/* .notice_participants {
-  background-color: yellow;
-  border-radius: 10px;
-  color: red;
-  font-size: 200%;
-  font-weight: 800;
-  margin-bottom: 20px;
-  padding: 10px;
-  text-align: left;
-} */
-
-#ulotka {
-  border-radius: 25px;
-  width: 100%;
 }
