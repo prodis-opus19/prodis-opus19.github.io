@@ -1,30 +1,9 @@
 /* variables*/
 :root {
-  --almost_white: #d3d3d3;
-  --body_background: #1a1a1a;
-  --header_background: #141414;
-  --header_border: #262626;
-  --header_shadow: #0d0d0d;
+  --link_color_hover_background: #437043;
+  --link_color_hover: #99ff99;
+  --link_color: #568f56;
   --nav_button_active: #4d804d;
-  --nav_button_background: #404040;
-  --nav_hover: #808080;
-  --splitter_color: #404040;
-  --tab_background: #262626;
-  --tab_border: #333333;
-  --tab_shadow: #0d0d0d;
-  --table_th_border: #1a1a1a;
-  --white: white;
-}
-
-.link {
-  color: #568f56;
-  cursor: pointer;
-  text-decoration: underline;
-}
-
-.link:hover {
-  background-color: #437043;
-  color: #99ff99;
 }
 
 /* Uncomment this and the div in the HTML to show notification when enough participants */
@@ -39,76 +18,9 @@
   text-align: left;
 } */
 
-
-.img_wide {
-  border-radius: 25px;
-  margin-bottom: 20px;
-  margin-top: 20px;
-  width: 100%;
-}
-
 #ulotka {
   border-radius: 25px;
   width: 100%;
-}
-
-/* main project's description under project tab */
-article {
-  text-align: left;
-}
-
-article h1 {
-  font-size: 200%;
-  margin-top: 30px;
-}
-
-article p {
-  color: var(--almost_white);
-  line-height: 1.8;
-  margin-bottom: 20px;
-}
-
-/* list within article */
-article .article_list {
-  margin-bottom: 60px;
-}
-
-article .article_list h1 {
-  font-size: 150%;
-  margin-bottom: 40px;
-  margin-top: 60px;
-  text-align: center;
-}
-
-article .article_list p {
-  margin-bottom: 10px;
-}
-
-article .big_link {
-  padding-top: 20px;
-  padding-bottom: 20px;
-  font-size: 120%;
-  text-align: center;
-}
-
-/* footer with ukrainian flag at the bottom */
-footer {
-  color: gray;
-  margin-top: 50px;
-}
-
-footer hr {
-  color: gray;
-  size: 2;
-}
-
-footer p {
-  margin-top: 30px;
-}
-
-footer img {
-  height: 20px;
-  margin-top: 10px;
 }
 
 /* narrow */

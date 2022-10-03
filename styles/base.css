@@ -3,13 +3,15 @@
 /* --color_primary: #bb4b4b;
     calc(var(--colorPrimary-l) + var(--lighten-percentage)) */
 /* } */
-
 /* variables*/
 :root {
   --almost_white: #d3d3d3;
   --header_background: #141414;
   --header_border: #262626;
   --header_shadow: #0d0d0d;
+  --link_color_hover_background: #704343;
+  --link_color_hover: #ff9999;
+  --link_color: #bb4b4b;
   --nav_button_active: #bb4b4b;
   --nav_button_background: #404040;
   --nav_hover: #808080;
@@ -17,11 +19,6 @@
   --tab_background: #262626;
   --tab_border: #333333;
   --tab_shadow: #0d0d0d;
-  --table_background: #141414;
-  --table_border: #333333;
-  --table_td_color: #808080;
-  --table_th_border: #1a1a1a;
-  --table_th_color: #bfbfbf;
 }
 
 body {
@@ -128,10 +125,29 @@ a {
   user-select: text;
 }
 
+.link {
+  color: var(--link_color);
+  cursor: pointer;
+  text-decoration: underline;
+}
 
+.link:hover {
+  background-color: var(--link_color_hover_background);
+  color: var(--link_color_hover);
+}
 
 .image_highlight_on_hover:hover {
   filter: brightness(120%) saturate(120%);
+}
+
+.img_wide {
+  border-radius: 25px;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.img_wide:not(:last-child) {
+  margin-bottom: 20px;
 }
 
 /* header at the top; contains website name and navigation links */
@@ -247,7 +263,7 @@ header>nav>.navbar_splitter {
 }
 
 .tab_title img {
-  filter: drop-shadow(0 0px 3px var(--table_th_border));
+  filter: drop-shadow(0 0px 3px var(--tab_shadow));
   height: 70px;
   margin: 20px;
 }
@@ -275,6 +291,12 @@ article p {
   margin-bottom: 20px;
 }
 
+
+/* list within article */
+article .article_list {
+  margin-bottom: 60px;
+}
+
 /* list within article */
 article .article_list h1 {
   font-size: 150%;
@@ -285,6 +307,13 @@ article .article_list h1 {
 
 article .article_list p {
   margin-bottom: 10px;
+}
+
+article .big_link {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-size: 120%;
+  text-align: center;
 }
 
 /* footer with ukrainian flag at the bottom */

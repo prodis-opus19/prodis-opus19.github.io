@@ -1,14 +1,10 @@
-.link {
-  color: #bb4b4b;
-  cursor: pointer;
-  text-decoration: underline;
+:root {
+  --table_background: #141414;
+  --table_border: #333333;
+  --table_td_color: #808080;
+  --table_th_border: #1a1a1a;
+  --table_th_color: #bfbfbf;
 }
-
-.link:hover {
-  background-color: #704343;
-  color: #ff9999;
-}
-
 
 /* hide polish or english version based on button click */
 body.hide_english :lang(en) {
