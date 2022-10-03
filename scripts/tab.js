@@ -51,3 +51,8 @@ export function open_tab(category, add_history = true, scroll_up = true) {
     const category_upper = category[0].toUpperCase() + category.slice(1);
     document.title = `${DEFAULT_TITLE} - ${category_upper}`;
 }
+
+
+window.addEventListener("popstate", (event) => {
+    open_tab(event.state, false, false);
+});

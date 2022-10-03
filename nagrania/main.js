@@ -2,11 +2,6 @@ import { show_top_alert, copy_to_clipboard } from "../scripts/alert.js";
 import { open_tab } from "../scripts/tab.js";
 
 
-window.addEventListener("popstate", (event) => {
-    open_tab(event.state, false, false);
-});
-
-
 // open tab based on URL parameters
 function get_url_parameters() {
     /*

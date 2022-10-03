@@ -75,11 +75,6 @@ function switch_language(target, show_alert = true) {
 }
 
 
-window.addEventListener("popstate", (event) => {
-    open_tab(event.state, false, false);
-});
-
-
 // open tab based on URL parameters
 function get_url_parameters() {
     /*
