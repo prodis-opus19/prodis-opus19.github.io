@@ -1,7 +1,7 @@
 .full_page_tab {
   border-radius: 20px;
-  padding-left: 14px;
-  padding-right: 14px;
+  padding-left: 12px;
+  padding-right: 12px;
   width: 98%;
 }
 
@@ -22,8 +22,8 @@
 }
 
 .navbar_per_person button {
-  font-size: 150%;
-  height: 60px;
+  font-size: 115%;
+  height: 50px;
 }
 
 .tab_per_person_content {
@@ -32,7 +32,7 @@
 }
 
 .tab_per_person_content h1 {
-  font-size: 200%;
+  font-size: 180%;
 }
 
 .tab_per_person_content>.img_flex img {

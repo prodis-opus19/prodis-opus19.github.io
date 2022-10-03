@@ -1,11 +1,11 @@
 /* mobile navbar only */
 #top_alert {
   position: absolute;
-  top: 80px;
+  top: 70px;
 }
 
 header {
-  height: 80px;
+  height: 70px;
   padding-left: 0;
   padding-right: 0;
   position: absolute;
@@ -36,6 +36,8 @@ header>#hamburger {
   padding-left: 20px;
   padding-right: 20px;
   padding-top: 8px;
+  position: relative;
+  transform: translateY(-7px);
 }
 
 header>nav {
@@ -48,9 +50,9 @@ header>nav {
   flex-direction: column;
   height: auto;
   justify-content: center;
-  padding: 12px;
+  padding: 10px;
   position: absolute;
-  top: 80px;
+  top: 70px;
   width: 100%;
 }
 
@@ -62,8 +64,8 @@ header>nav>.tab_link {
   background-color: var(--nav_button_background);
   border-radius: 10px;
   font-size: 20px;
-  margin-bottom: 8px;
-  margin-top: 8px;
+  margin-bottom: 6px;
+  margin-top: 6px;
   padding-bottom: 12px;
   padding-top: 12px;
   width: 100%;
