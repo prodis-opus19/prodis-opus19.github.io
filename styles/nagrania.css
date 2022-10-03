@@ -1,3 +1,8 @@
+@import "/styles/responsive/narrow.css" screen and (max-width: 1000px);
+/* @import "/styles/responsive/narrow.css" screen and (max-width: 1010px); */
+/* @import "/styles/responsive/mobile_all.css" screen and (max-width: 610px);
+@import "/styles/responsive/narrow_and_short.css" screen and (max-height: 575.98px) and (orientation: landscape); */
+
 /* variables*/
 :root {
   --link_color_hover_background: #437043;
@@ -21,38 +26,6 @@
 #ulotka {
   border-radius: 25px;
   width: 100%;
-}
-
-/* narrow */
-@media only screen and (max-width: 1000px) {
-  header>#header_logo {
-    display: none;
-  }
-
-  header>nav {
-    width: 100%;
-  }
-
-  header>nav>*:not(:last-child) {
-    margin-right: 5px;
-  }
-
-  header>nav>.tab_link {
-    padding-left: 5px;
-    padding-right: 5px;
-    width: 100%;
-  }
-}
-
-/* narrow and short  */
-@media only screen and (max-height: 575.98px) and (orientation: landscape) {
-  #top_alert {
-    position: absolute;
-  }
-
-  header {
-    position: absolute;
-  }
 }
 
 /* mobile navbar only */

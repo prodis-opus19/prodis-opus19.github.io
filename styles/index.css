@@ -1,3 +1,5 @@
+@import "/styles/responsive/narrow.css" screen and (max-width: 1010px);
+
 :root {
   --table_background: #141414;
   --table_border: #333333;
@@ -157,38 +159,6 @@ body.hide_polish :lang(pl) {
   margin-right: auto;
   margin-top: 35px;
   width: 90%;
-}
-
-/* narrow */
-@media only screen and (max-width: 1010px) {
-  header>#header_logo {
-    display: none;
-  }
-
-  header>nav {
-    width: 100%;
-  }
-
-  header>nav>*:not(:last-child) {
-    margin-right: 5px;
-  }
-
-  header>nav>.tab_link {
-    padding-left: 5px;
-    padding-right: 5px;
-    width: 100%;
-  }
-}
-
-/* narrow and short  */
-@media only screen and (max-height: 575.98px) and (orientation: landscape) {
-  #top_alert {
-    position: absolute;
-  }
-
-  header {
-    position: absolute;
-  }
 }
 
 /* mobile navbar only */
