@@ -16,30 +16,6 @@
   --white: white;
 }
 
-body {
-  -webkit-user-select: none;
-  background-color: var(--body_background);
-  border: none;
-  color: var(--white);
-  font-family: Arial, Helvetica, sans-serif;
-  height: 100%;
-  overflow-x: hidden;
-  overflow-y: scroll;
-  text-align: center;
-  user-select: none;
-}
-
-/* do not stretch when padding or border is added; if div defined as 100px width and 10px padding, then it will still be 100px wide */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-a {
-  text-decoration: none;
-}
-
 .link {
   color: #568f56;
   cursor: pointer;
@@ -49,91 +25,6 @@ a {
 .link:hover {
   background-color: #437043;
   color: #99ff99;
-}
-
-#top_alert {
-  background-color: var(--header_background);
-  border-bottom: 1px solid var(--nav_button_active);
-  color: var(--nav_button_active);
-  font-size: 120%;
-  opacity: 0;
-  padding: 10px;
-  pointer-events: none;
-  position: fixed;
-  top: 50px;
-  transform: translateY(-50px);
-  width: 100%;
-  z-index: 0;
-}
-
-.class_AnimAlert {
-  animation: AnimAlert 2s linear forwards;
-}
-
-@keyframes AnimAlert {
-  0% {
-    opacity: 0;
-    transform: translateY(-50px);
-  }
-
-  7% {
-    opacity: 1;
-    transform: translateY(0px);
-  }
-
-  85% {
-    opacity: 1;
-    transform: translateY(0px);
-  }
-
-  100% {
-    opacity: 0;
-    transform: translateY(-50px);
-  }
-}
-
-#copy_popup {
-  background-color: #141414;
-  border-radius: 6px;
-  border: 1px solid #262626;
-  font-size: 80%;
-  letter-spacing: 0.2em;
-  opacity: 0;
-  padding-bottom: 8px;
-  padding-left: 12px;
-  padding-right: 12px;
-  padding-top: 8px;
-  pointer-events: none;
-  position: absolute;
-  z-index: 1;
-}
-
-.class_AnimCopy {
-  animation: AnimCopy 1s linear forwards;
-}
-
-@keyframes AnimCopy {
-  0% {
-    opacity: 1;
-  }
-
-  90% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-  }
-}
-
-.enable_select {
-  -webkit-user-select: text;
-  user-select: text;
-}
-
-/* resize on hover */
-.image_highlight_on_hover:hover {
-  filter: brightness(120%) saturate(130%);
 }
 
 /* Uncomment this and the div in the HTML to show notification when enough participants */
@@ -148,98 +39,6 @@ a {
   text-align: left;
 } */
 
-/* header at the top; contains website name and navigation links */
-header {
-  align-items: center;
-  background-color: var(--header_background);
-  border-bottom: 3px solid var(--header_border);
-  box-shadow: 0px 0px 15px var(--header_shadow);
-  display: flex;
-  height: 50px;
-  justify-content: space-between;
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-top: 3px;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 2;
-}
-
-header a {
-  color: var(--white);
-}
-
-/* webpage title */
-header>#header_logo {
-  font-size: 24px;
-  margin-right: 20px;
-}
-
-/* responsive navbar menu for navbar */
-header>#mobile_menu_toggle {
-  display: none;
-}
-
-header>#hamburger {
-  display: none;
-}
-
-/* container aligned to the right; contains links to tabs and websites */
-header>nav {
-  align-items: center;
-  display: flex;
-  height: 100%;
-  justify-content: space-between;
-  margin-left: auto;
-  margin-right: 0;
-  overflow: hidden;
-  white-space: nowrap;
-}
-
-/* all direct children (incl. separator) have margin on the right */
-header>nav>*:not(:last-child) {
-  margin-right: 6px;
-}
-
-header>nav>.tab_link {
-  border-radius: 8px;
-  font-size: 20px;
-  padding-bottom: 6px;
-  padding-left: 18px;
-  padding-right: 20px;
-  padding-top: 6px;
-}
-
-header>nav>.tab_link:hover {
-  background-color: var(--nav_hover);
-}
-
-header>nav>.tab_link.active {
-  background-color: var(--nav_button_active);
-}
-
-header>nav>.navbar_splitter {
-  border-left: 2px solid var(--splitter_color);
-  height: 40%;
-}
-
-/* full page tabs */
-.full_page_tab {
-  background-color: var(--tab_background);
-  border-radius: 50px;
-  border: 2px solid var(--tab_border);
-  box-shadow: 0px 0px 15px var(--tab_shadow);
-  display: none;
-  margin-bottom: 100px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 70px;
-  overflow-wrap: break-word;
-  /* top, right, bottom, left */
-  padding: 40px 50px 40px 50px;
-  width: 600px;
-}
 
 .img_wide {
   border-radius: 25px;
@@ -251,38 +50,6 @@ header>nav>.navbar_splitter {
 #ulotka {
   border-radius: 25px;
   width: 100%;
-}
-
-/* welcome title */
-.tab_title h1 {
-  font-size: 300%;
-  margin-bottom: 26px;
-}
-
-.tab_title h2 {
-  font-size: 130%;
-  margin-bottom: 26px;
-}
-
-/* project number */
-.tab_title p {
-  color: var(--almost_white);
-  font-size: 120%;
-  letter-spacing: 0.1em;
-  margin-bottom: 20px;
-}
-
-.tab_title img {
-  filter: drop-shadow(0 0px 3px var(--table_th_border));
-  height: 70px;
-  margin: 20px;
-}
-
-.tab_title hr {
-  color: gray;
-  margin-bottom: 30px;
-  margin-top: 10px;
-  size: 2;
 }
 
 /* main project's description under project tab */
