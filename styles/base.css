@@ -409,7 +409,7 @@ footer img {
 }
 
 .tab_per_person_content h1 {
-  font-size: 300%;
+  font-size: 240%;
   margin-bottom: 30px;
 }
 
@@ -431,8 +431,8 @@ footer img {
 .tab_per_person_content>.img_flex img {
   border-radius: 8px;
   height: auto;
-  margin: 10px;
-  width: 50px;
+  margin: 8px;
+  width: 46px;
 }
 
 .tab_per_person_content hr {
