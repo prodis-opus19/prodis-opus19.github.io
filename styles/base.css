@@ -344,6 +344,12 @@ footer img {
   text-align: left;
 } */
 
+.img_example_last {
+  border-radius: 25px;
+  margin-top: 20px;
+  width: 100%;
+}
+
 /* style the navbar container */
 .navbar_per_person {
   background-color: #141414;
