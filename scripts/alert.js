@@ -33,9 +33,8 @@ function show_copy_popup(tag) {
     */
     // get copy popup element that will be shown on click
     const copy_element = document.getElementById("copy_popup");
-    // remove animation, trigger reflow
+    // remove animation
     copy_element.classList.remove("class_AnimCopy");
-    void copy_element.offsetWidth;
     // if same tag as previous, enable combo & keep previous position (do not re-calculate)
     if (tag === LAST_TAG_OBJ) {
         COMBO_COUNT += 1;
@@ -85,7 +84,8 @@ function show_copy_popup(tag) {
         copy_element.style.top = (top + VERTICAL_OFFSET) + "px";
         copy_element.style.left = left + "px";
     }
-    // add animation
+    // trigger reflow, add animation
+    void copy_element.offsetWidth;
     copy_element.classList.add("class_AnimCopy");
 }
 
