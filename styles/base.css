@@ -446,11 +446,9 @@ footer img {
   background-color: var(--table_background);
   border-collapse: separate;
   border-radius: 20px;
-  border-spacing: 25px;
   border: 2px solid var(--table_border);
-  margin-left: auto;
-  margin-right: auto;
   margin-top: 55px;
+  border-spacing: 2px 20px;
   width: 100%;
 }
 
@@ -474,9 +472,7 @@ footer img {
 /* rows - images */
 .contact_info table td img {
   background-color: transparent;
-  height: 25px;
-  margin-bottom: 5px;
-  margin-top: 5px;
+  height: 20px;
 }
 
 .contact_info .email_explanation {
