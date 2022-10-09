@@ -6,7 +6,7 @@ const BUTTON_LINKS = document.getElementsByClassName("tab_link");
 const DEFAULT_TAB = BUTTON_LINKS[0].id.slice(0, -7);
 
 
-export function open_tab(category, add_history = true) {
+export function open_tab(category = null, add_history = true) {
     /*
     Unhide full page tab and highlight its corresponding button.
     If "category" is invalid, use default category (first <a> tag inside <nav>).
