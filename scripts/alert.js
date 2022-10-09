@@ -7,7 +7,6 @@ const VERTICAL_OFFSET = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) ? 
 export function show_top_alert(content) {
     /*
     Show alert at the top.
-    If no argument is provided, then show placeholder message.
     */
     const div = document.getElementById("top_alert");
     div.textContent = content;
