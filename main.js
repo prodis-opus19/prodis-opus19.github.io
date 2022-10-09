@@ -2,16 +2,16 @@ import { show_top_alert, copy_to_clipboard } from "./scripts/alert.js";
 import { open_tab } from "./scripts/tab.js";
 
 
-const DEFAULT_PERSON_TAB = "m_kul"; // person description opened in team tab
-
-
-function open_person_desc(category) {
+function open_person_desc(category = null) {
     /*
     Unhide per-person description and highlight its corresponding button.
     * Tab = "category_tab"
     * Button = "category_button"
     If invalid category is provided, raise.
     */
+    if (category === null) {
+        category = document.getElementsByClassName("tab_per_person_link")[0].id.slice(0, -7);
+    }
     // get all elements with class="tab_per_person_content" and hide them
     const tab_per_person_content = document.getElementsByClassName("tab_per_person_content");
     for (let i = 0; i < tab_per_person_content.length; i++) {
@@ -98,7 +98,7 @@ function get_url_parameters() {
 
 
 get_url_parameters()
-open_person_desc(DEFAULT_PERSON_TAB);
+open_person_desc();
 
 
 // allow global access within HTML
