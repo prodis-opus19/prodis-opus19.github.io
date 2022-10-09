@@ -99,5 +99,4 @@ export function copy_to_clipboard(tag, to_copy) {
     // show popup under element clicked
     show_copy_popup(tag);
     // console.log("link copied: " + to_copy);
-    return false;
 }
