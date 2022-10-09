@@ -11,7 +11,7 @@ function get_url_parameters() {
     // tab parameter (about, projects), e.g., website.com/index.html?tab=about
     const param_tab = new URLSearchParams(window.location.search).get("tab");
     // if null, use first tab in <nav>
-    open_tab(param_tab, false, false);
+    open_tab(param_tab, false);
     // fixes history bug - when opened with parameter, then going to first history entry, it opens default tab instead BECAUSE the state is null
     window.history.replaceState(param_tab, "");
 }

@@ -6,21 +6,18 @@ const BUTTON_LINKS = document.getElementsByClassName("tab_link");
 const DEFAULT_TAB = BUTTON_LINKS[0].id.slice(0, -7);
 
 
-export function open_tab(category, add_history = true, scroll_up = true) {
+export function open_tab(category, add_history = true) {
     /*
     Unhide full page tab and highlight its corresponding button.
     If "category" is invalid, use default category (first <a> tag inside <nav>).
     If "add_history" is False, then no history entry will be created for the previous tab.
-    This is a hack for when the listener aims to re-open full page from history.
-    If "scroll_up" is False, then page will not be scrolled to the top.
-    This is useful when opening a page from pseudo-history, as it will stay at previous scroll position.
+    This will also scroll the page to the top.
+    This is a hack for when the listener aims to re-open full page from history:
+    - will not create history entry.
+    - will stay at previous scroll position
     */
     // close mobile floating menu that appears after clicking the hamburger icon
     document.getElementById("mobile_menu_toggle").checked = false;
-    // scroll to the top, unless first run or opened from history
-    if (scroll_up) {
-        window.scrollTo(0, 0);
-    }
     // hide all elements with class="full_page_tab" by default
     for (let i = 0; i < FULL_PAGE_TABS.length; i++) {
         FULL_PAGE_TABS[i].style.display = "none";
@@ -45,6 +42,7 @@ export function open_tab(category, add_history = true, scroll_up = true) {
     }
     // create new history entry for current tab; prevents duplicates when called from popstate listener
     if (add_history) {
+        window.scrollTo(0, 0); // scroll to top
         window.history.pushState(category, "", `?tab=${category}`);
     }
     // append category to webpage's title
@@ -54,5 +52,5 @@ export function open_tab(category, add_history = true, scroll_up = true) {
 
 
 window.addEventListener("popstate", (event) => {
-    open_tab(event.state, false, false);
+    open_tab(event.state, false);
 });
