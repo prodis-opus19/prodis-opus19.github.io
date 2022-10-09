@@ -124,6 +124,7 @@ a {
   color: var(--link_color);
   cursor: pointer;
   text-decoration: underline;
+  transition: color 0.2s, background-color 0.2s;
 }
 
 .link:hover {
@@ -197,6 +198,10 @@ header>nav {
 /* all direct children (incl. separator) have margin on the right */
 header>nav>*:not(:last-child) {
   margin-right: 6px;
+}
+
+header>nav:hover>.tab_link {
+  transition: background-color 0.2s;
 }
 
 header>nav>.tab_link {
