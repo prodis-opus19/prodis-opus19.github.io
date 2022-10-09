@@ -1,7 +1,7 @@
 // GLOBAL VARIABLES
 let COMBO_COUNT = 1; // how many times the same element was copied
 let LAST_TAG_OBJ = null; // which element was copied last time
-const VERTICAL_OFFSET = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) ? 110 : 80; // offset for "COPIED!" popup based on mobile/desktop
+const VERTICAL_OFFSET = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) ? 110 : 76; // offset for "COPIED!" popup based on mobile/desktop
 
 
 export function show_top_alert(content) {
