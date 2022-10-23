@@ -7,7 +7,7 @@ function open_person_desc(category = null) {
     Unhide per-person description and highlight its corresponding button.
     * Tab = "category_tab"
     * Button = "category_button"
-    If invalid category is provided, raise.
+    If invalid category is provided, use the category of the first button.
     */
     if (category === null) {
         category = document.getElementsByClassName("tab_per_person_link")[0].id.slice(0, -7);
