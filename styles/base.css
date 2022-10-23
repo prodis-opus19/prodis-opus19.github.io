@@ -373,7 +373,7 @@ footer img {
   width: 280px;
 }
 
-/* style the buttons that are used to open the tab content */
+/* style the buttons that are used to open the peron's description (workplace, interests, contact info) */
 .navbar_per_person button {
   background-color: #404040;
   border-radius: 8px;
@@ -386,7 +386,7 @@ footer img {
   margin-top: 5px;
   outline: none;
   overflow: hidden;
-  transition: background-color 0.2s;
+  transition: background-color 0.1s;
   width: 100%;
 }
 
