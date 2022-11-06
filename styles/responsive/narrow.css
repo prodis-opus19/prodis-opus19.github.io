@@ -16,14 +16,3 @@ header>nav>.tab_link {
   padding-right: 5px;
   width: 100%;
 }
-
-/* narrow and short  */
-@media only screen and (max-height: 575.98px) and (orientation: landscape) {
-  #top_alert {
-    position: absolute;
-  }
-
-  header {
-    position: absolute;
-  }
-}
