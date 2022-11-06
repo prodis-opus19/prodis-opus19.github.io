@@ -201,7 +201,7 @@ header>nav>*:not(:last-child) {
 }
 
 header>nav:hover>.tab_link {
-  transition: background-color 0.2s;
+  transition: background-color 0.1s;
 }
 
 header>nav>.tab_link {
