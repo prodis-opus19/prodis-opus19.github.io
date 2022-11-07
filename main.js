@@ -1,5 +1,5 @@
-import { show_top_alert, copy_to_clipboard } from "./scripts/alert.js";
-import { open_tab } from "./scripts/tab.js";
+import { show_top_alert, copy_to_clipboard } from "/scripts/alert.js";
+import { open_tab } from "/scripts/tab.js";
 
 
 function open_person_desc(category = null) {
