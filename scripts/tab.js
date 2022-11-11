@@ -54,3 +54,20 @@ export function open_tab(category = null, add_history = true) {
 window.addEventListener("popstate", (event) => {
     open_tab(event.state, false);
 });
+
+
+function get_url_parameters() {
+    /*
+    Set tab using URL parameters.
+    If no tab parameters are provided, then use first <a> inside <nav>.
+    */
+    // tab parameter (about, projects), e.g., website.com/index.html?tab=about
+    const param_tab = new URLSearchParams(window.location.search).get("tab");
+    // if null, use first tab in <nav>
+    open_tab(param_tab, false);
+    // fixes history bug - when opened with parameter, then going to first history entry, it opens default tab instead BECAUSE the state is null
+    window.history.replaceState(param_tab, "");
+}
+
+
+get_url_parameters();
