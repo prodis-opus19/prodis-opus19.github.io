@@ -1,6 +1,5 @@
 @import "/styles/base.css";
 @import "/styles/responsive/narrow.css" screen and (max-width: 1000px);
-@import "/styles/responsive/mobile_navbar.css" screen and (max-width: 710px);
 @import "/styles/responsive/mobile_all.css" screen and (max-width: 610px);
 
 /* variables*/
