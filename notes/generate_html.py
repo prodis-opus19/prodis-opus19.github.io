@@ -30,22 +30,24 @@ class TextToHtml:
         self,
         filepath_input: str = "./input.md",
         filepath_output: str = "./index.html",
+        strip_empty_newlines: bool = True,
     ) -> None:
         # use paths relative to the script, not user's pwd
         script_dir: str = os.path.realpath(os.path.dirname(__file__))
         logging.debug(f"found script's directory: {script_dir}")
         self.filepath_input: str = os.path.join(script_dir, filepath_input)
         self.filepath_output: str = os.path.join(script_dir, filepath_output)
+        self.strip_empty_newlines: bool = strip_empty_newlines
         self._html_head = """<!DOCTYPE html>
 <html>
 
 <head>
   <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
   <meta charset="UTF-8">
-  <title>MEETING NOTES</title>
+  <title>Meeting Notes</title>
   <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
   <link rel="stylesheet" href="/styles/notes.css">
-  <meta name="description" content="Meeting Notes (OPUS19)">
+  <meta name="description" content="Internal Weekly Meeting Notes (OPUS-19)">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script>
     /* prevent Firefox FOUC (Flash of unstyled content) warning */
@@ -108,8 +110,14 @@ class TextToHtml:
             line_length = len(line)
             # if newline, add empty string, will be useful for combining p tags
             if line_length == 0:
-                to_append = ""
-                logging.debug(f"found empty line, setting to '': '{line}'")
+                if self.strip_empty_newlines:
+                    logging.debug(
+                        f"found empty line, ignoring because 'strip_empty_newlines' is True: '{line}'"
+                    )
+                    continue
+                else:
+                    to_append = ""
+                    logging.debug(f"found empty line, setting to '': '{line}'")
             else:
                 # reset heading counter
                 heading_count = 0
@@ -158,7 +166,7 @@ class TextToHtml:
         )
         table_of_contents: str = "\n".join(r_toc)
         notes: str = "\n".join([i for i in r if i != ""])
-        final: str = f"<nav><p>Table of contents</p><ul>\n{table_of_contents}</ul>\n</nav>\n\n{notes}"
+        final: str = f"<nav>\n<p>Table of contents</p>\n<ul>\n{table_of_contents}\n</ul>\n</nav>\n\n{notes}"
         return final
 
     def run(self) -> bool:
@@ -169,7 +177,7 @@ class TextToHtml:
             bool: True if suceeded, False if Failed.
         """
         try:
-            html = self._html_head + "\n<body>\n\n\n"
+            html = self._html_head + "\n\n<body>\n\n"
             html += self._generate_body_html_from_text()
             html += "\n\n</body>"
             with open(file=self.filepath_output, mode="w", encoding="utf-8") as f:
