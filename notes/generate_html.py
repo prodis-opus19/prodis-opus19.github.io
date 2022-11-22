@@ -134,25 +134,21 @@ class TextToHtml:
                     # remove initial hash symbols
                     to_append = line[heading_count + 1 :]
                     stripped_name = self._strip_heading(to_append)
-                    # if level 1 heading, add to table of contents
+                    # if level 1 heading, create h tag and add to table of contents
                     if heading_count == 1:
+                        logging.debug(
+                            f"found lvl1 heading '{index}' in '{line}', adding to ToC"
+                        )
                         r_toc.append(
                             f'<li><a href="#{stripped_name}">{to_append}</a></li>'
                         )
-                    logging.debug(f"found heading '{index}' in '{line}'")
-                    to_append = f'<h{heading_count}><a id="{stripped_name}">{to_append}</a></h{heading_count}>'
+                        to_append = f'<h{heading_count}><a id="{stripped_name}">{to_append}</a></h{heading_count}>'
+                    # if NOT level 1 heading, only create h tag
+                    else:
+                        logging.debug(f"found non lvl1 heading '{index}' in '{line}'")
+                        to_append = f"<h{heading_count}>{to_append}</h{heading_count}>"
                 else:
                     to_append = f"<p>{line}</p>"
-                    # if previous line longer than 5 and was a p tag, combine current line it with previous line
-                    # if len(r) > 1:
-                    #     # fix for empty strings
-                    #     if len(r[-1]) > 5:
-                    #         if r[-1][1] == "p":
-                    #             logging.debug(
-                    #                 f"found two p tags in a row, combining: '{line}'"
-                    #             )
-                    #             to_append = r[-1][:-4] + f"{line}</p>"
-                    #             del r[-1]
                     # add <b> for bold text marked using "**"
                     to_append = re.sub(r"\*\*(.+?)\*\*", r"<b>\1</b>", to_append)
                     # add <em> for italic text marked using "*"
