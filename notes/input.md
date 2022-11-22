@@ -1,3 +1,46 @@
+### Agendas:
+
+Historia spotkań do raportów rocznych
+
+2022
+
+- 22.11.22 tworzenie narzędzi do zarządzania projektem typu github i markdown
+
+- 15.11.22: omawianie modelu przewidującego słowa (Hugging face,  surprisal score)
+
+- 08.11.22: przygotowanie materiału do nagrań
+
+- Opracowanie metodologii badań
+
+- Wybór zadań badawczych
+
+- Przygotowanie studia do nagrań
+
+- Wybór sprzętu do nagrań
+
+- Wcześniej (otworzyłam notatki):
+
+- VII: visual studio code
+
+- VI: Podstawy deep learning
+
+- V 22: Omówienie modeli przewidujących słowa
+ 
+- Wstęp do Keras
+
+- Podstawy sieci neuronowych
+
+- IV 22: wykład regresja liniowa
+
+- Podstawy uczenia maszynowego 
+
+- Od I: 
+- Wizualizacja wyników z pakietem ggplot2
+
+- Budowanie i diagnozowanie modelu lme4
+
+### Detailed notes
+
 # Meeting 20.07.2022
 
 ## Notes
