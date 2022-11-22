@@ -319,6 +319,9 @@ Prodis historia spotkan agendy (Google Docs).
 
 # Meeting 22.11.2022
 
+## Agenda
+- Tworzenie narzędzi do zarządzania projektem typu Github.
+
 ---> create a webpage that uses json or markdown files to create notes
 
 ## Website
