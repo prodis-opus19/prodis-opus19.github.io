@@ -11,6 +11,7 @@ body {
     overflow-y: scroll;
     text-align: left;
     width: 600px;
+    margin-bottom: 200px;
 }
 
 nav {
