@@ -2,7 +2,7 @@
 Generate static HTML page using pseudo-markdown.
 It also generates a table of contents at the beginning based on Level 1 headings.
 
-Note: to produce a newline, only a single one is needed, instead of two, vs. normal markdown.
+Note: to produce a newline, only a single one is needed, instead of two (as seen in regular Markdown).
 
 Ie..,
 'This is
@@ -16,7 +16,7 @@ Supported features:
 * Italic text (e.g., *This is italic*).
 
 Not supported:
-* Lists - idk how to efficiently append <ul> before <li> with regex.
+* Lists - idk how to efficiently wrap <li> (list item) tags with <ul> (unordered list).
 * Tables - not needed yet.
 """
 import logging
