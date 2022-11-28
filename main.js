@@ -14,13 +14,13 @@ function open_person_desc(category = null) {
     }
     // get all elements with class="tab_per_person_content" and hide them
     const tab_per_person_content = document.getElementsByClassName("tab_per_person_content");
-    for (let i = 0; i < tab_per_person_content.length; i++) {
-        tab_per_person_content[i].style.display = "none";
+    for (const content of tab_per_person_content) {
+        content.style.display = "none";
     }
     // get all elements with class="tab_per_person_link" and remove the class "active"
     const tab_per_person_link = document.getElementsByClassName("tab_per_person_link");
-    for (let i = 0; i < tab_per_person_link.length; i++) {
-        tab_per_person_link[i].classList.remove("active");
+    for (const link of tab_per_person_link) {
+        link.classList.remove("active");
     }
     // show the current tab
     document.getElementById(`${category}_tab`).style.display = "block";

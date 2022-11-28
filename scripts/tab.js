@@ -19,12 +19,12 @@ export function open_tab(category = null, add_history = true) {
     // close mobile floating menu that appears after clicking the hamburger icon
     document.getElementById("mobile_menu_toggle").checked = false;
     // hide all elements with class="full_page_tab" by default
-    for (let i = 0; i < FULL_PAGE_TABS.length; i++) {
-        FULL_PAGE_TABS[i].style.display = "none";
+    for (const tab of FULL_PAGE_TABS) {
+        tab.style.display = "none";
     }
     // remove the background color of all buttons in navbar with class="tab_link"
-    for (let i = 0; i < BUTTON_LINKS.length; i++) {
-        BUTTON_LINKS[i].classList.remove("active");
+    for (const button of BUTTON_LINKS) {
+        button.classList.remove("active");
     }
     // set default tab using first <a> tag from within <nav>
     if (category === null) {
