@@ -3,7 +3,8 @@
   --almost_white: #d3d3d3;
   --body_background_gradient_end: #8a5bd5;
   --body_background_gradient_start: #f99777;
-  --body_background: #744bb7;
+  /* for mobile */
+  --body_background: #9F98E8;
   --header_background: #11111d;
   --link_color_hover_background: #704343;
   --link_color_hover: #ff9999;
