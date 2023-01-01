@@ -4,8 +4,8 @@
 
 /* variables*/
 :root {
-  --body_background_gradient_end: #9EABE4;
-  --body_background_gradient_start: #c1dfc4;
+  --body_background_gradient_end: #21caca;
+  --body_background_gradient_start: #B58ECC;
   /* for mobile */
   --body_background: #BBDBBE;
   --link_color_hover_background: #437043;
