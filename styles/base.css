@@ -43,9 +43,9 @@ a {
 }
 
 #top_alert {
-  background-color: var(--header_background);
-  border-bottom: 1px solid var(--nav_button_active);
-  color: var(--nav_button_active);
+  background-color: #e8fd96;
+  border-bottom: 1px solid black;
+  color: black;
   font-size: 120%;
   opacity: 0;
   padding: 10px;
