@@ -3,8 +3,7 @@
 @import "/styles/responsive/mobile_all.css" screen and (max-width: 710px);
 
 :root {
-  --table_background: #141414;
-  --table_border: #333333;
+  --table_background: #0b0b14;
   --table_td_color: #808080;
   --table_th_border: #1a1a1a;
   --table_th_color: #bfbfbf;

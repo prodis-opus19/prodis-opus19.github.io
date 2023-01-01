@@ -1,24 +1,25 @@
 /* variables*/
 :root {
   --almost_white: #d3d3d3;
-  --header_background: #141414;
-  --header_border: #262626;
-  --header_shadow: #0d0d0d;
+  --body_background_gradient_end: #8a5bd5;
+  --body_background_gradient_start: #f99777;
+  --body_background: #744bb7;
+  --header_background: #11111d;
   --link_color_hover_background: #704343;
   --link_color_hover: #ff9999;
   --link_color: #E94560;
   --nav_button_active: #bb4b4b;
-  --nav_button_background: #404040;
-  --nav_hover: #808080;
+  --nav_button_background: #3a3a46;
+  --nav_hover: #3b3b58;
   --splitter_color: #404040;
-  --tab_background: #262626;
+  --tab_background: #1f1f31;
   --tab_border: #333333;
-  --tab_shadow: #0d0d0d;
 }
 
 body {
   -webkit-user-select: none;
-  background-color: #1a1a1a;
+  background: var(--body_background);
+  background: linear-gradient(to right, var(--body_background_gradient_start), var(--body_background_gradient_end) 90%);
   border: none;
   color: white;
   font-family: Arial, Helvetica, sans-serif;
@@ -84,7 +85,6 @@ a {
 #copy_popup {
   background-color: var(--header_background);
   border-radius: 6px;
-  border: 1px solid var(--header_border);
   font-size: 80%;
   letter-spacing: 0.2em;
   opacity: 0;
@@ -98,7 +98,7 @@ a {
 }
 
 .class_AnimCopy {
-  animation: AnimCopy 1s linear forwards;
+  animation: AnimCopy 0.8s linear forwards;
 }
 
 @keyframes AnimCopy {
@@ -137,7 +137,7 @@ a {
 }
 
 .img_wide {
-  border-radius: 25px;
+  border-radius: 10px;
   margin-top: 20px;
   width: 100%;
 }
@@ -150,14 +150,11 @@ a {
 header {
   align-items: center;
   background-color: var(--header_background);
-  border-bottom: 3px solid var(--header_border);
-  box-shadow: 0px 0px 15px var(--header_shadow);
   display: flex;
   height: 50px;
   justify-content: space-between;
   padding-left: 20px;
   padding-right: 20px;
-  padding-top: 3px;
   position: fixed;
   top: 0;
   width: 100%;
@@ -205,7 +202,7 @@ header>nav:hover>.tab_link {
 }
 
 header>nav>.tab_link {
-  border-radius: 8px;
+  border-radius: 5px;
   font-size: 20px;
   padding-bottom: 6px;
   padding-left: 18px;
@@ -229,11 +226,9 @@ header>nav>.navbar_splitter {
 /* full page tabs */
 .full_page_tab {
   background-color: var(--tab_background);
-  border-radius: 50px;
-  border: 2px solid var(--tab_border);
-  box-shadow: 0px 0px 15px var(--tab_shadow);
+  border-radius: 20px;
   display: none;
-  margin-bottom: 100px;
+  margin-bottom: 50px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 70px;
@@ -263,7 +258,6 @@ header>nav>.navbar_splitter {
 }
 
 .tab_title img {
-  filter: drop-shadow(0 0px 3px var(--tab_shadow));
   height: 70px;
   margin: 20px;
 }
@@ -350,16 +344,15 @@ footer img {
 } */
 
 .img_example_last {
-  border-radius: 25px;
+  border-radius: 10px;
   margin-top: 20px;
   width: 100%;
 }
 
 /* style the navbar container */
 .navbar_per_person {
-  background-color: #141414;
-  border-radius: 15px;
-  border: 2px solid #333333;
+  background-color: var(--table_background);
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -375,8 +368,9 @@ footer img {
 
 /* style the buttons that are used to open the peron's description (workplace, interests, contact info) */
 .navbar_per_person button {
-  background-color: #404040;
-  border-radius: 8px;
+  /* background-color: #404040; */
+  background-color: var(--nav_button_background);
+  border-radius: 5px;
   border: none;
   color: white;
   cursor: pointer;
@@ -392,7 +386,7 @@ footer img {
 
 /* change background color of buttons on hover */
 .navbar_per_person button:hover {
-  background-color: #808080;
+  background-color: #666676;
 }
 
 /* selected button */
@@ -402,9 +396,8 @@ footer img {
 
 /* style the tab content */
 .tab_per_person_content {
-  background-color: #141414;
-  border-radius: 20px;
-  border: 2px solid #333333;
+  background-color: var(--table_background);
+  border-radius: 12px;
   display: none;
   margin-top: 40px;
   overflow: hidden;
@@ -451,8 +444,7 @@ footer img {
 .contact_info table {
   background-color: var(--table_background);
   border-collapse: separate;
-  border-radius: 20px;
-  border: 2px solid var(--table_border);
+  border-radius: 12px;
   margin-top: 55px;
   border-spacing: 2px 20px;
   width: 100%;
