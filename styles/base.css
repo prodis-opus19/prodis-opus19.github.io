@@ -85,7 +85,7 @@ a {
 
 #copy_popup {
   background-color: var(--header_background);
-  border-radius: 6px;
+  border-radius: 4px;
   font-size: 80%;
   letter-spacing: 0.2em;
   opacity: 0;
