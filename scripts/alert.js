@@ -31,7 +31,7 @@ function show_copy_popup(tag) {
     copy_element.classList.remove("class_AnimCopy");
     // if same tag as previous, enable combo & keep previous position (do not re-calculate)
     if (tag === LAST_TAG_OBJ) {
-        COMBO_COUNT += 1;
+        COMBO_COUNT++;
         let append_text;
         // Unreal Tournament 2004
         switch (true) {
