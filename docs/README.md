@@ -11,3 +11,11 @@ Click [here](https://prodis-opus19.github.io/) to open.
 
 
 Each page consists of a html file, main.js and a stylesheet.
+
+
+---
+
+
+# credits
+
+country flags: https://github.com/hampusborgos/country-flags
