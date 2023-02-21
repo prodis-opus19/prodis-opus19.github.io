@@ -41,12 +41,14 @@ function toggle_language() {
         show_top_alert("Changed language to Polish.")
         document.body.className = "hide_english"; // hide tags with lang="en" ID
         document.getElementById("lang_flag").src = "images/root/flag/pl.png"; // set polish flag src
+        document.documentElement.setAttribute("lang", "pl");
     }
     else {
         // set english
         show_top_alert("Changed language to English.")
         document.body.className = "hide_polish"; // hide tags with lang="pl" ID
         document.getElementById("lang_flag").src = "images/root/flag/us.png"; // set american flag src
+        document.documentElement.setAttribute("lang", "en");
     }
 }
 
@@ -58,6 +60,7 @@ function set_polish_if_in_header() {
     if (navigator.language.slice(0, 2) === "pl") {
         document.body.className = "hide_english"; // hide tags with lang="en" ID
         document.getElementById("lang_flag").src = "images/root/flag/pl.png"; // set polish flag src
+        document.documentElement.setAttribute("lang", "pl");
     }
 }
 
