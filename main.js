@@ -70,7 +70,7 @@ function toggle_language() {
 }
 
 
-function set_lang() {
+function set_language() {
     /*
     Set Polish based on local storage and browser's language, but prioritize local storage.
     */
@@ -85,8 +85,9 @@ function set_lang() {
 }
 
 
+// on page load
 open_person_desc();
-set_lang();
+set_language();
 
 
 // allow global access within HTML
