@@ -74,13 +74,9 @@ function set_lang() {
     /*
     Set Polish based on local storage and browser's language, but prioritize local storage.
     */
-    if (!local_storage_available) {
-        return;
-    }
     // if user changed to english, ignore everything
     if (window.localStorage.getItem("lang") === "en") {
         return;
-
     }
     // if user changed to polish or browser's language is polish, set polish
     if (window.localStorage.getItem("lang") === "pl" || navigator.language.slice(0, 2) === "pl") {
