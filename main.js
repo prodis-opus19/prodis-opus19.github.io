@@ -2,6 +2,10 @@ import { show_top_alert, copy_to_clipboard } from "/scripts/alert.js";
 import { open_tab } from "/scripts/tab.js";
 
 
+// bool check for ancient browsers
+const local_storage_available = (typeof (Storage) !== "undefined");
+
+
 function open_person_desc(category = null) {
     /*
     Unhide per-person description and highlight its corresponding button.
@@ -29,28 +33,42 @@ function open_person_desc(category = null) {
 }
 
 
+function set_english(show_alert = true) {
+    if (show_alert) {
+        show_top_alert("Changed language to English.");
+    }
+    document.body.className = "hide_polish"; // hide tags with lang="pl" ID
+    document.getElementById("lang_flag").src = "images/root/flag/us.png"; // set american flag src
+    document.documentElement.setAttribute("lang", "en"); //
+    if (local_storage_available) { // store language in local storage (5MB)
+        window.localStorage.setItem("lang", "en");
+    }
+}
+
+
+function set_polish(show_alert = true) {
+    if (show_alert) {
+        show_top_alert("Changed language to Polish.");
+    }
+    document.body.className = "hide_english"; // hide tags with lang="en" ID
+    document.getElementById("lang_flag").src = "images/root/flag/pl.png"; // set polish flag src
+    document.documentElement.setAttribute("lang", "pl"); // html lang tag
+    if (local_storage_available) { // store language in local storage (5MB)
+        window.localStorage.setItem("lang", "pl");
+    }
+}
+
+
 function toggle_language() {
     /*
     Toggle between Polish or English.
     */
     // close mobile floating menu that appears after clicking the hamburger icon
     document.getElementById("mobile_menu_toggle").checked = false;
-    // if polish is hidden, then current language must be english
-    if (document.body.className === "hide_polish") {
-        // set polish
-        show_top_alert("Changed language to Polish.")
-        document.body.className = "hide_english"; // hide tags with lang="en" ID
-        document.getElementById("lang_flag").src = "images/root/flag/pl.png"; // set polish flag src
-        document.documentElement.setAttribute("lang", "pl");
-    }
-    else {
-        // set english
-        show_top_alert("Changed language to English.")
-        document.body.className = "hide_polish"; // hide tags with lang="pl" ID
-        document.getElementById("lang_flag").src = "images/root/flag/us.png"; // set american flag src
-        document.documentElement.setAttribute("lang", "en");
-    }
+    // if polish is hidden, then set polish
+    (document.body.className === "hide_polish") ? set_polish() : set_english();
 }
+
 
 function set_polish_if_in_header() {
     /*
@@ -64,9 +82,27 @@ function set_polish_if_in_header() {
     }
 }
 
+function set_lang() {
+    /*
+    Set Polish based on local storage and browser's language, but prioritize local storage.
+    */
+    if (!local_storage_available) {
+        return;
+    }
+    // if user changed to english, ignore everything
+    if (window.localStorage.getItem("lang") === "en") {
+        return;
+
+    }
+    // if user changed to polish or browser's language is polish, set polish
+    if (window.localStorage.getItem("lang") === "pl" || navigator.language.slice(0, 2) === "pl") {
+        set_polish(false);
+    }
+}
+
 
 open_person_desc();
-set_polish_if_in_header();
+set_lang();
 
 
 // allow global access within HTML
