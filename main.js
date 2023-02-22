@@ -70,18 +70,6 @@ function toggle_language() {
 }
 
 
-function set_polish_if_in_header() {
-    /*
-    If user's UI language starts with "pl", set language to Polish without show_top_alert().
-    Otherwise do nothing (i.e., use English).
-    */
-    if (navigator.language.slice(0, 2) === "pl") {
-        document.body.className = "hide_english"; // hide tags with lang="en" ID
-        document.getElementById("lang_flag").src = "images/root/flag/pl.png"; // set polish flag src
-        document.documentElement.setAttribute("lang", "pl");
-    }
-}
-
 function set_lang() {
     /*
     Set Polish based on local storage and browser's language, but prioritize local storage.
