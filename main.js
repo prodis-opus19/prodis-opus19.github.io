@@ -74,6 +74,10 @@ function set_language() {
     /*
     Set Polish based on local storage and browser's language, but prioritize local storage.
     */
+    // ignore ancient browsers, keep everything in english
+    if (!local_storage_available) {
+        return;
+    }
     // if user changed to english, ignore everything
     if (window.localStorage.getItem("lang") === "en") {
         return;
