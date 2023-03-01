@@ -92,6 +92,28 @@ function next_text() {
     scroll_up_to_text();
 }
 
+document.addEventListener('keydown', function (event) {
+    // const key = event.key; // "ArrowRight", "ArrowLeft", "ArrowUp", or "ArrowDown"
+    console.log(event.key);
+    switch (event.key) {
+        case "ArrowLeft":
+            previous_text();
+            break;
+        case "ArrowRight":
+            next_text();
+            break;
+        case "1":
+            open_group("1");
+            break;
+        case "2":
+            open_group("2");
+            break;
+        case "3":
+            open_group("3");
+            break;
+    }
+
+});
 
 // select first group by default
 open_group("1");
