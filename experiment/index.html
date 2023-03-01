@@ -29,25 +29,44 @@
                 <h1>Eksperyment</h1>
                 <h2>Czytanie tekstu</h2>
             </hgroup>
-            <!-- first group is selected on page load regardless of buttons -->
-            <button type="button" id="group1" onclick="open_group(this.id); return false;">Grupa 1</button>
-            <button type="button" id="group2" onclick="open_group(this.id); return false;">Grupa 2</button>
-            <button type="button" id="group3" onclick="open_group(this.id); return false;">Grupa 3</button>
-            <p><small>Wybrano: <span id="group_select_indicator">1</span></small></p>
+            <details id="group_dropdown" role="list">
+                <summary aria-haspopup="listbox">Wybierz grupę</summary>
+                <ul role="listbox">
+                    <li><a href="#" onclick="open_group('1'); return false;">Grupa nr. 1</a></li>
+                    <li> <a href="#" onclick="open_group('2'); return false;">Grupa nr. 2</a></li>
+                    <li><a href="#" onclick="open_group('3'); return false;">Grupa nr. 3</a></li>
+                </ul>
+            </details>
+            <details id="text_dropdown" role="list">
+                <summary aria-haspopup="listbox">Wybierz tekst</summary>
+                <ul role="listbox">
+                    <li><a href="#" onclick="open_text('A'); return false;">Tekst A (Polityka)</a></li>
+                    <li><a href="#" onclick="open_text('B'); return false;">Tekst B (Nauka)</a></li>
+                    <li><a href="#" onclick="open_text('C'); return false;">Tekst C (Biografia)</a></li>
+                    <li><a href="#" onclick="open_text('D'); return false;">Tekst D (Technologia)</a></li>
+                </ul>
+            </details>
         </div>
     </header>
+
+    <!-- indicator at the bottom of the page, shows group & text, e.g., 1A, 2C, 3B -->
+    <div id="info_box">
+        <p onclick="previous_text();">&#171;</p>
+        <p id="selection_indicator" onclick="scroll_to_top();">?</p>
+        <p onclick="next_text();">&#187;</p>
+    </div>
+
     <main>
-        <!-- <hr> -->
-        <div class="container_group" id="article_group1">
+        <div class="group_container" id="container_group1">
             <h3 class="group_number_header">Grupa 1</h3>
-            <article>
+            <article class="text_container" id="1A">
                 <header><strong>Tekst A</strong></header>
                 <p><strong>Unia Europejska, UE</strong> - gospodarczo-polityczny związek 27 demokratycznych państw europejskich.</p>
                 <p>Unia powstała 1 listopada 1993 roku na mocy podpisanego 7 lutego 1992 traktatu z Maastricht - jako efekt wieloletniego procesu integracji politycznej, gospodarczej i społecznej. Korzenie współczesnej integracji europejskiej sięgają okresu powojennego i ograniczały się do 6 państw zachodnioeuropejskich. Państwa te tworzyły wiele form i mechanizmów współpracy, powoływały organizacje, instytucje i organy, których celem było wzmocnienie jedności między nimi. W 1993 nadrzędną wobec wszystkich poprzednich organizacji została Unia Europejska, sama otrzymując nieznaną wcześniej hybrydową formułę <i>sui generis</i>.</p>
                 <p>Unia Europejska jako organizacja międzynarodowa (w międzynarodowo-prawnym tego słowa znaczeniu) funkcjonuje od 1 grudnia 2009. Równocześnie zastąpiła ona kilka form współpracy, w tym m.in. Wspólnotę Europejską. Proces integracji wykracza poza ściśle określone ramy geograficzne Europy. W określeniu <i>europejskości</i> Unii naczelną rolę odgrywają czynniki historyczne i kulturowe oraz wspólna tożsamość i identyfikacja z wartościami demokratycznymi.</p>
                 <p>Początkiem powojennej integracji europejskiej było powstanie w 1952 Europejskiej Wspólnoty Węgla i Stali. W 1958 została utworzona Europejska Wspólnota Gospodarcza i to jej bezpośrednią następczynią jest Unia Europejska. Od czasu wejścia w życie traktatu lizbońskiego, tj. 1 grudnia 2009, podstawę prawną funkcjonowania stanowią Traktat o Unii Europejskiej (znany także jako traktat z Maastricht) oraz Traktat o funkcjonowaniu Unii Europejskiej. Integralną część Traktatów stanowią tabele ekwiwalencyjne, protokoły i wyjaśnienia. Duże znaczenie dla unijnego porządku prawnego ma też Karta praw podstawowych UE. Prawem wiążącym są również umowy międzynarodowe z państwami trzecimi (w tym układy stowarzyszeniowe), których stroną były Wspólnota Europejska i Unia Europejska. Dokończeniem <i>acquis</i> Unii są akty prawa wtórnego powstałe w oparciu o Traktaty i umowy międzynarodowe.</p>
             </article>
-            <article>
+            <article class="text_container" id="1B">
                 <header><strong>Tekst B</strong></header>
                 <p>Badanie obiektów znajdujących się poza naszą galaktyką to przede wszystkim badania powstawania i ewolucji galaktyk i ich morfologii, w tym badania aktywnych jąder galaktyk, a także badania rozkładu przestrzennego galaktyk, czyli grup i gromad galaktyk. Ten ostatni aspekt jest ważny dla zrozumienia wielkoskalowej struktury Wszechświata.</p>
                 <p>Poszczególne galaktyki cechuje na ogół dobrze określony kształt, co pozwoliło na rozwinięcie systemu ich klasyfikacji. Galaktyki dzieli się na ogół na galaktyki spiralne, galaktyki eliptyczne i galaktyki nieregularne.</p>
@@ -58,13 +77,13 @@
                 <p>Radiogalaktyka to galaktyka aktywna intensywnie świecąca w zakresie radiowym, wyrzucająca strumień gazu z jądra i produkująca olbrzymie obłoki aktywne radiowo. Inne galaktyki aktywne świecą nie tak jasno w zakresie radiowym, ale wszystkie, także galaktyki Seyferta, kwazary i blazary świecą w zakresie wysokich energii. Kwazary są najjaśniejszymi stale świecącymi źródłami promieniowania we Wszechświecie.</p>
                 <p>Grupy i gromady galaktyk to elementy wielkoskalowej struktury Wszechświata. Struktura ta ma charakter hierarchiczny, a największe struktury to supergromady galaktyk. Struktura ta powstaje, ponieważ początkowe niejednorodności we Wszechświecie narastają skutkiem działania grawitacji, powodując grupowanie się materii w formie włókien, ścian i rozdzielających je pustek.</p>
             </article>
-            <article>
+            <article class="text_container" id="1C">
                 <header><strong>Tekst C</strong></header>
                 <p><strong>Witold Pilecki</strong> herbu Leliwa ps. „Witold”, „Druh”; nazwiska konspiracyjne „Roman Jezierski”, „Tomasz Serafiński”, „Leon Bryjak”, „Jan Uznański”, „Witold Smoliński”; kryptonim T-IV (ur. 13 maja 1901 w Ołońcu, zm. 25 maja 1948 w Warszawie) - rotmistrz kawalerii Wojska Polskiego, współzałożyciel Tajnej Armii Polskiej, żołnierz Armii Krajowej, więzień i organizator ruchu oporu w KL Auschwitz. Autor raportów o Holocauście, tzw. Raportów Pileckiego. Oskarżony i skazany przez władze komunistyczne Polski Ludowej na karę śmierci, stracony w 1948. Unieważnienie wyroku nastąpiło w 1990. Pośmiertnie, w 2006 odznaczony Orderem Orła Białego, a w 2013 został awansowany na stopień pułkownika.</p>
                 <p>Po zakończeniu kampanii wrześniowej przedostał się do Warszawy, został jednym z organizatorów powołanej 9 listopada 1939 konspiracyjnej organizacji Tajnej Armii Polskiej pod dowództwem majora Jana Włodarkiewicza. Następnego dnia został wybrany inspektorem organizacyjnym, a później pełnił w niej funkcję szefa sztabu, następnie inspektora głównego. Po skrystalizowaniu się struktury organizacyjnej Pilecki jednocześnie pełnił w tej organizacji dwie funkcje - szefa Oddziału I (organizacyjno-mobilizacyjnego) oraz wydziału uzbrojenia w Oddziale IV (uzbrojenia i służb specjalnych)]. Nadzorował i zakładał sieć tajnych skrytek na dokumenty, podziemną bibułę oraz broń palną, jedną z nich założył we własnym mieszkaniu. Zwerbował do organizacji szereg nowych członków jak np. Zygmunta Ważyńskiego. Był zwolennikiem wcielenia TAP do ZWZ, co nastąpiło na przełomie 1941/42 roku].</p>
                 <p>Na początku 1940 roku Gestapo aresztowało kilku członków TAP, w tym m.in. szefa sztabu Władysława Surmackiego, Tadeusza Chrościckiego oraz szefa służby zdrowia Władysława Deringa, którzy po krótkim pobycie na Pawiaku zostali w połowie 1940 roku wysłani do obozu w Auschwitz. Dzięki informacjom wywiadowczym obóz ten stał się od tego momentu przedmiotem zainteresowania organizacji. Pod koniec sierpnia 1940 roku kierownictwo TAP zwołało naradę omawiającą bieżącą sytuację, podczas której poruszono również sprawę obozów koncentracyjnych masowo wówczas zakładanych przez Niemców w okupowanej Polsce. Na zebraniu tym przedstawiono propozycję, aby ktoś ze ścisłego kierownictwa przedostał się do niemieckiego obozu koncentracyjnego Auschwitz w celu skontaktowania się z uwięzionymi członkami organizacji, zebrania informacji wywiadowczych na temat jego funkcjonowania oraz zorganizowania wewnątrz ruchu oporu. Deklarowanym celem tej akcji było uwolnienie więźniów przez ucieczkę, względnie ich odbicie. W tym czasie niewiele było wiadomo o warunkach panujących w obozie po około trzech miesiącach jego formalnego funkcjonowania (od IV 1940) do czasu przywiezienia do niego pierwszego transportu więźniów (z Tarnowa; 14 VI 1940), poza faktem, że powstał.</p>
             </article>
-            <article>
+            <article class="text_container" id="1D">
                 <header><strong>Tekst D</strong></header>
                 <p><strong>Anime</strong> - skrót słowny w języku japońskim, pochodzący od angielskiego słowa „animation”. Oznacza ono film animowany, z tym że w Japonii terminem tym określa się wszystkie filmy i seriale animowane, bez względu na kraj ich pochodzenia. Natomiast poza Japonią słowo anime służy do określenia japońskich filmów animowanych oraz stylu japońskiej animacji.</p>
                 <p>W okresie militaryzmu - od połowy lat 30 XX w. i podczas II wojny światowej - anime służyły japońskiemu rządowi do celów propagandowych umacniających nacjonalizm i kult cesarza w społeczeństwie. Kultową animacją okazały się opowieści o Momotaro autorstwa Mitsuyo Seo.</p>
@@ -73,9 +92,9 @@
                 <p>W latach 80. filmy anime podbiły rynki poza granicami kraju (zwłaszcza w Australii, Stanach Zjednoczonych, Kanadzie, Francji, Belgii i Włoszech), a w Japonii zostały uznane za jeden z najważniejszych nurtów produkcji filmowej. Anime stały się wytworami współczesnej kultury japońskiej, ale także odzwierciedleniem dokonujących się w niej przemian, a dzięki promocji i ekspansji eksportowej rozwinęły się w osobną branżę gospodarki przynoszącą Japonii ogromne dochody. Od lat 90. anime zaczęły podbijać także rynki wielu krajów Azji Wschodniej, Ameryki Południowej i Europy Wschodniej.</p>
             </article>
         </div>
-        <div class="container_group" id="article_group2">
+        <div class="group_container" id="container_group2">
             <h3 class="group_number_header">Grupa 2</h3>
-            <article>
+            <article class="text_container" id="2A">
                 <header><strong>Tekst A</strong></header>
                 <p><strong>Morderstwo George'a Floyda</strong> - 25 maja 2020 w Minneapolis w amerykańskim stanie Minnesota śmierć poniósł 46-letni Afroamerykanin George Floyd, który został obezwładniony przez policjantów w sposób, który uniemożliwiał oddychanie. Powodem jego zatrzymania było podejrzenie, że mógł użyć fałszywego banknotu dwudziestodolarowego. Informacja o jego śmierci wywołała masowe zamieszki i protesty..</p>
                 <p>26 maja w aglomeracji Minneapolis-Saint Paul, z której pochodził Floyd, rozpoczęły się protesty w związku z jego śmiercią, która wpisywała się w serię zabójstw na nieuzbrojonych Afroamerykanach w trakcie interwencji policji. Początkowo miały one pokojowy przebieg, później część z osób protestujących zaczęła wywoływać zamieszki, podczas których wybito okna posterunku i podpalono dwa sklepy, a wiele innych zostało okradzionych lub zniszczonych. Podczas niektórych zajść z policją użyto gazu łzawiącego i gumowych kul. W Minneapolis, w trakcie zamieszek tłum zajął i podpalił posterunek policji, splądrował sklepy, niszczył i podpalał samochody. Od wtorku 26 maja wyszło nawet kilkadziesiąt tysięcy osób. Z raportu straży pożarnej wynika, że tylko w środę (27 maja) doszło do spalenia około 16 budynków].</p>
@@ -83,7 +102,7 @@
                 <p>Dotychczas podczas protestów zginęło ponad 17 osób oraz aresztowano około 11 tysięcy protestujących. Doszło również do ataków policjantów na przedstawicieli mediów i prasy. W miejscach publicznych pojawiły się na budynkach i pomnikach hasła demonstrantów w formie graffiti, jednym z zamalowanych obiektów był pomnik Tadeusza Kościuszki w Waszyngtonie.</p>
                 <p>31 maja 2020 Donald Trump zapowiedział uznanie Antify za organizację terrorystyczną. Nie zostały jednak wówczas przez niego podane żadne szczegóły takiej decyzji. We wcześniejszych wpisach na Twitterze, Donald Trump sugerował, że „radykalnie lewicowi anarchiści” pod przewodnictwem Antify są odpowiedzialni za zamieszki. Niemniej jednak, Federalne Biuro Śledcze w oficjalnych dokumentach, chociaż nie zaprzeczyło udziale osób powiązanych z ruchem, nie potwierdziło uczestnictwach większych zorganizowanych grup Antify w zamieszkach. Tak samo, wśród kilkudziesięciu dokumentów osób oskarżonych na podstawie przepisów federalnych, żadna nie była powiązana z ruchem antyfaszystowskim. Wśród oskarżonych znalazły się natomiast osoby związane ze skrajnie prawicowym ruchem Boogaloo. FBI ostrzegło również przed prawicowymi ekstremistami, którzy poprzez media społecznościowe namawiali do prowokacji poprzez strzelanie do agentów federalnych oraz protestujących.</p>
             </article>
-            <article>
+            <article class="text_container" id="2B">
                 <header><strong>Tekst B</strong></header>
                 <p><strong>Grupa przemienna (abelowa)</strong> - grupa z działaniem przemiennym.</p>
                 <p>Określenie „abelowa” pochodzi od nazwiska Nielsa Abela (1802-1829), który podał warunki rozwiązywalności równań wielomianowych w postaci równań nazywanych jego nazwiskiem (za Jordanem i Kroneckerem); w późniejszych pracach innych autorów, operujących innymi, nowocześniejszymi narzędziami, okazało się, że wspomniane warunki były równoważne przemienności odpowiedniej grupy przekształceń pierwiastków wielomianu (tzw. grupy Galois, od nazwiska prekursora teorii grup, Évariste'a Galois, 1811-1832); jako pierwszy nazwy „grupa abelowa” na określenie grup przemiennych użył Weber.</p>
@@ -105,14 +124,14 @@
                     <li>skończone grupy przemienne są przedmiotem badań obliczeniowej teorii grup.</li>
                 </ul>
             </article>
-            <article>
+            <article class="text_container" id="2C">
                 <header><strong>Tekst C</strong></header>
                 <p><strong>Odkrycie Ameryki</strong> - popularne określenie faktu dotarcia Krzysztofa Kolumba do tego kontynentu, w 1492 r. W rzeczywistości pierwszymi ludźmi, którzy dotarli do kontynentu amerykańskiego, byli członkowie społeczności łowieckich, przybyłych z Azji przez Beringię w czasie zlodowacenia, między 40 000 a 17 000 lat temu. Za pierwszego przedstawiciela cywilizacji europejskiej, który dotarł do Ameryki, uznaje się Leifa Erikssona (na początku XI w.). Udoskonalenia dokonane w pierwszej połowie XV w. w budowie statków (karawela) i nawigacji morskiej (np. wynalezienie busoli magnetycznej, usprawnienie astrolabium do ustalania szerokości geograficznej) zwiększyły znacznie zasięg i możliwości transportowe żeglugi morskiej. Rozpoczęła się era podróży oceanicznych do coraz dalszych krajów i lądów, dotąd Europejczykom nieznanych. Pionierską rolę w tej dziedzinie w XV w. odegrały zwłaszcza Portugalia i Hiszpania. Władcy obu iberyjskich krajów organizowali i współfinansowali dalekomorskie ekspedycje w nadziei i z zamiarem opanowania nowych terytoriów dla gospodarczego ich wykorzystania.</p>
                 <p>Jednym z wielkich celów, rozpalających wyobraźnię ówczesnych ludzi, było dotarcie do Indii, by uzyskać tam cenne przyprawy korzenne, głównie pieprz, goździki i wanilię oraz szlachetne metale. Takim celem kierował się podróżnik portugalski Bartolomeu Dias, który w 1488 r., jako pierwszy Europejczyk, dotarł na swej karaweli na Ocean Indyjski, opływając Przylądek Dobrej Nadziei na południowym skraju kontynentu afrykańskiego. Dziesięć lat później, w 1498 r., kolejna wyprawa czterech statków portugalskich, kierowana przez Vasco da Gamę, opłynąwszy Afrykę, jako pierwsza wyprawa europejska dotarła do południowych wybrzeży Półwyspu Indyjskiego.</p>
                 <p>Zadanie dotarcia do Indii postawił przed sobą żeglarz genueński Krzysztof Kolumb, lecz zamierzał on płynąć przez Ocean Atlantycki w kierunku zachodnim. Przyjął bowiem w oparciu o dzieło greckiego geografa Ptolemeusza, udostępnione mu m.in. przez brata Bartolomeo, posiadającego w Lizbonie drukarnię map, że Ziemia jest kulista. Po wielu latach zabiegów udało mu się przekonać hiszpańską królową Izabelę Kastylijską do sfinansowania jego idei i 3 sierpnia 1492 r. poprowadził on ekspedycję trzech starannie przygotowanych i zaopatrzonych karawel w dziewiczy rejs przez Atlantyk. 12 października Krzysztof Kolumb wylądował na wyspie San Salvador</p>
                 <p>12 października trzy statki, z flagową „Santa Marią” na czele, dotarły do brzegów wyspy San Salvador w archipelagu Bahamów, którą uznano za jedną z wysp japońskich. Po opłynięciu kilku innych wysp, w tym Kuby i Haiti w archipelagu Wielkich Antyli, Kolumb powrócił do Hiszpanii i został przyjęty z gorącym entuzjazmem w Barcelonie. Zorganizował potem jeszcze trzy dalsze podróże ekspedycyjne. Dwie ostatnie dotarły do wybrzeży Wenezueli oraz Hondurasu i Panamy, które według odkrywców miały być kontynentem azjatyckim. Dopiero podróżujący do Ameryki Południowej 20 lat później żeglarz florencki Amerigo Vespucci stwierdził jako pierwszy, że odkryte przez Kolumba lądy to nie Japonia i inne części Azji, lecz nowy, nieznany dotąd kontynent. Nazwano go od jego imienia Ameryką.</p>
             </article>
-            <article>
+            <article class="text_container" id="2D">
                 <header><strong>Tekst D</strong></header>
                 <p><strong>Malarstwo abstrakcyjne</strong>, w przeciwieństwie do figuratywnego nie przedstawia realnych obiektów, a formą i kolorem operuje całkowicie swobodnie.</p>
                 <p>Przykład współczesnego malarstwa abstrakcyjnego, Natalia Plachta Fernandes, The Edge Ojcem abstrakcji jest Wassily Kandinsky, rosyjski malarz, który stopniowo przechodził od figuracji, przez doświadczenia bliskie fowizmowi, aż do całkowitego zagubienia się tematu malarskiego w kolorze, co można już zaobserwować w jego "Górze" z 1909 roku lub "Obrazie z łucznikiem" z tego samego roku. W 1910 roku powstała akwarela bez tytułu, nazywana czasem "Pierwszą abstrakcją" lub "Pierwszym dziełem abstrakcyjnym". Na obrazie tym zanika wszelkie pojęcie tematu malarskiego, przypomina on kolorowe nieporadne próby dziecka. Właśnie w roku 1910 malarstwu został zadany pierwszy z dwudziestowiecznych ciosów, które poszerzyły pojęcie sztuki do niewyobrażalnych wcześniej granic.</p>
@@ -120,9 +139,9 @@
                 <p>Kazimierz Malewicz natomiast dotarł do abstrakcji poprzez kubizm. Malowane przez niego krajobrazy stopniowo się geometryzują. "Poranek na wsi po burzy śnieżnej" z 1912 roku jest już niezwykle ekspresyjnym zbiorem barwnych brył, budującym artystyczną wizję świata wyłaniającego się spod bieli. O pół roku późniejszy "Drwal" to w gruncie rzeczy kilkanaście figur geometrycznych, które jednak wyraźnie układają się w postać brodatego mężczyzny z siekierą. Malując "Okrąg" z 1913 roku, Malewicz rezygnuje z nadawania mu pozorów figuratywności - jest to po prostu okrąg, jak później będzie Malewicz pokazywał światu "po prostu" czarny kwadrat na białym polu.</p>
             </article>
         </div>
-        <div class="container_group" id="article_group3">
+        <div class="group_container" id="container_group3">
             <h3 class="group_number_header">Grupa 3</h3>
-            <article>
+            <article class="text_container" id="3A">
                 <header><strong>Tekst A</strong></header>
                 <p><strong>Organizacja pozarządowa</strong> (ang. non-government organization, popularny skrót NGO) - organizacja działająca na rzecz wybranego interesu i niedziałająca w celu osiągnięcia zysku.</p>
                 <p>W prawie międzynarodowym, w odróżnieniu od organizacji międzyrządowych, organizacje pozarządowe grupują nie państwa, lecz osoby fizyczne lub prawne, i z reguły z różnych krajów (najczęściej przyjmuje się, że minimum z trzech). Działają w oparciu o prawo krajowe siedziby organizacji, a powstają w wyniku nie umowy międzynarodowej, ale umowy cywilnoprawnej.</p>
@@ -132,13 +151,13 @@
                 <p>56% Polek i Polaków ufa NGO-som wynika z badań Stowarzyszenia Klon/Jawor, przeprowadzonych w listopadzie 2020 roku.</p>
                 <p>W Polsce agregatorem informacji na temat organizacji pozarządowych jest portal ngo.pl prowadzony przez Stowarzyszenie Klon/Jawor.</p>
             </article>
-            <article>
+            <article class="text_container" id="3B">
                 <header><strong>Tekst B</strong></header>
                 <p><strong>Funkcjonalne obrazowanie metodą rezonansu magnetycznego</strong>, zwyczajowo funkcjonalny rezonans magnetyczny, w skrócie fMRI (od ang. functional magnetic resonance imaging) - wyspecjalizowana odmiana obrazowania metodą rezonansu magnetycznego, za pomocą której mierzony jest wzrost przepływu krwi i utlenowania aktywnej okolicy mózgu. W metodzie tej wykorzystywany jest fakt, iż podczas aktywności komórek nerwowych zwiększa się ich zapotrzebowanie na tlen i nasila się produkcja dwutlenku węgla. Wzrost aktywności danego rejonu mierzy się przy pomocy odpowiedzi BOLD (ang. blood-oxygenation-level-dependent), która określa zależność intensywności sygnału rezonansu magnetycznego od poziomu natlenienia krwi.</p>
                 <p>W badaniach fMRI wykorzystuje się tę samą technikę, co w przypadku MRI, czyli silne, choć nieszkodliwe pole magnetyczne i fale radiowe. Zamiast tworzenia obrazów tkanek i organów, jak w badaniu MRI, fMRI skupia się na rejestracji zmian w utlenowaniu krwi w aktywowanych obszarach mózgu, które zwiększa się w okresie wzmożonej aktywności neurologicznej. Na podstawie zaobserwowanych zmian, lekarz otrzymuje informacje o tym, jak działa mózg pacjenta, przy pomocy czego może dokładnie zlokalizować rejony odpowiedzialne za konkretne procesy mózgowe, zaplanować operację, radioterapię, czy też diagnozować patologie w działaniu centralnego układu nerwowego, takie jak uszkodzenia spowodowane urazami, udarami czy chorobami takimi jak stwardnienie rozsiane czy choroba Alzheimera. Przed badaniem pacjent nie otrzymuje środka cieniującego, ani nie jest narażony na działanie promieniowania jonizującego, dzięki czemu fMRI jest bezpieczny dla pacjenta i nie niesie za sobą skutków ubocznych.</p>
                 <p>fMRI ma nie tylko szerokie zastosowanie w badaniach klinicznych. Przyczyniło się między innymi do rozwoju dziedzin nauki takich jak kognitywistyka czy psychiatria, ponadto wykorzystywane jest do nieklinicznych zastosowań np. wykrywania kłamstw czy badania wpływu przekazu reklamowego na klientów. W połączeniu z innymi komplementarnymi badaniami np. EEG, fMRI ma potencjał w innych zastosowaniach, chociażby tworzeniu interfejsów mózg-komputer dla osób niepotrafiących się komunikować werbalnie czy fizycznie.</p>
             </article>
-            <article>
+            <article class="text_container" id="3C">
                 <header><strong>Tekst C</strong></header>
                 <p><strong>Sumerowie</strong> - starożytny lud nieznanego pochodzenia[2], który pod koniec IV tysiąclecia p.n.e. stworzył wysoko rozwiniętą cywilizację w południowej Mezopotamii - Sumer. Posługiwali się językiem sumeryjskim i pismem klinowym. Na początku II tysiąclecia p.n.e. Sumerowie zostali podbici przez napływających Amorytów i wchłonięci przez nowo powstałe państwo - Babilonię. Z czasem ulegli semityzacji.</p>
                 <p>Nazwa ludu pochodzi od akadyjskiego wyrazu šumeru, co określa również położenie geograficzne obszaru, na którym zamieszkali, tj. Dolną Mezopotamię. Historycy dowiedzieli się o istnieniu ludu sumeryjskiego na początku XX wieku.</p>
@@ -147,7 +166,7 @@
                 <p>Naukowiec austriacki Wiktor Christian zajmował się badaniami życia codziennego Sumerów. Szczegółowym badaniom poddał m.in. ich ubiór, budownictwo, uzbrojenie itd. Według niego Sumerowie używali do budowania świątyń cegieł, które wytwarzali techniką nieznaną dotychczas w Mezopotamii, więc musieli przybyć co najmniej zza morza. Po badaniach nad strojami stwierdził, że miały one liściaste wzory. Na tej podstawie wysnuł wniosek, że Sumerowie nosili na co dzień spódniczki z liści. Ubierali się podobnie jak ówcześni mieszkańcy Indii, Polinezji, Cejlonu czy Indonezji, a więc mogli pochodzić z tych regionów. Najwięcej analogii odnalazł wśród obyczajów ludów tybetańskich: golenie głów (rozpowszechnione także w Indiach), zaprzęgi zwierząt pociągowych (sznur przeciągnięty przez kółko w chrapach), związki religijne. Sumeryjski sposób wytwarzania zbroi przypominał mu himalajski (m.in. z Manipuru), metoda dojenia krów od tyłu - sposoby mongolski i kaukaski, sumeryjskie ozdoby przyrównał do indonezyjskich. Na podstawie swoich badań Christian stwierdził, że Sumerowie najprawdopodobniej należeli do ludów Tybetu i Assamu. Ich wędrówka do Mezopotamii, do której dotarli w neolicie, przebiegała przez morza południowe. Teorię austriackiego naukowca zdają się potwierdzać badania Jana Brauna, zajmującego się pochodzeniem języka sumeryjskiego. Naukowiec wykazał jego wspólne cechy z grupą tybeto-birmańską.</p>
                 <p>Współcześnie większość naukowców przypuszcza, że macierzysta kraina Sumerów znajdowała się w górach. Tę tezę, po pierwsze, opierają na tym, że wyrazy „kraj” i „góra” w piśmie sumeryjskim zapisywane były jednakowo. Po drugie, potwierdzać pogląd zdaje się sposób budowania świątyń na wzgórkach-tarasach. Jest mało prawdopodobne, że taką technikę mogli opracować mieszkańcy równin. Sposób Sumerów mógł być powiązany z ich pierwotnymi wierzeniami - oddawania czci bogom na szczytach gór.</p>
             </article>
-            <article>
+            <article class="text_container" id="3D">
                 <header><strong>Tekst D</strong></header>
                 <p><strong>Media społecznościowe</strong> - rozwiązania wykorzystujące technologie internetowe i mobilne, umożliwiające komunikowanie się poprzez interaktywny dialog</p>
                 <p>Andreas Kaplan i Michael Haenlein definiują media społecznościowe jako „grupę bazujących na internetowych rozwiązaniach aplikacji, które opierają się na ideologicznych i technologicznych podstawach Web 2.0 i które umożliwiają tworzenie i wymianę wygenerowanych przez użytkowników treści”.</p>
