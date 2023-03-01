@@ -11,12 +11,6 @@
     margin-right: auto;
 }
 
-.container_group>.group_number_header {
-    /* h3 title at the top of group */
-    text-align: center;
-
-}
-
 article p {
     /* increase top & botton spacing between newlines */
     line-height: 1.8em;
