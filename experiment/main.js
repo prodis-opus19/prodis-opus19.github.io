@@ -7,7 +7,8 @@ const GROUP_CONTAINERS = document.getElementsByClassName("group_container");
 const TEXT_DROPDOWN = document.getElementById("text_dropdown");
 const TEXT_CONTAINERS = document.getElementsByClassName("text_container");
 
-const SELECTION_INDICATOR = document.getElementById("selection_indicator");
+const SELECTION_INDICATOR_TOP = document.getElementById("selection_indicator_top");
+const SELECTION_INDICATOR_BOTTOM = document.getElementById("selection_indicator_bottom");
 
 let CURRENT_GROUP_NUMBER = "1"; // changed using open_group();
 let CURRENT_TEXT_LETTER = "A"; // changed using open_text();
@@ -33,7 +34,9 @@ function set_indicator() {
     /*
     Set indicator at the bottom to group number and letter, e.g., 1A, 2D, 3C.
     */
-    SELECTION_INDICATOR.textContent = CURRENT_GROUP_NUMBER + CURRENT_TEXT_LETTER;
+    const text = CURRENT_GROUP_NUMBER + CURRENT_TEXT_LETTER;
+    SELECTION_INDICATOR_TOP.textContent = text;
+    SELECTION_INDICATOR_BOTTOM.textContent = text;
 }
 
 
