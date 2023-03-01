@@ -29,26 +29,43 @@
                 <h1>Eksperyment</h1>
                 <h2>Czytanie tekstu</h2>
             </hgroup>
+            <button onclick="open_help()">Instrukcja obsługi</button>
             <details id="group_dropdown" role="list">
                 <summary aria-haspopup="listbox">Wybierz grupę</summary>
                 <ul role="listbox">
-                    <li><a href="#" onclick="open_group('1'); return false;">Grupa nr. 1</a></li>
-                    <li> <a href="#" onclick="open_group('2'); return false;">Grupa nr. 2</a></li>
-                    <li><a href="#" onclick="open_group('3'); return false;">Grupa nr. 3</a></li>
+                    <li><a href="javascript:;" onclick="open_group('1')">Grupa nr. 1</a></li>
+                    <li><a href="javascript:;" onclick="open_group('2')">Grupa nr. 2</a></li>
+                    <li><a href="javascript:;" onclick="open_group('3')">Grupa nr. 3</a></li>
                 </ul>
             </details>
             <details id="text_dropdown" role="list">
                 <summary aria-haspopup="listbox">Wybierz tekst</summary>
                 <ul role="listbox">
-                    <li><a href="#" onclick="open_text('A'); return false;">Tekst A (Polityka)</a></li>
-                    <li><a href="#" onclick="open_text('B'); return false;">Tekst B (Nauka)</a></li>
-                    <li><a href="#" onclick="open_text('C'); return false;">Tekst C (Biografia)</a></li>
-                    <li><a href="#" onclick="open_text('D'); return false;">Tekst D (Technologia)</a></li>
+                    <li><a href="javascript:;" onclick="open_text('A')">Tekst A (Polityka)</a></li>
+                    <li><a href="javascript:;" onclick="open_text('B')">Tekst B (Nauka)</a></li>
+                    <li><a href="javascript:;" onclick="open_text('C')">Tekst C (Biografia)</a></li>
+                    <li><a href="javascript:;" onclick="open_text('D')">Tekst D (Technologia)</a></li>
                 </ul>
             </details>
             <p>Wybrano: <span id="selection_indicator_top">?</span>.</p>
         </div>
     </header>
+
+    <dialog id="help_modal">
+        <article>
+            <h3>Instrukcja obsługi</h3>
+            <hr>
+            <ol type="1">
+                <li>Wybierz grupę (1, 2, 3).</li>
+                <li>Wybierz tekst (A, B, C, D).</li>
+                <li>Użyj strzałek na dole, aby przełączać między tekstami.</li>
+            </ol>
+            <p>Teksty są zapętlane; po tekście D następuje tekst A.</p>
+            <br>
+            <br>
+            <button onclick="close_help()">Zamknij</button>
+        </article>
+    </dialog>
 
     <!-- indicator at the bottom of the page, shows group & text, e.g., 1A, 2C, 3B -->
     <div id="info_box">

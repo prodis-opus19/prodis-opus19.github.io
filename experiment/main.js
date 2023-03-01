@@ -10,6 +10,8 @@ const TEXT_CONTAINERS = document.getElementsByClassName("text_container");
 const SELECTION_INDICATOR_TOP = document.getElementById("selection_indicator_top");
 const SELECTION_INDICATOR_BOTTOM = document.getElementById("selection_indicator_bottom");
 
+const HELP_MODAL = document.getElementById("help_modal");
+
 let CURRENT_GROUP_NUMBER = "1"; // changed using open_group();
 let CURRENT_TEXT_LETTER = "A"; // changed using open_text();
 
@@ -90,6 +92,7 @@ function next_text() {
     scroll_up_to_text();
 }
 
+
 // select first group by default
 open_group("1");
 open_text("A");
@@ -100,3 +103,5 @@ window.open_text = open_text;
 window.previous_text = previous_text;
 window.next_text = next_text;
 window.scroll_to_top = scroll_to_top;
+window.open_help = function () { HELP_MODAL.setAttribute('open', true); }
+window.close_help = function () { HELP_MODAL.removeAttribute('open'); }
