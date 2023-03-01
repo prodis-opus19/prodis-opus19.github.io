@@ -11,7 +11,7 @@
     margin-right: auto;
 }
 
-article p {
+.group_container article p {
     /* increase top & botton spacing between newlines */
     line-height: 1.8em;
 }
