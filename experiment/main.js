@@ -18,7 +18,7 @@ function scroll_up_to_text() {
     Scroll to the beginning of the text.
     Called when switching between different texts.
     */
-    window.scrollTo({ top: 500, behavior: 'smooth' });
+    document.getElementById(`${CURRENT_GROUP_NUMBER}${CURRENT_TEXT_LETTER}`).scrollIntoView({ behavior: "smooth" });
 }
 
 function scroll_to_top() {
