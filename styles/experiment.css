@@ -1,9 +1,5 @@
 @import "/styles/pico/pico.classless.css";
 
-:root {
-    --primary: #d81b60;
-}
-
 #btn_controls_container {
     text-align: center;
     width: 300px;
