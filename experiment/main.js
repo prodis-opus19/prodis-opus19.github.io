@@ -131,7 +131,7 @@ document.addEventListener('keydown', function (event) {
 // open using global variable (see: the top of the script)
 open_group();
 open_text();
-AUTOSCROLL_CHECKBOX.checked = true; // reset on page reload
+AUTOSCROLL_CHECKBOX.checked = false; // reset on page reload
 
 // allow global access within HTML
 window.open_group = open_group;
