@@ -12,6 +12,7 @@ const SELECTION_INDICATOR_BOTTOM = document.getElementById("selection_indicator_
 
 const HELP_MODAL = document.getElementById("help_modal");
 
+// default values
 let CURRENT_GROUP_NUMBER = "1"; // changed using open_group();
 let CURRENT_TEXT_LETTER = "A"; // changed using open_text();
 
@@ -42,7 +43,14 @@ function set_indicator() {
 }
 
 
-function open_group(number) {
+function open_group(number = CURRENT_GROUP_NUMBER) {
+    console.log(number);
+    // // use global if not provided
+    // if (number === null) {
+    //     number = CURRENT_GROUP_NUMBER;
+    // }
+    console.log(CURRENT_GROUP_NUMBER);
+    console.log(number);
     // close dropdown menu (if doesn't exist, no error)
     GROUP_DROPDOWN.removeAttribute("open");
     // hide all groups (1, 2, 3)
@@ -53,11 +61,15 @@ function open_group(number) {
     document.getElementById(`container_group${number}`).style.display = "block";
     // set global variable
     CURRENT_GROUP_NUMBER = number;
-    // open text A by default
-    open_text("A");
+    // open text using global variable (see: the top of the script)
+    open_text();
 }
 
-function open_text(letter) {
+function open_text(letter = CURRENT_TEXT_LETTER) {
+    // use global if not provided
+    // if (letter === null) {
+    //     letter = CURRENT_TEXT_LETTER;
+    // }
     // close dropdown menu (if doesn't exist, no error)
     TEXT_DROPDOWN.removeAttribute("open");
     // hide all texts (1A, 1B, 1C, ..., 2B, 2C, 2D, ..., 3B, 3D, etc.)
@@ -93,8 +105,6 @@ function next_text() {
 }
 
 document.addEventListener('keydown', function (event) {
-    // const key = event.key; // "ArrowRight", "ArrowLeft", "ArrowUp", or "ArrowDown"
-    console.log(event.key);
     switch (event.key) {
         case "ArrowLeft":
             previous_text();
@@ -112,12 +122,11 @@ document.addEventListener('keydown', function (event) {
             open_group("3");
             break;
     }
-
 });
 
-// select first group by default
-open_group("1");
-open_text("A");
+// open using global variable (see: the top of the script)
+open_group();
+open_text();
 
 // allow global access within HTML
 window.open_group = open_group;
@@ -125,5 +134,5 @@ window.open_text = open_text;
 window.previous_text = previous_text;
 window.next_text = next_text;
 window.scroll_to_top = scroll_to_top;
-window.open_help = function () { HELP_MODAL.setAttribute('open', true); }
-window.close_help = function () { HELP_MODAL.removeAttribute('open'); }
+window.open_help_modal = function () { HELP_MODAL.setAttribute('open', true); }
+window.close_help_modal = function () { HELP_MODAL.removeAttribute('open'); }
