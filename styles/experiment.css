@@ -55,6 +55,12 @@
     background-color: var(--primary-hover);
 }
 
+.group_container {
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .group_container article p {
     /* increase top & botton spacing between newlines */
     line-height: 1.8em;
