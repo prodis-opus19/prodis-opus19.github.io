@@ -1,0 +1,7 @@
+@import "/styles/pico/pico.classless.css";
+
+section {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
