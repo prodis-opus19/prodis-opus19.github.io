@@ -30,6 +30,12 @@
                 <h2>Czytanie tekstu</h2>
             </hgroup>
             <button onclick="open_help_modal();">Instrukcja obsługi</button>
+            <fieldset>
+                <label for="switch">
+                    <input type="checkbox" id="autoscroll_checkbox" name="autoscroll_checkbox" role="switch" checked>
+                    Strzałki = autoscroll
+                </label>
+            </fieldset>
             <details id="group_dropdown" role="list">
                 <summary aria-haspopup="listbox">Wybierz grupę</summary>
                 <ul role="listbox">
@@ -47,7 +53,7 @@
                     <li><a href="javascript:;" onclick="open_text('D');">Tekst D (Technologia)</a></li>
                 </ul>
             </details>
-            <p>Wybrano: <span id="selection_indicator_top">?</span>.</p>
+            <p>Wybrano: <span id="selection_indicator_top">?</span></p>
         </div>
     </header>
 
@@ -59,6 +65,7 @@
                 <li>Wybierz tekst (strzałki <kbd>lewo/prawo</kbd> na klawiaturze, albo menu).</li>
             </ol>
             <p>Teksty są zapętlane; po tekście D następuje tekst A.</p>
+            <p>Jeżeli autoscroll jest włączony, strzałki <kbd>lewo/prawo</kbd> przewijają stronę do góry.</p>
             <br>
             <br>
             <button onclick="close_help_modal();">Zamknij</button>

@@ -10,6 +10,7 @@ const TEXT_CONTAINERS = document.getElementsByClassName("text_container");
 const SELECTION_INDICATOR_TOP = document.getElementById("selection_indicator_top");
 const SELECTION_INDICATOR_BOTTOM = document.getElementById("selection_indicator_bottom");
 
+const AUTOSCROLL_CHECKBOX = document.getElementById("autoscroll_checkbox");
 const HELP_MODAL = document.getElementById("help_modal");
 
 // default values
@@ -21,8 +22,11 @@ function scroll_up_to_text() {
     /*
     Scroll to the beginning of the text.
     Called when switching between different texts.
+    If autoscroll checkbox is unchecked, do nothing.
     */
-    document.getElementById(`${CURRENT_GROUP_NUMBER}${CURRENT_TEXT_LETTER}`).scrollIntoView({ behavior: "smooth" });
+    if (AUTOSCROLL_CHECKBOX.checked) {
+        document.getElementById(`${CURRENT_GROUP_NUMBER}${CURRENT_TEXT_LETTER}`).scrollIntoView({ behavior: "smooth" });
+    }
 }
 
 function scroll_to_top() {
@@ -127,6 +131,7 @@ document.addEventListener('keydown', function (event) {
 // open using global variable (see: the top of the script)
 open_group();
 open_text();
+AUTOSCROLL_CHECKBOX.checked = true; // reset on page reload
 
 // allow global access within HTML
 window.open_group = open_group;
