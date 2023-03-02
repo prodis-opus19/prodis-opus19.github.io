@@ -25,7 +25,7 @@ function scroll_up_to_text() {
     If autoscroll checkbox is unchecked, do nothing.
     */
     if (AUTOSCROLL_CHECKBOX.checked) {
-        document.getElementById(`${CURRENT_GROUP_NUMBER}${CURRENT_TEXT_LETTER}`).scrollIntoView({ behavior: "smooth" });
+        document.getElementById(`${CURRENT_GROUP_NUMBER}${CURRENT_TEXT_LETTER}`).scrollIntoView();
     }
 }
 
