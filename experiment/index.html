@@ -59,14 +59,25 @@
 
     <dialog id="help_modal">
         <article>
-            <h3>Instrukcja obsługi</h3>
+            <hgroup>
+                <h3>Instrukcja obsługi</h3>
+                <h3>Używaj przycisków, lub klawiatury.</h3>
+            </hgroup>
             <ol type="1">
-                <li>Wybierz grupę (przyciski <kbd>1, 2, 3</kbd> na klawiaturze, albo menu).</li>
-                <li>Wybierz tekst (strzałki <kbd>lewo/prawo</kbd> na klawiaturze, albo menu).</li>
+                <li>Grupa (1, 2, 3):</li>
+                <ol type="A">
+                    <li>Drop-down menu: <u>Wybierz grupę</u>.</li>
+                    <li>Klawiatura: <kbd>1, 2, 3</kbd>.</li>
+                </ol>
+                <li>Tekst (A, B, C, D):.</li>
+                <ol type="A">
+                    <li>Drop-down menu: <u>Wybierz tekst</u>.</li>
+                    <li>Przyciski na dole ekranu: lewo/prawo.</li>
+                    <li>Klawiatura: <kbd>lewo/prawo</kbd>.</li>
+                </ol>
             </ol>
             <p>Teksty są zapętlane; po tekście D następuje tekst A.</p>
-            <p>Jeżeli autoscroll jest włączony, strzałki <kbd>lewo/prawo</kbd> przewijają stronę do góry.</p>
-            <br>
+            <p>Jeżeli checkbox <u>autoscroll</u> jest włączony, zmiana tekstu przewija stronę do góry.</p>
             <br>
             <button onclick="close_help_modal();">Zamknij</button>
         </article>
