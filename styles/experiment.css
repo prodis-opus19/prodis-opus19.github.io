@@ -1,50 +1,48 @@
 @import "/styles/pico/pico.classless.css";
 
 #btn_controls_container {
+    margin-left: auto;
+    margin-right: auto;
     text-align: center;
     width: 300px;
-    margin-left: auto;
-    margin-right: auto;
 }
 
-#info_box {
-    box-sizing: border-box;
-    -webkit-user-select: none;
-    user-select: none;
-    align-items: center;
-    background-color: var(--card-background-color);
-    border-radius: 5px 5px 0 0;
+#info_box_container {
     bottom: 0;
-    box-shadow: var(--card-box-shadow);
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    height: 34px;
-    justify-content: space-between;
-    left: 50%;
-    margin-left: auto;
-    margin-right: auto;
-    overflow: hidden;
-    padding: 5px;
     position: fixed;
-    transform: translateX(-50%);
-    white-space: nowrap;
-    width: 234px;
+    text-align: center;
+    user-select: none;
+    width: 100%;
     z-index: 10;
 }
 
+#info_box {
+    align-items: center;
+    background-color: var(--card-background-color);
+    border-radius: 5px;
+    box-shadow: var(--card-box-shadow);
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 5px;
+    justify-content: center;
+    margin-inline: auto;
+    max-width: 250px;
+    overflow: hidden;
+    padding: 5px;
+    white-space: nowrap;
+}
+
 #info_box>p {
-    background-color: gray;
     background-color: var(--primary);
     border-radius: 3px;
     color: white;
     font-size: 18px;
-    height: 26px;
-    line-height: 25px;
+    height: 30px;
+    line-height: 30px;
     margin: 0;
-    text-align: center;
+    padding: 0;
     vertical-align: middle;
-    width: 70px;
+    width: 100%;
 }
 
 #info_box>p:hover {
@@ -52,9 +50,8 @@
 }
 
 .group_container {
+    margin-inline: auto;
     max-width: 850px;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .group_container article p {
