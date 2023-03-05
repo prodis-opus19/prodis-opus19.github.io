@@ -5,12 +5,12 @@ Click [here](https://prodis-opus19.github.io/) to open.
 
 
 # Structure
-* `styles` - CSS stylesheets, sorted by type.
-* `images` - images, sorted by type.
-* `scripts` - JavaScript scripts and modules.
+* `/styles` - CSS stylesheets, sorted by type.
+* `/images` - images, sorted by type.
+* `/scripts` - JavaScript scripts and modules.
 
 
-Each page consists of a html file, main.js and a stylesheet.
+Each page consists of an `.html`, `main.js` and a `.css` file.
 
 
 ---
@@ -18,4 +18,5 @@ Each page consists of a html file, main.js and a stylesheet.
 
 # Credits
 
-Country flags: https://github.com/hampusborgos/country-flags
+* Country Flags: https://github.com/hampusborgos/country-flags/
+* CSS Framework (`/experiment` & `/tools` only): https://picocss.com/
