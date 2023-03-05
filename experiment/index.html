@@ -32,7 +32,7 @@
             <button onclick="open_help_modal();">Instrukcja obsługi</button>
             <fieldset>
                 <label for="switch">
-                    <input type="checkbox" id="autoscroll_checkbox" name="autoscroll_checkbox" role="switch">
+                    <input type="checkbox" id="autoscroll_checkbox" name="autoscroll_checkbox" role="switch" checked>
                     Autoscroll
                 </label>
             </fieldset>
@@ -77,7 +77,7 @@
                 </ol>
             </ol>
             <p>Teksty są zapętlane; po tekście D następuje tekst A.</p>
-            <p>Jeśli checkbox <u>Autoscroll</u> jest włączony, zmiana tekstu przewija stronę do góry (nie działa w Apple Safari).</p>
+            <p>Jeśli checkbox <u>Autoscroll</u> jest włączony, zmiana tekstu przewija stronę do góry (może nie działać w Safari).</p>
             <br>
             <button onclick="close_help_modal();">Zamknij</button>
         </article>
@@ -89,19 +89,13 @@
             <p onclick="previous_text();">&#171;</p>
             <p id="selection_indicator_bottom" onclick="scroll_to_top();">?</p>
             <p onclick="next_text();">&#187;</p>
-            <!-- <p>first</p>
-        <p>second</p>
-        <p>third</p> -->
-            <!-- <div id="info_box">
-            <p onclick="previous_text();">&#171;</p>
-            <p id="selection_indicator_bottom" onclick="scroll_to_top();">?</p>
-            <p onclick="next_text();">&#187;</p>
-        </div> -->
         </div>
     </div>
-    <div id="scroll_target"></div>
 
     <main>
+        <!-- scrolled to on text change -->
+        <div id="scroll_target"></div>
+
         <div class="group_container" id="container_group1">
             <article class="text_container" id="1A">
                 <header><strong>Tekst 1A</strong></header>
