@@ -48,6 +48,10 @@ function set_indicator() {
 
 
 function open_group(number = CURRENT_GROUP_NUMBER) {
+    /*
+    Open specific group (1, 2, 3) that contains texts.
+    If no argument provided, use global variable.
+    */
     // close dropdown menu (if doesn't exist, no error)
     GROUP_DROPDOWN.removeAttribute("open");
     // hide all groups (1, 2, 3)
@@ -63,10 +67,10 @@ function open_group(number = CURRENT_GROUP_NUMBER) {
 }
 
 function open_text(letter = CURRENT_TEXT_LETTER) {
-    // use global if not provided
-    // if (letter === null) {
-    //     letter = CURRENT_TEXT_LETTER;
-    // }
+    /*
+    Open specific text (A, B, C, D).
+    If no argument provided, use global variable.
+    */
     // close dropdown menu (if doesn't exist, no error)
     TEXT_DROPDOWN.removeAttribute("open");
     // hide all texts (1A, 1B, 1C, ..., 2B, 2C, 2D, ..., 3B, 3D, etc.)
