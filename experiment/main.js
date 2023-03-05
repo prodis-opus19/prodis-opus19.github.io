@@ -12,6 +12,7 @@ const SELECTION_INDICATOR_BOTTOM = document.getElementById("selection_indicator_
 
 const AUTOSCROLL_CHECKBOX = document.getElementById("autoscroll_checkbox");
 const HELP_MODAL = document.getElementById("help_modal");
+const SCROLL_TARGET = document.getElementById("scroll_target");
 
 // default values
 let CURRENT_GROUP_NUMBER = "1"; // changed using open_group();
@@ -25,7 +26,8 @@ function scroll_up_to_text() {
     If autoscroll checkbox is unchecked, do nothing.
     */
     if (AUTOSCROLL_CHECKBOX.checked) {
-        document.getElementById(`${CURRENT_GROUP_NUMBER}${CURRENT_TEXT_LETTER}`).scrollIntoView();
+        // smooth, top of div vertically, center horizontally
+        SCROLL_TARGET.scrollIntoView({ behavior: "smooth", block: "start", inline: "center" });
     }
 }
 
