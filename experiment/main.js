@@ -48,13 +48,6 @@ function set_indicator() {
 
 
 function open_group(number = CURRENT_GROUP_NUMBER) {
-    console.log(number);
-    // // use global if not provided
-    // if (number === null) {
-    //     number = CURRENT_GROUP_NUMBER;
-    // }
-    console.log(CURRENT_GROUP_NUMBER);
-    console.log(number);
     // close dropdown menu (if doesn't exist, no error)
     GROUP_DROPDOWN.removeAttribute("open");
     // hide all groups (1, 2, 3)
@@ -77,8 +70,8 @@ function open_text(letter = CURRENT_TEXT_LETTER) {
     // close dropdown menu (if doesn't exist, no error)
     TEXT_DROPDOWN.removeAttribute("open");
     // hide all texts (1A, 1B, 1C, ..., 2B, 2C, 2D, ..., 3B, 3D, etc.)
-    for (const text of TEXT_CONTAINERS) {
-        text.style.display = "none";
+    for (const div of TEXT_CONTAINERS) {
+        div.style.display = "none";
     }
     // show the specific article content
     document.getElementById(`${CURRENT_GROUP_NUMBER}${letter}`).style.display = "block";
