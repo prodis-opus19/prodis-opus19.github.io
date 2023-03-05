@@ -83,8 +83,6 @@ function open_text(letter = CURRENT_TEXT_LETTER) {
     document.getElementById(`${CURRENT_GROUP_NUMBER}${letter}`).style.display = "block";
     // set global variable
     CURRENT_TEXT_LETTER = letter;
-    // scroll to beginning of text
-    scroll_up_to_text();
     // set indicator at the bottom to current group & text
     set_indicator();
 }
@@ -96,6 +94,8 @@ function previous_text() {
     */
     const previous_letter = get_previous_letter(CURRENT_TEXT_LETTER);
     open_text(previous_letter);
+    // scroll to beginning of text
+    scroll_up_to_text();
 }
 
 function next_text() {
@@ -105,6 +105,8 @@ function next_text() {
     */
     const next_letter = get_next_letter(CURRENT_TEXT_LETTER);
     open_text(next_letter);
+    // scroll to beginning of text
+    scroll_up_to_text();
 }
 
 document.addEventListener('keydown', function (event) {
@@ -129,7 +131,6 @@ document.addEventListener('keydown', function (event) {
 
 // open using global variable (see: the top of the script)
 open_group();
-open_text();
 AUTOSCROLL_CHECKBOX.checked = true; // reset on page reload
 
 // allow global access within HTML
