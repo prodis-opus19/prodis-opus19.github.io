@@ -230,8 +230,7 @@ header>nav>.navbar_splitter {
   border-radius: 20px;
   display: none;
   margin-bottom: 50px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-inline: auto;
   margin-top: 70px;
   overflow-wrap: break-word;
   /* top, right, bottom, left */
@@ -357,8 +356,7 @@ footer img {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  margin-left: auto;
-  margin-right: auto;
+  margin-inline: auto;
   overflow: hidden;
   padding-bottom: 5px;
   padding-left: 10px;
@@ -476,8 +474,7 @@ footer img {
 
 .contact_info .email_explanation {
   color: var(--almost_white);
-  margin-left: auto;
-  margin-right: auto;
+  margin-inline: auto;
   margin-top: 35px;
   width: 90%;
 }

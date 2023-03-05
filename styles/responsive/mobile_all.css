@@ -64,8 +64,7 @@ header>nav>.tab_link {
   border-radius: 8px;
   font-size: 20px;
   margin-bottom: 6px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-inline: auto;
   margin-top: 6px;
   padding-bottom: 12px;
   padding-top: 12px;
