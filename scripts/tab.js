@@ -38,7 +38,6 @@ export function open_tab(category = null, add_history = true) {
     catch (TypeError) {
         document.getElementById(`${DEFAULT_TAB}_tab`).style.display = "block";
         document.getElementById(`${DEFAULT_TAB}_button`).classList.add("active");
-        // console.log(`unknown tab provided '${category}', opening default '${DEFAULT_TAB}'`);
     }
     // create new history entry for current tab; prevents duplicates when called from popstate listener
     if (add_history) {

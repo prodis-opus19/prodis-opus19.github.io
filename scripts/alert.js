@@ -92,5 +92,4 @@ export function copy_to_clipboard(tag, to_copy) {
     navigator.clipboard.writeText(to_copy);
     // show popup under element clicked
     show_copy_popup(tag);
-    // console.log("link copied: " + to_copy);
 }
