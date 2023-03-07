@@ -347,34 +347,34 @@ footer img {
   width: 100%;
 }
 
-/* style the navbar container */
 .navbar_per_person {
+  /* justify-content = main axis
+  align-items = cross axis */
+  align-items: center;
   background-color: var(--table_background);
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
+  gap: 5px;
+  height: auto;
+  justify-content: center;
   margin-inline: auto;
   overflow: hidden;
-  padding-bottom: 5px;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-top: 5px;
+  padding: 5px;
   width: 280px;
 }
 
 /* style the buttons that are used to open the peron's description (workplace, interests, contact info) */
-.navbar_per_person button {
-  /* background-color: #404040; */
+.navbar_per_person>button {
   background-color: var(--nav_button_background);
   border-radius: 5px;
   border: none;
   color: white;
   cursor: pointer;
+  flex-wrap: wrap;
   font-size: 130%;
-  height: 48px;
-  margin-bottom: 5px;
-  margin-top: 5px;
+  justify-content: center;
+  min-height: 48px;
   outline: none;
   overflow: hidden;
   transition: background-color 0.1s;
@@ -382,12 +382,12 @@ footer img {
 }
 
 /* change background color of buttons on hover */
-.navbar_per_person button:hover {
+.navbar_per_person>button:hover {
   background-color: #666676;
 }
 
 /* selected button */
-.navbar_per_person button.active {
+.navbar_per_person>button.active {
   background-color: #a35858;
 }
 
@@ -418,9 +418,12 @@ footer img {
 }
 
 .tab_per_person_content>.img_flex {
+  /* align-content is only active when wrapping with flex-wrap due to overflow */
+  align-content: center;
   align-items: center;
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1rem;
   justify-content: center;
   width: 100%;
 }
@@ -428,7 +431,6 @@ footer img {
 .tab_per_person_content>.img_flex img {
   border-radius: 8px;
   height: auto;
-  margin: 8px;
   width: 46px;
 }
 

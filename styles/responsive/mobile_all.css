@@ -108,7 +108,7 @@ header>nav>.navbar_splitter {
 
 .navbar_per_person button {
   font-size: 115%;
-  height: 50px;
+  min-height: 60px;
 }
 
 .tab_per_person_content {
@@ -121,8 +121,7 @@ header>nav>.navbar_splitter {
 }
 
 .tab_per_person_content>.img_flex img {
-  margin: 5px;
-  width: 40px;
+  width: 50px;
 }
 
 .contact_info table {
