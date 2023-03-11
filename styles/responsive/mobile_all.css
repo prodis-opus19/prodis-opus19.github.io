@@ -106,8 +106,8 @@ header>nav>.navbar_splitter {
   width: 90%;
 }
 
-.navbar_per_person button {
-  font-size: 115%;
+.navbar_per_person>button {
+  font-size: 135%;
   min-height: 60px;
 }
 
