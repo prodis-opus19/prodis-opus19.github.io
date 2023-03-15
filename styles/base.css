@@ -363,7 +363,7 @@ footer img {
   margin-inline: auto;
   overflow: hidden;
   padding: 5px;
-  width: 280px;
+  max-width: 280px;
 }
 
 /* style the buttons that are used to open the peron's description (workplace, interests, contact info) */
