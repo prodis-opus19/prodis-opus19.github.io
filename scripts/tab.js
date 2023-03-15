@@ -1,7 +1,7 @@
 // GLOBAL VARIABLES
 const DEFAULT_TITLE = document.title; // get content between <title> tag
 const FULL_PAGE_TABS = document.getElementsByClassName("full_page_tab");
-const BUTTON_LINKS = document.getElementsByClassName("tab_link");
+export const BUTTON_LINKS = document.getElementsByClassName("tab_link");
 // get first <a> from <nav>, then remove "_button" at the end to get raw category
 const DEFAULT_TAB = BUTTON_LINKS[0].id.slice(0, -7);
 
@@ -69,4 +69,5 @@ function get_url_parameters() {
 }
 
 
+// on page load
 get_url_parameters();
