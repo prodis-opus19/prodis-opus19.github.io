@@ -330,19 +330,6 @@ footer img {
   margin-top: 10px;
 }
 
-
-/* Uncomment this and the div in the HTML to show notification when enough participants */
-/* .notice_participants {
-  background-color: yellow;
-  border-radius: 10px;
-  color: red;
-  font-size: 200%;
-  font-weight: 800;
-  margin-bottom: 20px;
-  padding: 10px;
-  text-align: left;
-} */
-
 .img_example_last {
   border-radius: 10px;
   margin-top: 20px;
