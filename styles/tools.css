@@ -4,3 +4,7 @@ section {
     max-width: 600px;
     margin-inline: auto;
 }
+
+#uniq_words {
+    resize: vertical;
+}
