@@ -38,10 +38,13 @@ header>#hamburger {
   font-size: 38px;
   height: 100%;
   margin-top: 8px;
-  padding-bottom: 4px;
+  padding-bottom: 8px;
   padding-left: 20px;
   padding-right: 20px;
   padding-top: 8px;
+  /* background-color: blue; */
+  /* it just refuses to center */
+  transform: translateY(3px);
 }
 
 header>nav {
@@ -87,7 +90,6 @@ header>nav>.navbar_splitter {
   margin-top: 80px;
   padding-left: 14px;
   padding-right: 14px;
-  width: 98%;
 }
 
 .tab_title h1 {
@@ -100,10 +102,6 @@ header>nav>.navbar_splitter {
 
 .tab_title p {
   font-size: 98%;
-}
-
-.navbar_per_person {
-  width: 90%;
 }
 
 .navbar_per_person>button {

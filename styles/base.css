@@ -167,7 +167,7 @@ header a {
 /* webpage title */
 header>#header_logo {
   font-size: 24px;
-  margin-right: 20px;
+  margin-right: 10px;
 }
 
 /* responsive navbar menu for navbar */
@@ -189,11 +189,12 @@ header>nav {
   margin-right: 0;
   overflow: hidden;
   white-space: nowrap;
+  width: 800px;
 }
 
 /* all direct children (incl. separator) have margin on the right */
 header>nav>*:not(:last-child) {
-  margin-right: 6px;
+  margin-right: 8px;
 }
 
 header>nav:hover>.tab_link {
@@ -204,9 +205,10 @@ header>nav>.tab_link {
   border-radius: 5px;
   font-size: 20px;
   padding-bottom: 6px;
-  padding-left: 18px;
-  padding-right: 20px;
+  padding-left: 10px;
+  padding-right: 14px;
   padding-top: 6px;
+  width: 100%;
 }
 
 header>nav>.tab_link:hover {
@@ -233,7 +235,7 @@ header>nav>.navbar_splitter {
   overflow-wrap: break-word;
   /* top, right, bottom, left */
   padding: 40px 50px 40px 50px;
-  width: 600px;
+  max-width: 600px;
 }
 
 /* welcome title */
