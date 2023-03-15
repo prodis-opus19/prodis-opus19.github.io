@@ -11,6 +11,7 @@ const SELECTION_INDICATOR_TOP = document.getElementById("selection_indicator_top
 const SELECTION_INDICATOR_BOTTOM = document.getElementById("selection_indicator_bottom");
 
 const AUTOSCROLL_CHECKBOX = document.getElementById("autoscroll_checkbox");
+const FULLWIDTH_CHECKBOX = document.getElementById("fullwidth_checkbox");
 const HELP_MODAL = document.getElementById("help_modal");
 const SCROLL_TARGET = document.getElementById("scroll_target");
 
@@ -129,9 +130,25 @@ document.addEventListener('keydown', function (event) {
     }
 });
 
+FULLWIDTH_CHECKBOX.addEventListener('change', (event) => {
+    /*
+    Toggle article's width: narrow (default), wide.
+    */
+    const checked = event.currentTarget.checked;
+    for (const div of GROUP_CONTAINERS) {
+        if (checked) {
+            div.classList.add("group_container_wide");
+        }
+        else {
+            div.classList.remove("group_container_wide");
+        }
+    }
+})
+
 // open using global variable (see: the top of the script)
 open_group();
 AUTOSCROLL_CHECKBOX.checked = true; // reset on page reload
+FULLWIDTH_CHECKBOX.checked = false; // reset on page reload
 
 // allow global access within HTML
 window.open_group = open_group;

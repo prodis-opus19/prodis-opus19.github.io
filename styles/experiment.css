@@ -7,6 +7,13 @@
     width: 300px;
 }
 
+#help_modal>article {
+    padding-top: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 0;
+}
+
 #info_box_container {
     bottom: 0;
     position: fixed;
@@ -53,6 +60,10 @@
 .group_container {
     margin-inline: auto;
     max-width: 850px;
+}
+
+.group_container_wide {
+    max-width: 100%;
 }
 
 .group_container article p {
