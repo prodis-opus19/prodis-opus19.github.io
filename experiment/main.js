@@ -28,7 +28,7 @@ function scroll_up_to_text() {
     */
     if (AUTOSCROLL_CHECKBOX.checked) {
         // smooth, top of div vertically, center horizontally
-        SCROLL_TARGET.scrollIntoView({ behavior: "smooth", block: "start", inline: "center" });
+        SCROLL_TARGET.scrollIntoView({ behavior: "smooth", block: "start" });
     }
 }
 
