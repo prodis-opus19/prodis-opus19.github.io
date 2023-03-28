@@ -5,6 +5,10 @@ section {
     margin-inline: auto;
 }
 
-#uniq_words {
+textarea {
     resize: vertical;
+}
+
+.text_center {
+    text-align: center;
 }
