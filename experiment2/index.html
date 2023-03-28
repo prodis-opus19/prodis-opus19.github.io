@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <!-- prevent indexing by search engines; this page should be accessed by link -->
+    <meta name="robots" content="noindex">
+    <!-- force light mode -->
+    <html data-theme="light">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <meta charset="UTF-8">
+    <title>EXPERIMENT2</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="stylesheet" href="/styles/experiment2.css">
+    <meta name="description" content="A web app that displays texts in pre-selected order">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="module" src="./main.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script>
+        /* prevent Firefox FOUC (Flash of unstyled content) warning */
+        let FF_FOUC_FIX;
+    </script>
+</head>
+
+<body>
+    <!-- CSS reference: https://picocss.com/docs/typography.html -->
+    <main>
+        <article>
+            <i id="experiment_audio_icon" class="fa fa-volume-up"></i>
+            <audio id="experiment_audio_player" src="" controls>Your browser does not support the audio element.</audio>
+            <p id="experiment_display_text">Vocabulary experiment.<br>First, you will hear an audio recording.<br>Then, you will read a text out loud.<br><br>Press space to confirm.</p>
+            <p id="experiment_display_status">0/0</p>
+        </article>
+    </main>
+
+    <footer>
+        <small>CSS Framework: <a href="https://picocss.com">Pico</a></small>
+    </footer>
+</body>
+
+</html>
