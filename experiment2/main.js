@@ -112,6 +112,13 @@ function app() {
 AUDIO_EXPERIMENT_STATUS.textContent = `1/${MAX_VOCAB_LEN}`;
 AUDIO_EXPERIMENT_PLAYER.volume = 1.0;
 
+// set focus on page load
+{
+    const MAIN_APP = document.getElementById("main_app");
+    MAIN_APP.focus({ focusVisible: false });
+    MAIN_APP.scrollIntoView({ block: "center" });
+}
+
 
 // start app after user presses keyboard (runs only once)
 document.addEventListener("keydown", function (event) {
