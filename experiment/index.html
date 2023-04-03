@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pl">
 
 <head>
@@ -8,13 +8,13 @@
     <html data-theme="light">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <meta charset="UTF-8">
-    <title>EXPERIMENT</title>
+    <title>EXPERIMENT - Selection</title>
     <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
-    <link rel="stylesheet" href="/styles/experiment.css">
+    <link rel="stylesheet" href="/styles/experiment/main.css">
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
-    <meta name="description" content="A web app that displays texts in pre-selected order.">
+    <meta name="description" content="A webpage that contains links to experiment webapps.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="module" src="./main.js" defer></script>
+    <!-- <script type="module" src="./main.js" defer></script> -->
     <script>
         /* prevent Firefox FOUC (Flash of unstyled content) warning */
         let FF_FOUC_FIX;
@@ -22,186 +22,26 @@
 </head>
 
 <body>
-    <!-- CSS reference: https://picocss.com/docs/typography.html -->
     <header>
-        <div id="btn_controls_container">
-            <hgroup>
-                <h1>Eksperyment</h1>
-                <h2>Czytanie tekstu</h2>
-            </hgroup>
-            <button onclick="open_help_modal();">Instrukcja obsługi</button>
-            <fieldset>
-                <label for="switch">
-                    <input type="checkbox" id="autoscroll_checkbox" name="autoscroll_checkbox" role="switch" checked>
-                    Autoscroll
-                </label>
-                <label for="switch">
-                    <input type="checkbox" id="fullwidth_checkbox" name="fullwidth_checkbox" role="switch">
-                    Fullwidth
-                </label>
-            </fieldset>
-            <details id="group_dropdown" role="list">
-                <summary aria-haspopup="listbox">Wybierz grupę</summary>
-                <ul role="listbox">
-                    <li><a href="javascript:;" onclick="open_group('1');">Grupa nr. 1</a></li>
-                    <li><a href="javascript:;" onclick="open_group('2');">Grupa nr. 2</a></li>
-                    <li><a href="javascript:;" onclick="open_group('3');">Grupa nr. 3</a></li>
-                </ul>
-            </details>
-            <details id="text_dropdown" role="list">
-                <summary aria-haspopup="listbox">Wybierz tekst</summary>
-                <ul role="listbox">
-                    <li><a href="javascript:;" onclick="open_text('A');">Tekst A (Polityka)</a></li>
-                    <li><a href="javascript:;" onclick="open_text('B');">Tekst B (Nauka)</a></li>
-                    <li><a href="javascript:;" onclick="open_text('C');">Tekst C (Biografia)</a></li>
-                    <li><a href="javascript:;" onclick="open_text('D');">Tekst D (Technologia)</a></li>
-                </ul>
-            </details>
-            <p>Wybrano: <span id="selection_indicator_top">?</span></p>
-        </div>
+        <hgroup>
+            <h1>Experiment selection</h1>
+            <h2>Select text reading or question answering.</h2>
+        </hgroup>
+        <nav>
+            <a href="reading/" role="button">Text reading</a>
+            <a href="answering/" role="button">Question answering</a>
+        </nav>
     </header>
 
-    <dialog id="help_modal">
-        <article>
-            <hgroup>
-                <h3>Instrukcja obsługi</h3>
-                <h3>Używaj przycisków, lub klawiatury.</h3>
-            </hgroup>
-            <ol type="1">
-                <li>Grupa (1, 2, 3):</li>
-                <ol type="A">
-                    <li>Drop-down menu: <u>Wybierz grupę</u>.</li>
-                    <li>Klawiatura: <kbd>1, 2, 3</kbd>.</li>
-                </ol>
-                <li>Tekst (A, B, C, D):.</li>
-                <ol type="A">
-                    <li>Drop-down menu: <u>Wybierz tekst</u>.</li>
-                    <li>Przyciski na dole ekranu: lewo/prawo.</li>
-                    <li>Klawiatura: <kbd>lewo/prawo</kbd>.</li>
-                </ol>
-            </ol>
-            <p>Teksty są zapętlane; po tekście D następuje tekst A.</p>
-            <p>Jeśli checkbox <u>Autoscroll</u> jest włączony, zmiana tekstu przewija stronę do góry (może nie działać w Safari).</p>
-            <p>Jeśli checkbox <u>Fullwidth</u> jest włączony, szerokość tekstów zostanie zwiększona (=więcej słów na ekranie).</p>
-            <br>
-            <button onclick="close_help_modal();">Zamknij</button>
-        </article>
-    </dialog>
-
-    <!-- indicator at the bottom of the page, shows group & text, e.g., 1A, 2C, 3B -->
-    <div id="info_box_container">
-        <div id="info_box">
-            <p onclick="previous_text();">&#171;</p>
-            <p id="selection_indicator_bottom" onclick="scroll_to_top();">?</p>
-            <p onclick="next_text();">&#187;</p>
-        </div>
+    <div id="logo_images" draggable="false" ondragstart="return false;">
+        <a title="Open National Science Center in new tab" href="https://www.ncn.gov.pl/" target="_blank" rel="noopener noreferrer">
+            <img src="/images/ncn_logo.png" alt="NCN logo" width="100" height="100" />
+        </a>
+        <a title="Open AMU Faculty of English in new tab" href="https://amu.edu.pl/" target="_blank" rel="noopener noreferrer">
+            <img src="/images/uam_logo.png" alt="UAM logo" width="100" height="100" />
+        </a>
     </div>
 
-    <main>
-        <!-- scrolled to on text change -->
-        <div id="scroll_target"></div>
-
-        <div class="group_container" id="container_group1">
-            <article class="text_container" id="1A">
-                <header><strong>Tekst 1A</strong></header>
-                <p><strong>Zasada dobra wspólnego (art. 1 Konstytucji)</strong> &#8211; na pierwszym miejscu w części normatywnej Konstytucji wymieniona została zasada dobra wspólnego. Art. 1 Konstytucji, wprowadzający tę zasadę, deklaruje, że „Rzeczpospolita Polska jest dobrem wspólnym wszystkich obywateli”. Przepis dotyczący „dobra wspólnego” wydaje się prawidłowo diagnozować jeden z głównych mankamentów polskiej rzeczywistości społecznej, która mu nieraz przeczy. Polacy są bowiem narodem, który na przestrzeni dziejów, poddany różnorakim represyjnym działaniom obcych władz państwowych, dyktatur i systemów autorytarnych, nauczył się zabiegać przede wszystkim o swoje dobro jednostkowe, nie troszcząc się dostatecznie o dobro ogółu. Przepis art. 1 Konstytucji daje do zrozumienia, że tak być nie powinno. Na jego podstawie władze publiczne zobowiązane są do przeciwdziałania jednostkowym czy grupowym zakusom zmierzającym do zawłaszczenia dla siebie dobra wspólnego.</p>
-                <p>Jednak art. 1 Konstytucji jest przepisem nowym, w związku z czym ciągle nie do końca sprecyzowana jest jego treść normatywna, co w szczególności związane jest z faktem, że Trybunał Konstytucyjny dotychczas niezmiernie rzadko odwoływał się do jego treści. Podobne do art. 1 Konstytucji sformułowanie znajdowało się co prawda wcześniej w konstytucji kwietniowej, jednakże ówczesne znaczenie tego przepisu, podkreślającego - w myśl założeń autorytarnych - podporządkowanie jednostki państwu, nie jest zupełnie do zaakceptowania w aktualnych warunkach społeczno-politycznych, a ponadto kłóciłoby się z innymi zasadami wyrażonymi w Konstytucji, jak choćby z zasadą demokratycznego państwa prawnego (art. 2 Konstytucji).</p>
-                <p>Obecnie podkreśla się dwie możliwości interpretacyjne tego przepisu. Jedna z nich zakłada subsumpcję pod pojęcie dobra wspólnego w rozumieniu art. 1 Konstytucji „interesu publicznego”, podlegającego ochronie jako „dobro wspólne wszystkich obywateli”. Druga natomiast wskazuje na konieczność uwzględnienia przy interpretacji pojęcia „dobra wspólnego” treści ustalonych przez naukę społeczną Kościoła Katolickiego, czy też treści naturalnoprawnych.</p>
-                <p>Ze względów uzasadnionych wzajemną autonomią Kościoła katolickiego i państwa (art. 25 Konstytucji) znaczenia „dobra wspólnego” poszukiwać należy jednak w art. 1 Konstytucji na gruncie prawa świeckiego, co nie wyłącza jednocześnie pewnych inspiracji nauką społeczną Kościoła Katolickiego. W świetle powyższego należy więc uznać, że zasada dobra wspólnego przede wszystkim zakazuje nieuzasadnionego uprzywilejowywania jednych grup społecznych kosztem innych, nie pozwala na wykorzystywanie dobra wspólnego w celu zabezpieczenia jakichś partykularnych interesów, jak choćby nie pozwala na prawne sankcjonowanie naruszającej swobodę wykonywania zawodu lub podejmowania działalności gospodarczej monopolizacji rynku świadczenia jakichś usług przez hermetyczne korporacje zawodowe.</p>
-            </article>
-            <article class="text_container" id="1B">
-                <header><strong>Tekst 1B</strong></header>
-                <p><strong>Tęcza</strong> &#8211; zjawisko optyczne i meteorologiczne (fotometeor), występujące w postaci charakterystycznego wielobarwnego łuku powstającego w wyniku rozszczepienia światła widzialnego, zwykle promieniowania słonecznego, załamującego się i odbijającego wewnątrz licznych kropli wody (np. deszczu i mgły) mających kształt zbliżony do kulistego. Rozszczepienie światła jest wynikiem zjawiska dyspersji, powodującego różnice w kącie załamania światła o różnej długości fali przy przejściu z powietrza do wody i z wody do powietrza.</p>
-                <p>Światło widzialne jest postrzegalną wzrokiem częścią widma promieniowania elektromagnetycznego i w zależności od długości fali postrzegane jest w różnych barwach. Kiedy światło słoneczne przenika przez kropelki deszczu, woda rozprasza światło białe (mieszaninę fal o różnych długościach) na składowe o różnych długościach fal (różnych barwach) i oko ludzkie postrzega wielokolorowy łuk.</p>
-                <p>Pomimo faktu, że w tęczy występuje niemal ciągłe widmo kolorów, wyszczególnia się z reguły następujące barwy: czerwony (na zewnątrz łuku), pomarańczowy, żółty, zielony, niebieski, indygo i fioletowy (wewnątrz łuku).</p>
-                <p>Najczęściej obserwowana jest tęcza główna, lecz mogą pojawić się także tęcze wtórne i następne oraz kilka opisanych poniżej zjawisk optycznych, towarzyszących tęczy. Tęcza powstaje naprzeciw słońca i nie należy jej mylić ze zjawiskiem halo, które występuje wokół słońca, a powstaje w wyniku innych zjawisk optycznych.</p>
-                <p>Źródłem światła wywołującego tęczę jest zwykle Słońce, czasem także Księżyc. Efekt tęczy może być widoczny wszędzie, gdzie występują krople wody w powietrzu, oświetlane przez promienie słoneczne, padające z tyłu obserwatora, a Słońce znajduje się na stosunkowo niewielkiej wysokości (kącie do poziomu mniejszym niż 40°), przy większych wysokościach Słońca tęcza może być obserwowana, gdy tworzące ją krople są poniżej horyzontu, np. w górach lub z samolotu. Warunkiem uzyskania wyraźnej tęczy jest oświetlenie kropel deszczu (chmury) przez równoległą wiązkę światła słonecznego oraz brak oświetlenia rozproszonego. Najbardziej widowiskowe tęcze można zaobserwować, gdy wywołujące ją światło jest jasne, przed obserwatorem pada intensywny deszcz, jednocześnie tło tęczy jest ciemne. W sprzyjających warunkach można obserwować także tęczę wtórną jako łuk o większym od tęczy pierwotnej promieniu.</p>
-                <p>Tęcza powstaje również przy wodospadach lub fontannach, dookoła których występują krople wody. Charakterystyczne efekty tęczowe mogą być też czasem zauważone przy podświetlonych chmurach jako pionowe wstęgi przy odległych deszczach lub virgach, jak również mogą być „sztucznie” uzyskane poprzez rozpylanie kropel wody w powietrzu oświetlonym silnym jednokierunkowym białym światłem.</p>
-            </article>
-            <article class="text_container" id="1C">
-                <header><strong>Tekst 1C</strong></header>
-                <p><strong>Igrzyska olimpijskie</strong> &#8211; najstarsza i zarazem największa międzynarodowa impreza sportowa organizowana co 4 lata (zarówno letnie, jak i zimowe, ale w odstępie 2 lat od siebie) w różnych krajach, pod hasłem szlachetnego współzawodnictwa i braterstwa wszystkich narodów Międzynarodowego Komitetu Olimpijskiego.</p>
-                <p>Pierwsze igrzyska olimpijskie odbywały się w Olimpii w Grecji co cztery lata, stąd w starożytnej Grecji termin olimpiada, który oznaczał czteroletni okres między kolejnymi igrzyskami. Pierwsze udokumentowane igrzyska odbyły się w roku 776 p.n.e. Na czas igrzysk olimpijskich zaprzestawano wojen. Podczas trwania konfliktów ogłaszano „pokój boży” i wojny wstrzymywane były na 2 miesiące. Igrzyska trwały 5 dni, reszta czasu była przeznaczona na wyruszenie i powrót z igrzysk przez widzów i zawodników. Pierwszym etapem uroczystości, jeszcze przed rozpoczęciem igrzysk, było złożenie przysięgi przed posągiem Zeusa. Mięso dzika cięto na kawałki, rozsypywano albo rozkładano przed posągiem i każdy uczestnik, wraz z ojcem i swymi braćmi składał przysięgę, że nie dopuści się żadnego oszustwa na zawodach, co potwierdzał drugą przysięgą, w której mówił, że ściśle przykładał się do ćwiczeń przez poprzednie 10 miesięcy. Oficjalnie otrzymywało się nagrodę - wieniec z gałązek z wawrzynu (laur olimpijski), lecz nagradzany był tylko zwycięzca.</p>
-                <p>Zawodnik, który wygrał igrzyska, stawał się sławny i otrzymywał tytuł olimpionika. W jego rodzinnym mieście stawiano pomniki na jego cześć i pisano wiersze. W murze miasta wygranego zawodnika robiono dziurę, przez którą wchodził zwycięzca witany przez mieszkańców. Oznaczało to, że miasto nikogo już się nie obawia, ponieważ ma takiego obrońcę. Zwycięzca otrzymywał również nagrody materialne, ale nie dawane oficjalnie. Z czasem, oprócz wieńca z gałązek oliwnych, otrzymywano pieniądze i przedmioty wartościowe. Sławę zdobywało całe miasto, a nie tylko wygrany. Kary olimpijskie były bardzo surowe. Zawodnik, który dopuścił się oszustwa, zmuszony był postawić pomnik Zeusowi, na którym wyryto jego imię i nazwisko oraz występek, którego się dopuścił. Najpopularniejszym z oszustów jest Ateńczyk Kalliopos, który przekupił swoich niedoszłych przeciwników. Cała sprawa wyszła na jaw. Ateńczyk i inni musieli postawić pomniki dla Zeusa. Ateńczycy przestali brać udział w igrzyskach, gdyż wyrocznia delficka powiedziała, że jeśli zaczną ponownie brać udział, nie będzie im głosiła przepowiedni.</p>
-            </article>
-            <article class="text_container" id="1D">
-                <header><strong>Tekst 1D</strong></header>
-                <p><strong>Mona Lisa (wł. Gioconda)</strong> &#8211; obraz olejny namalowany na topolowej desce przez Leonarda da Vinci, artystę włoskiego renesansu. Jego nazwa pochodzi od słowa mona, które w dialekcie toskańskim jest skrótem od tytułu ma donna („moja pani”) oraz imienia domniemanego tematu portretu.</p>
-                <p>Obraz powstał w latach 1503-1507; obecnie znajduje się w paryskim Luwrze, pozostając własnością rządu Francji. Dzieło trafiło na stałą ekspozycję do Luwru w 1797 roku. Jest to jeden z najsłynniejszych i najbardziej cenionych obrazów z czasów renesansu. Podczas przenosin na tymczasową wystawę w Waszyngtonie w 1962 roku obraz został ubezpieczony na kwotę 100 milionów dolarów, co świadczy o jego wysokiej wartości na rynku sztuki.</p>
-                <p>Portret przedstawia kobietę siedzącą na balkonie w pozycji contrapposto, jej ciało ustawione jest pod kątem, a twarz zwrócona jest w kierunku widza. Ubrana jest w skromną szatę, na której brak jest oznak pozycji społecznej, majątkowej czy dworskiej. Za nią artysta ustawił wysoki mur, a dalej melancholijny krajobraz pocięty zygzakowatymi liniami ścieżek i wijących się potoków, który po lewej stronie jest inny niż po prawej i nie stanowi jednej całości. Po obu stronach znajdują się fragmenty kolumn, domalowane prawdopodobnie przez artystę pod koniec tworzenia dzieła. Ten szczegół w kolejnych latach wzbudzał wśród historyków podejrzenia, że obraz pierwotnie był szerszy i został w kolejnych wiekach przycięty. Badania radiograficzne w XXI wieku odrzuciły zdecydowanie te teorie.</p>
-                <p>Postać namalowana została z innej perspektywy niż krajobraz: kobieta w perspektywie centralnej, a tło z lotu ptaka. Leonardo da Vinci namalował portret techniką olejną, wykorzystując technikę „sfumato”, co było w ówczesnych czasach nowością; kolejne warstwy farby nakładał bardzo delikatnymi pędzlami, a laserunek jest praktycznie niewidoczny. Eksperymentalna technika, sposób ukazania postaci oraz tło nadawały portretowi wyjątkowe wrażenie przez co został on uznany, już przez mu współczesnych, za rewolucyjny.</p>
-                <p>Jak zauważa historyk sztuki Maria Poprzęcka, przed 19. wiekiem obserwatorzy Mony Lisy nie dostrzegali w uśmiechu modelki niczego tajemniczego. Największym echem odbiła się jednak interpretacja brytyjskiego pisarza Waltera Patera, który dostrzegł w enigmatycznym uśmiechu Mony Lisy doświadczenia wszystkich dotychczasowych epok historycznych oraz „symbol idei nowoczesnej”. To właśnie ta interpretacja skłaniała artystów epoki modernizmu do doszukiwania się głębszego sensu w uśmiechu Giocondy, który doczekał się niezliczonych parodii i karykatur.</p>
-            </article>
-        </div>
-        <div class="group_container" id="container_group2">
-            <article class="text_container" id="2A">
-                <header><strong>Tekst 2A</strong></header>
-                <p><strong>Parlament Europejski</strong> &#8211; instytucja Unii Europejskiej będąca odpowiednikiem jednoizbowego parlamentu, której członkowie są wybierani przez obywateli państw należących do UE na pięcioletnią kadencję.</p>
-                <p>Oficjalną siedzibą Parlamentu Europejskiego jest Strasburg, ale większość prac legislacyjnych ma miejsce w Brukseli, gdzie mieszczą się również komisje parlamentarne, biura poselskie oraz władze klubów. Sekretariat, Biblioteka i część zaplecza technicznego Parlamentu znajdują się w Luksemburgu.</p>
-                <p>Prawo Unii Europejskiej stanowi jedynie, iż posłów do PE wybiera się w państwach członkowskich w tajnym, powszechnym i bezpośrednim głosowaniu. Wymagane jest przy tym oparcie systemu wyborczego na zasadzie proporcjonalności i takie kształtowanie okręgów wyborczych, które nie naruszy zasady reprezentacji proporcjonalnej. Dopuszczalne jest przy tym wprowadzenie klauzuli zaporowej (progu wyborczego), nie wyższej niż 5% (w Niemczech nie ma progu wyborczego, w Szwecji wynosi on 4%, w Polsce - 5%). Liczba posłów w Parlamencie Europejskim wybieranych w poszczególnych państwach jest w przybliżeniu proporcjonalna do liczby mieszkańców (z lekką nadreprezentacją krajów mniej ludnych).</p>
-                <p>Czynne prawo wyborcze (prawo do głosowania) przysługuje każdemu obywatelowi UE, który ukończył 18 lat i nie został go pozbawiony w kraju pochodzenia. Obywatel Unii stale zamieszkały w państwie, którego nie jest obywatelem, ma prawo do głosowania na tych samych warunkach co obywatele tego państwa; np. obywatel Polski, który przeprowadził się na stałe do Berlina, może głosować na niemieckich kandydatów zgodnie z niemieckimi regulacjami (wymagane jest wtedy wpisanie się do rejestru wyborców).</p>
-                <p>Kandydaci do Parlamentu Europejskiego zwykle startują w wyborach w barwach jednej z partii działającej w ich kraju. Po wejściu do Parlamentu przyłączają się jednak do jednej z funkcjonujących tam grup politycznych lub pozostają niezależni. W sali posiedzeń zajmują miejsca według przynależności do grup, a nie według przynależności narodowej.</p>
-                <p>Parlament Europejski wybiera spośród swych członków przewodniczącego na 2,5-letnią kadencję, który reprezentuje Parlament na zewnątrz i kieruje jego obradami.Parlament nie używa jednego języka obrad. Obrady Parlamentu odbywają się symultanicznie we wszystkich językach Unii, tzn. każdy poseł może mówić w dowolnym języku urzędowym UE, a jego wystąpienie jest tłumaczone na bieżąco na wszystkie pozostałe języki.Obrady są też tłumaczone na języki wszystkich państw stowarzyszonych, gdyż przedstawiciele parlamentów państw stowarzyszonych mają prawo biernego uczestnictwa w obradach.</p>
-            </article>
-            <article class="text_container" id="2B">
-                <header><strong>Tekst 2B</strong></header>
-                <p><strong>Zorza polarna</strong> &#8211; zjawisko świetlne obserwowane w górnej atmosferze w pobliżu biegunów magnetycznych planety, które ma silne pole magnetyczne.</p>
-                <p>Na Ziemi zorze występują na wysokich szerokościach geograficznych, głównie za kołami podbiegunowymi, chociaż w sprzyjających warunkach bywają widoczne nawet w okolicach 50. równoleżnika. Zdarza się, że zorze polarne obserwowane są nawet w krajach śródziemnomorskich. Na półkuli północnej zorza jest określana łacińską nazwą Aurora borealis, a południowa zorza polarna nosi nazwę Aurora australis.</p>
-                <p>Rozróżnia się typy systematyczne zórz: pasma, łuki, kurtyny, promienie, korony i inne. Stwierdzono emisje w zakresie barwy niebieskiej, zielonej, żółtej i czerwonej, a bardzo często białe. Kolor zjawiska jest skutkiem różnej intensywności linii emisyjnych. Kolor zorzy zależy od rodzaju gazu oraz od wysokości, na jakiej występuje zjawisko. Na czerwono i na zielono świeci tlen, natomiast azot świeci w kolorach purpury i bordo. Zderzenie cząstek z mieszaniną azotu i tlenu daje barwę żółtą. Lżejsze gazy - wodór i hel - świecą w tonacji niebieskiej i fioletowej.</p>
-                <p>Powstawanie zjawiska związane jest z przepływem prądu w jonosferze na wysokości około 100 km ponad powierzchnią Ziemi, w obszarze przenikania pasów radiacyjnych i górnej atmosfery ziemskiej. Słońce stale emituje strumień naładowanych cząstek, czyli wiatr słoneczny. Podczas rozbłysków Słońce wyrzuca większe ilości takich cząstek; należą do nich protony oraz elektrony o kilka rzędów wielkości mniejszej energii (co wynika z mniejszej masy spoczynkowej tych cząstek). W pobliżu Ziemi tory lotu tych cząstek są odchylane przez ziemskie pole magnetyczne. Schwytane przez ziemską magnetosferę cząstki poruszają się po torze o kształcie helisy wzdłuż linii pola magnetycznego łączących obydwa ziemskie bieguny magnetyczne, powodując wzbudzenia atomów w obszarze polarnym, a skutkiem tego świecenie zorzowe. Atmosfera na dużych wysokościach jest zjonizowana i rozrzedzona, co jest przyczyną także emisji linii wzbronionych. Świecenie zorzowe tworzy ponad 270 linii emisyjnych, głównie tlenu i azotu.</p>
-                <p>Wiatr słoneczny tworzą emitowane stale przez Słońce protony i elektrony o mniejszych prędkościach, a zatem i energiach, również wtedy, gdy na Słońcu nie obserwuje się plam. Także one są pułapkowane przez ziemskie pasy radiacyjne, ale z powodu mniejszej energii nie wzbudzają tak intensywnie plazmy jonosferycznej, jak cząstki emitowane podczas rozbłysków i nie powodują większych zórz. Cząstki elementarne z rozbłysków są wysokoenergetyczną fazą wiatru słonecznego.</p>
-            </article>
-            <article class="text_container" id="2C">
-                <header><strong>Tekst 2C</strong></header>
-                <p><strong>Odkrycie Ameryki</strong> &#8211; popularne określenie faktu dotarcia Krzysztofa Kolumba do tego kontynentu, w 1492 r. W rzeczywistości pierwszymi ludźmi, którzy dotarli do kontynentu amerykańskiego, byli członkowie społeczności łowieckich, przybyłych z Azji przez Beringię w czasie zlodowacenia, między 40 000 a 17 000 lat temu. Za pierwszego przedstawiciela cywilizacji europejskiej, który dotarł do Ameryki, uznaje się wikinga Leifa Erikssona.</p>
-                <p>Udoskonalenia dokonane w pierwszej połowie 15 wieku w budowie statków (karawela) i nawigacji morskiej (np. wynalezienie busoli magnetycznej, usprawnienie astrolabium do ustalania szerokości geograficznej) zwiększyły znacznie zasięg i możliwości transportowe żeglugi morskiej. Rozpoczęła się era podróży oceanicznych do coraz dalszych krajów i lądów, dotąd Europejczykom nieznanych. Pionierską rolę w tej dziedzinie w XV w. odegrały zwłaszcza Portugalia i Hiszpania. Władcy obu iberyjskich krajów organizowali i współfinansowali dalekomorskie ekspedycje w nadziei i z zamiarem opanowania nowych terytoriów dla gospodarczego ich wykorzystania.</p>
-                <p>Jednym z wielkich celów, rozpalających wyobraźnię ówczesnych ludzi, było dotarcie do Indii, by uzyskać tam cenne przyprawy korzenne, głównie pieprz, goździki i wanilię oraz szlachetne metale. Takim celem kierował się podróżnik portugalski Bartolomeu Dias, który w 1488 r., jako pierwszy Europejczyk, dotarł na swej karaweli na Ocean Indyjski, opływając Przylądek Dobrej Nadziei na południowym skraju kontynentu afrykańskiego. Dziesięć lat później, w 1498 r., kolejna wyprawa czterech statków portugalskich, kierowana przez Vasco da Gamę, opłynąwszy Afrykę, jako pierwsza wyprawa europejska dotarła do południowych wybrzeży Półwyspu Indyjskiego.</p>
-                <p>Zadanie dotarcia do Indii postawił przed sobą żeglarz genueński Krzysztof Kolumb, lecz zamierzał on płynąć przez Ocean Atlantycki w kierunku zachodnim. Przyjął bowiem w oparciu o dzieło greckiego geografa Ptolemeusza, udostępnione mu m.in. przez brata Bartolomeo, posiadającego w Lizbonie drukarnię map, że Ziemia jest kulista. Po wielu latach zabiegów udało mu się przekonać hiszpańską królową Izabelę Kastylijską do sfinansowania jego idei i 3 sierpnia 1492 r. poprowadził on ekspedycję trzech starannie przygotowanych i zaopatrzonych karawel w dziewiczy rejs przez Atlantyk.</p>
-                <p>12 października trzy statki, z flagową „Santa Marią” na czele, dotarły do brzegów wyspy San Salvador w archipelagu Bahamów, którą uznano za jedną z wysp japońskich. Po opłynięciu kilku innych wysp, w tym Kuby i Haiti w archipelagu Wielkich Antyli, Kolumb powrócił do Hiszpanii i został przyjęty z gorącym entuzjazmem w Barcelonie.</p>
-            </article>
-            <article class="text_container" id="2D">
-                <header><strong>Tekst 2D</strong></header>
-                <p><strong>Media społecznościowe</strong> &#8211; rozwiązania wykorzystujące technologie internetowe i mobilne, umożliwiające komunikowanie się poprzez interaktywny dialog. Andreas Kaplan i Michael Haenlein definiują media społecznościowe jako „grupę bazujących na internetowych rozwiązaniach aplikacji, które opierają się na ideologicznych i technologicznych podstawach Web 2.0 i które umożliwiają tworzenie i wymianę wygenerowanych przez użytkowników treści”.</p>
-                <p>Media społecznościowe to media służące do interakcji z wykorzystaniem rozbudowanego zestawu narzędzi komunikacyjnych. Zmieniły one sposób komunikacji organizacji, społeczności i użytkowników, oraz stały się naturalnym miejscem wymiany informacji. Podobnie jak media tradycyjne swój przekaz opierają o pismo, dźwięk, obraz i audiowizualność w nowej płaszczyźnie przestrzeni, zwanej wirtualną. Podstawową różnicą między nimi a mediami tradycyjnymi jest interaktywność użytkowników i możliwość szybkiego publikowania przez nich swoich treści.</p>
-                <p>Media społecznościowe są projektowane w taki sposób, aby były bardziej uzależniające, z czego niewiele osób zdaje sobie sprawę.Media społecznościowe są wykorzystywane przez przedsiębiorstwa w celach marketingowych. Są również szeroko wykorzystywane w działaniach public relations, a także w procesach dezinformacji, w szczególności do rozpowszechniania fake newsów.Największym medium społecznościowym na świecie jest serwis społecznościowy Facebook.</p>
-                <p>W 2010 roku Forrester Research. przeprowadziło badania zachowań społecznych internautów, które umożliwiły wyróżnienie 7 typów użytkowników mediów społecznościowych. Najbardziej aktywną grupą okazali się twórcy, prowadzący blogi, tworzący własne strony internetowe, udostępniający tworzone przez siebie materiały audio lub wideo, publikujący materiały tekstowe. Rozmówcy okazali się mniej aktywną grupą. Ograniczają się oni do uaktualniania statusów w serwisach społecznościowych lub zamieszczają wpisy na mikroblogach. Kolejną grupą są krytycy , którzy oceniają i komentują produkty, usługi, blogi, ale także pozostają aktywni na forach i edytują artykuły w wiki. Odrębną grupą wyróżniającą się aktywnym udziałem w mediach społecznościowych są kolekcjonerzy, którzy są zwolennikami folksonomii i się do niej przyczyniają. Ponadto potrafią się posługiwać protokołem RSS. Natomiast fasadowi społecznościowcy jedynie utrzymują swoje profile i konta na portalach społecznościowych. Widzowie są użytkownikami wyłącznie korzystającymi z zasobów internetowych (oglądają wideo innych użytkowników, słuchają podcastów, czytają blogi, fora, tweety, recenzje, zwracają uwagę na ratingi). Natomiast bezczynni nie podejmują żadnej z wymienionych wcześniej czynności.</p>
-            </article>
-        </div>
-        <div class="group_container" id="container_group3">
-            <article class="text_container" id="3A">
-                <header><strong>Tekst 3A</strong></header>
-                <p><strong>Unia Europejska, UE</strong> &#8211; gospodarczo-polityczny związek 27 demokratycznych państw europejskich. Unia powstała 1 listopada 1993 roku na mocy podpisanego 7 lutego 1992 traktatu z Maastricht - jako efekt wieloletniego procesu integracji politycznej, gospodarczej i społecznej. Korzenie współczesnej integracji europejskiej sięgają okresu powojennego i ograniczały się do 6 państw zachodnioeuropejskich. Państwa te tworzyły wiele form i mechanizmów współpracy, powoływały organizacje, instytucje i organy, których celem było wzmocnienie jedności między nimi. W 1993 nadrzędną wobec wszystkich poprzednich organizacji została Unia Europejska, sama otrzymując nieznaną wcześniej hybrydową formułę sui generis.</p>
-                <p>Unia Europejska jako organizacja międzynarodowa (w międzynarodowoprawnym tego słowa znaczeniu) funkcjonuje od 1 grudnia 2009. Równocześnie zastąpiła ona kilka form współpracy, w tym m.in. Wspólnotę Europejską. Proces integracji wykracza poza ściśle określone ramy geograficzne Europy. W określeniu europejskości Unii naczelną rolę odgrywają czynniki historyczne i kulturowe oraz wspólna tożsamość i identyfikacja z wartościami demokratycznymi.</p>
-                <p>Początkiem powojennej integracji europejskiej było powstanie w 1952 Europejskiej Wspólnoty Węgla i Stali. W 1958 została utworzona Europejska Wspólnota Gospodarcza i to jej bezpośrednią następczynią jest Unia Europejska. Od czasu wejścia w życie traktatu lizbońskiego, tj. 1 grudnia 2009, podstawę prawną funkcjonowania stanowią Traktat o Unii Europejskiej (znany także jako traktat z Maastricht) oraz Traktat o funkcjonowaniu Unii Europejskiej. Integralną część Traktatów stanowią tabele ekwiwalencyjne, protokoły i wyjaśnienia. Duże znaczenie dla unijnego porządku prawnego ma też Karta praw podstawowych UE. Prawem wiążącym są również umowy międzynarodowe z państwami trzecimi (w tym układy stowarzyszeniowe), których stroną były Wspólnota Europejska i Unia Europejska. Dokończeniem acquis Unii są akty prawa wtórnego powstałe w oparciu o Traktaty i umowy międzynarodowe.</p>
-                <p>Unia Europejska stanowi przypadek sui generis („szczególnego rodzaju”) w stosunkach międzynarodowych - jest tworem, który nigdy wcześniej nie istniał w historii powszechnej i był nieznany historii stosunków międzynarodowych. Do grudnia 2009 UE była kombinacją struktur ponadnarodowych (ponadpaństwowych, uwspólnotowionych) oraz międzyrządowych (międzynarodowych). Posiada cechy zarówno organizacji międzynarodowej (przy czym Unia Europejska do 2009 nie była nawet organizacją międzynarodową w prawnym tego słowa znaczeniu), jak i konfederacji czy nawet państwa federalnego.</p>
-            </article>
-            <article class="text_container" id="3B">
-                <header><strong>Tekst 3B</strong></header>
-                <p><strong>Badanie obiektów znajdujących się poza naszą galaktyką</strong> to przede wszystkim badania powstawania i ewolucji galaktyk i ich morfologii, w tym badania aktywnych jąder galaktyk, a także badania rozkładu przestrzennego galaktyk, czyli grup i gromad galaktyk. Ten ostatni aspekt jest ważny dla zrozumienia wielkoskalowej struktury Wszechświata.</p>
-                <p>Poszczególne galaktyki cechuje na ogół dobrze określony kształt, co pozwoliło na rozwinięcie systemu ich klasyfikacji. Galaktyki dzieli się na ogół na galaktyki spiralne, galaktyki eliptyczne i galaktyki nieregularne.</p>
-                <p>Galaktyki eliptyczne mają kształt elipsoidalny. Gwiazdy w galaktyce poruszają się po orbitach rozłożonych dość przypadkowo bez wyraźnie wyróżnionego kierunku. Galaktyki te zawierają niewielkie ilości pyłu międzygwiazdowego, nieliczne obszary powstawania gwiazd, a gwiazdy są stare. Galaktyki eliptyczne występują najczęściej w jądrach gromad galaktyk i powstały prawdopodobnie w wyniku połączenia się kilku dużych galaktyk.</p>
-                <p>Galaktyka spiralna jest zbudowana ze spłaszczonego wirującego dysku, przechodzącego w centrum galaktyki w wyraźne zgrubienie centralne i ewentualnie poprzeczkę, a w dysku można wyróżnić rozwijające się na zewnątrz ramiona spiralne. Ramiona te to obszary zawierające znaczne ilości gazu i pyłu, w których powstają młode masywne i gorące gwiazdy, barwiące ramiona na niebiesko. Galaktyki spiralne są na ogół otoczone przez halo składające się ze starszych gwiazd. Zarówno Droga Mleczna, jak i galaktyka Andromedy zaliczane są do galaktyk spiralnych.</p>
-                <p>Galaktyki nieregularne nie mają regularnych kształtów i nie są ani eliptyczne, ani spiralne. Około 1/4 wszystkich galaktyk należy do tej klasy, a nieregularny kształt może być wynikiem oddziaływania grawitacyjnego z innymi galaktykami.</p>
-                <p>Galaktyka aktywna to taka galaktyka, w której znaczna część jasności pochodzi z innych źródeł niż świecenie gwiazd i typowej materii międzygwiazdowej. Świecenie to pochodzi ze zwartego obszaru w jądrze, a źródłem energii tego procesu jest opadanie materii na supermasywną czarną dziurę.</p>
-                <p>Radiogalaktyka to galaktyka aktywna intensywnie świecąca w zakresie radiowym, wyrzucająca strumień gazu z jądra i produkująca olbrzymie obłoki aktywne radiowo. Inne galaktyki aktywne świecą nie tak jasno w zakresie radiowym, ale wszystkie, także galaktyki Seyferta, kwazary i blazary świecą w zakresie wysokich energii. Kwazary są najjaśniejszymi stale świecącymi źródłami promieniowania we Wszechświecie.</p>
-            </article>
-            <article class="text_container" id="3C">
-                <header><strong>Tekst 3C</strong></header>
-                <p><strong>Mata Hari</strong> &#8211; holenderska tancerka, która pod takim właśnie pseudonimem zdobyła sławę w Europie Zachodniej początku 20. wieku.</p>
-                <p>Urodziła się jako córka holenderskiego biznesmena Adama Zelle i Antje van der Meulen. Kiedy miała 6 lat, jej rodzina przeprowadziła się do Lejdy. W 1891 roku zmarła jej matka, a ojciec zbankrutował. Wkrótce Margaretha Zelle ukończyła studium nauczycielskie. W wieku 18 lat wyjechała z Amsterdamu, gdyż wywołała skandal romansem z dyrektorem szkoły. W Hadze odpowiedziała na anons matrymonialny starszego od siebie o dwadzieścia dwa lata holenderskiego oficera marynarki, Rudolfa McLeoda (niemal całe dorosłe życie spędził w służbie wojskowej w Holenderskich Indiach Wschodnich). Spotkanie w muzeum doprowadziło do intensywnego, choć krótkotrwałego związku. Po sześciu dniach zaręczyli się, a pobrali się cztery miesiące później. Wkrótce urodził im się syn, Norman John, z którym w maju 1897 roku wyjechali do Holenderskich Indii Wschodnich, gdzie kapitan McLeod wrócił do służby, jaką pełnił w kolonii. Margaretha urodziła tam córkę, ale jej małżeństwo rozpadało się z powodu kłótni. Kres małżeństwa nastąpił po śmierci syna.</p>
-                <p>Na początku 20. stulecia, po nieudanych próbach pracy jako nauczycielka i rozpadzie małżeństwa, udała się do Paryża. W Paryżu Margaretha zaczęła pozować jako księżniczka z Jawy. Wkrótce została tancerką egzotyczną, wykonującą tańce w stylu orientalnym. Występowała pod pseudonimem Mata Hari. Była też luksusową prostytutką, a jej kochankami byli politycy, sędziowie i oficerowie armii.</p>
-                <p>W 1917 roku została oskarżona we Francji o szpiegostwo. Miała działać jako podwójny agent na usługach Francji i Niemiec. Jej działalność miała być przyczyną śmierci tysięcy żołnierzy na frontach I wojny światowej. Dowodem w jej sprawie były przechwycone przez Anglików depesze nadawane przez Niemców z Madrytu. Życie Maty Hari w czasie wojny stało się przedmiotem nieustających dyskusji. Dokładnie znany jest tylko koniec jej historii. 13 lutego 1917 roku aresztowano ją i z luksusowego pokoju w hotelu przewieziono do więzienia. Oskarżono ją o szpiegostwo i współpracę z wywiadem wroga. Uznano ją winną i 15 października 1917 roku wczesnym rankiem przewieziono na strzelnicę w koszarach w Vincennes. Została rozstrzelana przez pluton egzekucyjny składający się z dwunastu żołnierzy, odmawiając jednak w romantycznym geście nałożenia opaski na oczy.</p>
-            </article>
-            <article class="text_container" id="3D">
-                <header><strong>Tekst 3D</strong></header>
-                <p><strong>Kino moralnego niepokoju</strong> &#8211; formacja artystyczna obecna w polskiej kinematografii w latach 1976-1981, obejmująca realistyczne filmy o tematyce współczesnej, które demaskowały zwyrodnienia systemu komunistycznego przez pryzmat prowincjonalnego miejsca akcji. Nazwę nurtu ukuł Janusz Kijowski, a do innych wpływowych reżyserów powiązanych z formacją należeli Andrzej Wajda, Krzysztof Zanussi, Krzysztof Kieślowski, Agnieszka Holland, Feliks Falk, Janusz Zaorski, Piotr Andrejew, Tomasz Zygadło oraz Barbara Sass.</p>
-                <p>Kino moralnego niepokoju składało się z filmów obyczajowych, w których krytyce podlegały stopniowa dezintegracja społeczeństwa, dorobkiewiczostwo, konformizm i upadek więzi międzyludzkich. Filmy należące do nurtu były nagradzane na międzynarodowych festiwalach filmowych; nadawały też impet przemianom politycznym w Polsce, które doprowadziły do wydarzeń sierpniowych 1980 roku i „Solidarności”. Wprowadzenie stanu wojennego w Polsce gwałtownie zahamowało rozwój nurtu.</p>
-                <p>Filmy należące do kina moralnego niepokoju były niekiedy atakowane za tendencyjność i nadmiar publicystycznej treści, a w niektórych przypadkach otrzymały zakaz rozpowszechniania, lecz ta formacja artystyczna okazała się jedną z najważniejszych tendencji w polskim kinie fabularnym.</p>
-                <p>Nazwę „kino moralnego niepokoju” zaproponował Janusz Kijowski podczas Międzynarodowego Seminarium Krytyki, odbytego w trakcie Festiwalu Polskich Filmów Fabularnych we wrześniu 1979 roku. Kijowski bronił po latach swojej terminologii, twierdząc że w momencie wynalezienia pojęcia „moralność to było coś takiego, co bez przymiotnika «socjalistyczna» nie funkcjonowało w ogóle. A niepokój też był bardzo podejrzany, bo niepokoje wybuchały na uniwersytetach, czy w stoczni, to zawsze kończyło się na jednym - kompromitacji władzy”.</p>
-                <p>Podsumowując dyskusję nad kinem moralnego niepokoju, Lubelski stwierdził, że filmy tego nurtu „przypominały o wartościach i przez fakt swego publicznego zaistnienia przygotowały upadek systemu komunistycznego w Polsce”. Zmierzch formacji przypadł na sezon „Solidarności”, kiedy powstawały już filmy bezpośrednio krytykujące rządy komunistyczne: „Człowiek z żelaza” Wajdy oraz „Kobieta samotna” (1981) Agnieszki Holland. Film Holland, wespół z zachowującym dystans wobec wszelkich opcji politycznych dziełem. „Przypadek” Kieślowskiego, okazał się niecenzuralny i otrzymał zakaz rozpowszechniania do 1987 roku. Kiedy pod koniec 1981 roku ogłoszono stan wojenny w Polsce, kino moralnego niepokoju nie miało możliwości rozwoju.</p>
-            </article>
-        </div>
-    </main>
     <footer>
         <small>CSS Framework: <a href="https://picocss.com">Pico</a></small>
     </footer>
