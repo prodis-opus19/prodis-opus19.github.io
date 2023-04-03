@@ -68,7 +68,7 @@ function display_text(text) {
 
 function app() {
     // console.log("App launched.");
-    TEXT_EXPERIMENT_DISPLAY.textContent = "Press space once the audio is finished.";
+    TEXT_EXPERIMENT_DISPLAY.innerHTML = "Vocabulary experiment.<br>First, you will hear an audio recording.<br>Then, you will read a text out loud.<br><br>Press space to confirm.";
     let pairs_displayed = 0;
     let random_pair;
     let show_text_on_next_space_press = false;
@@ -120,10 +120,5 @@ AUDIO_EXPERIMENT_PLAYER.volume = 1.0;
 }
 
 
-// start app after user presses keyboard (runs only once)
-document.addEventListener("keydown", function (event) {
-    if (event.key === " ") {
-        event.preventDefault();
-        app();
-    }
-}, { once: true });;
+// start app on page load
+app();
