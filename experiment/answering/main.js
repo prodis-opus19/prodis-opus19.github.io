@@ -1,6 +1,7 @@
+// GLOBAL VARIABLES
 const vocab_data = {
     // audio to be played to participant : text to be read by participant
-    // any order is okay, as long as you provide an audio and a text
+    // any order is okay (they're picked randomly), as long as you provide an audio and a text
     "audio1.mp3": "What did Kamila buy?",
     "audio2.mp3": "Who bought a folder?",
     "audio3.mp3": "Who bought an upholestering?",
@@ -16,6 +17,10 @@ const AUDIO_EXPERIMENT_STATUS = document.getElementById("experiment_display_stat
 
 
 function get_random_pair() {
+    /*
+    * Get a random audio+text pair, then delete it from the global variable,
+    *     so it doesn't appear again.
+    */
     const len = Object.keys(vocab_data).length;
     // pick random key, otherwise undefined
     const random_key = Object.keys(vocab_data)[Math.floor(Math.random() * len)];
@@ -36,35 +41,43 @@ function get_random_pair() {
 }
 
 
-function stop_and_hide_audio() {
-    AUDIO_EXPERIMENT_ICON.style.display = "none";
-    // stop and reset previous
+function _reset_audio() {
+    /*
+    * Helper function: stop audio playback and set its timer to 0.
+    */
     AUDIO_EXPERIMENT_PLAYER.pause();
     AUDIO_EXPERIMENT_PLAYER.currentTime = 0;
 }
 
 
 function play_audio(audio_file) {
-    // unhide audio
+    /*
+    * Unhide audio div and start playing the audio file provided as argument.
+    */
+    _reset_audio(); // stop audio playback and set its timer to 0
     AUDIO_EXPERIMENT_ICON.style.display = "block";
-    // play audio
-    AUDIO_EXPERIMENT_PLAYER.src = "/audio/" + audio_file;
+    AUDIO_EXPERIMENT_PLAYER.src = "/audio/" + audio_file; // must be in "/audio" dir
     AUDIO_EXPERIMENT_PLAYER.play();
 }
 
 
 function display_text(text) {
-    // unhide text
-    TEXT_EXPERIMENT_DISPLAY.style.display = "block";
-    // hide audio
-    stop_and_hide_audio();
-    // set text
+    /*
+    * Unhide text div and display text provided as argument.
+    */
+    _reset_audio(); // stop audio playback and set its timer to 0
+    AUDIO_EXPERIMENT_ICON.style.display = "none";
     TEXT_EXPERIMENT_DISPLAY.textContent = text;
+    TEXT_EXPERIMENT_DISPLAY.style.display = "block";
 }
 
 
 function app() {
-    // console.log("App launched.");
+    /*
+    * Main event loop.
+    *
+    * Plays audio and displays texts still there is nothing left in the global "vocab_data" variable.
+    */
     TEXT_EXPERIMENT_DISPLAY.innerHTML = "Vocabulary experiment.<br>First, you will hear an audio recording.<br>Then, you will read a text out loud.<br><br>Press space to confirm.";
     let pairs_displayed = 0;
     let random_pair;
@@ -109,7 +122,7 @@ function app() {
 AUDIO_EXPERIMENT_STATUS.textContent = `1/${MAX_VOCAB_LEN}`;
 AUDIO_EXPERIMENT_PLAYER.volume = 1.0;
 
-// set focus on page load
+// set focus to main_app div on page load (otherwise, space to begin doesn't work sometimes)
 {
     const MAIN_APP = document.getElementById("main_app");
     MAIN_APP.focus({ focusVisible: false });
