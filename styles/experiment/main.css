@@ -12,10 +12,6 @@ nav {
     gap: 5px;
 }
 
-button {
-    width: 50000px;
-}
-
 #logo_images {
     user-select: none;
 }
