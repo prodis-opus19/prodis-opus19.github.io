@@ -95,6 +95,7 @@ function set_language_on_page_load() {
     if (window.localStorage.getItem("lang") === "pl" || navigator.language.slice(0, 2) === "pl") {
         set_polish(false);
     }
+    // otherwise, leave everything in english as-is
 }
 
 
