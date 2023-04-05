@@ -57,7 +57,7 @@ function show_copy_popup(tag) {
                 append_text = "WICKED SICK";
                 break;
             default:
-                append_text = "マジで";
+                append_text = "Please call a therapist";
                 break;
         }
         copy_element.textContent = `${append_text} ${COMBO_COUNT}!`;
