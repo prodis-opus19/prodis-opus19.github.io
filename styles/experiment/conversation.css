@@ -1,0 +1,9 @@
+@import "/styles/pico/pico.classless.css";
+
+body {
+    text-align: center;
+}
+
+p {
+    font-size: 150%;
+}
