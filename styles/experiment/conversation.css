@@ -1,9 +1,43 @@
-@import "/styles/pico/pico.classless.css";
-
-body {
-    text-align: center;
+/* variables */
+:root {
+    --blueish_black: #38454f;
 }
 
-p {
+html,
+body {
+    height: 100%;
+}
+
+body {
+    align-items: center;
+    background-color: white;
+    border: none;
+    color: black;
+    display: flex;
+    font-family: system-ui, -apple-system, "Segoe UI", "Roboto", "Ubuntu", "Cantarell", "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    user-select: none;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 100%;
+    justify-content: center;
+    width: 100%;
     font-size: 150%;
+}
+
+main>h1 {
+    margin-bottom: 30px;
+}
+
+main>p {
+    color: var(--blueish_black);
 }
