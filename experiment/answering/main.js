@@ -1,14 +1,6 @@
+import { vocab_data } from "/audio/vocab_data.js";
+
 // GLOBAL VARIABLES
-const vocab_data = {
-    // audio to be played to participant : text to be read by participant
-    // any order is okay (they're picked randomly), as long as you provide an audio and a text
-    "audio1.mp3": "What did Kamila buy?",
-    "audio2.mp3": "Who bought a folder?",
-    "audio3.mp3": "Who bought an upholestering?",
-    "audio4.mp3": "Did Malgosia buy the medallions?",
-};
-
-
 const MAX_VOCAB_LEN = Object.keys(vocab_data).length;
 const TEXT_EXPERIMENT_DISPLAY = document.getElementById("experiment_display_text");
 const AUDIO_EXPERIMENT_PLAYER = document.getElementById("experiment_audio_player");
