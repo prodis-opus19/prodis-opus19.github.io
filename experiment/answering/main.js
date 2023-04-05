@@ -37,18 +37,15 @@ function get_random_pair() {
 
 
 function stop_and_hide_audio() {
-    // AUDIO_EXPERIMENT_PLAYER.style.display = "none";
     AUDIO_EXPERIMENT_ICON.style.display = "none";
     // stop and reset previous
     AUDIO_EXPERIMENT_PLAYER.pause();
     AUDIO_EXPERIMENT_PLAYER.currentTime = 0;
-    // AUDIO_EXPERIMENT_PLAYER.src = 'data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAVFYAAFRWAAABAAgAZGF0YQAAAAA=';
 }
 
 
 function play_audio(audio_file) {
     // unhide audio
-    // AUDIO_EXPERIMENT_PLAYER.style.display = "block";
     AUDIO_EXPERIMENT_ICON.style.display = "block";
     // play audio
     AUDIO_EXPERIMENT_PLAYER.src = "/audio/" + audio_file;
