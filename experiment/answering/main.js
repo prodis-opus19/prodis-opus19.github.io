@@ -70,7 +70,7 @@ function app() {
     *
     * Plays audio and displays texts still there is nothing left in the global "vocab_data" variable.
     */
-    TEXT_EXPERIMENT_DISPLAY.innerHTML = "Vocabulary experiment.<br>First, you will hear an audio recording.<br>Then, you will read a text out loud.<br><br>Press space to confirm.";
+    TEXT_EXPERIMENT_DISPLAY.innerHTML = "<b>Czytanie odpowiedzi</b><br><br>Najpierw usłyszysz nagranie audio.<br>Następnie przeczytasz odpowiedź na głos.<br>Wciśnij spację, aby potwierdzić";
     let pairs_displayed = 0;
     let random_pair;
     let show_text_on_next_space_press = false;
