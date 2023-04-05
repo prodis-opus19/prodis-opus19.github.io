@@ -1,4 +1,4 @@
-import { vocab_data } from "/audio/vocab_data.js";
+import { vocab_data, default_welcome_text } from "/audio/vocab_data.js";
 
 // GLOBAL VARIABLES
 const MAX_VOCAB_LEN = Object.keys(vocab_data).length;
@@ -70,7 +70,7 @@ function app() {
     *
     * Plays audio and displays texts still there is nothing left in the global "vocab_data" variable.
     */
-    TEXT_EXPERIMENT_DISPLAY.innerHTML = "<b>Czytanie odpowiedzi</b><br><br>Najpierw usłyszysz nagranie audio.<br>Następnie przeczytasz odpowiedź na głos.<br>Wciśnij spację, aby potwierdzić";
+    TEXT_EXPERIMENT_DISPLAY.innerHTML = default_welcome_text;
     let pairs_displayed = 0;
     let random_pair;
     let show_text_on_next_space_press = false;

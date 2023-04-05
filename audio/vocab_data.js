@@ -9,3 +9,6 @@ export const vocab_data = {
     "audio3.mp3": "Who bought an upholestering?",
     "audio4.mp3": "Did Malgosia buy the medallions?",
 };
+
+// initial text that is displayed when the webpage is first loaded
+export const default_welcome_text = "<b>Czytanie odpowiedzi</b><br><br>Najpierw usłyszysz nagranie audio.<br>Następnie przeczytasz odpowiedź na głos.<br>Wciśnij spację, aby potwierdzić";
