@@ -1,4 +1,4 @@
-import { vocab_data, default_welcome_text } from "/audio/vocab_data.js";
+import { vocab_data, default_welcome_text } from "./audio/vocab_data.js";
 
 // GLOBAL VARIABLES
 const MAX_VOCAB_LEN = Object.keys(vocab_data).length;
@@ -48,7 +48,8 @@ function play_audio(audio_file) {
     */
     _reset_audio(); // stop audio playback and set its timer to 0
     AUDIO_EXPERIMENT_ICON.style.display = "block";
-    AUDIO_EXPERIMENT_PLAYER.src = "/audio/" + audio_file; // must be in "/audio" dir
+    AUDIO_EXPERIMENT_PLAYER.src = "audio/" + audio_file; // must be in relative "audio" dir
+    // alternatively, we cna use this: /experiment/answering/audio
     AUDIO_EXPERIMENT_PLAYER.play();
 }
 
@@ -102,7 +103,7 @@ function app() {
                 // otherwise, the experiment is over
                 else {
                     TEXT_EXPERIMENT_DISPLAY.textContent = "Experiment is over. Thank you.";
-                    console.log("Vocab data end:", vocab_data);
+                    // console.log("Vocab data end:", vocab_data);
                 }
             }
         }
