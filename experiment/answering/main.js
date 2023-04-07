@@ -102,7 +102,7 @@ function app() {
                 }
                 // otherwise, the experiment is over
                 else {
-                    TEXT_EXPERIMENT_DISPLAY.textContent = "Experiment is over. Thank you.";
+                    TEXT_EXPERIMENT_DISPLAY.textContent = "To koniec tej części eksperymentu. Czekaj na dalsze instrukcje.";
                     // console.log("Vocab data end:", vocab_data);
                 }
             }
