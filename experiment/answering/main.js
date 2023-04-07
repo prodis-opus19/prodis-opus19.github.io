@@ -34,7 +34,7 @@ function get_random_pair() {
         random_value = VOCAB_DATA_REAL[random_key];
         delete VOCAB_DATA_REAL[random_key];
         // set for status display in top right corner
-        AUDIO_EXPERIMENT_STATUS.textContent = `${(MAX_VOCAB_REAL_LEN - len) + 1}/${MAX_VOCAB_REAL_LEN}`;
+        AUDIO_EXPERIMENT_STATUS.textContent = `Eksperyment: ${(MAX_VOCAB_REAL_LEN - len) + 1}/${MAX_VOCAB_REAL_LEN}`;
     }
     else { // if practice vocab
         len = Object.keys(VOCAB_DATA_PRACTICE).length;
@@ -47,7 +47,7 @@ function get_random_pair() {
         random_value = VOCAB_DATA_PRACTICE[random_key];
         delete VOCAB_DATA_PRACTICE[random_key];
         // set for status display in top right corner
-        AUDIO_EXPERIMENT_STATUS.textContent = `${(MAX_VOCAB_PRACTICE_LEN - len) + 1}/${MAX_VOCAB_PRACTICE_LEN}`;
+        AUDIO_EXPERIMENT_STATUS.textContent = `Tutorial: ${(MAX_VOCAB_PRACTICE_LEN - len) + 1}/${MAX_VOCAB_PRACTICE_LEN}`;
     }
     // return as object
     return {
@@ -165,7 +165,7 @@ function app() {
 
 
 // set default values
-AUDIO_EXPERIMENT_STATUS.textContent = "1/" + (IS_REAL_VOCAB_TIME ? MAX_VOCAB_REAL_LEN : MAX_VOCAB_PRACTICE_LEN);
+AUDIO_EXPERIMENT_STATUS.textContent = "Tutorial: 1/" + MAX_VOCAB_PRACTICE_LEN;
 AUDIO_EXPERIMENT_PLAYER.volume = 1.0;
 
 
