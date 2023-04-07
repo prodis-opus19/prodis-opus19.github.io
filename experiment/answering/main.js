@@ -1,16 +1,18 @@
-import { VOCAB_DATA, TAKE_BREAK_INTERVAL, DISPLAY_TAKE_BREAK_HTML, DISPLAY_WELCOME_HTML, DISPLAY_END_HTML } from "./audio/VOCAB_DATA.js";
+import { VOCAB_DATA_PRACTICE, VOCAB_DATA_REAL, TAKE_BREAK_INTERVAL, DISPLAY_TAKE_BREAK_HTML, DISPLAY_WELCOME_HTML, DISPLAY_END_HTML, DISPLAY_BEGIN_REAL_EXPERIMENT } from "./audio/vocab_data.js";
 /*
-NOTE: the list of answers and audio files is read from "./audio/VOCAB_DATA.js".
+NOTE: the list of answers and audio files is read from "./audio/VOCAB_DATA_REAL.js".
 If you want to add new audio tracks or modify the texts, edit that file instead.
 This script should then automatically handle them.
 */
 
 // GLOBAL VARIABLES
-const MAX_VOCAB_LEN = Object.keys(VOCAB_DATA).length;
+const MAX_VOCAB_REAL_LEN = Object.keys(VOCAB_DATA_REAL).length;
+const MAX_VOCAB_PRACTICE_LEN = Object.keys(VOCAB_DATA_PRACTICE).length;
 const TEXT_EXPERIMENT_DISPLAY = document.getElementById("experiment_display_text");
 const AUDIO_EXPERIMENT_PLAYER = document.getElementById("experiment_audio_player");
 const AUDIO_EXPERIMENT_ICON = document.getElementById("experiment_audio_icon");
 const AUDIO_EXPERIMENT_STATUS = document.getElementById("experiment_display_status");
+let IS_REAL_VOCAB_TIME = false;
 
 
 function get_random_pair() {
@@ -18,18 +20,18 @@ function get_random_pair() {
     * Get a random audio+text pair, then delete it from the global variable,
     *     so it doesn't appear again.
     */
-    const len = Object.keys(VOCAB_DATA).length;
+    const len = IS_REAL_VOCAB_TIME ? Object.keys(VOCAB_DATA_REAL).length : Object.keys(VOCAB_DATA_PRACTICE).length;
     // pick random key, otherwise undefined
-    const random_key = Object.keys(VOCAB_DATA)[Math.floor(Math.random() * len)];
+    const random_key = (IS_REAL_VOCAB_TIME ? Object.keys(VOCAB_DATA_REAL) : Object.keys(VOCAB_DATA_PRACTICE))[Math.floor(Math.random() * len)];
     if (!random_key) {
-        throw new RangeError("Could not pick a random key from VOCAB_DATA, because object is empty; you have requested more pairs than available.");
+        throw new RangeError(`Could not pick a random key from VOCAB_DATA (IS_REAL_VOCAB_TIME=${IS_REAL_VOCAB_TIME}), because object is empty; you have requested more pairs than available.`);
     }
     // create copy, before we delete
-    const random_value = VOCAB_DATA[random_key];
+    const random_value = VOCAB_DATA_REAL[random_key];
     // delete to prevent indexes from repeating
-    delete VOCAB_DATA[random_key];
+    IS_REAL_VOCAB_TIME ? delete VOCAB_DATA_REAL[random_key] : delete VOCAB_DATA_PRACTICE[random_key];
     // set for display
-    AUDIO_EXPERIMENT_STATUS.textContent = `${(MAX_VOCAB_LEN - len) + 1}/${MAX_VOCAB_LEN}`;
+    AUDIO_EXPERIMENT_STATUS.textContent = IS_REAL_VOCAB_TIME ? `${(MAX_VOCAB_REAL_LEN - len) + 1}/${MAX_VOCAB_REAL_LEN}` : `${(MAX_VOCAB_PRACTICE_LEN - len) + 1}/${MAX_VOCAB_PRACTICE_LEN}`;
     // return as object
     return {
         "audio": random_key,
@@ -87,9 +89,9 @@ function app() {
     /*
     * Main event loop.
     *
-    * Plays audio and displays texts still there is nothing left in the global "VOCAB_DATA" variable.
+    * Plays audio and displays texts still there is nothing left in the global "VOCAB_DATA_REAL" variable.
     */
-    display_html(DISPLAY_WELCOME_HTML); // taken from "VOCAB_DATA.js"
+    display_html(DISPLAY_WELCOME_HTML); // taken from "VOCAB_DATA_REAL.js"
     let pairs_displayed = 0;
     let TAKE_BREAK_COUNTER = 0;
     let random_pair;
@@ -101,8 +103,8 @@ function app() {
             // ORDER: we play audio first
             if (!show_text_on_next_space_press) {
                 // while we still have pairs yet to be displayed
-                if (pairs_displayed < MAX_VOCAB_LEN) {
-                    // ORDER injection: if we reached take break interval from "VOCAB_DATA.js", wait for confirmation
+                if (pairs_displayed < (IS_REAL_VOCAB_TIME ? MAX_VOCAB_REAL_LEN : MAX_VOCAB_PRACTICE_LEN)) {
+                    // ORDER injection: if we reached take break interval from "VOCAB_DATA_REAL.js", wait for confirmation
                     if (TAKE_BREAK_COUNTER >= TAKE_BREAK_INTERVAL) {
                         display_html(DISPLAY_TAKE_BREAK_HTML);
                         TAKE_BREAK_COUNTER = 0;
@@ -118,9 +120,20 @@ function app() {
                         show_text_on_next_space_press = true;
                     }
                 }
-                // otherwise, the experiment is over
+                // otherwise, either the practice is over or the experiment is over
                 else {
-                    display_html(DISPLAY_END_HTML); // taken from "VOCAB_DATA.js"
+                    // if practice is over, start real experiment
+                    if (!IS_REAL_VOCAB_TIME) {
+                        IS_REAL_VOCAB_TIME = true;
+                        display_html(DISPLAY_BEGIN_REAL_EXPERIMENT); // taken from "VOCAB_DATA_REAL.js"
+                        show_text_on_next_space_press = true;
+                        pairs_displayed = 0;
+                        TAKE_BREAK_COUNTER = 0;
+                    }
+                    // if real experiment is over, we're over
+                    else {
+                        display_html(DISPLAY_END_HTML); // taken from "VOCAB_DATA_REAL.js"
+                    }
                 }
             }
             // ORDER: we show text second
@@ -135,7 +148,7 @@ function app() {
 
 
 // set default values
-AUDIO_EXPERIMENT_STATUS.textContent = `1/${MAX_VOCAB_LEN}`;
+AUDIO_EXPERIMENT_STATUS.textContent = "1/" + (IS_REAL_VOCAB_TIME ? MAX_VOCAB_REAL_LEN : MAX_VOCAB_PRACTICE_LEN);
 AUDIO_EXPERIMENT_PLAYER.volume = 1.0;
 
 
