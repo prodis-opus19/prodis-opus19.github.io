@@ -1,5 +1,3 @@
-import { get_previous_letter, get_next_letter } from "/scripts/letter_loop.js";
-
 // GLOBAL VARIABLES
 const GROUP_DROPDOWN = document.getElementById("group_dropdown");
 const GROUP_CONTAINERS = document.getElementsByClassName("group_container");
