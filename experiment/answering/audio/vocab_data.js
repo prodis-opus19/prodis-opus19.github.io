@@ -1,6 +1,7 @@
 // Vocab data of audio-text pairs that are loaded by the experiment script.
-// Any order is okay (they're picked randomly), as long as you provide a valid pair.
-// NOTE: this variable will be modified by the experiment script.
+// Any order of pairs is okay (they're picked randomly), as long as you provide a valid pair.
+// Any amount of pairs is okay, they will be picked randomly till no pairs are left.
+// NOTE: this variable will be modified during runtime by the experiment script.
 
 export const vocab_data = {
     // audio to be played to participant : text to be read by participant

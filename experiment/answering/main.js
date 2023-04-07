@@ -1,4 +1,8 @@
 import { vocab_data, default_welcome_text } from "./audio/vocab_data.js";
+/*
+NOTE: the list of answers and audio files is read from "vocab_data.js".
+This script file should handle
+*/
 
 // GLOBAL VARIABLES
 const MAX_VOCAB_LEN = Object.keys(vocab_data).length;
