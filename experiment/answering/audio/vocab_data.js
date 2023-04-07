@@ -18,10 +18,10 @@ export const VOCAB_DATA_PRACTICE = {
 // real experiment
 export const VOCAB_DATA_REAL = {
     // audio to be played to participant : text to be read by participant
-    "audio1.mp3": "What did Kamila buy?",
-    "audio2.mp3": "Who bought a folder?",
-    "audio3.mp3": "Who bought an upholestering?",
-    "audio4.mp3": "Did Malgosia buy the medallions?",
+    "audio1.mp3": "(Real) What did Kamila buy?",
+    "audio2.mp3": "(Real) Who bought a folder?",
+    "audio3.mp3": "(Real) Who bought an upholestering?",
+    "audio4.mp3": "(Real) Did Malgosia buy the medallions?",
 };
 
 

@@ -27,7 +27,7 @@ function get_random_pair() {
         throw new RangeError(`Could not pick a random key from VOCAB_DATA (IS_REAL_VOCAB_TIME=${IS_REAL_VOCAB_TIME}), because object is empty; you have requested more pairs than available.`);
     }
     // create copy, before we delete
-    const random_value = VOCAB_DATA_REAL[random_key];
+    const random_value = IS_REAL_VOCAB_TIME ? VOCAB_DATA_REAL[random_key] : VOCAB_DATA_PRACTICE[random_key];
     // delete to prevent indexes from repeating
     IS_REAL_VOCAB_TIME ? delete VOCAB_DATA_REAL[random_key] : delete VOCAB_DATA_PRACTICE[random_key];
     // set for display
