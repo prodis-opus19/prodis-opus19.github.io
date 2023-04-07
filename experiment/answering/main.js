@@ -1,12 +1,12 @@
-import { vocab_data, display_welcome_text, display_end_text } from "./audio/vocab_data.js";
+import { VOCAB_DATA, DISPLAY_WELCOME_TEXT, DISPLAY_END_TEXT } from "./audio/VOCAB_DATA.js";
 /*
-NOTE: the list of answers and audio files is read from "./audio/vocab_data.js".
+NOTE: the list of answers and audio files is read from "./audio/VOCAB_DATA.js".
 If you want to add new audio tracks or modify the texts, edit that file instead.
 This script should then automatically handle them.
 */
 
 // GLOBAL VARIABLES
-const MAX_VOCAB_LEN = Object.keys(vocab_data).length;
+const MAX_VOCAB_LEN = Object.keys(VOCAB_DATA).length;
 const TEXT_EXPERIMENT_DISPLAY = document.getElementById("experiment_display_text");
 const AUDIO_EXPERIMENT_PLAYER = document.getElementById("experiment_audio_player");
 const AUDIO_EXPERIMENT_ICON = document.getElementById("experiment_audio_icon");
@@ -18,16 +18,16 @@ function get_random_pair() {
     * Get a random audio+text pair, then delete it from the global variable,
     *     so it doesn't appear again.
     */
-    const len = Object.keys(vocab_data).length;
+    const len = Object.keys(VOCAB_DATA).length;
     // pick random key, otherwise undefined
-    const random_key = Object.keys(vocab_data)[Math.floor(Math.random() * len)];
+    const random_key = Object.keys(VOCAB_DATA)[Math.floor(Math.random() * len)];
     if (!random_key) {
-        throw new RangeError("Could not pick a random key from vocab_data, because object is empty; you have requested more pairs than available.");
+        throw new RangeError("Could not pick a random key from VOCAB_DATA, because object is empty; you have requested more pairs than available.");
     }
     // create copy, before we delete
-    const random_value = vocab_data[random_key];
+    const random_value = VOCAB_DATA[random_key];
     // delete to prevent indexes from repeating
-    delete vocab_data[random_key];
+    delete VOCAB_DATA[random_key];
     // set for display
     AUDIO_EXPERIMENT_STATUS.textContent = `${(MAX_VOCAB_LEN - len) + 1}/${MAX_VOCAB_LEN}`;
     // return as object
@@ -74,9 +74,9 @@ function app() {
     /*
     * Main event loop.
     *
-    * Plays audio and displays texts still there is nothing left in the global "vocab_data" variable.
+    * Plays audio and displays texts still there is nothing left in the global "VOCAB_DATA" variable.
     */
-    TEXT_EXPERIMENT_DISPLAY.innerHTML = display_welcome_text; // taken from "vocab_data.js"
+    TEXT_EXPERIMENT_DISPLAY.innerHTML = DISPLAY_WELCOME_TEXT; // taken from "VOCAB_DATA.js"
     let pairs_displayed = 0;
     let random_pair;
     let show_text_on_next_space_press = false;
@@ -101,7 +101,7 @@ function app() {
                 }
                 // otherwise, the experiment is over
                 else {
-                    TEXT_EXPERIMENT_DISPLAY.innerHTML = display_end_text; // taken from "vocab_data.js"
+                    TEXT_EXPERIMENT_DISPLAY.innerHTML = DISPLAY_END_TEXT; // taken from "VOCAB_DATA.js"
                 }
             }
         }
