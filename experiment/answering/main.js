@@ -1,7 +1,8 @@
 import { vocab_data, default_welcome_text } from "./audio/vocab_data.js";
 /*
-NOTE: the list of answers and audio files is read from "vocab_data.js".
-This script file should handle
+NOTE: the list of answers and audio files is read from "./audio/vocab_data.js".
+If you want to add new audio tracks or modify the texts, edit that file instead.
+This script should then automatically handle them.
 */
 
 // GLOBAL VARIABLES
