@@ -95,7 +95,6 @@ function app() {
     // main event loop
     document.addEventListener("keydown", function (event) {
         if (event.key === " ") {
-            console.log(TAKE_BREAK_COUNTER);
             event.preventDefault();
             // ORDER: we play audio first
             if (!show_text_on_next_space_press) {
