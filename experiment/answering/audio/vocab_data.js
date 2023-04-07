@@ -26,7 +26,7 @@ export const VOCAB_DATA_REAL = {
 
 
 // take a break every X pairs were displayed
-export const TAKE_BREAK_INTERVAL = 2;
+export const TAKE_BREAK_INTERVAL = 3;
 
 
 // take a break every X pairs were displayed
@@ -34,7 +34,7 @@ export const DISPLAY_TAKE_BREAK_HTML = "<b>Czas na krótką przerwę</b><br><br>
 
 
 // initial text that is displayed when the webpage is first loaded (inner HTML)
-export const DISPLAY_WELCOME_HTML = `<b>Czytanie odpowiedzi</b><br><br>Najpierw usłyszysz nagranie audio (głośnik), a następnie przeczytasz podaną odpowiedź na głos.<br><br>Pierwsze ${Object.keys(VOCAB_DATA_PRACTICE).length} prób to próby testowe (ćwiczenia).<br>Wciśnij spację, aby rozpocząć.`;
+export const DISPLAY_WELCOME_HTML = `<b>Czytanie odpowiedzi</b><br><br>Najpierw usłyszysz nagranie audio (głośnik), a następnie przeczytasz podaną odpowiedź na głos.<br><br>Pierwsze ${Object.keys(VOCAB_DATA_PRACTICE).length} odpowiedzi to próby testowe/ćwiczenia.<br>Co ${TAKE_BREAK_INTERVAL} odpowiedzi otrzymasz czas na przerwę.<br>Wciśnij spację, aby rozpocząć.`;
 
 
 // text displayed when we begin the real experiment

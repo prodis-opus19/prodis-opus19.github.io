@@ -141,7 +141,6 @@ function app() {
                 else {
                     // if practice is over, start real experiment
                     if (!IS_REAL_VOCAB_TIME) {
-                        console.log("Practice is over, start real experiment.");
                         IS_REAL_VOCAB_TIME = true;
                         display_html(DISPLAY_BEGIN_REAL_EXPERIMENT); // taken from "VOCAB_DATA_REAL.js"
                         show_text_on_next_space_press = false; // idk but if true it breaks
