@@ -20,18 +20,35 @@ function get_random_pair() {
     * Get a random audio+text pair, then delete it from the global variable,
     *     so it doesn't appear again.
     */
-    const len = IS_REAL_VOCAB_TIME ? Object.keys(VOCAB_DATA_REAL).length : Object.keys(VOCAB_DATA_PRACTICE).length;
-    // pick random key, otherwise undefined
-    const random_key = (IS_REAL_VOCAB_TIME ? Object.keys(VOCAB_DATA_REAL) : Object.keys(VOCAB_DATA_PRACTICE))[Math.floor(Math.random() * len)];
-    if (!random_key) {
-        throw new RangeError(`Could not pick a random key from VOCAB_DATA (IS_REAL_VOCAB_TIME=${IS_REAL_VOCAB_TIME}), because object is empty; you have requested more pairs than available.`);
+    let len;
+    let random_key;
+    let random_value;
+    if (IS_REAL_VOCAB_TIME) { // if real vocab
+        len = Object.keys(VOCAB_DATA_REAL).length;
+        // pick random key, otherwise undefined
+        random_key = Object.keys(VOCAB_DATA_REAL)[Math.floor(Math.random() * len)];
+        if (!random_key) {
+            throw new RangeError("Could not pick a random key from VOCAB_DATA_REAL, because object is empty; you have requested more pairs than available.");
+        }
+        // create copy, before we delete
+        random_value = VOCAB_DATA_REAL[random_key];
+        delete VOCAB_DATA_REAL[random_key];
+        // set for status display in top right corner
+        AUDIO_EXPERIMENT_STATUS.textContent = `${(MAX_VOCAB_REAL_LEN - len) + 1}/${MAX_VOCAB_REAL_LEN}`;
     }
-    // create copy, before we delete
-    const random_value = IS_REAL_VOCAB_TIME ? VOCAB_DATA_REAL[random_key] : VOCAB_DATA_PRACTICE[random_key];
-    // delete to prevent indexes from repeating
-    IS_REAL_VOCAB_TIME ? delete VOCAB_DATA_REAL[random_key] : delete VOCAB_DATA_PRACTICE[random_key];
-    // set for display
-    AUDIO_EXPERIMENT_STATUS.textContent = IS_REAL_VOCAB_TIME ? `${(MAX_VOCAB_REAL_LEN - len) + 1}/${MAX_VOCAB_REAL_LEN}` : `${(MAX_VOCAB_PRACTICE_LEN - len) + 1}/${MAX_VOCAB_PRACTICE_LEN}`;
+    else { // if practice vocab
+        len = Object.keys(VOCAB_DATA_PRACTICE).length;
+        // pick random key, otherwise undefined
+        random_key = Object.keys(VOCAB_DATA_PRACTICE)[Math.floor(Math.random() * len)];
+        if (!random_key) {
+            throw new RangeError("Could not pick a random key from VOCAB_DATA_PRACTICE, because object is empty; you have requested more pairs than available.");
+        }
+        // create copy, before we delete
+        random_value = VOCAB_DATA_PRACTICE[random_key];
+        delete VOCAB_DATA_PRACTICE[random_key];
+        // set for status display in top right corner
+        AUDIO_EXPERIMENT_STATUS.textContent = `${(MAX_VOCAB_PRACTICE_LEN - len) + 1}/${MAX_VOCAB_PRACTICE_LEN}`;
+    }
     // return as object
     return {
         "audio": random_key,
