@@ -15,7 +15,7 @@ export const vocab_data = {
 };
 
 // initial text that is displayed when the webpage is first loaded (inner HTML)
-export const display_welcome_text = "<b>Czytanie odpowiedzi</b><br><br>Najpierw usłyszysz nagranie audio.<br>Następnie przeczytasz odpowiedź na głos.<br>Wciśnij spację, aby potwierdzić";
+export const display_welcome_text = "<b>Czytanie odpowiedzi</b><br><br>Najpierw usłyszysz nagranie audio.<br>Następnie przeczytasz odpowiedź na głos.<br>Wciśnij spację, aby potwierdzić.";
 
 
 // HTML end text that is displayed when the experiment is over (inner HTML)
