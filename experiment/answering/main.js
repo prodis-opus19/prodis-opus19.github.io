@@ -76,7 +76,7 @@ function app() {
     *
     * Plays audio and displays texts still there is nothing left in the global "vocab_data" variable.
     */
-    TEXT_EXPERIMENT_DISPLAY.innerHTML = display_welcome_text;
+    TEXT_EXPERIMENT_DISPLAY.innerHTML = display_welcome_text; // taken from "vocab_data.js"
     let pairs_displayed = 0;
     let random_pair;
     let show_text_on_next_space_press = false;
@@ -101,7 +101,7 @@ function app() {
                 }
                 // otherwise, the experiment is over
                 else {
-                    TEXT_EXPERIMENT_DISPLAY.innerHTML = display_end_text;
+                    TEXT_EXPERIMENT_DISPLAY.innerHTML = display_end_text; // taken from "vocab_data.js"
                 }
             }
         }
