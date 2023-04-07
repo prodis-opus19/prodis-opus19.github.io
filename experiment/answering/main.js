@@ -50,6 +50,8 @@ function _reset_audio() {
 function play_audio(audio_file) {
     /*
     * Unhide audio div and start playing the audio file provided as argument.
+    *
+    * NOTE: "audio/" is prepended at the beginning.
     */
     _reset_audio(); // stop audio playback and set its timer to 0
     AUDIO_EXPERIMENT_ICON.style.display = "block";
@@ -61,7 +63,7 @@ function play_audio(audio_file) {
 
 function display_text(text) {
     /*
-    * Unhide text div and display text provided as argument.
+    * Unhide text div and set its content to text provided as argument.
     */
     _reset_audio(); // stop audio playback and set its timer to 0
     AUDIO_EXPERIMENT_ICON.style.display = "none";
@@ -72,7 +74,7 @@ function display_text(text) {
 
 function display_html(html) {
     /*
-    * Unhide text div and display HTML provided as argument.
+    * Unhide text div and set its content to HTML provided as argument.
     */
     _reset_audio(); // stop audio playback and set its timer to 0
     AUDIO_EXPERIMENT_ICON.style.display = "none";
@@ -135,6 +137,7 @@ function app() {
 // set default values
 AUDIO_EXPERIMENT_STATUS.textContent = `1/${MAX_VOCAB_LEN}`;
 AUDIO_EXPERIMENT_PLAYER.volume = 1.0;
+
 
 // set focus to main_app div on page load (otherwise, space to begin doesn't work sometimes)
 {
