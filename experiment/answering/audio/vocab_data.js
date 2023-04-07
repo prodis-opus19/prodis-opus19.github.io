@@ -14,6 +14,15 @@ export const VOCAB_DATA = {
     "audio4.mp3": "Did Malgosia buy the medallions?",
 };
 
+
+// take a break every X pairs were displayed
+export const TAKE_BREAK_INTERVAL = 2;
+
+
+// take a break every X pairs were displayed
+export const DISPLAY_TAKE_BREAK_TEXT = "<b>Czas na krótką przerwę</b><br><br>Po odpoczęciu, wciśnij Spację, aby kontynuować.";
+
+
 // initial text that is displayed when the webpage is first loaded (inner HTML)
 export const DISPLAY_WELCOME_TEXT = "<b>Czytanie odpowiedzi</b><br><br>Najpierw usłyszysz nagranie audio.<br>Następnie przeczytasz odpowiedź na głos.<br>Wciśnij spację, aby potwierdzić.";
 
