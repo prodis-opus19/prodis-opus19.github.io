@@ -54,7 +54,7 @@ body {
 
 #main_app>#experiment_display_status {
     color: var(--blueish_black);
-    font-size: 150%;
+    font-size: 200%;
     position: fixed;
     right: 10px;
     top: 10px;
