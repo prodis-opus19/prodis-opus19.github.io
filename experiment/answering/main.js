@@ -87,7 +87,7 @@ function app() {
     *
     * Plays audio and displays texts still there is nothing left in the global "VOCAB_DATA" variable.
     */
-    TEXT_EXPERIMENT_DISPLAY.innerHTML = DISPLAY_WELCOME_HTML; // taken from "VOCAB_DATA.js"
+    display_html(DISPLAY_WELCOME_HTML); // taken from "VOCAB_DATA.js"
     let pairs_displayed = 0;
     let TAKE_BREAK_COUNTER = 0;
     let random_pair;
@@ -119,7 +119,7 @@ function app() {
                 }
                 // otherwise, the experiment is over
                 else {
-                    TEXT_EXPERIMENT_DISPLAY.innerHTML = DISPLAY_END_HTML; // taken from "VOCAB_DATA.js"
+                    display_html(DISPLAY_END_HTML); // taken from "VOCAB_DATA.js"
                 }
             }
             // ORDER: we show text second
