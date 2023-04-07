@@ -1,4 +1,4 @@
-import { vocab_data, default_welcome_text } from "./audio/vocab_data.js";
+import { vocab_data, display_welcome_text, display_end_text } from "./audio/vocab_data.js";
 /*
 NOTE: the list of answers and audio files is read from "./audio/vocab_data.js".
 If you want to add new audio tracks or modify the texts, edit that file instead.
@@ -76,7 +76,7 @@ function app() {
     *
     * Plays audio and displays texts still there is nothing left in the global "vocab_data" variable.
     */
-    TEXT_EXPERIMENT_DISPLAY.innerHTML = default_welcome_text;
+    TEXT_EXPERIMENT_DISPLAY.innerHTML = display_welcome_text;
     let pairs_displayed = 0;
     let random_pair;
     let show_text_on_next_space_press = false;
@@ -101,7 +101,7 @@ function app() {
                 }
                 // otherwise, the experiment is over
                 else {
-                    TEXT_EXPERIMENT_DISPLAY.textContent = "To koniec tej części eksperymentu. Czekaj na dalsze instrukcje.";
+                    TEXT_EXPERIMENT_DISPLAY.innerHTML = display_end_text;
                 }
             }
         }
