@@ -78,12 +78,8 @@ function app() {
     // main event loop
     document.addEventListener("keydown", function (event) {
         if (event.key === " ") {
-            // console.log("Vocab data current:", vocab_data);
             event.preventDefault();
-            // console.log(show_text_on_next_space_press);
-            //
             if (show_text_on_next_space_press) {
-                // console.log("Showing text, because show_text is true. Now it will be set to false");
                 display_text(random_pair.text);
                 show_text_on_next_space_press = false;
             }
@@ -94,16 +90,13 @@ function app() {
                     // get random text-audio pair
                     random_pair = get_random_pair();
                     // play audio, not text
-                    // console.log("Playing audio and waiting for it to end", random_pair.audio);
                     play_audio(random_pair.audio);
                     TEXT_EXPERIMENT_DISPLAY.textContent = "";
                     show_text_on_next_space_press = true;
-                    // console.log("Setting show_text to true");
                 }
                 // otherwise, the experiment is over
                 else {
                     TEXT_EXPERIMENT_DISPLAY.textContent = "To koniec tej części eksperymentu. Czekaj na dalsze instrukcje.";
-                    // console.log("Vocab data end:", vocab_data);
                 }
             }
         }
