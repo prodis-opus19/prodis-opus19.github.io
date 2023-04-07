@@ -20,12 +20,12 @@ export const TAKE_BREAK_INTERVAL = 2;
 
 
 // take a break every X pairs were displayed
-export const DISPLAY_TAKE_BREAK_TEXT = "<b>Czas na krótką przerwę</b><br><br>Po odpoczęciu, wciśnij Spację, aby kontynuować.";
+export const DISPLAY_TAKE_BREAK_HTML = "<b>Czas na krótką przerwę</b><br><br>Po odpoczęciu, wciśnij Spację, aby kontynuować.";
 
 
 // initial text that is displayed when the webpage is first loaded (inner HTML)
-export const DISPLAY_WELCOME_TEXT = "<b>Czytanie odpowiedzi</b><br><br>Najpierw usłyszysz nagranie audio.<br>Następnie przeczytasz odpowiedź na głos.<br>Wciśnij spację, aby potwierdzić.";
+export const DISPLAY_WELCOME_HTML = "<b>Czytanie odpowiedzi</b><br><br>Najpierw usłyszysz nagranie audio.<br>Następnie przeczytasz odpowiedź na głos.<br>Wciśnij spację, aby potwierdzić.";
 
 
 // HTML end text that is displayed when the experiment is over (inner HTML)
-export const DISPLAY_END_TEXT = "<b>To koniec tej części eksperymentu.</b><br><br>Proszę czekać na dalsze instrukcje.";
+export const DISPLAY_END_HTML = "<b>To koniec tej części eksperymentu.</b><br><br>Proszę czekać na dalsze instrukcje.";

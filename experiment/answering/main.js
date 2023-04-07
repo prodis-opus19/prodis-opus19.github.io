@@ -1,4 +1,4 @@
-import { VOCAB_DATA, TAKE_BREAK_INTERVAL, DISPLAY_TAKE_BREAK_TEXT, DISPLAY_WELCOME_TEXT, DISPLAY_END_TEXT } from "./audio/VOCAB_DATA.js";
+import { VOCAB_DATA, TAKE_BREAK_INTERVAL, DISPLAY_TAKE_BREAK_HTML, DISPLAY_WELCOME_HTML, DISPLAY_END_HTML } from "./audio/VOCAB_DATA.js";
 /*
 NOTE: the list of answers and audio files is read from "./audio/VOCAB_DATA.js".
 If you want to add new audio tracks or modify the texts, edit that file instead.
@@ -87,7 +87,7 @@ function app() {
     *
     * Plays audio and displays texts still there is nothing left in the global "VOCAB_DATA" variable.
     */
-    TEXT_EXPERIMENT_DISPLAY.innerHTML = DISPLAY_WELCOME_TEXT; // taken from "VOCAB_DATA.js"
+    TEXT_EXPERIMENT_DISPLAY.innerHTML = DISPLAY_WELCOME_HTML; // taken from "VOCAB_DATA.js"
     let pairs_displayed = 0;
     let TAKE_BREAK_COUNTER = 0;
     let random_pair;
@@ -103,7 +103,7 @@ function app() {
                 if (pairs_displayed < MAX_VOCAB_LEN) {
                     // ORDER injection: if we reached take break interval from "VOCAB_DATA.js", wait for confirmation
                     if (TAKE_BREAK_COUNTER >= TAKE_BREAK_INTERVAL) {
-                        display_html(DISPLAY_TAKE_BREAK_TEXT);
+                        display_html(DISPLAY_TAKE_BREAK_HTML);
                         TAKE_BREAK_COUNTER = 0;
                     }
                     else {
@@ -119,7 +119,7 @@ function app() {
                 }
                 // otherwise, the experiment is over
                 else {
-                    TEXT_EXPERIMENT_DISPLAY.innerHTML = DISPLAY_END_TEXT; // taken from "VOCAB_DATA.js"
+                    TEXT_EXPERIMENT_DISPLAY.innerHTML = DISPLAY_END_HTML; // taken from "VOCAB_DATA.js"
                 }
             }
             // ORDER: we show text second
