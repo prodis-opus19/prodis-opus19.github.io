@@ -6,7 +6,7 @@ const VERTICAL_OFFSET = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) ? 
 
 export function show_top_alert(content) {
     /*
-    Show alert at the top.
+    * Show alert at the top.
     */
     const div = document.getElementById("top_alert");
     div.textContent = content;
@@ -19,11 +19,13 @@ export function show_top_alert(content) {
 
 function show_copy_popup(tag) {
     /*
-    Helper function, called by copy_to_clipboard().
-    Show popup under the div passed using "this".
-    If "isMobile" is True, then reduce Y offset from 130 to 10.
-    This is because the div is moved down on mobile for some reason (tested on iOS Safari).
-    If clicked same tag multiple times, do not re-calculate position & count how many times clicked.
+    * Helper function, called by copy_to_clipboard().
+    * Show popup under the div passed using "this".
+    *
+    * If "isMobile" is True, then reduce Y offset from 130 to 10.
+    * This is because the div is moved down on mobile for some reason (tested on iOS Safari).
+    *
+    * If clicked same tag multiple times, do not re-calculate position & count how many times clicked.
     */
     // get copy popup element that will be shown on click
     const copy_element = document.getElementById("copy_popup");
@@ -86,7 +88,7 @@ function show_copy_popup(tag) {
 
 export function copy_to_clipboard(tag, to_copy) {
     /*
-    Copy content provided to clipboard.
+    * Copy content provided to clipboard.
     */
     // copy text to clipboard
     navigator.clipboard.writeText(to_copy);

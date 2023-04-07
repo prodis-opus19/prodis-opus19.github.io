@@ -5,10 +5,13 @@ import { toggle_language } from "/scripts/language.js";
 
 function open_person_desc(category = null) {
     /*
-    Unhide per-person description and highlight its corresponding button.
-    * Tab = "category_tab"
-    * Button = "category_button"
-    If invalid category is provided, use the category of the first button.
+    * Unhide per-person description and highlight its corresponding button.
+    * The div ID inside HTML has to be named in the following manner:
+    * -> Tab = "category_tab"
+    * -> Button = "category_button"
+    * E.g., "about_tab" and "about_button".
+    *
+    * If invalid category is provided, use the category of the first button.
     */
     if (category === null) {
         category = document.getElementsByClassName("tab_per_person_link")[0].id.slice(0, -7);

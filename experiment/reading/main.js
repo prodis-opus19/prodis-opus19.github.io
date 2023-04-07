@@ -19,8 +19,8 @@ let CURRENT_TEXT_LETTER = "A"; // changed using open_text();
 
 function get_next_letter(letter) {
     /*
-    Get letter that comes after alphabetically till "D", then loop back to "A".
-    Ugly, but simple and error-proof.
+    * Get letter that comes after alphabetically till "D", then loop back to "A".
+    * Ugly, but simple and error-proof.
     */
     switch (letter) {
         case "A":
@@ -39,8 +39,8 @@ function get_next_letter(letter) {
 
 function get_previous_letter(letter) {
     /*
-    Get letter that comes before alphabetically till "A", then loop back to "D".
-    Ugly, but simple and error-proof.
+    * Get letter that comes before alphabetically till "A", then loop back to "D".
+    * Ugly, but simple and error-proof.
     */
     switch (letter) {
         case "D":
@@ -59,9 +59,9 @@ function get_previous_letter(letter) {
 
 function scroll_up_to_text() {
     /*
-    Scroll to the beginning of the text.
-    Called when switching between different texts.
-    If autoscroll checkbox is unchecked, do nothing.
+    * Scroll to the beginning of the text.
+    * Called when switching between different texts.
+    * If autoscroll checkbox is unchecked, do nothing.
     */
     if (AUTOSCROLL_CHECKBOX.checked) {
         // smooth, top of div vertically, center horizontally
@@ -71,7 +71,7 @@ function scroll_up_to_text() {
 
 function scroll_to_top() {
     /*
-    Scroll to the top of the page.
+    * Scroll to the top of the page.
     */
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
@@ -89,8 +89,8 @@ function set_indicator() {
 
 function open_group(number = CURRENT_GROUP_NUMBER) {
     /*
-    Open specific group (1, 2, 3) that contains texts.
-    If no argument provided, use global variable.
+    * Open specific group (1, 2, 3) that contains texts.
+    * If no argument provided, use global variable.
     */
     // close dropdown menu (if doesn't exist, no error)
     GROUP_DROPDOWN.removeAttribute("open");
@@ -108,8 +108,8 @@ function open_group(number = CURRENT_GROUP_NUMBER) {
 
 function open_text(letter = CURRENT_TEXT_LETTER) {
     /*
-    Open specific text (A, B, C, D).
-    If no argument provided, use global variable.
+    * Open specific text (A, B, C, D).
+    * If no argument provided, use global variable.
     */
     // close dropdown menu (if doesn't exist, no error)
     TEXT_DROPDOWN.removeAttribute("open");
@@ -127,8 +127,8 @@ function open_text(letter = CURRENT_TEXT_LETTER) {
 
 function previous_text() {
     /*
-    Open previous text in order, e.g., B -> A.
-    Loop back from D back to A.
+    * Open previous text in order, e.g., B -> A.
+    * Loop back from D back to A.
     */
     const previous_letter = get_previous_letter(CURRENT_TEXT_LETTER);
     open_text(previous_letter);
@@ -138,8 +138,8 @@ function previous_text() {
 
 function next_text() {
     /*
-    Open next text in order, e.g., A -> B.
-    Loop back from A back to D.
+    * Loop back from A back to D.
+    * Open next text in order, e.g., A -> B.
     */
     const next_letter = get_next_letter(CURRENT_TEXT_LETTER);
     open_text(next_letter);
@@ -169,7 +169,7 @@ document.addEventListener('keydown', function (event) {
 
 FULLWIDTH_CHECKBOX.addEventListener('change', (event) => {
     /*
-    Toggle article's width: narrow (default), wide.
+    * Toggle article's width: narrow (default), wide.
     */
     const checked = event.currentTarget.checked;
     for (const div of GROUP_CONTAINERS) {
