@@ -121,8 +121,9 @@ function app() {
             if (!show_text_on_next_space_press) {
                 // while we still have pairs yet to be displayed
                 if (pairs_displayed < (IS_REAL_VOCAB_TIME ? MAX_VOCAB_REAL_LEN : MAX_VOCAB_PRACTICE_LEN)) {
-                    // ORDER injection: if we reached take break interval from "VOCAB_DATA_REAL.js", wait for confirmation
-                    if (TAKE_BREAK_COUNTER >= TAKE_BREAK_INTERVAL) {
+                    // ORDER injection: if we reached take break interval from "VOCAB_DATA_REAL.js"
+                    // but if it's practice, we do not create breaks; breaks are disabled during practice
+                    if (IS_REAL_VOCAB_TIME && TAKE_BREAK_COUNTER >= TAKE_BREAK_INTERVAL) {
                         display_html(DISPLAY_TAKE_BREAK_HTML);
                         TAKE_BREAK_COUNTER = 0;
                     }
