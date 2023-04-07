@@ -74,8 +74,9 @@ function play_audio(audio_file) {
     */
     _reset_audio(); // stop audio playback and set its timer to 0
     AUDIO_EXPERIMENT_ICON.style.display = "block";
+    TEXT_EXPERIMENT_DISPLAY.style.display = "none";
     AUDIO_EXPERIMENT_PLAYER.src = "audio/" + audio_file; // must be in relative "audio" dir
-    // alternatively, we cna use this: /experiment/answering/audio
+    // alternatively, we can use absolute path: /experiment/answering/audio
     AUDIO_EXPERIMENT_PLAYER.play();
 }
 
@@ -134,7 +135,6 @@ function app() {
                         random_pair = get_random_pair();
                         // play audio, not text
                         play_audio(random_pair.audio);
-                        TEXT_EXPERIMENT_DISPLAY.textContent = "";
                         show_text_on_next_space_press = true;
                     }
                 }
