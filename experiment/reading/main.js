@@ -19,11 +19,11 @@ const local_storage_available = (typeof (Storage) !== "undefined");
 
 
 // default values
-let CURRENT_GROUP_NUMBER = "1"; // changed using open_group();
-let CURRENT_TEXT_LETTER = "A"; // changed using open_text();
+let CURRENT_GROUP_NUMBER = "1"; // changed using open_group_by_number();
+let CURRENT_TEXT_LETTER = "A"; // changed using open_text_by_letter();
 
 
-function get_next_letter(letter) {
+function _get_next_letter(letter) {
     /*
     * Get letter that comes after alphabetically till "D", then loop back to "A".
     * Ugly, but simple and error-proof.
@@ -43,7 +43,7 @@ function get_next_letter(letter) {
     }
 }
 
-function get_previous_letter(letter) {
+function _get_previous_letter(letter) {
     /*
     * Get letter that comes before alphabetically till "A", then loop back to "D".
     * Ugly, but simple and error-proof.
@@ -83,9 +83,9 @@ function scroll_to_top() {
 }
 
 
-function set_indicator() {
+function _set_currently_selected_group_indicators() {
     /*
-    Set indicator at the bottom to group number and letter, e.g., 1A, 2D, 3C.
+    Set indicators at the top and bottom to group number and letter, e.g., 1A, 2D, 3C.
     */
     const text = CURRENT_GROUP_NUMBER + CURRENT_TEXT_LETTER;
     SELECTION_INDICATOR_TOP.textContent = text;
@@ -93,7 +93,7 @@ function set_indicator() {
 }
 
 
-function open_group(number = CURRENT_GROUP_NUMBER) {
+function open_group_by_number(number = CURRENT_GROUP_NUMBER) {
     /*
     * Open specific group (1, 2, 3) that contains texts.
     * If no argument provided, use global variable.
@@ -109,14 +109,14 @@ function open_group(number = CURRENT_GROUP_NUMBER) {
     // set global variable
     CURRENT_GROUP_NUMBER = number;
     // open text using global variable (see: the top of the script)
-    open_text();
+    open_text_by_letter();
     // store number in local storage (5MB)
     if (local_storage_available) {
         window.localStorage.setItem("reading_number", number);
     }
 }
 
-function open_text(letter = CURRENT_TEXT_LETTER) {
+function open_text_by_letter(letter = CURRENT_TEXT_LETTER) {
     /*
     * Open specific text (A, B, C, D).
     * If no argument provided, use global variable.
@@ -132,56 +132,61 @@ function open_text(letter = CURRENT_TEXT_LETTER) {
     // set global variable
     CURRENT_TEXT_LETTER = letter;
     // set indicator at the bottom to current group & text
-    set_indicator();
+    _set_currently_selected_group_indicators();
     // store letter in local storage (5MB)
     if (local_storage_available) {
         window.localStorage.setItem("reading_letter", letter);
     }
 }
 
-function previous_text() {
+function open_previous_text() {
     /*
     * Open previous text in order, e.g., B -> A.
     * Loop back from D back to A.
     */
-    const previous_letter = get_previous_letter(CURRENT_TEXT_LETTER);
-    open_text(previous_letter);
+    const previous_letter = _get_previous_letter(CURRENT_TEXT_LETTER);
+    open_text_by_letter(previous_letter);
     // scroll to beginning of text
     scroll_up_to_text();
 }
 
-function next_text() {
+function open_next_text() {
     /*
     * Loop back from A back to D.
     * Open next text in order, e.g., A -> B.
     */
-    const next_letter = get_next_letter(CURRENT_TEXT_LETTER);
-    open_text(next_letter);
+    const next_letter = _get_next_letter(CURRENT_TEXT_LETTER);
+    open_text_by_letter(next_letter);
     // scroll to beginning of text
     scroll_up_to_text();
 }
 
-document.addEventListener('keydown', function (event) {
+document.addEventListener("keydown", function (event) {
     switch (event.key) {
         case "ArrowLeft":
-            previous_text();
+            event.preventDefault();
+            open_previous_text();
             break;
         case "ArrowRight":
-            next_text();
+            event.preventDefault();
+            open_next_text();
             break;
         case "1":
-            open_group("1");
+            event.preventDefault();
+            open_group_by_number("1");
             break;
         case "2":
-            open_group("2");
+            event.preventDefault();
+            open_group_by_number("2");
             break;
         case "3":
-            open_group("3");
+            event.preventDefault();
+            open_group_by_number("3");
             break;
     }
 });
 
-FULLWIDTH_CHECKBOX.addEventListener('change', (event) => {
+FULLWIDTH_CHECKBOX.addEventListener("change", (event) => {
     /*
     * Toggle article's width: narrow (default), wide.
     */
@@ -223,15 +228,15 @@ function set_global_variables_on_page_load() {
 // on page load, try to load global variables from localStorage
 set_global_variables_on_page_load();
 // open using global variable (see: the top of the script)
-open_group();
+open_group_by_number();
 AUTOSCROLL_CHECKBOX.checked = true; // reset on page reload
 FULLWIDTH_CHECKBOX.checked = false; // reset on page reload
 
 // allow global access within HTML
-window.open_group = open_group;
-window.open_text = open_text;
-window.previous_text = previous_text;
-window.next_text = next_text;
+window.open_group_by_number = open_group_by_number;
+window.open_text_by_letter = open_text_by_letter;
+window.open_previous_text = open_previous_text;
+window.open_next_text = open_next_text;
 window.scroll_to_top = scroll_to_top;
 window.open_help_modal = function () { HELP_MODAL.setAttribute('open', true); }
 window.close_help_modal = function () { HELP_MODAL.removeAttribute('open'); }

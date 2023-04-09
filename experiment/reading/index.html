@@ -40,18 +40,18 @@
             <details id="group_dropdown" role="list">
                 <summary aria-haspopup="listbox">Wybierz grupę</summary>
                 <ul role="listbox">
-                    <li><a href="javascript:;" onclick="open_group('1');">Grupa nr. 1</a></li>
-                    <li><a href="javascript:;" onclick="open_group('2');">Grupa nr. 2</a></li>
-                    <li><a href="javascript:;" onclick="open_group('3');">Grupa nr. 3</a></li>
+                    <li><a href="javascript:;" onclick="open_group_by_number('1');">Grupa nr. 1</a></li>
+                    <li><a href="javascript:;" onclick="open_group_by_number('2');">Grupa nr. 2</a></li>
+                    <li><a href="javascript:;" onclick="open_group_by_number('3');">Grupa nr. 3</a></li>
                 </ul>
             </details>
             <details id="text_dropdown" role="list">
                 <summary aria-haspopup="listbox">Wybierz tekst</summary>
                 <ul role="listbox">
-                    <li><a href="javascript:;" onclick="open_text('A');">Tekst A (Polityka)</a></li>
-                    <li><a href="javascript:;" onclick="open_text('B');">Tekst B (Nauka)</a></li>
-                    <li><a href="javascript:;" onclick="open_text('C');">Tekst C (Biografia)</a></li>
-                    <li><a href="javascript:;" onclick="open_text('D');">Tekst D (Technologia)</a></li>
+                    <li><a href="javascript:;" onclick="open_text_by_letter('A');">Tekst A (Polityka)</a></li>
+                    <li><a href="javascript:;" onclick="open_text_by_letter('B');">Tekst B (Nauka)</a></li>
+                    <li><a href="javascript:;" onclick="open_text_by_letter('C');">Tekst C (Biografia)</a></li>
+                    <li><a href="javascript:;" onclick="open_text_by_letter('D');">Tekst D (Technologia)</a></li>
                 </ul>
             </details>
             <p>Wybrano: <span id="selection_indicator_top">?</span></p>
@@ -88,9 +88,9 @@
     <!-- indicator at the bottom of the page, shows group & text, e.g., 1A, 2C, 3B -->
     <div id="info_box_container">
         <div id="info_box">
-            <p onclick="previous_text();">&#171;</p>
+            <p onclick="open_previous_text();">&#171;</p>
             <p id="selection_indicator_bottom" onclick="scroll_to_top();">?</p>
-            <p onclick="next_text();">&#187;</p>
+            <p onclick="open_next_text();">&#187;</p>
         </div>
     </div>
 
