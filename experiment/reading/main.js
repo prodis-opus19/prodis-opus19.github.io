@@ -112,7 +112,7 @@ function open_group(number = CURRENT_GROUP_NUMBER) {
     open_text();
     // store number in local storage (5MB)
     if (local_storage_available) {
-        window.localStorage.setItem("number", number);
+        window.localStorage.setItem("reading_number", number);
     }
 }
 
@@ -135,7 +135,7 @@ function open_text(letter = CURRENT_TEXT_LETTER) {
     set_indicator();
     // store letter in local storage (5MB)
     if (local_storage_available) {
-        window.localStorage.setItem("letter", letter);
+        window.localStorage.setItem("reading_letter", letter);
     }
 }
 
@@ -204,17 +204,19 @@ function set_global_variables_on_page_load() {
     if (!local_storage_available) {
         return;
     }
-    const local_number = window.localStorage.getItem("number");
-    const local_letter = window.localStorage.getItem("letter");
+    const local_number = window.localStorage.getItem("reading_number");
+    const local_letter = window.localStorage.getItem("reading_letter");
     // if nothing saved in localStorage, keep everything as-is
     if (!local_number || !local_letter) {
-        console.log("No data in localStorage.")
+        console.log(`No data in localStorage, using default values: number=${CURRENT_GROUP_NUMBER}; letter=${CURRENT_TEXT_LETTER}.`);
         return;
     }
-    console.log(`Loaded from localStorage: number=${local_number}; letter=${local_letter}.`);
-    // otherwise, overwrite global variables
-    CURRENT_GROUP_NUMBER = local_number;
-    CURRENT_TEXT_LETTER = local_letter;
+    else {
+        console.log(`Loaded from localStorage: number=${local_number}; letter=${local_letter}.`);
+        // otherwise, overwrite global variables
+        CURRENT_GROUP_NUMBER = local_number;
+        CURRENT_TEXT_LETTER = local_letter;
+    }
 }
 
 
