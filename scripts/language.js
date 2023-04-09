@@ -12,22 +12,14 @@ function set_nav_btns(translate_to_polish = false) {
     * This is pretty ugly, but I can't think of a better way while using IDs for
     *     buttons; I designed them with a single language in mind.
     */
-    const btn_names_en = new Map([
-        // HTML element ID : displayed string in English
-        ["project_button", "Project"],
-        ["team_button", "Team"],
-        ["contact_button", "Contact"],
-        ["recordings_button", "Recordings"],
-        ["lang_button", "Language"],
-    ]);
-    const btn_names_pl = new Map([
-        // HTML element ID : displayed string in Polish
-        ["project_button", "Projekt"],
-        ["team_button", "Skład"],
-        ["contact_button", "Kontakt"],
-        ["recordings_button", "Nagrania"],
-        ["lang_button", "Język"],
-    ]);
+    const btn_names = {
+        // HTML element ID : English string : Polish string
+        "project_button": ["Project", "Projekt"],
+        "team_button": ["Team", "Skład"],
+        "contact_button": ["Contact", "Kontakt"],
+        "recordings_button": ["Recordings", "Nagrania"],
+        "lang_button": ["Language", "Język"],
+    };
     for (const btn of BUTTON_LINKS) {
         if (!btn.id) { // no ID tag; this always happens for vertical splitters, so not a bug
             continue;
@@ -37,7 +29,7 @@ function set_nav_btns(translate_to_polish = false) {
             console.error(`Skipping button with empty text: '${actual_text}'. The HTML is probably broken.`);
             continue;
         }
-        actual_text.textContent = translate_to_polish ? btn_names_pl.get(btn.id) : btn_names_en.get(btn.id);
+        actual_text.textContent = translate_to_polish ? btn_names[btn.id][1] : btn_names[btn.id][0];
     }
 }
 
