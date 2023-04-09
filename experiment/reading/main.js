@@ -13,9 +13,15 @@ const FULLWIDTH_CHECKBOX = document.getElementById("fullwidth_checkbox");
 const HELP_MODAL = document.getElementById("help_modal");
 const SCROLL_TARGET = document.getElementById("scroll_target");
 
+
+// bool check for ancient browsers
+const local_storage_available = (typeof (Storage) !== "undefined");
+
+
 // default values
 let CURRENT_GROUP_NUMBER = "1"; // changed using open_group();
 let CURRENT_TEXT_LETTER = "A"; // changed using open_text();
+
 
 function get_next_letter(letter) {
     /*
@@ -104,6 +110,10 @@ function open_group(number = CURRENT_GROUP_NUMBER) {
     CURRENT_GROUP_NUMBER = number;
     // open text using global variable (see: the top of the script)
     open_text();
+    // store number in local storage (5MB)
+    if (local_storage_available) {
+        window.localStorage.setItem("number", number);
+    }
 }
 
 function open_text(letter = CURRENT_TEXT_LETTER) {
@@ -123,6 +133,10 @@ function open_text(letter = CURRENT_TEXT_LETTER) {
     CURRENT_TEXT_LETTER = letter;
     // set indicator at the bottom to current group & text
     set_indicator();
+    // store letter in local storage (5MB)
+    if (local_storage_available) {
+        window.localStorage.setItem("letter", letter);
+    }
 }
 
 function previous_text() {
@@ -182,6 +196,30 @@ FULLWIDTH_CHECKBOX.addEventListener('change', (event) => {
     }
 })
 
+function set_global_variables_on_page_load() {
+    /*
+    * Set global number and letter based on local storage.
+    */
+    // ignore ancient browsers, keep everything as-is
+    if (!local_storage_available) {
+        return;
+    }
+    const local_number = window.localStorage.getItem("number");
+    const local_letter = window.localStorage.getItem("letter");
+    // if nothing saved in localStorage, keep everything as-is
+    if (!local_number || !local_letter) {
+        console.log("No data in localStorage.")
+        return;
+    }
+    console.log(`Loaded from localStorage: number=${local_number}; letter=${local_letter}.`);
+    // otherwise, overwrite global variables
+    CURRENT_GROUP_NUMBER = local_number;
+    CURRENT_TEXT_LETTER = local_letter;
+}
+
+
+// on page load, try to load global variables from localStorage
+set_global_variables_on_page_load();
 // open using global variable (see: the top of the script)
 open_group();
 AUTOSCROLL_CHECKBOX.checked = true; // reset on page reload
