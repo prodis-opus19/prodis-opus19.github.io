@@ -12,7 +12,7 @@ const TEXT_EXPERIMENT_DISPLAY = document.getElementById("experiment_display_text
 const AUDIO_EXPERIMENT_PLAYER = document.getElementById("experiment_audio_player");
 const AUDIO_EXPERIMENT_ICON = document.getElementById("experiment_audio_icon");
 const AUDIO_EXPERIMENT_STATUS = document.getElementById("experiment_display_status");
-let IS_REAL_VOCAB_TIME = false;
+let IS_REAL_VOCAB_TIME = false; // if false, we run practice with no breaks
 
 
 function get_random_pair() {
@@ -23,6 +23,7 @@ function get_random_pair() {
     let len;
     let random_key;
     let random_value;
+    // ternary operators would be shorter but practically unreadable
     if (IS_REAL_VOCAB_TIME) { // if real vocab
         len = Object.keys(VOCAB_DATA_REAL).length;
         // pick random key, otherwise undefined
@@ -116,51 +117,53 @@ function app() {
     let show_text_on_next_space_press = false;
     // main event loop
     document.addEventListener("keydown", function (event) {
-        if (event.key === " ") {
-            event.preventDefault();
-            // ORDER: we play audio first
-            if (!show_text_on_next_space_press) {
-                // while we still have pairs yet to be displayed
-                if (pairs_displayed < (IS_REAL_VOCAB_TIME ? MAX_VOCAB_REAL_LEN : MAX_VOCAB_PRACTICE_LEN)) {
-                    // ORDER injection: if we reached take break interval from "VOCAB_DATA_REAL.js"
-                    // but if it's practice, we do not create breaks; breaks are disabled during practice
-                    if (IS_REAL_VOCAB_TIME && TAKE_BREAK_COUNTER >= TAKE_BREAK_INTERVAL) {
-                        display_html(DISPLAY_TAKE_BREAK_HTML);
-                        TAKE_BREAK_COUNTER = 0;
-                    }
-                    else {
-                        ++pairs_displayed;
-                        ++TAKE_BREAK_COUNTER;
-                        // get random text-audio pair
-                        random_pair = get_random_pair();
-                        // play audio, not text
-                        play_audio(random_pair.audio);
-                        show_text_on_next_space_press = true;
-                    }
+        if (event.key !== " ") { // ignore if NOT spacebar
+            return false;
+        }
+        event.preventDefault();
+        // ORDER: we play audio first
+        if (!show_text_on_next_space_press) {
+            // while we still have pairs yet to be displayed
+            if (pairs_displayed < (IS_REAL_VOCAB_TIME ? MAX_VOCAB_REAL_LEN : MAX_VOCAB_PRACTICE_LEN)) {
+                // ORDER injection: if we reached take break interval from "VOCAB_DATA_REAL.js"
+                // but if it's practice, we do not create breaks; breaks are disabled during practice
+                if (IS_REAL_VOCAB_TIME && TAKE_BREAK_COUNTER >= TAKE_BREAK_INTERVAL) {
+                    display_html(DISPLAY_TAKE_BREAK_HTML);
+                    TAKE_BREAK_COUNTER = 0;
                 }
-                // otherwise, either the practice is over or the experiment is over
                 else {
-                    // if practice is over, start real experiment
-                    if (!IS_REAL_VOCAB_TIME) {
-                        IS_REAL_VOCAB_TIME = true;
-                        display_html(DISPLAY_BEGIN_REAL_EXPERIMENT); // taken from "VOCAB_DATA_REAL.js"
-                        show_text_on_next_space_press = false; // idk but if true it breaks
-                        pairs_displayed = 0;
-                        TAKE_BREAK_COUNTER = 0;
-                    }
-                    // if real experiment is over, we're over
-                    else {
-                        display_html(DISPLAY_END_HTML); // taken from "VOCAB_DATA_REAL.js"
-                    }
+                    ++pairs_displayed;
+                    ++TAKE_BREAK_COUNTER;
+                    // get random text-audio pair
+                    random_pair = get_random_pair();
+                    // play audio, not text
+                    play_audio(random_pair.audio);
+                    show_text_on_next_space_press = true;
                 }
             }
-            // ORDER: we show text second
+            // otherwise, either the practice is over or the experiment is over
             else {
-                display_text(random_pair.text);
-                show_text_on_next_space_press = false;
-
+                // if practice is over, start real experiment
+                if (!IS_REAL_VOCAB_TIME) {
+                    IS_REAL_VOCAB_TIME = true;
+                    display_html(DISPLAY_BEGIN_REAL_EXPERIMENT); // taken from "VOCAB_DATA_REAL.js"
+                    show_text_on_next_space_press = false; // idk but if true it breaks
+                    pairs_displayed = 0;
+                    TAKE_BREAK_COUNTER = 0;
+                }
+                // if real experiment is over, we're over
+                else {
+                    display_html(DISPLAY_END_HTML); // taken from "VOCAB_DATA_REAL.js"
+                }
             }
         }
+        // ORDER: we show text second
+        else {
+            display_text(random_pair.text);
+            show_text_on_next_space_press = false;
+
+        }
+
     });
 }
 
