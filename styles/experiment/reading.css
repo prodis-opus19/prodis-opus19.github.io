@@ -75,3 +75,7 @@
     /* increase top & botton spacing between newlines */
     line-height: 2.5em;
 }
+
+footer {
+    text-align: center;
+}
