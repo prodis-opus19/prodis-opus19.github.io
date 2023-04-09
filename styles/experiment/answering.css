@@ -3,6 +3,12 @@
     --blueish_black: #38454f;
 }
 
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 html,
 body {
     height: 100%;
@@ -15,12 +21,8 @@ body {
     color: black;
     display: flex;
     font-family: system-ui, -apple-system, "Segoe UI", "Roboto", "Ubuntu", "Cantarell", "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    justify-content: center;
     user-select: none;
-}
-
-* {
-    margin: 0;
-    padding: 0;
 }
 
 #main_app {
@@ -31,7 +33,6 @@ body {
     height: 100%;
     justify-content: center;
     width: 90%;
-    margin: 0 auto;
 }
 
 #main_app>* {
