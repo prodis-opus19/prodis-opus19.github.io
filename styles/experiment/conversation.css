@@ -3,9 +3,18 @@
     --blueish_black: #38454f;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 html,
 body {
     height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
 }
 
 body {
@@ -19,11 +28,6 @@ body {
     user-select: none;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-}
-
 main {
     align-items: center;
     display: flex;
@@ -32,6 +36,7 @@ main {
     font-size: 150%;
     height: 100%;
     justify-content: center;
+    text-align: center;
     width: 90%;
 }
 
