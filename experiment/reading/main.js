@@ -5,7 +5,6 @@ const GROUP_CONTAINERS = document.getElementsByClassName("group_container");
 const TEXT_DROPDOWN = document.getElementById("text_dropdown");
 const TEXT_CONTAINERS = document.getElementsByClassName("text_container");
 
-const SELECTION_INDICATOR_TOP = document.getElementById("selection_indicator_top");
 const SELECTION_INDICATOR_BOTTOM = document.getElementById("selection_indicator_bottom");
 
 const AUTOSCROLL_CHECKBOX = document.getElementById("autoscroll_checkbox");
@@ -83,13 +82,11 @@ function scroll_to_top() {
 }
 
 
-function _set_currently_selected_group_indicators() {
+function _set_currently_selected_group_indicator() {
     /*
-    Set indicators at the top and bottom to group number and letter, e.g., 1A, 2D, 3C.
+    Set indicator at the bottom to group number and letter, e.g., 1A, 2D, 3C.
     */
-    const text = CURRENT_GROUP_NUMBER + CURRENT_TEXT_LETTER;
-    SELECTION_INDICATOR_TOP.textContent = text;
-    SELECTION_INDICATOR_BOTTOM.textContent = text;
+    SELECTION_INDICATOR_BOTTOM.textContent = CURRENT_GROUP_NUMBER + CURRENT_TEXT_LETTER;
 }
 
 
@@ -132,7 +129,7 @@ function open_text_by_letter(letter = CURRENT_TEXT_LETTER) {
     // set global variable
     CURRENT_TEXT_LETTER = letter;
     // set indicator at the bottom to current group & text
-    _set_currently_selected_group_indicators();
+    _set_currently_selected_group_indicator();
     // store letter in local storage (5MB)
     if (local_storage_available) {
         window.localStorage.setItem("reading_letter", letter);
