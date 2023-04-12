@@ -1,13 +1,13 @@
-import { VOCAB_DATA_PRACTICE, VOCAB_DATA_REAL, TAKE_BREAK_INTERVAL, DISPLAY_TAKE_BREAK_HTML, DISPLAY_WELCOME_HTML, DISPLAY_END_HTML, DISPLAY_BEGIN_REAL_EXPERIMENT } from "./audio/vocab_data.js";
+import { VOCAB_DATA, TAKE_BREAK_INTERVAL, DISPLAY_STRING_DATA } from "./audio/experiment_data.js";
 /*
-NOTE: the list of answers and audio files is read from "./audio/VOCAB_DATA_REAL.js".
+NOTE: the list of answers and audio files is read from "./audio/VOCAB_DATA["real"].js".
 If you want to add new audio tracks or modify the texts, edit that file instead.
 This script should then automatically handle them.
 */
 
 // GLOBAL VARIABLES
-const MAX_VOCAB_REAL_LEN = Object.keys(VOCAB_DATA_REAL).length;
-const MAX_VOCAB_PRACTICE_LEN = Object.keys(VOCAB_DATA_PRACTICE).length;
+const MAX_VOCAB_REAL_LEN = Object.keys(VOCAB_DATA["real"]).length;
+const MAX_VOCAB_PRACTICE_LEN = Object.keys(VOCAB_DATA["practice"]).length;
 const TEXT_EXPERIMENT_DISPLAY = document.getElementById("experiment_display_text");
 const AUDIO_EXPERIMENT_PLAYER = document.getElementById("experiment_audio_player");
 const AUDIO_EXPERIMENT_ICON = document.getElementById("experiment_audio_icon");
@@ -25,28 +25,28 @@ function get_random_pair() {
     let random_value;
     // ternary operators would be shorter but practically unreadable
     if (IS_REAL_VOCAB_TIME) { // if real vocab
-        len = Object.keys(VOCAB_DATA_REAL).length;
+        len = Object.keys(VOCAB_DATA["real"]).length;
         // pick random key, otherwise undefined
-        random_key = Object.keys(VOCAB_DATA_REAL)[Math.floor(Math.random() * len)];
+        random_key = Object.keys(VOCAB_DATA["real"])[Math.floor(Math.random() * len)];
         if (!random_key) {
-            throw new RangeError("Could not pick a random key from VOCAB_DATA_REAL, because object is empty; you have requested more pairs than available.");
+            throw new RangeError("Could not pick a random key from real vocab data, because object is empty; you have requested more pairs than available.");
         }
         // create copy, before we delete
-        random_value = VOCAB_DATA_REAL[random_key];
-        delete VOCAB_DATA_REAL[random_key];
+        random_value = VOCAB_DATA["real"][random_key];
+        delete VOCAB_DATA["real"][random_key];
         // set for status display in top right corner
         AUDIO_EXPERIMENT_STATUS.textContent = `Eksperyment: ${(MAX_VOCAB_REAL_LEN - len) + 1}/${MAX_VOCAB_REAL_LEN}`;
     }
     else { // if practice vocab
-        len = Object.keys(VOCAB_DATA_PRACTICE).length;
+        len = Object.keys(VOCAB_DATA["practice"]).length;
         // pick random key, otherwise undefined
-        random_key = Object.keys(VOCAB_DATA_PRACTICE)[Math.floor(Math.random() * len)];
+        random_key = Object.keys(VOCAB_DATA["practice"])[Math.floor(Math.random() * len)];
         if (!random_key) {
-            throw new RangeError("Could not pick a random key from VOCAB_DATA_PRACTICE, because object is empty; you have requested more pairs than available.");
+            throw new RangeError("Could not pick a random key from practice vocab data, because object is empty; you have requested more pairs than available.");
         }
         // create copy, before we delete
-        random_value = VOCAB_DATA_PRACTICE[random_key];
-        delete VOCAB_DATA_PRACTICE[random_key];
+        random_value = VOCAB_DATA["practice"][random_key];
+        delete VOCAB_DATA["practice"][random_key];
         // set for status display in top right corner
         AUDIO_EXPERIMENT_STATUS.textContent = `Tutorial: ${(MAX_VOCAB_PRACTICE_LEN - len) + 1}/${MAX_VOCAB_PRACTICE_LEN}`;
     }
@@ -108,9 +108,9 @@ function app() {
     /*
     * Main event loop.
     *
-    * Plays audio and displays texts still there is nothing left in the global "VOCAB_DATA_REAL" variable.
+    * Plays audio and displays texts still there is nothing left in the global "VOCAB_DATA["real"]" variable.
     */
-    display_html(DISPLAY_WELCOME_HTML); // taken from "VOCAB_DATA_REAL.js"
+    display_html(DISPLAY_STRING_DATA["start"]); // taken from DISPLAY_STRING_DATA
     let pairs_displayed = 0;
     let TAKE_BREAK_COUNTER = 0;
     let random_pair;
@@ -125,10 +125,10 @@ function app() {
         if (!show_text_on_next_space_press) {
             // while we still have pairs yet to be displayed
             if (pairs_displayed < (IS_REAL_VOCAB_TIME ? MAX_VOCAB_REAL_LEN : MAX_VOCAB_PRACTICE_LEN)) {
-                // ORDER injection: if we reached take break interval from "VOCAB_DATA_REAL.js"
+                // ORDER injection: if we reached take break interval from "VOCAB_DATA["real"].js"
                 // but if it's practice, we do not create breaks; breaks are disabled during practice
                 if (IS_REAL_VOCAB_TIME && TAKE_BREAK_COUNTER >= TAKE_BREAK_INTERVAL) {
-                    display_html(DISPLAY_TAKE_BREAK_HTML);
+                    display_html(DISPLAY_STRING_DATA["take_break"]);
                     TAKE_BREAK_COUNTER = 0;
                 }
                 else {
@@ -146,14 +146,14 @@ function app() {
                 // if practice is over, start real experiment
                 if (!IS_REAL_VOCAB_TIME) {
                     IS_REAL_VOCAB_TIME = true;
-                    display_html(DISPLAY_BEGIN_REAL_EXPERIMENT); // taken from "VOCAB_DATA_REAL.js"
+                    display_html(DISPLAY_STRING_DATA["start_real"]); // taken from DISPLAY_STRING_DATA
                     show_text_on_next_space_press = false; // idk but if true it breaks
                     pairs_displayed = 0;
                     TAKE_BREAK_COUNTER = 0;
                 }
                 // if real experiment is over, we're over
                 else {
-                    display_html(DISPLAY_END_HTML); // taken from "VOCAB_DATA_REAL.js"
+                    display_html(DISPLAY_STRING_DATA["end"]); // taken from DISPLAY_STRING_DATA
                 }
             }
         }
