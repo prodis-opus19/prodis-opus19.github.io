@@ -52,7 +52,7 @@ body {
 
 #main_app>#experiment_audio_icon {
     display: none;
-    font-size: 250%;
+    font-size: clamp(8rem, 5.5rem + 8vw, 10rem);
 }
 
 #main_app>#experiment_display_status {
