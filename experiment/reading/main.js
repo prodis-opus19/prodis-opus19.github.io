@@ -173,6 +173,9 @@ document.addEventListener("keydown", function (event) {
             event.preventDefault();
             open_group_by_number("3");
             break;
+        case " ":
+            event.preventDefault();
+            scroll_up_to_text();
     }
 });
 
