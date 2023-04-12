@@ -206,11 +206,11 @@ function set_global_variables_on_page_load() {
     const local_letter = window.localStorage.getItem("reading_letter");
     // if nothing saved in localStorage, keep everything as-is
     if (!local_number || !local_letter) {
-        console.log(`No data in localStorage, using default values: number=${CURRENT_GROUP_NUMBER}; letter=${CURRENT_TEXT_LETTER}.`);
+        // console.log(`No data in localStorage, using default values: number=${CURRENT_GROUP_NUMBER}; letter=${CURRENT_TEXT_LETTER}.`);
         return;
     }
     else {
-        console.log(`Loaded from localStorage: number=${local_number}; letter=${local_letter}.`);
+        // console.log(`Loaded from localStorage: number=${local_number}; letter=${local_letter}.`);
         // otherwise, overwrite global variables
         CURRENT_GROUP_NUMBER = local_number;
         CURRENT_TEXT_LETTER = local_letter;
