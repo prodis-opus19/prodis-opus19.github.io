@@ -74,13 +74,6 @@ function scroll_up_to_text() {
     }
 }
 
-function scroll_to_top() {
-    /*
-    * Scroll to the top of the page.
-    */
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
 
 function _set_currently_selected_group_indicator() {
     /*
@@ -234,6 +227,6 @@ window.open_group_by_number = open_group_by_number;
 window.open_text_by_letter = open_text_by_letter;
 window.open_previous_text = open_previous_text;
 window.open_next_text = open_next_text;
-window.scroll_to_top = scroll_to_top;
+window.scroll_up_to_text = scroll_up_to_text;
 window.open_help_modal = function () { HELP_MODAL.setAttribute('open', true); }
 window.close_help_modal = function () { HELP_MODAL.removeAttribute('open'); }
