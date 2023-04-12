@@ -61,3 +61,42 @@ body {
     right: 10px;
     top: 10px;
 }
+
+/*
+Basic media queries just in case the studio's monitor is really narrow.
+*/
+@media only screen and (max-width: 1100px) {
+    #main_app>p {
+        font-size: 220%;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    #main_app {
+        width: 96%;
+    }
+
+    #main_app>p {
+        font-size: 200%;
+    }
+
+    #main_app>#experiment_audio_icon {
+        font-size: 800%;
+    }
+
+    #main_app>#experiment_display_status {
+        font-size: 150%;
+        right: 5px;
+        top: 5px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    #main_app>p {
+        font-size: 150%;
+    }
+
+    #main_app>#experiment_audio_icon {
+        font-size: 600%;
+    }
+}
