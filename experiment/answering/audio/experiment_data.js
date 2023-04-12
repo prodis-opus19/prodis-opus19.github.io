@@ -28,12 +28,12 @@ export const VOCAB_DATA = {
 export const TAKE_BREAK_INTERVAL = 3;
 
 export const DISPLAY_STRING_DATA = {
-    // displayed on load
-    take_break: "<b>Czas na krótką przerwę</b><br><br>Możesz teraz odpocząć, lub od razu kontynuuować eksperyment.<br><br>Wciśnij Spację, aby kontynuować.",
-    // initial text that is displayed when the webpage is first loaded (inner HTML)
+    // HTML text that is displayed when the webpage is first loaded (inner HTML)
     start: `<b>Czytanie odpowiedzi</b><br><br>Najpierw usłyszysz nagranie audio (głośnik), a następnie przeczytasz podaną odpowiedź na głos.<br><br><b>UWAGA:</b> po każdym nagraniu/tekście musisz nacisnąć spację.<br>Pierwsze ${Object.keys(VOCAB_DATA["practice"]).length} odpowiedzi to ćwiczenie/tutorial.<br><br>Wciśnij spację, aby rozpocząć tutorial.`,
-    // text displayed when we begin the real experiment
+    // HTML text displayed when we begin the real experiment (inner HTML)
     start_real: `<b>Koniec tutorialu</b><br><br>Teraz rozpocznie się właściwy eksperyment, w którym co ${TAKE_BREAK_INTERVAL} odpowiedzi otrzymasz czas na krótką przerwę.<br><br>Proszę przeczytaj na głos \"rozpoczynam eksperyment\".<br><br>Wciśnij spację, aby rozpocząć eksperyment.`,
+    // HTML text displayed when reaches TAKE_BREAK_INTERVAL
+    take_break: "<b>Czas na krótką przerwę</b><br><br>Możesz teraz odpocząć, lub od razu kontynuuować eksperyment.<br><br>Wciśnij Spację, aby kontynuować.",
     // HTML end text that is displayed when the experiment is over (inner HTML)
     end: "<b>To koniec tej części eksperymentu.</b><br><br>Proszę czekać na dalsze instrukcje.",
 };
