@@ -15,7 +15,7 @@ const DIV_AUDIO_CONTAINER = document.getElementById("audio_container");
 const P_BIG_INFO_TEXT = document.getElementById("big_info_text");
 const TAG_AUDIO_PLAYER = document.getElementById("audio_player");
 const SPAN_AUDIO_TEXT = document.getElementById("audio_text");
-const SPAN_ANSWER_TEXT = document.getElementById("answer_text");
+const P_ANSWER_TEXT = document.getElementById("answer_text");
 // changed during runtime
 let IS_REAL_VOCAB_TIME = false; // if false, we run practice with no breaks
 
@@ -80,7 +80,7 @@ function display_info(html) {
     // hide other elements
     _reset_audio();
     DIV_AUDIO_CONTAINER.style.display = "none";
-    SPAN_ANSWER_TEXT.style.display = "none";
+    P_ANSWER_TEXT.style.display = "none";
     // setup
     P_BIG_INFO_TEXT.innerHTML = html; // set text
     // show
@@ -97,7 +97,7 @@ function display_audio(audio_filename, html) {
     // hide other elements
     _reset_audio();
     P_BIG_INFO_TEXT.style.display = "none";
-    SPAN_ANSWER_TEXT.style.display = "none";
+    P_ANSWER_TEXT.style.display = "none";
     // setup
     TAG_AUDIO_PLAYER.src = "audio/" + audio_filename; // must be in relative "audio" dir
     SPAN_AUDIO_TEXT.innerHTML = html; // set text
@@ -128,9 +128,9 @@ function display_answer(html) {
     DIV_AUDIO_CONTAINER.style.display = "none";
     P_BIG_INFO_TEXT.style.display = "none";
     // setup
-    SPAN_ANSWER_TEXT.innerHTML = html; // set text
+    P_ANSWER_TEXT.innerHTML = html; // set text
     // show
-    SPAN_ANSWER_TEXT.style.display = "block";
+    P_ANSWER_TEXT.style.display = "block";
 }
 
 
