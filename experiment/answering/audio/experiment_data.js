@@ -10,17 +10,14 @@ export const VOCAB_DATA = {
     // practice for participant before moving to the real experiment
     practice: {
         // audio to be played to participant : transcription of audio shown to participant : text to be read by participant
-        "placeholder/audio1.mp3": ["Kamila has bought tulips, not roses.", "What did Kamila buy?"],
-        "placeholder/audio2.mp3": ["No, it was Kamila who bought a folder in the supermarket, not Malgosia", "Who bought a folder?"],
-        "placeholder/audio3.mp3": ["Kamila has bought an upholstering in the supermarket, not tires.", "Who bought an upholestering?"],
+        "wav/i2.wav": ["Kamila kupiła róże w supermarkecie.", "Kamila kupiła tulipany w supermarkecie, a nie róże."],
+        "wav/i3.wav": ["Kamila kupiła wycieraczki w supermarkecie.", "Kamila kupiła katalizator w supermarkecie, a nie wycieraczki."],
     },
     // real experiment
     real: {
         // audio to be played to participant : transcription of audio shown to participant : text to be read by participant
-        "placeholder/audio1.mp3": ["Kamila has bought tulips, not roses.", "What did Kamila buy?"],
-        "placeholder/audio2.mp3": ["No, it was Kamila who bought a folder in the supermarket, not Malgosia", "Who bought a folder?"],
-        "placeholder/audio3.mp3": ["Kamila has bought an upholstering in the supermarket, not tires.", "Who bought an upholestering?"],
-        "placeholder/audio4.mp3": ["No, it was Kamila who bought the medalions, not Malgosia.", "Did Malgosia buy the medallions?"],
+        "wav/i2.wav": ["Kamila kupiła róże w supermarkecie.", "Kamila kupiła tulipany w supermarkecie, a nie róże."],
+        "wav/i3.wav": ["Kamila kupiła wycieraczki w supermarkecie.", "Kamila kupiła katalizator w supermarkecie, a nie wycieraczki."],
     }
 }
 
