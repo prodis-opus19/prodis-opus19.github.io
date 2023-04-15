@@ -8,10 +8,16 @@ This script should then automatically handle them.
 // GLOBAL VARIABLES
 const MAX_VOCAB_REAL_LEN = Object.keys(VOCAB_DATA["real"]).length;
 const MAX_VOCAB_PRACTICE_LEN = Object.keys(VOCAB_DATA["practice"]).length;
-const TEXT_EXPERIMENT_DISPLAY = document.getElementById("experiment_display_text");
-const AUDIO_EXPERIMENT_PLAYER = document.getElementById("experiment_audio_player");
-const AUDIO_EXPERIMENT_ICON = document.getElementById("experiment_audio_icon");
-const AUDIO_EXPERIMENT_STATUS = document.getElementById("experiment_display_status");
+const WIDGET_EXPERIMENT_STATUS = document.getElementById("display_status_widget");
+// containers
+const DIV_AUDIO_CONTAINER = document.getElementById("audio_container");
+const DIV_ANSWER_CONTAINER = document.getElementById("answer_container");
+// spans, audio players
+const P_BIG_INFO_TEXT = document.getElementById("big_info_text");
+const TAG_AUDIO_PLAYER = document.getElementById("audio_player");
+const SPAN_AUDIO_TEXT = document.getElementById("audio_text");
+const SPAN_ANSWER_TEXT = document.getElementById("answer_text");
+// changed during runtime
 let IS_REAL_VOCAB_TIME = false; // if false, we run practice with no breaks
 
 
@@ -23,37 +29,38 @@ function get_random_pair() {
     let len;
     let random_key;
     let random_value;
-    // ternary operators would be shorter but practically unreadable
+    // ternary operators would be shorter but unreadable, and we only need a single bool check
     if (IS_REAL_VOCAB_TIME) { // if real vocab
         len = Object.keys(VOCAB_DATA["real"]).length;
         // pick random key, otherwise undefined
         random_key = Object.keys(VOCAB_DATA["real"])[Math.floor(Math.random() * len)];
         if (!random_key) {
-            throw new RangeError("Could not pick a random key from real vocab data, because object is empty; you have requested more pairs than available.");
+            throw new RangeError("Could not pick a random key from real VOCAB_DATA, because object is empty; you have requested more pairs than available.");
         }
         // create copy, before we delete
         random_value = VOCAB_DATA["real"][random_key];
         delete VOCAB_DATA["real"][random_key];
         // set for status display in top right corner
-        AUDIO_EXPERIMENT_STATUS.textContent = `Eksperyment: ${(MAX_VOCAB_REAL_LEN - len) + 1}/${MAX_VOCAB_REAL_LEN}`;
+        WIDGET_EXPERIMENT_STATUS.textContent = `Eksperyment: ${(MAX_VOCAB_REAL_LEN - len) + 1}/${MAX_VOCAB_REAL_LEN}`;
     }
     else { // if practice vocab
         len = Object.keys(VOCAB_DATA["practice"]).length;
         // pick random key, otherwise undefined
         random_key = Object.keys(VOCAB_DATA["practice"])[Math.floor(Math.random() * len)];
         if (!random_key) {
-            throw new RangeError("Could not pick a random key from practice vocab data, because object is empty; you have requested more pairs than available.");
+            throw new RangeError("Could not pick a random key from practice VOCAB_DATA, because object is empty; you have requested more pairs than available.");
         }
         // create copy, before we delete
         random_value = VOCAB_DATA["practice"][random_key];
         delete VOCAB_DATA["practice"][random_key];
         // set for status display in top right corner
-        AUDIO_EXPERIMENT_STATUS.textContent = `Tutorial: ${(MAX_VOCAB_PRACTICE_LEN - len) + 1}/${MAX_VOCAB_PRACTICE_LEN}`;
+        WIDGET_EXPERIMENT_STATUS.textContent = `Tutorial: ${(MAX_VOCAB_PRACTICE_LEN - len) + 1}/${MAX_VOCAB_PRACTICE_LEN}`;
     }
     // return as object
     return {
-        "audio": random_key,
-        "text": random_value,
+        "audio": random_key, // audio as a sound file
+        "audio_transcription": random_value[0], // audio as a text transcription
+        "answer_to_be_read": random_value[1], // followup question for audio as a text
     };
 }
 
@@ -62,45 +69,57 @@ function _reset_audio() {
     /*
     * Helper function: stop audio playback and set its timer to 0.
     */
-    AUDIO_EXPERIMENT_PLAYER.pause();
-    AUDIO_EXPERIMENT_PLAYER.currentTime = 0;
+    TAG_AUDIO_PLAYER.pause();
+    TAG_AUDIO_PLAYER.currentTime = 0;
 }
 
 
-function play_audio(audio_file) {
+function display_info(html) {
     /*
-    * Unhide audio div and start playing the audio file provided as argument.
+    * Unhide info div and set its content to HTML provided as argument.
+    */
+    // hide other elements
+    _reset_audio();
+    DIV_AUDIO_CONTAINER.style.display = "none";
+    DIV_ANSWER_CONTAINER.style.display = "none";
+    // setup
+    P_BIG_INFO_TEXT.innerHTML = html; // set text
+    // show
+    P_BIG_INFO_TEXT.style.display = "block";
+}
+
+
+function display_audio(audio_filename, html) {
+    /*
+    * Unhide audio div, set its text and audio player, then start playing the audio.
     *
     * NOTE: "audio/" is prepended at the beginning.
     */
-    _reset_audio(); // stop audio playback and set its timer to 0
-    AUDIO_EXPERIMENT_ICON.style.display = "block";
-    TEXT_EXPERIMENT_DISPLAY.style.display = "none";
-    AUDIO_EXPERIMENT_PLAYER.src = "audio/" + audio_file; // must be in relative "audio" dir
-    // alternatively, we can use absolute path: /experiment/answering/audio
-    AUDIO_EXPERIMENT_PLAYER.play();
+    // hide other elements
+    _reset_audio();
+    P_BIG_INFO_TEXT.style.display = "none";
+    DIV_ANSWER_CONTAINER.style.display = "none";
+    // setup
+    TAG_AUDIO_PLAYER.src = "audio/" + audio_filename; // must be in relative "audio" dir
+    SPAN_AUDIO_TEXT.innerHTML = html; // set text
+    // show
+    DIV_AUDIO_CONTAINER.style.display = "block";
+    TAG_AUDIO_PLAYER.play();
 }
 
 
-function display_text(text) {
+function display_answer(html) {
     /*
-    * Unhide text div and set its content to text provided as argument.
+    * Unhide answer div and set its text to HTML provided as argument.
     */
-    _reset_audio(); // stop audio playback and set its timer to 0
-    AUDIO_EXPERIMENT_ICON.style.display = "none";
-    TEXT_EXPERIMENT_DISPLAY.textContent = text;
-    TEXT_EXPERIMENT_DISPLAY.style.display = "block";
-}
-
-
-function display_html(html) {
-    /*
-    * Unhide text div and set its content to HTML provided as argument.
-    */
-    _reset_audio(); // stop audio playback and set its timer to 0
-    AUDIO_EXPERIMENT_ICON.style.display = "none";
-    TEXT_EXPERIMENT_DISPLAY.innerHTML = html;
-    TEXT_EXPERIMENT_DISPLAY.style.display = "block";
+    // hide other elements
+    _reset_audio();
+    DIV_AUDIO_CONTAINER.style.display = "none";
+    P_BIG_INFO_TEXT.style.display = "none";
+    // setup
+    SPAN_ANSWER_TEXT.innerHTML = html; // set text
+    // show
+    DIV_ANSWER_CONTAINER.style.display = "block";
 }
 
 
@@ -110,7 +129,7 @@ function app() {
     *
     * Plays audio and displays texts still there is nothing left in the global "VOCAB_DATA["real"]" variable.
     */
-    display_html(DISPLAY_STRING_DATA["start"]); // taken from DISPLAY_STRING_DATA
+    display_info(DISPLAY_STRING_DATA["start"]); // taken from DISPLAY_STRING_DATA
     let pairs_displayed = 0;
     let TAKE_BREAK_COUNTER = 0;
     let random_pair;
@@ -128,7 +147,7 @@ function app() {
                 // ORDER injection: if we reached take break interval from "VOCAB_DATA["real"].js"
                 // but if it's practice, we do not create breaks; breaks are disabled during practice
                 if (IS_REAL_VOCAB_TIME && TAKE_BREAK_COUNTER >= TAKE_BREAK_INTERVAL) {
-                    display_html(DISPLAY_STRING_DATA["take_break"]);
+                    display_info(DISPLAY_STRING_DATA["take_break"]);
                     TAKE_BREAK_COUNTER = 0;
                 }
                 else {
@@ -137,7 +156,7 @@ function app() {
                     // get random text-audio pair
                     random_pair = get_random_pair();
                     // play audio, not text
-                    play_audio(random_pair.audio);
+                    display_audio(random_pair.audio, random_pair.audio_transcription);
                     show_text_on_next_space_press = true;
                 }
             }
@@ -146,20 +165,20 @@ function app() {
                 // if practice is over, start real experiment
                 if (!IS_REAL_VOCAB_TIME) {
                     IS_REAL_VOCAB_TIME = true;
-                    display_html(DISPLAY_STRING_DATA["start_real"]); // taken from DISPLAY_STRING_DATA
+                    display_info(DISPLAY_STRING_DATA["start_real"]); // taken from DISPLAY_STRING_DATA
                     show_text_on_next_space_press = false; // idk but if true it breaks
                     pairs_displayed = 0;
                     TAKE_BREAK_COUNTER = 0;
                 }
                 // if real experiment is over, we're over
                 else {
-                    display_html(DISPLAY_STRING_DATA["end"]); // taken from DISPLAY_STRING_DATA
+                    display_info(DISPLAY_STRING_DATA["end"]); // taken from DISPLAY_STRING_DATA
                 }
             }
         }
         // ORDER: we show text second
         else {
-            display_text(random_pair.text);
+            display_answer(random_pair.answer_to_be_read);
             show_text_on_next_space_press = false;
 
         }
@@ -169,8 +188,8 @@ function app() {
 
 
 // set default values
-AUDIO_EXPERIMENT_STATUS.textContent = "Tutorial: 1/" + MAX_VOCAB_PRACTICE_LEN;
-AUDIO_EXPERIMENT_PLAYER.volume = 1.0;
+WIDGET_EXPERIMENT_STATUS.textContent = "Tutorial: 1/" + MAX_VOCAB_PRACTICE_LEN;
+TAG_AUDIO_PLAYER.volume = 1.0;
 
 
 // set focus to main_app div on page load (otherwise, space to begin doesn't work sometimes)

@@ -9,18 +9,18 @@ NOTE: the "./audio" directory path is always prepended to the key by main.js.
 export const VOCAB_DATA = {
     // practice for participant before moving to the real experiment
     practice: {
-        // audio to be played to participant : text to be read by participant
-        "audio1.mp3": "(Tutorial) What did Kamila buy?",
-        "audio2.mp3": "(Tutorial) Who bought a folder?",
-        "audio3.mp3": "(Tutorial) Who bought an upholestering?",
+        // audio to be played to participant : transcription of audio shown to participant : text to be read by participant
+        "placeholder/audio1.mp3": ["(Tutorial) Kamila has bought tulips, not roses.", "(Tutorial) What did Kamila buy?"],
+        "placeholder/audio2.mp3": ["(Tutorial) No, it was Kamila who bought a folder in the supermarket, not Malgosia", "(Tutorial) Who bought a folder?"],
+        "placeholder/audio3.mp3": ["(Tutorial) Kamila has bought an upholstering in the supermarket, not tires.", "(Tutorial) Who bought an upholestering?"],
     },
     // real experiment
     real: {
-        // audio to be played to participant : text to be read by participant
-        "audio1.mp3": "What did Kamila buy?",
-        "audio2.mp3": "Who bought a folder?",
-        "audio3.mp3": "Who bought an upholestering?",
-        "audio4.mp3": "Did Malgosia buy the medallions?",
+        // audio to be played to participant : transcription of audio shown to participant : text to be read by participant
+        "placeholder/audio1.mp3": ["Kamila has bought tulips, not roses.", "What did Kamila buy?"],
+        "placeholder/audio2.mp3": ["No, it was Kamila who bought a folder in the supermarket, not Malgosia", "Who bought a folder?"],
+        "placeholder/audio3.mp3": ["Kamila has bought an upholstering in the supermarket, not tires.", "Who bought an upholestering?"],
+        "placeholder/audio4.mp3": ["No, it was Kamila who bought the medalions, not Malgosia.", "Did Malgosia buy the medallions?"],
     }
 }
 
