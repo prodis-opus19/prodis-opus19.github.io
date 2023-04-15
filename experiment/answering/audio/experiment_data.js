@@ -29,9 +29,9 @@ export const TAKE_BREAK_INTERVAL = 3;
 
 export const DISPLAY_STRING_DATA = {
     // HTML text that is displayed when the webpage is first loaded (inner HTML)
-    start: `<b>Czytanie odpowiedzi</b><br><br>Najpierw usłyszysz nagranie audio (symbol głośnika), a następnie przeczytasz podaną odpowiedź na głos.<br><br><b>UWAGA:</b> po każdym nagraniu/tekście musisz nacisnąć spację, aby przejść do kolejnej odpowiedzi.<br>Pierwsze ${Object.keys(VOCAB_DATA["practice"]).length} odpowiedzi to ćwiczenie/tutorial.<br><br>Wciśnij Spację, aby rozpocząć tutorial.`,
+    start: `<b>Czytanie odpowiedzi</b><br><br>Najpierw usłyszysz nagranie audio, które jest częścią dialogu (symbol słuchawek).<br><br>Po odsłuchaniu nagrania, przeczytasz odpowiedź na głos (symbol mikrofonu), która ma być Twoją reakcją na wcześniejsze nagranie audio.<br><br>Odpowiedź przeczytaj właściwie do kontekstu, ale tak jak najnaturalniej potrafisz.<br><br><b>UWAGA:</b> po każdym nagraniu/tekście musisz nacisnąć spację, aby przejść do kolejnej odpowiedzi.<br>Pierwsze ${Object.keys(VOCAB_DATA["practice"]).length} odpowiedzi to ćwiczenie/tutorial.<br><br>Wciśnij Spację, aby rozpocząć tutorial.`,
     // HTML text displayed when we begin the real experiment (inner HTML)
-    start_real: `<b>Koniec tutorialu</b><br><br>Teraz rozpocznie się właściwy eksperyment, w którym co ${TAKE_BREAK_INTERVAL} odpowiedzi będzie czas na krótką przerwę.<br><br>Proszę przeczytaj na głos \"rozpoczynam eksperyment\".<br><br>Wciśnij Spację, aby rozpocząć eksperyment.`,
+    start_real: `<b>Koniec tutorialu</b><br><br>Teraz rozpocznie się właściwy eksperyment, w którym co ${TAKE_BREAK_INTERVAL} odpowiedzi będzie czas na krótką przerwę.<br><br>Proszę przeczytaj na głos \"rozpoczynam eksperyment\".<br><br>Następnie wciśnij Spację, aby rozpocząć właściwy eksperyment.`,
     // HTML text displayed when reaches TAKE_BREAK_INTERVAL
     take_break: "<b>Czas na krótką przerwę</b><br><br>Możesz teraz odpocząć, lub od razu kontynuuować eksperyment.<br><br>Wciśnij Spację, aby kontynuować.",
     // HTML end text that is displayed when the experiment is over (inner HTML)
