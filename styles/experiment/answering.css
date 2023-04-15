@@ -60,4 +60,5 @@ body {
 
 #audio_container>#audio_player {
     width: 100%;
+    margin-bottom: 1rem;
 }
