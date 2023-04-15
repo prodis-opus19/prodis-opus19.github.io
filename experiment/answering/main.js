@@ -108,6 +108,18 @@ function display_audio(audio_filename, html) {
 }
 
 
+function restart_audio_if_visible() {
+    /*
+    * Play audio again if the audio container is visible.
+    */
+    if (DIV_AUDIO_CONTAINER.style.display === "block") {
+        TAG_AUDIO_PLAYER.pause();
+        TAG_AUDIO_PLAYER.currentTime = 0;
+        TAG_AUDIO_PLAYER.play();
+    }
+}
+
+
 function display_answer(html) {
     /*
     * Unhide answer div and set its text to HTML provided as argument.
@@ -136,53 +148,55 @@ function app() {
     let show_text_on_next_space_press = false;
     // main event loop
     document.addEventListener("keydown", function (event) {
-        if (event.key !== " ") { // ignore if NOT spacebar
+        if (event.key === "r") {
+            restart_audio_if_visible();
             return false;
         }
-        event.preventDefault();
-        // ORDER: we play audio first
-        if (!show_text_on_next_space_press) {
-            // while we still have pairs yet to be displayed
-            if (pairs_displayed < (IS_REAL_VOCAB_TIME ? MAX_VOCAB_REAL_LEN : MAX_VOCAB_PRACTICE_LEN)) {
-                // ORDER injection: if we reached take break interval from "VOCAB_DATA["real"].js"
-                // but if it's practice, we do not create breaks; breaks are disabled during practice
-                if (IS_REAL_VOCAB_TIME && TAKE_BREAK_COUNTER >= TAKE_BREAK_INTERVAL) {
-                    display_info(DISPLAY_STRING_DATA["take_break"]);
-                    TAKE_BREAK_COUNTER = 0;
+        if (event.key === " ") {
+            event.preventDefault();
+            // ORDER: we play audio first
+            if (!show_text_on_next_space_press) {
+                // while we still have pairs yet to be displayed
+                if (pairs_displayed < (IS_REAL_VOCAB_TIME ? MAX_VOCAB_REAL_LEN : MAX_VOCAB_PRACTICE_LEN)) {
+                    // ORDER injection: if we reached take break interval from "VOCAB_DATA["real"].js"
+                    // but if it's practice, we do not create breaks; breaks are disabled during practice
+                    if (IS_REAL_VOCAB_TIME && TAKE_BREAK_COUNTER >= TAKE_BREAK_INTERVAL) {
+                        display_info(DISPLAY_STRING_DATA["take_break"]);
+                        TAKE_BREAK_COUNTER = 0;
+                    }
+                    else {
+                        ++pairs_displayed;
+                        ++TAKE_BREAK_COUNTER;
+                        // get random text-audio pair
+                        random_pair = get_random_pair();
+                        // play audio, not text
+                        display_audio(random_pair.audio, random_pair.audio_transcription);
+                        show_text_on_next_space_press = true;
+                    }
                 }
+                // otherwise, either the practice is over or the experiment is over
                 else {
-                    ++pairs_displayed;
-                    ++TAKE_BREAK_COUNTER;
-                    // get random text-audio pair
-                    random_pair = get_random_pair();
-                    // play audio, not text
-                    display_audio(random_pair.audio, random_pair.audio_transcription);
-                    show_text_on_next_space_press = true;
+                    // if practice is over, start real experiment
+                    if (!IS_REAL_VOCAB_TIME) {
+                        IS_REAL_VOCAB_TIME = true;
+                        display_info(DISPLAY_STRING_DATA["start_real"]); // taken from DISPLAY_STRING_DATA
+                        show_text_on_next_space_press = false; // idk but if true it breaks
+                        pairs_displayed = 0;
+                        TAKE_BREAK_COUNTER = 0;
+                    }
+                    // if real experiment is over, we're over
+                    else {
+                        display_info(DISPLAY_STRING_DATA["end"]); // taken from DISPLAY_STRING_DATA
+                    }
                 }
             }
-            // otherwise, either the practice is over or the experiment is over
+            // ORDER: we show text second
             else {
-                // if practice is over, start real experiment
-                if (!IS_REAL_VOCAB_TIME) {
-                    IS_REAL_VOCAB_TIME = true;
-                    display_info(DISPLAY_STRING_DATA["start_real"]); // taken from DISPLAY_STRING_DATA
-                    show_text_on_next_space_press = false; // idk but if true it breaks
-                    pairs_displayed = 0;
-                    TAKE_BREAK_COUNTER = 0;
-                }
-                // if real experiment is over, we're over
-                else {
-                    display_info(DISPLAY_STRING_DATA["end"]); // taken from DISPLAY_STRING_DATA
-                }
+                display_answer(random_pair.answer_to_be_read);
+                show_text_on_next_space_press = false;
+
             }
         }
-        // ORDER: we show text second
-        else {
-            display_answer(random_pair.answer_to_be_read);
-            show_text_on_next_space_press = false;
-
-        }
-
     });
 }
 
