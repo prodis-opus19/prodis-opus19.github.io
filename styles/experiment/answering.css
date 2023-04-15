@@ -31,8 +31,8 @@ body {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    /* 24-42px @ 900px */
-    font-size: clamp(1.5rem, 0.0938rem + 4.5vw, 2.625rem);
+    /* 24-36px @ 900px */
+    font-size: clamp(1.5rem, 0.5625rem + 3vw, 2.25rem);
     height: 100%;
     justify-content: center;
     max-width: 900px;
@@ -42,8 +42,8 @@ body {
 
 /* amount of pairs left, shown in the top-right corner */
 #main_app>#display_status_widget {
-    /* 18-36px @ 900px */
-    font-size: clamp(1.125rem, -0.2813rem + 4.5vw, 2.25rem);
+    /* 18-28px @ 900px */
+    font-size: clamp(1.125rem, 0.3438rem + 2.5vw, 1.75rem);
     position: fixed;
     right: 1rem;
     top: 0.5rem;
