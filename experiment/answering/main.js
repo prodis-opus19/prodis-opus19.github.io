@@ -75,7 +75,7 @@ function _reset_audio() {
 
 function display_info(html) {
     /*
-    * Unhide info div and set its content to HTML provided as argument.
+    * Unhide info p-tag and set its content to HTML provided as argument.
     */
     // hide other elements
     _reset_audio();
@@ -121,7 +121,7 @@ function restart_audio_if_visible() {
 
 function display_answer(html) {
     /*
-    * Unhide answer div and set its text to HTML provided as argument.
+    * Unhide answer p-tag and set its text to HTML provided as argument.
     */
     // hide other elements
     _reset_audio();
