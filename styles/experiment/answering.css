@@ -54,7 +54,6 @@ body {
 }
 
 #main_app>#big_info_text {
-    color: blue;
     /* 16-24px @ 900px */
     font-size: clamp(1rem, 0.375rem + 2vw, 1.5rem);
 }
