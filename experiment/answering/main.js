@@ -168,6 +168,7 @@ function app() {
                         ++TAKE_BREAK_COUNTER;
                         // get random text-audio pair
                         random_pair = get_random_pair();
+                        console.log(`pairs_displayed=${pairs_displayed};IS_REAL_VOCAB_TIME=${IS_REAL_VOCAB_TIME};TAKE_BREAK_COUNTER=${TAKE_BREAK_COUNTER};random_pair=`, random_pair);
                         // play audio, not text
                         display_audio(random_pair.audio, random_pair.audio_transcription);
                         show_text_on_next_space_press = true;
