@@ -10,12 +10,12 @@ export const VOCAB_DATA = {
     // practice for participant before moving to the real experiment
     practice: {
         // audio to be played to participant : transcription of audio shown to participant : text to be read by participant
-        "tutorial/1.wav": ["Kamila kupiła cukierki w supermarkecie.", "Kamila kupiła lizaki w supermarkecie, a nie cukierki."],
-        "tutorial/2.wav": ["Kamila kupiła chusteczki w supermarkecie.", "Kamila kupiła obrusy w supermarkecie, a nie chusteczki."],
-        "tutorial/3.wav": ["Kamila kupiła szampony w supermarkecie.", "Kamila kupiła mydełka w supermarkecie, a nie szampony."],
-        "tutorial/4.wav": ["Kamila kupiła brokuły w supermarkecie.", "Kamila kupiła bakłażany w supermarkecie, a nie brokuły."],
-        "tutorial/5.wav": ["Kamila kupiła margarynę w supermarkecie.", "Kamila kupiła masło w supermarkecie, a nie margarynę."],
-        "tutorial/6.wav": ["Kamila kupiła wołowinę w supermarkecie.", "Kamila kupiła wieprzowinę w supermarkecie, a nie wołowinę."],
+        "tutorial/1.wav": ["Kamila kupiła cukierki w supermarkecie.", "<b>Przeczytaj zdanie na głos:</b><br>Kamila kupiła lizaki w supermarkecie, a nie cukierki."],
+        "tutorial/2.wav": ["Kamila kupiła chusteczki w supermarkecie.", "<b>Przeczytaj zdanie na głos:</b><br>Kamila kupiła obrusy w supermarkecie, a nie chusteczki."],
+        "tutorial/3.wav": ["Kamila kupiła szampony w supermarkecie.", "<b>Przeczytaj zdanie na głos:</b><br>Kamila kupiła mydełka w supermarkecie, a nie szampony."],
+        "tutorial/4.wav": ["Kamila kupiła brokuły w supermarkecie.", "<b>Przeczytaj zdanie na głos:</b><br>Kamila kupiła bakłażany w supermarkecie, a nie brokuły."],
+        "tutorial/5.wav": ["Kamila kupiła margarynę w supermarkecie.", "<b>Przeczytaj zdanie na głos:</b><br>Kamila kupiła masło w supermarkecie, a nie margarynę."],
+        "tutorial/6.wav": ["Kamila kupiła wołowinę w supermarkecie.", "<b>Przeczytaj zdanie na głos:</b><br>Kamila kupiła wieprzowinę w supermarkecie, a nie wołowinę."],
     },
     // real experiment
     real: {
