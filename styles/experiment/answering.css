@@ -66,13 +66,12 @@ body {
 }
 
 #audio_container>#audio_player {
-    margin-bottom: 1rem;
+    margin-top: 1rem;
     width: 100%;
 }
 
 #answer_text {
     display: none;
-    margin-top: 3rem;
+    margin-bottom: 3rem;
     max-width: 800px;
-
 }
