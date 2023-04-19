@@ -6,12 +6,13 @@ import { show_top_alert } from "/scripts/alert.js";
 const local_storage_available = (typeof (Storage) !== "undefined");
 
 
+/**
+ * Translate buttons to Polish or English.
+ * This is pretty ugly, but I can't think of a better way while using IDs for buttons; I designed them with a single language in mind.
+ *
+ * @param {boolean} translate_to_polish Whether to translate buttons to Polish or English (default=false).
+ */
 function set_nav_btns(translate_to_polish = false) {
-    /*
-    * Translate buttons to Polish or English.
-    * This is pretty ugly, but I can't think of a better way while using IDs for
-    *     buttons; I designed them with a single language in mind.
-    */
     const btn_names = {
         // HTML element ID : English string : Polish string
         "project_button": ["Project", "Projekt"],
@@ -34,15 +35,17 @@ function set_nav_btns(translate_to_polish = false) {
 }
 
 
-function set_english(show_alert = true) {
-    /*
-    * Set English language by:
-    * a) Unhiding HTML elements with lang attribute set to "en" and hiding "pl".
-    * b) Setting the flag inside navbar to United States.
-    * c) Setting navbar buttons to English by ID.
-    * d) Setting global HTML language tag to "en" (used by Chrome's autotranslate, among other things).
-    * e) Setting localStorage "lang" to "en" so it's saved between reloads.
-    */
+/**
+ * Set English language by:
+ * - a) Unhiding HTML elements with lang attribute set to `en` and hiding `pl`.
+ * - b) Setting the flag inside navbar to United States.
+ * - c) Setting navbar buttons to English by ID.
+ * - d) Setting global HTML language tag to `en` (used by Chrome's autotranslate, among other things).
+ * - e) Setting localStorage `lang` to `en` so it's saved between reloads.
+ *
+ * @param {boolean} show_alert Show alert at the top of the page (default=true).
+ */
+function _set_english(show_alert = true) {
     if (show_alert) {
         show_top_alert("Changed language to English.");
     }
@@ -56,15 +59,17 @@ function set_english(show_alert = true) {
 }
 
 
-function set_polish(show_alert = true) {
-    /*
-    * Set Polish language by:
-    * a) Unhiding HTML elements with lang attribute set to "pl" and hiding "en".
-    * b) Setting the flag inside navbar to Poland.
-    * c) Setting navbar buttons to Polish by ID.
-    * d) Setting global HTML language tag to "pl" (used by Chrome's autotranslate, among other things).
-    * e) Setting localStorage "lang" to "pl" so it's saved between reloads.
-    */
+/**
+ * Set Polish language by:
+ * - a) Unhiding HTML elements with lang attribute set to `pl` and hiding `en`.
+ * - b) Setting the flag inside navbar to Poland.
+ * - c) Setting navbar buttons to Polish by ID.
+ * - d) Setting global HTML language tag to `pl` (used by Chrome's autotranslate, among other things).
+ * - e) Setting localStorage `lang` to `pl` so it's saved between reloads.
+ *
+ * @param {boolean} show_alert Show alert at the top of the page (default=true).
+ */
+function _set_polish(show_alert = true) {
     if (show_alert) {
         show_top_alert("Zmieniono język na Polski.");
     }
@@ -78,21 +83,21 @@ function set_polish(show_alert = true) {
 }
 
 
+/**
+ * Toggle between Polish or English.
+ */
 export function toggle_language() {
-    /*
-    * Toggle between Polish or English.
-    */
     // close mobile floating menu that appears after clicking the hamburger icon
     document.getElementById("mobile_menu_toggle").checked = false;
     // if polish is hidden, then set polish
-    (document.body.className === "hide_polish") ? set_polish() : set_english();
+    (document.body.className === "hide_polish") ? _set_polish() : _set_english();
 }
 
 
+/**
+ * Set Polish based on local storage and browser's language, but prioritize local storage.
+ */
 function set_language_on_page_load() {
-    /*
-    * Set Polish based on local storage and browser's language, but prioritize local storage.
-    */
     // ignore ancient browsers, keep everything in english
     if (!local_storage_available) {
         return;
@@ -103,7 +108,7 @@ function set_language_on_page_load() {
     }
     // if user changed to polish or browser's language is polish, set polish
     if (window.localStorage.getItem("lang") === "pl" || navigator.language.slice(0, 2) === "pl") {
-        set_polish(false);
+        _set_polish(false);
     }
     // otherwise, leave everything in english as-is
 }

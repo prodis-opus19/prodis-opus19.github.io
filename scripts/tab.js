@@ -6,16 +6,20 @@ export const BUTTON_LINKS = document.getElementsByClassName("tab_link");
 const DEFAULT_TAB = BUTTON_LINKS[0].id.slice(0, -7);
 
 
+/**
+ * Unhide full page tab and highlight its corresponding button.
+ *
+ * If `category` is invalid, use default category (first `<a>` tag inside `<nav>`).
+ * If `add_history` is `false`, then no history entry will be created for the previous tab.
+ * - This will also scroll the page to the top.
+ * This is a hack for when the listener aims to re-open full page from history:
+ * - will not create history entry.
+ * - will stay at previous scroll position
+ *
+ * @param {string | null} category Tab to open (default=null).
+ * @param {boolean} add_history Append tab to history using API (default=true).
+ */
 export function open_tab(category = null, add_history = true) {
-    /*
-    Unhide full page tab and highlight its corresponding button.
-    If "category" is invalid, use default category (first <a> tag inside <nav>).
-    If "add_history" is False, then no history entry will be created for the previous tab.
-    This will also scroll the page to the top.
-    This is a hack for when the listener aims to re-open full page from history:
-    - will not create history entry.
-    - will stay at previous scroll position
-    */
     // close mobile floating menu that appears after clicking the hamburger icon
     document.getElementById("mobile_menu_toggle").checked = false;
     // hide all elements with class="full_page_tab" by default
@@ -55,11 +59,12 @@ window.addEventListener("popstate", (event) => {
 });
 
 
+/**
+ * Set tab using URL parameters.
+ *
+ * If no tab parameters are provided, then use first `<a>` inside `<nav>`.
+ */
 function get_url_parameters() {
-    /*
-    Set tab using URL parameters.
-    If no tab parameters are provided, then use first <a> inside <nav>.
-    */
     // tab parameter (about, projects), e.g., website.com/index.html?tab=about
     const param_tab = new URLSearchParams(window.location.search).get("tab");
     // if null, use first tab in <nav>
