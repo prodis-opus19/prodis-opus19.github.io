@@ -4,10 +4,12 @@ let LAST_TAG_OBJ = null; // which element was copied last time
 const VERTICAL_OFFSET = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) ? 110 : 76; // offset for "COPIED!" popup based on mobile/desktop
 
 
+/**
+ * Show alert (as text) at the top of the webpage.
+ *
+ * @param {string} content Text to display.
+ */
 export function show_top_alert(content) {
-    /*
-    * Show alert at the top.
-    */
     const div = document.getElementById("top_alert");
     div.textContent = content;
     // remove animation, trigger reflow, add animation
@@ -17,16 +19,18 @@ export function show_top_alert(content) {
 }
 
 
-function show_copy_popup(tag) {
-    /*
-    * Helper function, called by copy_to_clipboard().
-    * Show popup under the div passed using "this".
-    *
-    * If "isMobile" is True, then reduce Y offset from 130 to 10.
-    * This is because the div is moved down on mobile for some reason (tested on iOS Safari).
-    *
-    * If clicked same tag multiple times, do not re-calculate position & count how many times clicked.
-    */
+/**
+ * Helper function, called by copy_to_clipboard().
+ * Show popup under the div passed using "this".
+ *
+ * Uses global `VERTICAL_OFFSET` to modify vertical offset for mobile devices.
+ * This is because the div is moved down on mobile for some reason (tested on iOS Safari).
+ *
+ * If clicked same tag multiple times, do not re-calculate position & count how many times clicked.
+ *
+ * @param {object} tag The div that called the function, provided as `this`.
+ */
+function _show_copy_popup(tag) {
     // get copy popup element that will be shown on click
     const copy_element = document.getElementById("copy_popup");
     // remove animation
@@ -86,12 +90,15 @@ function show_copy_popup(tag) {
 }
 
 
+/**
+ * Copy content provided to clipboard.
+ *
+ * @param {object} tag The div that called the function, provided as `this`.
+ * @param {string} to_copy Text to copy.
+ */
 export function copy_to_clipboard(tag, to_copy) {
-    /*
-    * Copy content provided to clipboard.
-    */
     // copy text to clipboard
     navigator.clipboard.writeText(to_copy);
     // show popup under element clicked
-    show_copy_popup(tag);
+    _show_copy_popup(tag);
 }
