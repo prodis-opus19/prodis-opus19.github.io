@@ -122,14 +122,12 @@ function display_audio(audio_filename, html) {
 
 
 /**
- * Play audio again if the audio container is visible.
+ * Play audio again when "r" key is pressed.
  */
-function restart_audio_if_visible() {
-    if (DIV_AUDIO_CONTAINER.style.display === "block") {
-        TAG_AUDIO_PLAYER.pause();
-        TAG_AUDIO_PLAYER.currentTime = 0;
-        TAG_AUDIO_PLAYER.play();
-    }
+function restart_audio_on_r_key() {
+    TAG_AUDIO_PLAYER.pause();
+    TAG_AUDIO_PLAYER.currentTime = 0;
+    TAG_AUDIO_PLAYER.play();
 }
 
 
@@ -164,7 +162,7 @@ function app() {
     // main event loop
     document.addEventListener("keydown", function (event) {
         if (event.key === "r") {
-            restart_audio_if_visible();
+            restart_audio_on_r_key();
             return false;
         }
         if (event.key === " ") {
