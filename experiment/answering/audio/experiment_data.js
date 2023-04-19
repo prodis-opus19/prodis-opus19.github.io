@@ -10,7 +10,6 @@ export const VOCAB_DATA = {
     // practice for participant before moving to the real experiment
     practice: {
         // audio to be played to participant : transcription of audio shown to participant : text to be read by participant
-        // "wav/i2.wav": ["Kamila kupiła róże w supermarkecie.", "Kamila kupiła tulipany w supermarkecie, a nie róże."],
         "wav/i2.wav": ["Kamila kupiła róże w supermarkecie.", "Kamila kupiła tulipany w supermarkecie, a nie róże."],
         "wav/i3.wav": ["Kamila kupiła wycieraczki w supermarkecie.", "Kamila kupiła katalizator w supermarkecie, a nie wycieraczki."],
         "wav/i4.wav": ["Kamila kupiła aspirynę w supermarkecie w supermarkecie.", "Kamila kupiła witaminy w supermarkecie, a nie aspirynę."],
@@ -25,7 +24,6 @@ export const VOCAB_DATA = {
     // real experiment
     real: {
         // audio to be played to participant : transcription of audio shown to participant : text to be read by participant
-        // "wav/i2.wav": ["Kamila kupiła róże w supermarkecie.", "Kamila kupiła tulipany w supermarkecie, a nie róże."],
         "wav/i12.wav": ["Kamila kupiła wiskozę w supermarkecie.", "Kamila kupiła trykotaże w supermarkecie, a nie wiskozę."],
         "wav/i13.wav": ["Kamila kupiła ogumienie w supermarkecie.", "Kamila kupiła tapicerki w supermarkecie, a nie ogumienie."],
         "wav/i14.wav": ["Kamila kupiła komody w supermarkecie.", "Kamila kupiła sekretarzyki w supermarkecie, a nie komody."],
