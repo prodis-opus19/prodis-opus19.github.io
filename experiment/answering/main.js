@@ -20,11 +20,20 @@ const P_ANSWER_TEXT = document.getElementById("answer_text");
 let IS_REAL_VOCAB_TIME = false; // if false, we run practice with no breaks
 
 
+/**
+ * @typedef {Object} AudioPair
+ * @property {string} audio The X-coordinate.
+ * @property {string} audio_transcription The Y-coordinate.
+ * @property {string} answer_to_be_read The Y-coordinate.
+ */
+
+
+/**
+ * Get a random `audio`+`audio_transcription`+`answer_to_be_read` pair (is it still a pair if there's 3 of them?), then delete it from the global variable, so it doesn't appear again.
+ *
+ * @return {AudioPair} Random audio pair object.
+ */
 function get_random_pair() {
-    /*
-    * Get a random audio+text pair, then delete it from the global variable,
-    *     so it doesn't appear again.
-    */
     let len;
     let random_key;
     let random_value;
@@ -64,19 +73,21 @@ function get_random_pair() {
 }
 
 
+/**
+ * Helper function: stop audio playback and set its timer to 0.
+ */
 function _reset_audio() {
-    /*
-    * Helper function: stop audio playback and set its timer to 0.
-    */
     TAG_AUDIO_PLAYER.pause();
     TAG_AUDIO_PLAYER.currentTime = 0;
 }
 
 
+/**
+ * Unhide info p-tag and set its content to HTML provided as argument.
+ *
+ * @param {string} html Text to be displayed.
+ */
 function display_info(html) {
-    /*
-    * Unhide info p-tag and set its content to HTML provided as argument.
-    */
     // hide other elements
     _reset_audio();
     DIV_AUDIO_CONTAINER.style.display = "none";
@@ -88,12 +99,15 @@ function display_info(html) {
 }
 
 
+/**
+ * Unhide audio div, set its text and audio player, then start playing the audio.
+ *
+ * NOTE: `audio/` is prepended at the beginning.
+ *
+ * @param {string} audio_filename Path to audio file, e.g., `wav/i85.wav`.
+ * @param {string} html Text to be displayed.
+ */
 function display_audio(audio_filename, html) {
-    /*
-    * Unhide audio div, set its text and audio player, then start playing the audio.
-    *
-    * NOTE: "audio/" is prepended at the beginning.
-    */
     // hide other elements
     _reset_audio();
     P_BIG_INFO_TEXT.style.display = "none";
@@ -107,10 +121,10 @@ function display_audio(audio_filename, html) {
 }
 
 
+/**
+ * Play audio again if the audio container is visible.
+ */
 function restart_audio_if_visible() {
-    /*
-    * Play audio again if the audio container is visible.
-    */
     if (DIV_AUDIO_CONTAINER.style.display === "block") {
         TAG_AUDIO_PLAYER.pause();
         TAG_AUDIO_PLAYER.currentTime = 0;
@@ -119,10 +133,12 @@ function restart_audio_if_visible() {
 }
 
 
+/**
+ * Unhide answer p-tag and set its text to HTML provided as argument.
+ *
+ * @param {string} html Text to be displayed.
+ */
 function display_answer(html) {
-    /*
-    * Unhide answer p-tag and set its text to HTML provided as argument.
-    */
     // hide other elements
     _reset_audio();
     DIV_AUDIO_CONTAINER.style.display = "none";
@@ -134,12 +150,12 @@ function display_answer(html) {
 }
 
 
+/**
+ * Main event loop.
+ *
+ * Plays audio and displays texts still there is nothing left in the global "VOCAB_DATA["real"]" variable.
+ */
 function app() {
-    /*
-    * Main event loop.
-    *
-    * Plays audio and displays texts still there is nothing left in the global "VOCAB_DATA["real"]" variable.
-    */
     display_info(DISPLAY_STRING_DATA["start"]); // taken from DISPLAY_STRING_DATA
     let pairs_displayed = 0;
     let TAKE_BREAK_COUNTER = 0;

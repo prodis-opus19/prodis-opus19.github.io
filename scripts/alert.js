@@ -28,7 +28,7 @@ export function show_top_alert(content) {
  *
  * If clicked same tag multiple times, do not re-calculate position & count how many times clicked.
  *
- * @param {object} tag The div that called the function, provided as `this`.
+ * @param {Object} tag The div that called the function, provided as `this`.
  */
 function _show_copy_popup(tag) {
     // get copy popup element that will be shown on click
@@ -93,7 +93,7 @@ function _show_copy_popup(tag) {
 /**
  * Copy content provided to clipboard.
  *
- * @param {object} tag The div that called the function, provided as `this`.
+ * @param {Object} tag The div that called the function, provided as `this`.
  * @param {string} to_copy Text to copy.
  */
 export function copy_to_clipboard(tag, to_copy) {

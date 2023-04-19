@@ -22,11 +22,14 @@ let CURRENT_GROUP_NUMBER = "1"; // changed using open_group_by_number();
 let CURRENT_TEXT_LETTER = "A"; // changed using open_text_by_letter();
 
 
+/**
+ * Get letter that comes after alphabetically till `D`, then loop back to `A`.
+ * Ugly, but simple and error-proof.
+ *
+ * @param {string} letter Letter to check.
+ * @returns
+ */
 function _get_next_letter(letter) {
-    /*
-    * Get letter that comes after alphabetically till "D", then loop back to "A".
-    * Ugly, but simple and error-proof.
-    */
     switch (letter) {
         case "A":
             return "B";
@@ -42,11 +45,15 @@ function _get_next_letter(letter) {
     }
 }
 
+
+/**
+ * Get letter that comes before alphabetically till `A`, then loop back to `D`.
+ * Ugly, but simple and error-proof.
+ *
+ * @param {string} letter Letter to check.
+ * @returns
+ */
 function _get_previous_letter(letter) {
-    /*
-    * Get letter that comes before alphabetically till "A", then loop back to "D".
-    * Ugly, but simple and error-proof.
-    */
     switch (letter) {
         case "D":
             return "C";
@@ -62,12 +69,13 @@ function _get_previous_letter(letter) {
     }
 }
 
+
+/**
+ * Scroll to the beginning of the text.
+ * Called when switching between different texts.
+ * If global `AUTOSCROLL_CHECKBOX` checkbox is unchecked, do nothing.
+ */
 function scroll_up_to_text() {
-    /*
-    * Scroll to the beginning of the text.
-    * Called when switching between different texts.
-    * If autoscroll checkbox is unchecked, do nothing.
-    */
     if (AUTOSCROLL_CHECKBOX.checked) {
         // smooth, top of div vertically, center horizontally
         SCROLL_TARGET.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -75,19 +83,23 @@ function scroll_up_to_text() {
 }
 
 
+/**
+ * Set indicator at the bottom to group number and letter, e.g., `1A`, `2D`, `3C`.
+ */
 function _set_currently_selected_group_indicator() {
-    /*
-    Set indicator at the bottom to group number and letter, e.g., 1A, 2D, 3C.
-    */
     SELECTION_INDICATOR_BOTTOM.textContent = CURRENT_GROUP_NUMBER + CURRENT_TEXT_LETTER;
 }
 
 
+/**
+ * Open specific group (`1`, `2`, `3`) that contains texts.
+ * If no argument provided, use global variable.
+ *
+ * This is actually a string, because to get the element by ID, you'd have to create a string anyway.
+ *
+ * @param {string} number Group number (as string) to open.
+ */
 function open_group_by_number(number = CURRENT_GROUP_NUMBER) {
-    /*
-    * Open specific group (1, 2, 3) that contains texts.
-    * If no argument provided, use global variable.
-    */
     // close dropdown menu (if doesn't exist, no error)
     GROUP_DROPDOWN.removeAttribute("open");
     // hide all groups (1, 2, 3)
@@ -106,11 +118,14 @@ function open_group_by_number(number = CURRENT_GROUP_NUMBER) {
     }
 }
 
+
+/**
+ * Open specific text (`A`, `B`, `C`, `D`).
+ * If no argument provided, use global variable.
+ *
+ * @param {string} letter Group letter to open.
+ */
 function open_text_by_letter(letter = CURRENT_TEXT_LETTER) {
-    /*
-    * Open specific text (A, B, C, D).
-    * If no argument provided, use global variable.
-    */
     // close dropdown menu (if doesn't exist, no error)
     TEXT_DROPDOWN.removeAttribute("open");
     // hide all texts (1A, 1B, 1C, ..., 2B, 2C, 2D, ..., 3B, 3D, etc.)
@@ -129,27 +144,30 @@ function open_text_by_letter(letter = CURRENT_TEXT_LETTER) {
     }
 }
 
+
+/**
+ * Open previous text in order, e.g., `B` -> `A`.
+ * Loop back from `D` back to `A`.
+ */
 function open_previous_text() {
-    /*
-    * Open previous text in order, e.g., B -> A.
-    * Loop back from D back to A.
-    */
     const previous_letter = _get_previous_letter(CURRENT_TEXT_LETTER);
     open_text_by_letter(previous_letter);
     // scroll to beginning of text
     scroll_up_to_text();
 }
 
+
+/**
+ * Loop back from `A` back to `D`.
+ * Open next text in order, e.g., `A` -> `B`.
+ */
 function open_next_text() {
-    /*
-    * Loop back from A back to D.
-    * Open next text in order, e.g., A -> B.
-    */
     const next_letter = _get_next_letter(CURRENT_TEXT_LETTER);
     open_text_by_letter(next_letter);
     // scroll to beginning of text
     scroll_up_to_text();
 }
+
 
 document.addEventListener("keydown", function (event) {
     switch (event.key) {
@@ -179,10 +197,11 @@ document.addEventListener("keydown", function (event) {
     }
 });
 
+
+/**
+ * Toggle article's width: narrow (default), wide.
+ */
 FULLWIDTH_CHECKBOX.addEventListener("change", (event) => {
-    /*
-    * Toggle article's width: narrow (default), wide.
-    */
     const checked = event.currentTarget.checked;
     for (const div of GROUP_CONTAINERS) {
         if (checked) {
@@ -194,10 +213,11 @@ FULLWIDTH_CHECKBOX.addEventListener("change", (event) => {
     }
 })
 
+
+/**
+ * Set global number and letter based on local storage.
+ */
 function set_global_variables_on_page_load() {
-    /*
-    * Set global number and letter based on local storage.
-    */
     // ignore ancient browsers, keep everything as-is
     if (!local_storage_available) {
         return;
