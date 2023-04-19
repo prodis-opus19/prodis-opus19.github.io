@@ -177,6 +177,7 @@ function app() {
                     // but if it's practice, we do not create breaks; breaks are disabled during practice
                     if (IS_REAL_VOCAB_TIME && TAKE_BREAK_COUNTER >= TAKE_BREAK_INTERVAL) {
                         display_info(DISPLAY_STRING_DATA["take_break"]);
+                        console.log(`Taking a break, because counter=${TAKE_BREAK_COUNTER} reached interval=${TAKE_BREAK_INTERVAL}.`);
                         TAKE_BREAK_COUNTER = 0;
                     }
                     else {
