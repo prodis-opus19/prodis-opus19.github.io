@@ -122,9 +122,10 @@ function display_audio(audio_filename, html) {
 
 
 /**
- * Play audio again when "r" key is pressed.
+ * Show audio div and play audio again when "r" key is pressed.
  */
 function restart_audio_on_r_key() {
+    DIV_AUDIO_CONTAINER.style.display = "block";
     TAG_AUDIO_PLAYER.pause();
     TAG_AUDIO_PLAYER.currentTime = 0;
     TAG_AUDIO_PLAYER.play();
