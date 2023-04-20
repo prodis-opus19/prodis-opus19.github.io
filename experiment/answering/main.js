@@ -49,6 +49,7 @@ function get_random_pair() {
         random_value = VOCAB_DATA["real"][random_key];
         delete VOCAB_DATA["real"][random_key];
         // set for status display in top right corner
+        // the "Experiment" string is replaced with "Przerwa" during break, so don't change it
         WIDGET_EXPERIMENT_STATUS.textContent = `Eksperyment: ${(MAX_VOCAB_REAL_LEN - len) + 1}/${MAX_VOCAB_REAL_LEN}`;
     }
     else { // if practice vocab
@@ -176,6 +177,8 @@ function app() {
                     // but if it's practice, we do not create breaks; breaks are disabled during practice
                     if (IS_REAL_VOCAB_TIME && TAKE_BREAK_COUNTER >= TAKE_BREAK_INTERVAL) {
                         display_info(DISPLAY_STRING_DATA["take_break"]);
+                        // set top right widget to display przerwa
+                        WIDGET_EXPERIMENT_STATUS.textContent = WIDGET_EXPERIMENT_STATUS.textContent.replace("Eksperyment", "Przerwa");
                         console.log(`Taking a break, because counter=${TAKE_BREAK_COUNTER} reached interval=${TAKE_BREAK_INTERVAL}.`);
                         TAKE_BREAK_COUNTER = 0;
                     }
