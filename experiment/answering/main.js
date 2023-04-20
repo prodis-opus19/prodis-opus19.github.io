@@ -18,6 +18,7 @@ const SPAN_AUDIO_TEXT = document.getElementById("audio_text");
 const P_ANSWER_TEXT = document.getElementById("answer_text");
 // changed during runtime
 let IS_REAL_VOCAB_TIME = false; // if false, we run practice with no breaks
+let CAN_PRESS_R_KEY = false; // if false, will not show audio div on R
 
 
 /**
@@ -124,12 +125,19 @@ function display_audio(audio_filename, html) {
 
 /**
  * Show audio div and play audio again when "r" key is pressed.
+ *
+ * This will only run if the global variable `CAN_PRESS_R_KEY` is true.
  */
 function restart_audio_on_r_key() {
-    DIV_AUDIO_CONTAINER.style.display = "block";
-    TAG_AUDIO_PLAYER.pause();
-    TAG_AUDIO_PLAYER.currentTime = 0;
-    TAG_AUDIO_PLAYER.play();
+    if (CAN_PRESS_R_KEY) {
+        DIV_AUDIO_CONTAINER.style.display = "block";
+        TAG_AUDIO_PLAYER.pause();
+        TAG_AUDIO_PLAYER.currentTime = 0;
+        TAG_AUDIO_PLAYER.play();
+    }
+    else {
+        console.log("User pressed 'R', but CAN_PRESS_R_KEY is false, ignoring.");
+    }
 }
 
 
@@ -176,6 +184,7 @@ function app() {
                     // ORDER injection: if we reached take break interval from "VOCAB_DATA["real"].js"
                     // but if it's practice, we do not create breaks; breaks are disabled during practice
                     if (IS_REAL_VOCAB_TIME && TAKE_BREAK_COUNTER >= TAKE_BREAK_INTERVAL) {
+                        CAN_PRESS_R_KEY = false;
                         display_info(DISPLAY_STRING_DATA["take_break"]);
                         // set top right widget to display przerwa
                         WIDGET_EXPERIMENT_STATUS.textContent = WIDGET_EXPERIMENT_STATUS.textContent.replace("Eksperyment", "Przerwa");
@@ -183,11 +192,12 @@ function app() {
                         TAKE_BREAK_COUNTER = 0;
                     }
                     else {
+                        CAN_PRESS_R_KEY = true; // allow restarting audio while audio div is displayed, it actually makes sense here
                         ++pairs_displayed;
                         ++TAKE_BREAK_COUNTER;
                         // get random text-audio pair
                         random_pair = get_random_pair();
-                        console.log(`pairs_displayed=${pairs_displayed};IS_REAL_VOCAB_TIME=${IS_REAL_VOCAB_TIME};TAKE_BREAK_COUNTER=${TAKE_BREAK_COUNTER};random_pair=${JSON.stringify(random_pair)}`);
+                        console.log(`pairs_displayed=${pairs_displayed};IS_REAL_VOCAB_TIME=${IS_REAL_VOCAB_TIME};TAKE_BREAK_COUNTER=${TAKE_BREAK_COUNTER};CAN_PRESS_R_KEY=${CAN_PRESS_R_KEY};random_pair=${JSON.stringify(random_pair)}`);
                         // play audio, not text
                         display_audio(random_pair.audio, random_pair.audio_transcription);
                         show_text_on_next_space_press = true;
@@ -197,6 +207,7 @@ function app() {
                 else {
                     // if practice is over, start real experiment
                     if (!IS_REAL_VOCAB_TIME) {
+                        CAN_PRESS_R_KEY = false;
                         IS_REAL_VOCAB_TIME = true;
                         display_info(DISPLAY_STRING_DATA["start_real"]); // taken from DISPLAY_STRING_DATA
                         show_text_on_next_space_press = false; // idk but if true it breaks
@@ -205,12 +216,14 @@ function app() {
                     }
                     // if real experiment is over, we're over
                     else {
+                        CAN_PRESS_R_KEY = false;
                         display_info(DISPLAY_STRING_DATA["end"]); // taken from DISPLAY_STRING_DATA
                     }
                 }
             }
             // ORDER: we show text second
             else {
+                CAN_PRESS_R_KEY = true;
                 display_answer(random_pair.answer_to_be_read);
                 show_text_on_next_space_press = false;
 
