@@ -22,7 +22,7 @@ export const VOCAB_DATA = {
         // audio to be played to participant : transcription of audio shown to participant : text to be read by participant
         "real/i2.wav": ["Kamila kupiła róże w supermarkecie.", "Kamila kupiła tulipany w supermarkecie, a nie róże."],
         "real/i3.wav": ["Kamila kupiła wycieraczki w supermarkecie.", "Kamila kupiła katalizator w supermarkecie, a nie wycieraczki."],
-        "real/i4.wav": ["Kamila kupiła aspirynę w supermarkecie w supermarkecie.", "Kamila kupiła witaminy w supermarkecie, a nie aspirynę."],
+        "real/i4.wav": ["Kamila kupiła aspirynę w supermarkecie.", "Kamila kupiła witaminy w supermarkecie, a nie aspirynę."],
         "real/i5.wav": ["Kamila kupiła paluszki w supermarkecie.", "Kamila kupiła makaroniki w supermarkecie, a nie paluszki."],
         "real/i6.wav": ["Kamila kupiła ogrzewanie w supermarkecie.", "Kamila kupiła kopaliny w supermarkecie, a nie ogrzewanie."],
         "real/i7.wav": ["Kamila kupiła cygara w supermarkecie.", "Kamila kupiła papierosy w supermarkecie, a nie cygara."],
