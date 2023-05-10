@@ -70,7 +70,6 @@ function _get_following_letters(str) {
     for (let i = 1; i < temp.length; ++i) { // get next letter, e.g., "A" -> "B", "B" -> "C"
         res.push(_get_next_letter(temp[i]));
     }
-    console.log(res);
     return res.join(""); // turn array into string
 }
 
@@ -97,10 +96,8 @@ function predict_text_reading_order(str) {
 
 
 document.getElementById("read_order_btn").addEventListener("click", function () {
-    console.log("clicked");
     let raw_str = document.getElementById('read_order').value;
     const output = document.getElementById("next_group_output");
-    console.log("you provided:", raw_str);
     if (!raw_str) {
         console.warn("No string provided.");
     } else if (raw_str.length != 5) {
