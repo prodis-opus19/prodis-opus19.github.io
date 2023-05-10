@@ -1,6 +1,6 @@
 import { _get_next_letter } from "/scripts/letter.js";
 
-document.getElementById("simple_count_words_btn").addEventListener("click", function () {
+document.getElementById("btn_simple_count_words").addEventListener("click", function () {
     let raw_str = document.getElementById('simple_count_words').value;
     let count = 0;
     // keep at 0 on empty string
@@ -11,11 +11,11 @@ document.getElementById("simple_count_words_btn").addEventListener("click", func
         const words_split = raw_str.split(' '); // split at newlines
         count = words_split.length;
     }
-    document.getElementById("simple_word_count_output").textContent = count;
+    document.getElementById("output_simple_word_count").textContent = count;
 });
 
 
-document.getElementById("uniq_words_btn").addEventListener("click", function () {
+document.getElementById("btn_uniq_words").addEventListener("click", function () {
     let raw_str = document.getElementById('uniq_words').value;
     let count_unique = 0, count_total = 0, count_ratio = 0;
     // keep at 0 on empty string
@@ -30,9 +30,9 @@ document.getElementById("uniq_words_btn").addEventListener("click", function () 
         count_ratio = (count_unique / count_total) * 100;
         count_ratio = Math.round(count_ratio * 100) / 100; // round to two digits
     }
-    document.getElementById("stat_unique").textContent = count_unique;
-    document.getElementById("stat_total").textContent = count_total;
-    document.getElementById("stat_ratio").textContent = count_ratio;
+    document.getElementById("output_stat_unique").textContent = count_unique;
+    document.getElementById("output_stat_total").textContent = count_total;
+    document.getElementById("output_stat_ratio").textContent = count_ratio;
 });
 
 
@@ -95,9 +95,9 @@ function predict_text_reading_order(str) {
 }
 
 
-document.getElementById("read_order_btn").addEventListener("click", function () {
+document.getElementById("btn_read_order").addEventListener("click", function () {
     let raw_str = document.getElementById('read_order').value;
-    const output = document.getElementById("next_group_output");
+    const output = document.getElementById("output_next_group");
     if (!raw_str) {
         console.warn("No string provided.");
     } else if (raw_str.length != 5) {

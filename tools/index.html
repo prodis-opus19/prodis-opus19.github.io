@@ -37,9 +37,9 @@
             </hgroup>
             <form autocomplete="off">
                 <textarea id="simple_count_words" name="simple_count_words" rows="10" placeholder="Paste text here."></textarea>
-                <button id="simple_count_words_btn" type="button">Count!</button>
+                <button id="btn_simple_count_words" type="button">Count!</button>
                 <div class="text_center">
-                    <p>Number of words: <span id="simple_word_count_output">0</span>.</p>
+                    <p>Number of words: <span id="output_simple_word_count">0</span>.</p>
                 </div>
             </form>
         </section>
@@ -53,11 +53,11 @@
             </hgroup>
             <form autocomplete="off">
                 <textarea id="uniq_words" name="uniq_words" rows="10" placeholder="Paste text here."></textarea>
-                <button id="uniq_words_btn" type="button">Compare!</button>
+                <button id="btn_uniq_words" type="button">Compare!</button>
                 <div class="text_center">
-                    <p>Number of unique words: <span id="stat_unique">0</span>.</p>
-                    <p>Total number of words: <span id="stat_total">0</span>.</p>
-                    <p>Unique-to-total word ratio: <span id="stat_ratio">0</span>%.</p>
+                    <p>Number of unique words: <span id="output_stat_unique">0</span>.</p>
+                    <p>Total number of words: <span id="output_stat_total">0</span>.</p>
+                    <p>Unique-to-total word ratio: <span id="output_stat_ratio">0</span>%.</p>
                 </div>
             </form>
         </section>
@@ -83,9 +83,9 @@
                 <input type="text" id="read_order" value="1ABCD" placeholder="Paste text here.">
                 <input type="number" id="read_order_amount_number" value="5">
                 <br>
-                <button id="read_order_btn" type="button">Get next!</button>
+                <button id="btn_read_order" type="button">Get next!</button>
                 <div class="text_center">
-                    <p>Output:<br><span id="next_group_output">...</span></p>
+                    <p>Output:<br><span id="output_next_group">...</span></p>
                 </div>
             </form>
         </section>
