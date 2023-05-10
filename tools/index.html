@@ -62,6 +62,34 @@
             </form>
         </section>
 
+        <section>
+            <hgroup>
+                <h2>Text reading order</h2>
+                <h3>Get list of texts for the next participant in the correct order.</h3>
+            </hgroup>
+            <div class="read_order_example">
+                <p>The following logic is used:</p>
+                <ul>
+                    <li>Participant 1: Group 1, ABCD</li>
+                    <li>Participant 2: Group 2, BCDA</li>
+                    <li>Participant 3: Group 3, CDAB</li>
+                    <li>Participant 4: Group 1, DABC</li>
+                    <li>Participant 5: Group 2, ABCD</li>
+                    <li>Participant 6: Group 3, BCDA</li>
+                </ul>
+                <p>Enter '1ABCD, '2BCDA', '3CDAB', and so on in the field below, then select the amount (e.g., 5).</p>
+            </div>
+            <form autocomplete="off">
+                <input type="text" id="read_order" value="1ABCD" placeholder="Paste text here.">
+                <input type="number" id="read_order_amount_number" value="5">
+                <br>
+                <button id="read_order_btn" type="button">Get next!</button>
+                <div class="text_center">
+                    <p>Output:<br><span id="next_group_output">...</span></p>
+                </div>
+            </form>
+        </section>
+
     </main>
 
     <footer>

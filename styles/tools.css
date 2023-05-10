@@ -17,6 +17,12 @@
     margin-top: 20px;
 }
 
+.read_order_example>* {
+    font-size: 80%;
+    color: var(--secondary);
+    margin: 1em;
+}
+
 section {
     margin-inline: auto;
     max-width: 600px;

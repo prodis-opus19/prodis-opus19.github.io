@@ -1,3 +1,4 @@
+import { _get_previous_letter, _get_next_letter } from "/scripts/letter.js";
 // GLOBAL VARIABLES
 const GROUP_DROPDOWN = document.getElementById("group_dropdown");
 const GROUP_CONTAINERS = document.getElementsByClassName("group_container");
@@ -20,54 +21,6 @@ const local_storage_available = (typeof (Storage) !== "undefined");
 // default values
 let CURRENT_GROUP_NUMBER = "1"; // changed using open_group_by_number();
 let CURRENT_TEXT_LETTER = "A"; // changed using open_text_by_letter();
-
-
-/**
- * Get letter that comes after alphabetically till `D`, then loop back to `A`.
- * Ugly, but simple and error-proof.
- *
- * @param {string} letter Letter to check.
- * @returns
- */
-function _get_next_letter(letter) {
-    switch (letter) {
-        case "A":
-            return "B";
-        case "B":
-            return "C";
-        case "C":
-            return "D";
-        case "D":
-            return "A";
-        default:
-            console.error(`Letter provided ${letter} is not 'A', 'B', 'C' or 'D', using 'A' as fallback.`)
-            return "A";
-    }
-}
-
-
-/**
- * Get letter that comes before alphabetically till `A`, then loop back to `D`.
- * Ugly, but simple and error-proof.
- *
- * @param {string} letter Letter to check.
- * @returns
- */
-function _get_previous_letter(letter) {
-    switch (letter) {
-        case "D":
-            return "C";
-        case "C":
-            return "B";
-        case "B":
-            return "A";
-        case "A":
-            return "D";
-        default:
-            console.error(`Letter provided ${letter} is not 'A', 'B', 'C' or 'D', using 'A' as fallback.`)
-            return "A";
-    }
-}
 
 
 /**

@@ -1,3 +1,5 @@
+import { _get_next_letter } from "/scripts/letter.js";
+
 document.getElementById("simple_count_words_btn").addEventListener("click", function () {
     let raw_str = document.getElementById('simple_count_words').value;
     let count = 0;
@@ -31,4 +33,87 @@ document.getElementById("uniq_words_btn").addEventListener("click", function () 
     document.getElementById("stat_unique").textContent = count_unique;
     document.getElementById("stat_total").textContent = count_total;
     document.getElementById("stat_ratio").textContent = count_ratio;
+});
+
+
+/**
+ * Get group number that comes after numerically till `3`, then loop back to `1`.
+ * Ugly, but simple and error-proof.
+ *
+ * @param {string} number Number to check.
+ */
+export function _get_next_group_number(number) {
+    switch (number) {
+        case "1":
+            return "2";
+        case "2":
+            return "3";
+        case "3":
+            return "1";
+        default:
+            console.error(`Group number provided ${number} is not '1', '2', or '3', using '1' as fallback.`)
+            return "1";
+    }
+}
+
+
+/**
+ * Get next group number and text, e.g., "1ABCD" -> "2BCDA" -> "3CDAB" -> "1DABC".
+ * Ugly, but simple and error-proof.
+ *
+ * @param {string} str String to check.
+ */
+function _get_following_letters(str) {
+    const temp = str.split("");
+    const res = [];
+    res.push(_get_next_group_number(temp[0])) // get next number, e.g., 1 -> 2, 2 -> 3
+    for (let i = 1; i < temp.length; ++i) { // get next letter, e.g., "A" -> "B", "B" -> "C"
+        res.push(_get_next_letter(temp[i]));
+    }
+    console.log(res);
+    return res.join(""); // turn array into string
+}
+
+
+/**
+ * Predict the next reading orders.
+ *
+ * @param {string} str Text reading order to predict onwards from for, e.g., for '1ABCD', it will predict '2BCDA', and so on.
+ * @returns A `<br>` separated string of predicted text reading orders, e.g., `2BCDA, 3CDAB`.
+ */
+function predict_text_reading_order(str) {
+    // this is garbage but i'm only gonna use this like 3 times
+    const temp = [str]; // place as first item
+    const amount = document.getElementById("read_order_amount_number").value; // get amount
+    for (let i = 0; i < amount; ++i) { // get next letter, e.g., "A" -> "B", "B" -> "C"
+        temp.push(_get_following_letters(temp.at(-1))); // push based on previous letter
+    }
+    let s = "";
+    for (let i = 0; i < amount; ++i) { // get next letter, e.g., "A" -> "B", "B" -> "C"
+        s += `${i + 1}) ${temp.at(i)}<br>`;
+    }
+    return s;
+}
+
+
+document.getElementById("read_order_btn").addEventListener("click", function () {
+    console.log("clicked");
+    let raw_str = document.getElementById('read_order').value;
+    const output = document.getElementById("next_group_output");
+    console.log("you provided:", raw_str);
+    if (!raw_str) {
+        console.warn("No string provided.");
+    } else if (raw_str.length != 5) {
+        output.textContent = "Not 5 characters long; try '1ABCD'";
+
+    } else {
+        raw_str = raw_str.toUpperCase();
+        // will prob throw on invalid input
+        try {
+            output.innerHTML = predict_text_reading_order(raw_str);
+        }
+        catch (e) {
+            output.innerHTML = e.message;
+        }
+    }
 });
