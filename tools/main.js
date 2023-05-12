@@ -1,20 +1,5 @@
 import { _get_next_letter } from "/scripts/letter.js";
 
-document.getElementById("btn_simple_count_words").addEventListener("click", function () {
-    let raw_str = document.getElementById('simple_count_words').value;
-    let count = 0;
-    // keep at 0 on empty string
-    if (!raw_str) {
-        console.warn("No string provided.");
-    } else {
-        raw_str = raw_str.toLowerCase(); // turn lowercase
-        const words_split = raw_str.split(' '); // split at newlines
-        count = words_split.length;
-    }
-    document.getElementById("output_simple_word_count").textContent = count;
-});
-
-
 document.getElementById("btn_uniq_words").addEventListener("click", function () {
     let raw_str = document.getElementById('uniq_words').value;
     let count_unique = 0, count_total = 0, count_ratio = 0;
