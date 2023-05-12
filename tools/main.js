@@ -67,14 +67,13 @@ function _get_following_letters(str) {
  */
 function predict_text_reading_order(str) {
     // this is garbage but i'm only gonna use this like 3 times
-    const temp = [str]; // place as first item
     const amount = document.getElementById("read_order_amount_number").value; // get amount
-    for (let i = 0; i < amount; ++i) { // get next letter, e.g., "A" -> "B", "B" -> "C"
-        temp.push(_get_following_letters(temp.at(-1))); // push based on previous letter
-    }
-    let s = "";
-    for (let i = 0; i < amount; ++i) { // get next letter, e.g., "A" -> "B", "B" -> "C"
-        s += `${i + 1}) ${temp.at(i)}<br>`;
+    console.log(amount);
+    let last_string = str; // place as first item
+    let s = `1) ${str}<br>`; // place as first item
+    for (let i = 0; i < amount - 1; ++i) { // get next letter, e.g., "A" -> "B", "B" -> "C"
+        last_string = _get_following_letters(last_string); // overwrite based on previous letter
+        s += `${i + 2}) ${last_string}<br>`;
     }
     return s;
 }
