@@ -70,7 +70,7 @@
     max-width: 750px;
     padding: 20px;
     text-align: center;
-    text-shadow: 0px 0px 25px var(--color);
+    text-shadow: 0px 0px 25px black;
     transition: text-shadow 0.2s linear;
 }
 
