@@ -66,9 +66,8 @@ function _get_following_letters(str) {
  * @returns A `<br>` separated string of predicted text reading orders, e.g., `2BCDA, 3CDAB`.
  */
 function predict_text_reading_order(str) {
-    // this is garbage but i'm only gonna use this like 3 times
+    // this is garbage but i'm only gonna use this tool like 3 times
     const amount = document.getElementById("read_order_amount_number").value; // get amount
-    console.log(amount);
     let last_string = str; // place as first item
     let s = `1) ${str}<br>`; // place as first item
     for (let i = 0; i < amount - 1; ++i) { // get next letter, e.g., "A" -> "B", "B" -> "C"
@@ -86,7 +85,8 @@ document.getElementById("btn_read_order").addEventListener("click", function () 
         console.warn("No string provided.");
     } else if (raw_str.length != 5) {
         output.textContent = "Not 5 characters long; try '1ABCD'";
-
+    } else if (!["1", "2", "3"].includes(raw_str.slice(0, 1))) {
+        output.textContent = "Doesn't begin with 1, 2, or 3; try '1ABCD'";
     } else {
         raw_str = raw_str.toUpperCase();
         // will prob throw on invalid input
