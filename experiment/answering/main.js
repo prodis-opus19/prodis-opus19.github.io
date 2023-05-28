@@ -11,11 +11,14 @@ const MAX_VOCAB_PRACTICE_LEN = Object.keys(VOCAB_DATA["practice"]).length;
 const WIDGET_EXPERIMENT_STATUS = document.getElementById("display_status_widget");
 // containers
 const DIV_AUDIO_CONTAINER = document.getElementById("audio_container");
+const DIV_COPY_CONTAINER = document.getElementById("copy_container");
 // spans, audio players
 const P_BIG_INFO_TEXT = document.getElementById("big_info_text");
 const TAG_AUDIO_PLAYER = document.getElementById("audio_player");
 const SPAN_AUDIO_TEXT = document.getElementById("audio_text");
 const P_ANSWER_TEXT = document.getElementById("answer_text");
+const TEXT_AREA_COPY_TEXT = document.getElementById("text_area_copy");
+const BTN_TEXT_AREA_COPY = document.getElementById("btn_text_area_copy");
 // changed during runtime
 let IS_REAL_VOCAB_TIME = false; // if false, we run practice with no breaks
 let CAN_PRESS_R_KEY = false; // if false, will not show audio div on R
@@ -159,11 +162,27 @@ function display_answer(html) {
 
 
 /**
+ * Append text to the text area that will be displayed at the end of the experiment.
+ *
+ * The text should be copied at the end and used for for transcribing the audio.
+ *
+ * @param {string} text Text to be append.
+ */
+function append_to_text_area(text) {
+    // remove html tags from tutorial text in `experiment_data.js`
+    text = text.replace("<b>Przeczytaj zdanie na głos:</b><br><i>", "");
+    text = text.replace("</i>", "");
+    TEXT_AREA_COPY_TEXT.textContent += text + "\n";
+}
+
+
+/**
  * Main event loop.
  *
  * Plays audio and displays texts still there is nothing left in the global "VOCAB_DATA["real"]" variable.
  */
 function app() {
+    DIV_COPY_CONTAINER.style.display = "none";
     display_info(DISPLAY_STRING_DATA["start"]); // taken from DISPLAY_STRING_DATA
     let pairs_displayed = 0;
     let TAKE_BREAK_COUNTER = 0;
@@ -210,6 +229,7 @@ function app() {
                         CAN_PRESS_R_KEY = false;
                         IS_REAL_VOCAB_TIME = true;
                         display_info(DISPLAY_STRING_DATA["start_real"]); // taken from DISPLAY_STRING_DATA
+                        append_to_text_area("--- REAL EXPERIMENT BEGINS ---");
                         show_text_on_next_space_press = false; // idk but if true it breaks
                         pairs_displayed = 0;
                         TAKE_BREAK_COUNTER = 0;
@@ -218,6 +238,7 @@ function app() {
                     else {
                         CAN_PRESS_R_KEY = false;
                         display_info(DISPLAY_STRING_DATA["end"]); // taken from DISPLAY_STRING_DATA
+                        DIV_COPY_CONTAINER.style.display = "block";
                     }
                 }
             }
@@ -225,6 +246,7 @@ function app() {
             else {
                 CAN_PRESS_R_KEY = true;
                 display_answer(random_pair.answer_to_be_read);
+                append_to_text_area(random_pair.answer_to_be_read);
                 show_text_on_next_space_press = false;
 
             }
@@ -248,3 +270,9 @@ TAG_AUDIO_PLAYER.volume = 1.0;
 
 // start app on page load
 app();
+
+// on copy btn press, copy text area's content to clipboard
+BTN_TEXT_AREA_COPY.addEventListener("click", function () {
+    navigator.clipboard.writeText(TEXT_AREA_COPY_TEXT.textContent);
+});
+

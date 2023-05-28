@@ -75,3 +75,42 @@ body {
     margin-bottom: 3rem;
     max-width: 800px;
 }
+
+#copy_container {
+    /* idk whats up with width, it doesn't get resized according to max-width, stays tiny */
+    width: 100%;
+}
+
+#text_area_copy {
+    margin-top: 1rem;
+    background-color: #f8f8f8;
+    border-radius: 4px;
+    border: 2px solid #ccc;
+    color: var(--blueish_black);
+    font-size: 0.5rem;
+    height: 150px;
+    outline: none;
+    overflow: auto;
+    padding: 1em;
+    resize: none;
+    width: 100%;
+}
+
+#btn_text_area_copy {
+    background-color: #555555;
+    border-radius: 5px;
+    border: 1px solid green;
+    color: white;
+    font-size: 1.2rem;
+    padding: 0.8rem;
+    transition: background-color 0.2s;
+    width: 100%;
+}
+
+#btn_text_area_copy:hover {
+    background-color: #4CAF50;
+}
+
+#btn_text_area_copy:active {
+    background-color: #8e7f3e;
+}

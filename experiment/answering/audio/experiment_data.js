@@ -10,12 +10,13 @@ export const VOCAB_DATA = {
     // practice for participant before moving to the real experiment
     practice: {
         // audio to be played to participant : transcription of audio shown to participant : text to be read by participant
-        "tutorial/1.wav": ["<b>Wysłuchaj:</b></br>Kamila kupiła cukierki w supermarkecie.", "<b>Przeczytaj zdanie na głos:</b><br><i>Kamila kupiła lizaki w supermarkecie, a nie cukierki."],
-        "tutorial/2.wav": ["<b>Wysłuchaj:</b></br>Kamila kupiła chusteczki w supermarkecie.", "<b>Przeczytaj zdanie na głos:</b><br><i>Kamila kupiła obrusy w supermarkecie, a nie chusteczki."],
-        "tutorial/3.wav": ["<b>Wysłuchaj:</b></br>Kamila kupiła szampony w supermarkecie.", "<b>Przeczytaj zdanie na głos:</b><br><i>Kamila kupiła mydełka w supermarkecie, a nie szampony."],
-        "tutorial/4.wav": ["<b>Wysłuchaj:</b></br>Kamila kupiła brokuły w supermarkecie.", "<b>Przeczytaj zdanie na głos:</b><br><i>Kamila kupiła bakłażany w supermarkecie, a nie brokuły."],
-        "tutorial/5.wav": ["<b>Wysłuchaj:</b></br>Kamila kupiła margarynę w supermarkecie.", "<b>Przeczytaj zdanie na głos:</b><br><i>Kamila kupiła masło w supermarkecie, a nie margarynę."],
-        "tutorial/6.wav": ["<b>Wysłuchaj:</b></br>Kamila kupiła wołowinę w supermarkecie.", "<b>Przeczytaj zdanie na głos:</b><br><i>Kamila kupiła wieprzowinę w supermarkecie, a nie wołowinę."],
+        // the "<b>Przeczytaj zdanie na głos:</b><br><i>" & "</i>" will be removed inside `append_to_text_area()`
+        "tutorial/1.wav": ["<b>Wysłuchaj:</b></br>Kamila kupiła cukierki w supermarkecie.", "<b>Przeczytaj zdanie na głos:</b><br><i>Kamila kupiła lizaki w supermarkecie, a nie cukierki.</i>"],
+        "tutorial/2.wav": ["<b>Wysłuchaj:</b></br>Kamila kupiła chusteczki w supermarkecie.", "<b>Przeczytaj zdanie na głos:</b><br><i>Kamila kupiła obrusy w supermarkecie, a nie chusteczki.</i>"],
+        "tutorial/3.wav": ["<b>Wysłuchaj:</b></br>Kamila kupiła szampony w supermarkecie.", "<b>Przeczytaj zdanie na głos:</b><br><i>Kamila kupiła mydełka w supermarkecie, a nie szampony.</i>"],
+        "tutorial/4.wav": ["<b>Wysłuchaj:</b></br>Kamila kupiła brokuły w supermarkecie.", "<b>Przeczytaj zdanie na głos:</b><br><i>Kamila kupiła bakłażany w supermarkecie, a nie brokuły.</i>"],
+        "tutorial/5.wav": ["<b>Wysłuchaj:</b></br>Kamila kupiła margarynę w supermarkecie.", "<b>Przeczytaj zdanie na głos:</b><br><i>Kamila kupiła masło w supermarkecie, a nie margarynę.</i>"],
+        "tutorial/6.wav": ["<b>Wysłuchaj:</b></br>Kamila kupiła wołowinę w supermarkecie.", "<b>Przeczytaj zdanie na głos:</b><br><i>Kamila kupiła wieprzowinę w supermarkecie, a nie wołowinę.</i>"],
     },
     // real experiment
     real: {
