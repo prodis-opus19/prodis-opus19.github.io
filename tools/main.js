@@ -22,6 +22,91 @@ document.getElementById("btn_uniq_words").addEventListener("click", function () 
 
 
 /**
+ * Get experiment that comes in order till `ACR`, then loop back to `RAC`.
+ *
+ * The offset is changed by using the last letter as the first letter in the next experiment, e.g., `CRA` -> `ACR`.
+ *
+ * Ugly, but simple and error-proof.
+ *
+ * @param {string} str_short Experiment number to check.
+ */
+export function _get_following_experiment_shortcut(str_short) {
+    switch (str_short) {
+        case "RAC":
+            return "CRA"; // conversation, reading, answering
+        case "CRA":
+            return "ACR"; // answering, conversation, reading
+        case "ACR":
+            return "RAC"; // reading, answering, conversation
+        default:
+            console.error(`Experiment shortcut provided ${str_short} is not 'RAC', 'CRA', or 'ACR', using 'CRA' as fallback.`)
+            return "CRA";
+    }
+}
+
+
+/**
+ * Convert experiment name to a shortcut that can be used by `_get_following_experiment_shortcut()`.
+ *
+ * The offset is not changed, it is simply translated from its full name to a shortcut, with the experiment that follow.
+ * E.g., `reading` is always followed by `answering` and `conversation`.
+ *
+ * @param {string} str_long Experiment name to check.
+ */
+export function _convert_full_experiment_name_to_shortcut(str_long) {
+    switch (str_long) {
+        case "reading":
+            return "RAC"; // reading, answering, conversation
+        case "answering":
+            return "ACR"; // answering, conversation, reading
+        case "conversation":
+            return "CRA"; // conversation, reading, answering
+        default:
+            console.error(`Experiment string provided ${str_long} is not 'reading', 'answering', or 'conversation', using 'RAC' as fallback.`)
+            return "RAC"; // reading, answering, conversation
+    }
+}
+
+
+/**
+ * Predict the next experiment orders.
+ *
+ * @param {string} str Experiment to predict onwards from for, e.g., for 'reading', it will predict 'answering', and so on.
+ * @returns A `<br>` separated string of predicted text reading orders, e.g., `answering, conversation`.
+ */
+function predict_experiment_order(str) {
+    const amount = document.getElementById("experiment_order_amount_number").value; // get amount
+    let last_string = _convert_full_experiment_name_to_shortcut(str); // place as first item
+    let s = `Participant 1) ${last_string}<br>`;
+    for (let i = 0; i < amount - 1; ++i) {
+        last_string = _get_following_experiment_shortcut(last_string); // overwrite based on previous shortcut
+        s += `Participant ${i + 2}) ${last_string}<br>`;
+    }
+    return s;
+}
+
+
+document.getElementById("btn_experiment_order").addEventListener("click", function () {
+    let raw_str = document.getElementById("experiment_order").value;
+    raw_str = raw_str.toLowerCase(); // turn lowercase
+    const output = document.getElementById("output_next_experiment");
+    if (!raw_str) {
+        console.warn("No string provided.");
+    } else if (!["reading", "answering", "conversation"].includes(raw_str)) {
+        output.textContent = "Not equal to 'reading', 'answering' or 'conversation'.";
+    } else {
+        // will prob throw on invalid input
+        try {
+            output.innerHTML = predict_experiment_order(raw_str);
+        }
+        catch (e) {
+            output.innerHTML = e.message;
+        }
+    }
+});
+
+
+/**
  * Get group number that comes after numerically till `3`, then loop back to `1`.
  * Ugly, but simple and error-proof.
  *
@@ -66,7 +151,6 @@ function _get_following_letters(str) {
  * @returns A `<br>` separated string of predicted text reading orders, e.g., `2BCDA, 3CDAB`.
  */
 function predict_text_reading_order(str) {
-    // this is garbage but i'm only gonna use this tool like 3 times
     const amount = document.getElementById("read_order_amount_number").value; // get amount
     let last_string = str; // place as first item
     let s = `1) ${str}<br>`; // place as first item
@@ -79,14 +163,14 @@ function predict_text_reading_order(str) {
 
 
 document.getElementById("btn_read_order").addEventListener("click", function () {
-    let raw_str = document.getElementById('read_order').value;
+    let raw_str = document.getElementById("read_order").value;
     const output = document.getElementById("output_next_group");
     if (!raw_str) {
         console.warn("No string provided.");
     } else if (raw_str.length != 5) {
-        output.textContent = "Not 5 characters long; try '1ABCD'";
+        output.textContent = "Not 5 characters long; try '1ABCD'.";
     } else if (!["1", "2", "3"].includes(raw_str.slice(0, 1))) {
-        output.textContent = "Doesn't begin with 1, 2, or 3; try '1ABCD'";
+        output.textContent = "Doesn't begin with 1, 2, or 3; try '1ABCD'.";
     } else {
         raw_str = raw_str.toUpperCase();
         // will prob throw on invalid input

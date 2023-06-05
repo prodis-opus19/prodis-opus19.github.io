@@ -48,6 +48,32 @@
 
         <section>
             <hgroup>
+                <h2>Experiment order</h2>
+                <h3>Get list of experiments for the next participant in the correct order.</h3>
+            </hgroup>
+            <div class="read_order_example">
+                <p>The following logic is used:</p>
+                <ul>
+                    <li>Participant 1: Reading, Answering, Conversation</li>
+                    <li>Participant 2: Conversation, Reading, Answering</li>
+                    <li>Participant 3: Answering, Conversation, Reading</li>
+                    <li>Participant 4: Reading, Answering, Conversation</li>
+                </ul>
+                <p>Enter either 'Reading, 'Conversation' or 'Answering' in the field below, then select the amount (e.g., 15).</p>
+            </div>
+            <form autocomplete="off">
+                <input type="text" id="experiment_order" value="Reading" placeholder="Paste text here.">
+                <input type="number" id="experiment_order_amount_number" value="15">
+                <br>
+                <button id="btn_experiment_order" type="button">Get next!</button>
+                <div class="text_center">
+                    <p>Output:<br><span id="output_next_experiment">...</span></p>
+                </div>
+            </form>
+        </section>
+
+        <section>
+            <hgroup>
                 <h2>Text reading order</h2>
                 <h3>Get list of texts for the next participant in the correct order.</h3>
             </hgroup>
