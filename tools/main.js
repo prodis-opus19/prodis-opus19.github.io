@@ -76,42 +76,41 @@ export function _get_following_experiment_shortcut(str_short) {
 }
 
 
-/**
- * Convert experiment name to a shortcut that can be used by `_get_following_experiment_shortcut()`.
- *
- * The offset is not changed, it is simply translated from its full name to a shortcut, with the experiment that follow.
- * E.g., `reading` is always followed by `answering` and `conversation`.
- *
- * @param {string} str_long Experiment name to check.
- */
-export function _convert_full_experiment_name_to_shortcut(str_long) {
-    switch (str_long) {
-        case "reading":
-            return "RAC"; // reading, answering, conversation
-        case "answering":
-            return "ACR"; // answering, conversation, reading
-        case "conversation":
-            return "CRA"; // conversation, reading, answering
-        default:
-            console.error(`Experiment string provided ${str_long} is not 'reading', 'answering', or 'conversation', using 'RAC' as fallback.`)
-            return "RAC"; // reading, answering, conversation
-    }
-}
+// /**
+//  * Convert experiment name to a shortcut that can be used by `_get_following_experiment_shortcut()`.
+//  *
+//  * The offset is not changed, it is simply translated from its full name to a shortcut, with the experiment that follow.
+//  * E.g., `reading` is always followed by `answering` and `conversation`.
+//  *
+//  * @param {string} str_long Experiment name to check.
+//  */
+// export function _convert_full_experiment_name_to_shortcut(str_long) {
+//     switch (str_long) {
+//         case "reading":
+//             return "RAC"; // reading, answering, conversation
+//         case "answering":
+//             return "ACR"; // answering, conversation, reading
+//         case "conversation":
+//             return "CRA"; // conversation, reading, answering
+//         default:
+//             console.error(`Experiment string provided ${str_long} is not 'reading', 'answering', or 'conversation', using 'RAC' as fallback.`)
+//             return "RAC"; // reading, answering, conversation
+//     }
+// }
 
 
 /**
  * Predict the next experiment orders.
  *
- * @param {string} str Experiment to predict onwards from for, e.g., for 'reading', it will predict 'answering', and so on.
- * @returns A `<br>` separated string of predicted text reading orders, e.g., `answering, conversation`.
+ * @param {string} str Experiment to predict onwards from for, e.g., for 'RAC', it will predict 'CRA', and so on.
+ * @returns A `<br>` separated string of predicted text reading orders, e.g., `CRA, ACR`.
  */
 function predict_experiment_order(str) {
     const amount = document.getElementById("experiment_order_amount_number").value; // get amount
-    let last_string = _convert_full_experiment_name_to_shortcut(str); // place as first item
-    let s = `Participant 1) ${last_string}<br>`;
+    let s = `Participant 1) ${str}<br>`;
     for (let i = 0; i < amount - 1; ++i) {
-        last_string = _get_following_experiment_shortcut(last_string); // overwrite based on previous shortcut
-        s += `Participant ${i + 2}) ${last_string}<br>`;
+        str = _get_following_experiment_shortcut(str); // overwrite based on previous shortcut
+        s += `Participant ${i + 2}) ${str}<br>`;
     }
     return s;
 }
@@ -119,12 +118,12 @@ function predict_experiment_order(str) {
 
 document.getElementById("btn_experiment_order").addEventListener("click", function () {
     let raw_str = document.getElementById("experiment_order").value;
-    raw_str = raw_str.toLowerCase(); // turn lowercase
+    raw_str = raw_str.toUpperCase(); // turn uppercase
     const output = document.getElementById("output_next_experiment");
     if (!raw_str) {
         console.warn("No string provided.");
-    } else if (!["reading", "answering", "conversation"].includes(raw_str)) {
-        output.textContent = "Not equal to 'reading', 'answering' or 'conversation'.";
+    } else if (!["RAC", "CRA", "ACR"].includes(raw_str)) {
+        output.textContent = "Not equal to 'RAC', 'CRA' or 'ACR'.";
     } else {
         // will prob throw on invalid input
         try {
