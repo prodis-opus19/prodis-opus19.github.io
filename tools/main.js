@@ -8,6 +8,7 @@ document.getElementById("btn_uniq_words").addEventListener("click", function () 
         console.warn("No string provided.");
     } else {
         raw_str = raw_str.toLowerCase(); // turn lowercase
+        raw_str = raw_str.replace(/[^\w\s]/g, ''); // remove punctuation
         const words_split = raw_str.split(' '); // split at newlines
         const words_split_unique = new Set(words_split);
         count_total = words_split.length;
@@ -30,6 +31,7 @@ document.getElementById("btn_uniq_words_count").addEventListener("click", functi
         console.warn("No string provided.");
     } else {
         raw_str = raw_str.toLowerCase(); // turn lowercase
+        raw_str = raw_str.replace(/[^\w\s]/g, ''); // remove punctuation
         const words_split = raw_str.split(' '); // split at newlines
         const words_split_unique = new Set(words_split);
         count_total = words_split.length;
