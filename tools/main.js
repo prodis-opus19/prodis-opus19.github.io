@@ -21,6 +21,35 @@ document.getElementById("btn_uniq_words").addEventListener("click", function () 
 });
 
 
+document.getElementById("btn_uniq_words_count").addEventListener("click", function () {
+    let raw_str = document.getElementById('uniq_words_count').value;
+    let count_unique = 0, count_total = 0, count_ratio = 0;
+    let word_counts = new Map();
+    // keep at 0 on empty string
+    if (!raw_str) {
+        console.warn("No string provided.");
+    } else {
+        raw_str = raw_str.toLowerCase(); // turn lowercase
+        const words_split = raw_str.split(' '); // split at newlines
+        const words_split_unique = new Set(words_split);
+        count_total = words_split.length;
+        count_unique = words_split_unique.size;
+        count_ratio = (count_unique / count_total) * 100;
+        count_ratio = Math.round(count_ratio * 100) / 100; // round to two digits
+
+        // count word occurrences
+        for (let word of words_split) {
+            word_counts.set(word, (word_counts.get(word) || 0) + 1);
+        }
+        // convert to array and sort
+        word_counts = Array.from(word_counts.entries()).sort((a, b) => b[1] - a[1]);
+    }
+    document.getElementById("output_stat_unique_count").textContent = count_unique;
+    document.getElementById("output_stat_total_count").textContent = count_total;
+    // format word_counts as a Python-like list
+    document.getElementById("output_stat_common_list").textContent = '[' + word_counts.map(([word, count]) => `${count}: '${word}'`).join(', ') + ']';
+});
+
 /**
  * Get experiment that comes in order till `ACR`, then loop back to `RAC`.
  *

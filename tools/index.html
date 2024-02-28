@@ -1,110 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <!-- prevent indexing by search engines; this page should be accessed by link -->
-    <meta name="robots" content="noindex">
-    <!-- force light mode -->
-    <html data-theme="light">
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-    <meta charset="UTF-8">
-    <title>TOOLS</title>
-    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
-    <link rel="stylesheet" href="/styles/tools.css">
-    <meta name="description" content="A bunch of misc tools for word processing.">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="module" src="./main.js" defer></script>
-    <script>
-        /* prevent Firefox FOUC (Flash of unstyled content) warning */
-        let FF_FOUC_FIX;
-    </script>
-</head>
+    <head>
+        <!-- prevent indexing by search engines; this page should be accessed by link -->
+        <meta name="robots" content="noindex">
+        <!-- force light mode -->
+        <html data-theme="light">
+            <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+            <meta charset="UTF-8">
+            <title>TOOLS</title>
+            <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
+            <link rel="stylesheet" href="/styles/tools.css">
+            <meta name="description" content="A bunch of misc tools for word processing.">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <script type="module" src="./main.js" defer></script>
+            <script>
+                /* prevent Firefox FOUC (Flash of unstyled content) warning */
+                let FF_FOUC_FIX;
+            </script>
+    </head>
 
-<body>
-    <!-- CSS reference: https://picocss.com/docs/typography.html -->
-    <main>
+    <body>
+        <!-- CSS reference: https://picocss.com/docs/typography.html -->
+        <main>
 
-        <div class="prodis_tools_header" class="text_center">
-            <img draggable="false" ondragstart="return false;" class="prodis_tools_logo" src="/images/tools/logo.jpeg" alt="Tools logo" height="143.3" width="200" />
-            <p>Experiment preparation</p>
-            <hr>
-        </div>
-
-        <section>
-            <hgroup>
-                <h2>Unique words comparison</h2>
-                <h3>Compare the number of unique vs. total number of words.</h3>
-            </hgroup>
-            <form autocomplete="off">
-                <textarea id="uniq_words" name="uniq_words" rows="10" placeholder="Paste text here."></textarea>
-                <button id="btn_uniq_words" type="button">Compare!</button>
-                <div class="text_center">
-                    <p>Number of unique words: <span id="output_stat_unique">0</span>.</p>
-                    <p>Total number of words: <span id="output_stat_total">0</span>.</p>
-                    <p>Unique-to-total word ratio: <span id="output_stat_ratio">0</span>%.</p>
-                </div>
-            </form>
-        </section>
-
-        <section>
-            <hgroup>
-                <h2>Experiment order</h2>
-                <h3>Get list of experiments for the next participant in the correct order.</h3>
-            </hgroup>
-            <div class="read_order_example">
-                <p>The following logic is used:</p>
-                <ul>
-                    <li>Participant 1: Reading, Answering, Conversation</li>
-                    <li>Participant 2: Conversation, Reading, Answering</li>
-                    <li>Participant 3: Answering, Conversation, Reading</li>
-                    <li>Participant 4: Reading, Answering, Conversation</li>
-                </ul>
-                <p>Enter either 'Reading, 'Conversation' or 'Answering' in the field below, then select the amount (e.g., 15).</p>
+            <div class="prodis_tools_header" class="text_center">
+                <img draggable="false" ondragstart="return false;" class="prodis_tools_logo" src="/images/tools/logo.jpeg" alt="Tools logo" height="143.3" width="200" />
+                <p>Experiment preparation</p>
+                <hr>
             </div>
-            <form autocomplete="off">
-                <input type="text" id="experiment_order" value="Reading" placeholder="Paste text here.">
-                <input type="number" id="experiment_order_amount_number" value="15">
-                <br>
-                <button id="btn_experiment_order" type="button">Get next!</button>
-                <div class="text_center">
-                    <p>Output:<br><span id="output_next_experiment">...</span></p>
+
+            <section>
+                <hgroup>
+                    <h2>Unique words comparison</h2>
+                    <h3>Compare the number of unique vs. total number of words.</h3>
+                </hgroup>
+                <form autocomplete="off">
+                    <textarea id="uniq_words" name="uniq_words" rows="10" placeholder="Paste text here."></textarea>
+                    <button id="btn_uniq_words" type="button">Compare!</button>
+                    <div class="text_center">
+                        <p>Number of unique words: <span id="output_stat_unique">0</span>.</p>
+                        <p>Total number of words: <span id="output_stat_total">0</span>.</p>
+                        <p>Unique-to-total word ratio: <span id="output_stat_ratio">0</span>%.</p>
+                    </div>
+                </form>
+            </section>
+
+            <section>
+                <hgroup>
+                    <h2>Unique words arranger</h2>
+                    <h3>Arrange all the unique words from the most common to least common.</h3>
+                </hgroup>
+                <form autocomplete="off">
+                    <textarea id="uniq_words_count" name="uniq_words_count" rows="10" placeholder="Paste text here."></textarea>
+                    <button id="btn_uniq_words_count" type="button">Compare!</button>
+                    <div class="text_center">
+                        <p>Number of unique words: <span id="output_stat_unique_count">0</span>.</p>
+                        <p>Total number of words: <span id="output_stat_total_count">0</span>.</p>
+                        <p>Most common words: <span id="output_stat_common_list">nothing</span>.</p>
+                    </div>
+                </form>
+            </section>
+
+            <section>
+                <hgroup>
+                    <h2>Experiment order</h2>
+                    <h3>Get list of experiments for the next participant in the correct order.</h3>
+                </hgroup>
+                <div class="read_order_example">
+                    <p>The following logic is used:</p>
+                    <ul>
+                        <li>Participant 1: Reading, Answering, Conversation</li>
+                        <li>Participant 2: Conversation, Reading, Answering</li>
+                        <li>Participant 3: Answering, Conversation, Reading</li>
+                        <li>Participant 4: Reading, Answering, Conversation</li>
+                    </ul>
+                    <p>Enter either 'Reading, 'Conversation' or 'Answering' in the field below, then select the amount (e.g., 15).</p>
                 </div>
-            </form>
-        </section>
+                <form autocomplete="off">
+                    <input type="text" id="experiment_order" value="Reading" placeholder="Paste text here.">
+                    <input type="number" id="experiment_order_amount_number" value="15">
+                    <br>
+                    <button id="btn_experiment_order" type="button">Get next!</button>
+                    <div class="text_center">
+                        <p>Output:<br><span id="output_next_experiment">...</span></p>
+                    </div>
+                </form>
+            </section>
 
-        <section>
-            <hgroup>
-                <h2>Text reading order</h2>
-                <h3>Get list of texts for the next participant in the correct order.</h3>
-            </hgroup>
-            <div class="read_order_example">
-                <p>The following logic is used:</p>
-                <ul>
-                    <li>Participant 1: Group 1, ABCD</li>
-                    <li>Participant 2: Group 2, BCDA</li>
-                    <li>Participant 3: Group 3, CDAB</li>
-                    <li>Participant 4: Group 1, DABC</li>
-                    <li>Participant 5: Group 2, ABCD</li>
-                    <li>Participant 6: Group 3, BCDA</li>
-                </ul>
-                <p>Enter '1ABCD, '2BCDA', '3CDAB', and so on in the field below, then select the amount (e.g., 5).</p>
-            </div>
-            <form autocomplete="off">
-                <input type="text" id="read_order" value="1ABCD" placeholder="Paste text here.">
-                <input type="number" id="read_order_amount_number" value="5">
-                <br>
-                <button id="btn_read_order" type="button">Get next!</button>
-                <div class="text_center">
-                    <p>Output:<br><span id="output_next_group">...</span></p>
+            <section>
+                <hgroup>
+                    <h2>Text reading order</h2>
+                    <h3>Get list of texts for the next participant in the correct order.</h3>
+                </hgroup>
+                <div class="read_order_example">
+                    <p>The following logic is used:</p>
+                    <ul>
+                        <li>Participant 1: Group 1, ABCD</li>
+                        <li>Participant 2: Group 2, BCDA</li>
+                        <li>Participant 3: Group 3, CDAB</li>
+                        <li>Participant 4: Group 1, DABC</li>
+                        <li>Participant 5: Group 2, ABCD</li>
+                        <li>Participant 6: Group 3, BCDA</li>
+                    </ul>
+                    <p>Enter '1ABCD, '2BCDA', '3CDAB', and so on in the field below, then select the amount (e.g., 5).</p>
                 </div>
-            </form>
-        </section>
+                <form autocomplete="off">
+                    <input type="text" id="read_order" value="1ABCD" placeholder="Paste text here.">
+                    <input type="number" id="read_order_amount_number" value="5">
+                    <br>
+                    <button id="btn_read_order" type="button">Get next!</button>
+                    <div class="text_center">
+                        <p>Output:<br><span id="output_next_group">...</span></p>
+                    </div>
+                </form>
+            </section>
 
-    </main>
+        </main>
 
-    <footer>
-        <small>CSS Framework: <a href="https://picocss.com">Pico</a></small>
-    </footer>
-</body>
+        <footer>
+            <small>CSS Framework: <a href="https://picocss.com">Pico</a></small>
+        </footer>
+    </body>
 
 </html>
