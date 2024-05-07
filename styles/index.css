@@ -8,3 +8,14 @@
   --table_th_border: #1a1a1a;
   --table_th_color: #bfbfbf;
 }
+
+article > h1 {
+  font-size: 220%;
+  letter-spacing: 0.05em;
+  padding-bottom: 20px;
+}
+
+
+article ul {
+  padding-left: 20px;
+}
