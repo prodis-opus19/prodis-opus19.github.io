@@ -13,9 +13,11 @@ const local_storage_available = (typeof (Storage) !== "undefined");
  * @param {boolean} translate_to_polish Whether to translate buttons to Polish or English (default=false).
  */
 function set_nav_btns(translate_to_polish = false) {
+    // Keep names function, because it's rarely used (how often do you switch languages? only once, if at all, since we do auto-detection on page load)
     const btn_names = {
         // HTML element ID : English string : Polish string
-        "project_button": ["Project", "Projekt"],
+        "news_button": ["News", "Aktualności"],
+        "goals_button": ["Goals", "Cele"],
         "team_button": ["Team", "Skład"],
         "contact_button": ["Contact", "Kontakt"],
         "recordings_button": ["Recordings", "Nagrania"],
