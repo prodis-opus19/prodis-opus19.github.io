@@ -19,4 +19,4 @@ Each page consists of an `.html`, `main.js` and a `.css` file.
 ## Credits
 
 - [Country Flags](https://github.com/hampusborgos/country-flags/)
-- [Pico CSS](https://picocss.com/) - for the `/experiment` and `/tools` pages only
+- [Pico CSS](https://picocss.com/) - for the `/experiment` and `/tools` pages only.
