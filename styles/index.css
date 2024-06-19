@@ -9,6 +9,19 @@
   --table_th_color: #bfbfbf;
 }
 
+/* Videos in the news tab */
+.video-container {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.video-container video {
+  width: 100%;
+  height: auto;
+  display: block;
+  /* Remove inline spacing */
+}
+
 article ul {
   padding-left: 20px;
 }
