@@ -1,6 +1,6 @@
 # prodis-opus19.github.io
 
-prodis-opus19.github.io is the project's website built using plain HTML and CSS.
+prodis-opus19.github.io is the official website of the project, built using plain HTML and CSS.
 
 The website is hosted on [GitHub Pages](https://pages.github.com/) and is accessible at [prodis-opus19.github.io](https://prodis-opus19.github.io/).
 
