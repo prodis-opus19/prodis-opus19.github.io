@@ -22,6 +22,53 @@
   /* Remove inline spacing */
 }
 
+
 article ul {
   padding-left: 20px;
+}
+
+
+/* Title of each audio recording, e.g., "Female: Answering" */
+.audio-recording-title {
+  font-size: 80%;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+/* Wrapper for aligning audio player and download button */
+.audio-sample-wrapper {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  /* Space between player and button */
+  margin-bottom: 20px;
+}
+
+/* Audio samples in the news tab */
+.audio-sample-container {
+  border-radius: 10px;
+  width: 100%;
+}
+
+/* Download button styled with FontAwesome */
+.download-button {
+  align-items: center;
+  background-color: #28a745;
+  border-radius: 10px;
+  color: white;
+  display: inline-flex;
+  justify-content: center;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.download-button:hover {
+  background-color: #218838;
+  color: white;
+}
+
+.download-button i {
+  margin: 0;
 }
