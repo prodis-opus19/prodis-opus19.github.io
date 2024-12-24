@@ -29,6 +29,7 @@ document.getElementById("btn_uniq_words_count").addEventListener("click", functi
     // keep at 0 on empty string
     if (!raw_str) {
         console.warn("No string provided.");
+        return;
     } else {
         raw_str = raw_str.toLowerCase(); // turn lowercase
         raw_str = raw_str.replace(/[.,()"'`]/g, ''); // remove dots, commas, parentheses, quotation marks, and backticks
