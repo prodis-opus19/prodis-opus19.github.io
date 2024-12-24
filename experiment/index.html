@@ -1,20 +1,21 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pl">
 
     <head>
-        <!-- prevent indexing by search engines; this page should be accessed by link -->
+        <!-- Prevent indexing by search engines; this page should only be accessible via a link -->
         <meta name="robots" content="noindex">
-        <!-- force light mode -->
+
+        <!-- Force light mode -->
         <html data-theme="light">
             <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
             <meta charset="UTF-8">
             <title>EXPERIMENT - Wybór</title>
-            <link rel="shortcut icon" type="image/x-icon" href="/resources/images/favicon.ico">
+            <link rel="shortcut icon" href="/resources/images/favicon.ico" type="image/x-icon">
             <link rel="stylesheet" href="/resources/stylesheets/experiment/main.css">
             <meta name="description" content="A webpage that contains links to experiment webapps.">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <script>
-                /* prevent Firefox FOUC (Flash of unstyled content) warning */
+                // Prevent Flash of Unstyled Content (FOUC) warning on Firefox
                 let FF_FOUC_FIX;
             </script>
     </head>
@@ -26,6 +27,7 @@
                 <h2>Wybierz: czytanie tekstów, czytanie odpowiedzi, lub nieformalna rozmowa.</h2>
             </hgroup>
             <nav>
+                <!-- Relative paths to experiment webapps -->
                 <a href="reading/" role="button">Czytanie tekstów</a>
                 <a href="answering/" role="button">Czytanie odpowiedzi</a>
                 <a href="conversation/" role="button">Nieformalna rozmowa</a>
@@ -33,16 +35,16 @@
         </header>
 
         <div id="logo_images" draggable="false" ondragstart="return false;">
-            <a title="Open National Science Center in new tab" href="https://www.ncn.gov.pl/" target="_blank" rel="noopener noreferrer">
-                <img src="/resources/images/logos/ncn.png" alt="NCN logo" width="100" height="100" />
+            <a href="https://www.ncn.gov.pl/" target="_blank" rel="noopener noreferrer" title="Open National Science Center in new tab">
+                <img src="/resources/images/logos/ncn.png" alt="NCN logo" width="100" height="100">
             </a>
-            <a title="Open AMU Faculty of English in new tab" href="https://amu.edu.pl/" target="_blank" rel="noopener noreferrer">
-                <img src="/resources/images/logos/uam_transparent.png" alt="UAM logo" width="100" height="100" />
+            <a href="https://amu.edu.pl/" target="_blank" rel="noopener noreferrer" title="Open AMU Faculty of English in new tab">
+                <img src="/resources/images/logos/uam_transparent.png" alt="UAM logo" width="100" height="100">
             </a>
         </div>
 
         <footer>
-            <small>CSS Framework: <a href="https://picocss.com">Pico</a></small>
+            <small>CSS Framework: <a href="https://picocss.com" target="_blank" rel="noopener noreferrer">Pico</a></small>
         </footer>
     </body>
 

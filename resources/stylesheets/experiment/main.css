@@ -1,5 +1,6 @@
 @import "/resources/stylesheets/pico.classless.css";
 
+/* General reset */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -7,21 +8,24 @@
 }
 
 body {
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
+    margin: 0 auto;
     text-align: center;
+    width: 100%;
 }
 
+/* Navigation */
 nav {
-    justify-content: center;
+    display: flex;
     gap: 5px;
+    justify-content: center;
 }
 
+/* Logo section */
 #logo_images {
     user-select: none;
 }
 
+/* Anchor links */
 a {
     text-decoration: none;
 }
