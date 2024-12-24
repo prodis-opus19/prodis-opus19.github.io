@@ -5,7 +5,7 @@ prodis-opus19.github.io is the official website of the project, built using plai
 The website is hosted on [GitHub Pages](https://pages.github.com/) and is accessible at [prodis-opus19.github.io](https://prodis-opus19.github.io/).
 
 
-## Project Structure
+<!-- ## Project Structure
 
 The project is organized as follows:
 
@@ -13,7 +13,7 @@ The project is organized as follows:
 - `scripts`: Contains JavaScript scripts and modules.
 - `styles`: Contains CSS stylesheets, sorted by type.
 
-Each page consists of an `.html`, `main.js` and a `.css` file.
+Each page consists of an `.html`, `main.js` and a `.css` file. -->
 
 
 ## Credits
