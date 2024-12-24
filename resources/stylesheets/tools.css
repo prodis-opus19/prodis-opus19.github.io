@@ -1,4 +1,4 @@
-@import "/styles/pico/pico.classless.css";
+@import "/resources/stylesheets//pico.classless.css";
 
 .prodis_tools_header {
     margin-bottom: 50px;
@@ -8,18 +8,18 @@
     text-align: center;
 }
 
-.prodis_tools_header>.prodis_tools_logo {
+.prodis_tools_header > .prodis_tools_logo {
     margin-left: auto;
     margin-right: auto;
     user-select: none;
 }
 
-.prodis_tools_header>p {
+.prodis_tools_header > p {
     font-size: 15px;
     margin-top: 20px;
 }
 
-.read_order_example>* {
+.read_order_example > * {
     font-size: 80%;
     color: var(--secondary);
     margin: 1em;

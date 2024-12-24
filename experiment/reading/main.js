@@ -1,4 +1,4 @@
-import { _get_previous_letter, _get_next_letter } from "/scripts/letter.js";
+import { _get_previous_letter, _get_next_letter } from "/resources/scripts/letter.js";
 // GLOBAL VARIABLES
 const GROUP_DROPDOWN = document.getElementById("group_dropdown");
 const GROUP_CONTAINERS = document.getElementsByClassName("group_container");

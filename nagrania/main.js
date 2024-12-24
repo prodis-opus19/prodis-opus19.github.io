@@ -1,5 +1,5 @@
-import { show_top_alert, copy_to_clipboard } from "/scripts/alert.js";
-import { open_tab } from "/scripts/tab.js";
+import { show_top_alert, copy_to_clipboard } from "/resources/scripts/alert.js";
+import { open_tab } from "/resources/scripts/tab.js";
 
 
 // allow global access within HTML

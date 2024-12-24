@@ -107,7 +107,7 @@ function display_info(html) {
 /**
  * Unhide audio div, set its text and audio player, then start playing the audio.
  *
- * NOTE: `audio/` is prepended at the beginning.
+ * NOTE: `/resources/audio/answering/` is prepended at the beginning.
  *
  * @param {string} audio_filename Path to audio file, e.g., `wav/i85.wav`.
  * @param {string} html Text to be displayed.
@@ -118,7 +118,8 @@ function display_audio(audio_filename, html) {
     P_BIG_INFO_TEXT.style.display = "none";
     P_ANSWER_TEXT.style.display = "none";
     // setup
-    TAG_AUDIO_PLAYER.src = "audio/" + audio_filename; // must be in relative "audio" dir
+    TAG_AUDIO_PLAYER.src = "/resources/audio/answering/" + audio_filename;
+    // console.log(`Playing audio: ${TAG_AUDIO_PLAYER.src}`);
     SPAN_AUDIO_TEXT.innerHTML = html; // set text
     // show
     DIV_AUDIO_CONTAINER.style.display = "block";
@@ -275,4 +276,3 @@ app();
 BTN_TEXT_AREA_COPY.addEventListener("click", function () {
     navigator.clipboard.writeText(TEXT_AREA_COPY_TEXT.textContent);
 });
-

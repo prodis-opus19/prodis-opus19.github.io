@@ -1,158 +1,158 @@
 <!DOCTYPE html>
 <html lang="pl">
 
-<head>
-  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-  <meta charset="UTF-8">
-  <title>NAGRANIA</title>
-  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
-  <link rel="stylesheet" href="/styles/nagrania.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <meta name="description" content="Rekrutacja na badanie mowy (OPUS19).">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script type="module" src="./main.js" defer></script>
-  <script>
-    /* prevent Firefox FOUC (Flash of unstyled content) warning */
-    let FF_FOUC_FIX;
-  </script>
-</head>
+  <head>
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <meta charset="UTF-8">
+    <title>NAGRANIA</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/resources/images/favicon.ico">
+    <link rel="stylesheet" href="/resources/stylesheets//nagrania.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="description" content="Rekrutacja na badanie mowy (OPUS19).">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="module" src="./main.js" defer></script>
+    <script>
+      /* prevent Firefox FOUC (Flash of unstyled content) warning */
+      let FF_FOUC_FIX;
+    </script>
+  </head>
 
-<body>
+  <body>
 
-  <!-- popups hidden by default, shown with javascript -->
-  <div id="top_alert">default message</div>
-  <div id="copy_popup">COPIED!</div>
+    <!-- popups hidden by default, shown with javascript -->
+    <div id="top_alert">default message</div>
+    <div id="copy_popup">COPIED!</div>
 
-  <!-- header with links at the top -->
-  <header draggable="false" ondragstart="return false;">
-    <a id="header_logo" title="Otwórz kartę główną" onclick="open_tab('informacja'); return false;" href="?tab=informacja">NAGRANIA</a>
-    <!-- mobile hamburger menu -->
-    <input type="checkbox" id="mobile_menu_toggle">
-    <label for="mobile_menu_toggle" id="hamburger"><i class="fa fa-align-justify"></i></label>
-    <nav>
-      <a id="informacja_button" class="tab_link" title="Otwórz kartę Informacja" onclick="open_tab('informacja'); return false;" href="?tab=informacja"><i class="fa fa-home"></i> Informacja</a>
-      <a id="lokalizacja_button" class="tab_link" title="Otwórz kartę Lokalizacja" onclick="open_tab('lokalizacja'); return false;" href="?tab=lokalizacja"><i class="fa fa-map-marker"></i> Lokalizacja</a>
-      <a id="calendar_button" class="tab_link" title="Otwórz kartę Kalendarz" onclick="open_tab('calendar'); return false;" href="?tab=calendar"><i class="fa fa-calendar"></i> Kalendarz</a>
-      <a id="ulotka_button" class="tab_link" title="Otwórz kartę Ulotka" onclick="open_tab('ulotka'); return false;" href="?tab=ulotka"><i class="fa fa-vcard"></i> Ulotka</a>
-      <div class="navbar_splitter"></div>
-      <a class="tab_link" title="Otwórz O projekcie w nowej karcie" href="/" target="_blank"><i class="fa fa-paperclip"></i> O projekcie</a>
-    </nav>
-  </header>
+    <!-- header with links at the top -->
+    <header draggable="false" ondragstart="return false;">
+      <a id="header_logo" title="Otwórz kartę główną" onclick="open_tab('informacja'); return false;" href="?tab=informacja">NAGRANIA</a>
+      <!-- mobile hamburger menu -->
+      <input type="checkbox" id="mobile_menu_toggle">
+      <label for="mobile_menu_toggle" id="hamburger"><i class="fa fa-align-justify"></i></label>
+      <nav>
+        <a id="informacja_button" class="tab_link" title="Otwórz kartę Informacja" onclick="open_tab('informacja'); return false;" href="?tab=informacja"><i class="fa fa-home"></i> Informacja</a>
+        <a id="lokalizacja_button" class="tab_link" title="Otwórz kartę Lokalizacja" onclick="open_tab('lokalizacja'); return false;" href="?tab=lokalizacja"><i class="fa fa-map-marker"></i> Lokalizacja</a>
+        <a id="calendar_button" class="tab_link" title="Otwórz kartę Kalendarz" onclick="open_tab('calendar'); return false;" href="?tab=calendar"><i class="fa fa-calendar"></i> Kalendarz</a>
+        <a id="ulotka_button" class="tab_link" title="Otwórz kartę Ulotka" onclick="open_tab('ulotka'); return false;" href="?tab=ulotka"><i class="fa fa-vcard"></i> Ulotka</a>
+        <div class="navbar_splitter"></div>
+        <a class="tab_link" title="Otwórz O projekcie w nowej karcie" href="/" target="_blank"><i class="fa fa-paperclip"></i> O projekcie</a>
+      </nav>
+    </header>
 
-  <!-- full page tab: informacja -->
-  <div id="informacja_tab" class="full_page_tab">
-    <div class="tab_title">
-      <div class="enable_select">
-        <h1>NAGR<wbr>ANIA</h1>
-        <h2>Probabilistyczne, prozodyczne i<wbr> dyskursowe efekty <wbr>na odrębność akustyczną <wbr>w mowie</h2>
-        <p>Projekt nr. <span class="link" title="Skopiuj identyfikator projektu do schowka" onclick="copy_to_clipboard(this,'2020/37/B/HS2/04161'); return false;">2020/37/<wbr>B/HS2/04161</span> <wbr>(OPUS 19)</p>
+    <!-- full page tab: informacja -->
+    <div id="informacja_tab" class="full_page_tab">
+      <div class="tab_title">
+        <div class="enable_select">
+          <h1>NAGR<wbr>ANIA</h1>
+          <h2>Probabilistyczne, prozodyczne i<wbr> dyskursowe efekty <wbr>na odrębność akustyczną <wbr>w mowie</h2>
+          <p>Projekt nr. <span class="link" title="Skopiuj identyfikator projektu do schowka" onclick="copy_to_clipboard(this,'2020/37/B/HS2/04161'); return false;">2020/37/<wbr>B/HS2/04161</span> <wbr>(OPUS 19)</p>
+        </div>
+        <a title="Otwórz Narodowe Centrum Nauki w nowej karcie" href="https://www.ncn.gov.pl/" target="_blank" rel="noopener noreferrer">
+          <img class="image_highlight_on_hover" src="/resources/images/logos/ncn.png" alt="NCN logo" width="72.4167" height="70" />
+        </a>
+        <a title="Otwórz Wydział Anglistyki UAM w nowej karcie" href="https://amu.edu.pl/" target="_blank" rel="noopener noreferrer">
+          <img class="image_highlight_on_hover" src="/resources/images/logos/uam_transparent.png" alt="UAM logo" width="56" height="70" />
+        </a>
+        <hr>
       </div>
-      <a title="Otwórz Narodowe Centrum Nauki w nowej karcie" href="https://www.ncn.gov.pl/" target="_blank" rel="noopener noreferrer">
-        <img class="image_highlight_on_hover" src="/images/ncn_logo.png" alt="NCN logo" width="72.4167" height="70" />
-      </a>
-      <a title="Otwórz Wydział Anglistyki UAM w nowej karcie" href="https://amu.edu.pl/" target="_blank" rel="noopener noreferrer">
-        <img class="image_highlight_on_hover" src="/images/uam_logo.png" alt="UAM logo" width="56" height="70" />
-      </a>
-      <hr>
+      <!-- Uncomment this and the "notice_participants" class in CSS to show this notification. -->
+      <!-- <div class="notice_participants">(placeholder)UWAGA: mamy wystarczającą ilość osób!</div> -->
+      <article class="enable_select">
+        <p>Celem badania mowy jest zebranie <emp>wysokiej jakości nagrań audio</emp> w różnych warunkach (np. czytanie tekstu, mowa spontaniczna).</p>
+        <p>W zamian za około godzinę nagrań oferujemy <b>kartę podarunkową Empik o wartości 50 zł</b> LUB 90 punktów za udział w eksperymencie (do wyboru).</p>
+        <div class="article_list">
+          <h1>Jak przystąpić do badania?</h1>
+          <p>1. Najpierw prosimy o zarejestrowanie się na badanie na platformie Moodle.</p>
+          <p>2. Po zarejestrowaniu, na adres e-mail otrzymasz link do ankiety.</p>
+          <p style="font-size: 70%;">Ankieta zawiera pytania demograficzne i wypełnienie jej nie powinno zająć więcej, niż 6 minut.</p>
+          <p>3. Po wypełnieniu ankiety, otrzymasz link do kalendarza, w którym wybierzesz najdogodniejszy slot czasowy.</p>
+          <p>4. W studiu nagrań poprosimy Cię o podpisanie zgody na wykorzystanie nagrań do celów naukowych (niekomercyjnych).</p>
+          <p>5. Po około godzinie nagrań, odbierzesz kartę Empik o wartości 50 zł LUB 50 pkt.</p>
+          <p class="big_link">&#9655; Lokalizacja studia: <wbr><a class="link" title="Otwórz kartę Lokalizacja" onclick="open_tab('lokalizacja');show_top_alert('Otwarto kartę Lokalizacja.'); return false;" href="?tab=lokalizacja">kliknij tutaj</a>.</p>
+          <p class="big_link">&#9655; Kontakt: <wbr><wbr><a class="link" title="Skopiuj adres e-mail do schowka" href="mailto:polish_corpus@protonmail.com" onclick="copy_to_clipboard(this,'polish_corpus@protonmail.com'); return false;">polish_corpus<wbr>@protonmail.com</a>.</p>
+        </div>
+      </article>
+      <!-- footer with ukrainian flag at the bottom -->
+      <footer>
+        <hr>
+        <p class="enable_select">OPUS, 2022</p>
+        <img src="/resources/images/ukrainian_flag_circle.png" alt="Ukrainian flag" width="20" height="20" />
+      </footer>
     </div>
-    <!-- Uncomment this and the "notice_participants" class in CSS to show this notification. -->
-    <!-- <div class="notice_participants">(placeholder)UWAGA: mamy wystarczającą ilość osób!</div> -->
-    <article class="enable_select">
-      <p>Celem badania mowy jest zebranie <emp>wysokiej jakości nagrań audio</emp> w różnych warunkach (np. czytanie tekstu, mowa spontaniczna).</p>
-      <p>W zamian za około godzinę nagrań oferujemy <b>kartę podarunkową Empik o wartości 50 zł</b> LUB 90 punktów za udział w eksperymencie (do wyboru).</p>
-      <div class="article_list">
-        <h1>Jak przystąpić do badania?</h1>
-        <p>1. Najpierw prosimy o zarejestrowanie się na badanie na platformie Moodle.</p>
-        <p>2. Po zarejestrowaniu, na adres e-mail otrzymasz link do ankiety.</p>
-        <p style="font-size: 70%;">Ankieta zawiera pytania demograficzne i wypełnienie jej nie powinno zająć więcej, niż 6 minut.</p>
-        <p>3. Po wypełnieniu ankiety, otrzymasz link do kalendarza, w którym wybierzesz najdogodniejszy slot czasowy.</p>
-        <p>4. W studiu nagrań poprosimy Cię o podpisanie zgody na wykorzystanie nagrań do celów naukowych (niekomercyjnych).</p>
-        <p>5. Po około godzinie nagrań, odbierzesz kartę Empik o wartości 50 zł LUB 50 pkt.</p>
-        <p class="big_link">&#9655; Lokalizacja studia: <wbr><a class="link" title="Otwórz kartę Lokalizacja" onclick="open_tab('lokalizacja');show_top_alert('Otwarto kartę Lokalizacja.'); return false;" href="?tab=lokalizacja">kliknij tutaj</a>.</p>
-        <p class="big_link">&#9655; Kontakt: <wbr><wbr><a class="link" title="Skopiuj adres e-mail do schowka" href="mailto:polish_corpus@protonmail.com" onclick="copy_to_clipboard(this,'polish_corpus@protonmail.com'); return false;">polish_corpus<wbr>@protonmail.com</a>.</p>
+
+    <!-- full page tab: lokalizacja -->
+    <div id="lokalizacja_tab" class="full_page_tab">
+      <div class="tab_title enable_select">
+        <h1>Lokalizacja</h1>
+        <hr>
       </div>
-    </article>
-    <!-- footer with ukrainian flag at the bottom -->
-    <footer>
-      <hr>
-      <p class="enable_select">OPUS, 2022</p>
-      <img src="/images/ukrainian_flag_circle.png" alt="Ukrainian flag" width="20" height="20" />
-    </footer>
-  </div>
-
-  <!-- full page tab: lokalizacja -->
-  <div id="lokalizacja_tab" class="full_page_tab">
-    <div class="tab_title enable_select">
-      <h1>Lokalizacja</h1>
-      <hr>
+      <article class="enable_select">
+        <div class="article_list">
+          <h1>1. Adres<wbr> studia nagrań</h1>
+          <p>Laboratorium Mowy i<wbr> Języka<wbr> (pok. nr 004),<wbr> Wydział Anglistyki UAM.</p>
+          <p>ul. Grunwaldzka 6<wbr> (Collegium Heliodori Święcicki),<wbr> 60-780, Poznań.</p>
+          <p class="big_link">&#9655; Mapy Google: <wbr><a class="link" title="Otwórz Mapy Google w nowej karcie" href="https://goo.gl/maps/gNUzcs6tnWg6yc4E8/" target="_blank">kliknij tutaj</a>.</p>
+          <img class="img_wide" src="/resources/images/nagrania/map_location.jpeg" alt="Google Maps city map screenshot" />
+          <img class="img_wide" src="/resources/images/nagrania/map_streetview.jpg" alt="Google Maps Street View screenshot" />
+          <h1>2. Wejście do budynku</h1>
+          <p>Po wejściu do budynku,<wbr> należy iść cały czas prosto<wbr> przez wnękę pod schodami.</p>
+          <img class="img_wide" src="/resources/images/nagrania/irl1.jpeg" alt="Real-life image - entrance niche leading to the ground floor" />
+          <p>Po klikunastu metrach,<wbr> po lewej stronie znajdziesz<wbr> studio nagrań przed windą<wbr> dla osób niepełnosprawnych.</p>
+          <img class="img_wide" src="/resources/images/nagrania/irl2.jpeg" alt="Real-life image - door to the studio" />
+          <img class="img_wide" src="/resources/images/nagrania/irl3.jpeg" alt="Real-life image - ID plate with names and door number" />
+          <img class="img_wide" src="/resources/images/nagrania/map_building_plan.jpg" alt="Official map of the WA building's ground floor" />
+          <p>W razie ewentualnych problemów - <a class="link" title="Otwórz plan budynku w nowej karcie" href="http://wa.amu.edu.pl/arch/Collegium_Heliodori/" target="_blank">plan całego budynku</a>.</p>
+          <p>Przy wejściu (po lewej stronie)<wbr> można również spytać portiera<wbr> o dokładną lokalizację.</p>
+        </div>
+      </article>
+      <!-- footer with ukrainian flag at the bottom -->
+      <footer>
+        <hr>
+        <p class="enable_select">OPUS, 2022</p>
+        <img src="/resources/images/ukrainian_flag_circle.png" alt="Ukrainian flag" width="20" height="20" />
+      </footer>
     </div>
-    <article class="enable_select">
-      <div class="article_list">
-        <h1>1. Adres<wbr> studia nagrań</h1>
-        <p>Laboratorium Mowy i<wbr> Języka<wbr> (pok. nr 004),<wbr> Wydział Anglistyki UAM.</p>
-        <p>ul. Grunwaldzka 6<wbr> (Collegium Heliodori Święcicki),<wbr> 60-780, Poznań.</p>
-        <p class="big_link">&#9655; Mapy Google: <wbr><a class="link" title="Otwórz Mapy Google w nowej karcie" href="https://goo.gl/maps/gNUzcs6tnWg6yc4E8/" target="_blank">kliknij tutaj</a>.</p>
-        <img class="img_wide" src="/images/nagrania/map_location.jpeg" alt="Google Maps city map screenshot" />
-        <img class="img_wide" src="/images/nagrania/map_streetview.jpg" alt="Google Maps Street View screenshot" />
-        <h1>2. Wejście do budynku</h1>
-        <p>Po wejściu do budynku,<wbr> należy iść cały czas prosto<wbr> przez wnękę pod schodami.</p>
-        <img class="img_wide" src="/images/nagrania/irl1.jpeg" alt="Real-life image - entrance niche leading to the ground floor" />
-        <p>Po klikunastu metrach,<wbr> po lewej stronie znajdziesz<wbr> studio nagrań przed windą<wbr> dla osób niepełnosprawnych.</p>
-        <img class="img_wide" src="/images/nagrania/irl2.jpeg" alt="Real-life image - door to the studio" />
-        <img class="img_wide" src="/images/nagrania/irl3.jpeg" alt="Real-life image - ID plate with names and door number" />
-        <img class="img_wide" src="/images/nagrania/map_building_plan.jpg" alt="Official map of the WA building's ground floor" />
-        <p>W razie ewentualnych problemów - <a class="link" title="Otwórz plan budynku w nowej karcie" href="http://wa.amu.edu.pl/arch/Collegium_Heliodori/" target="_blank">plan całego budynku</a>.</p>
-        <p>Przy wejściu (po lewej stronie)<wbr> można również spytać portiera<wbr> o dokładną lokalizację.</p>
+
+    <!-- full page tab: calendar -->
+    <div id="calendar_tab" class="full_page_tab">
+      <div class="tab_title enable_select">
+        <h1>Kalendarz</h1>
+        <hr>
       </div>
-    </article>
-    <!-- footer with ukrainian flag at the bottom -->
-    <footer>
-      <hr>
-      <p class="enable_select">OPUS, 2022</p>
-      <img src="/images/ukrainian_flag_circle.png" alt="Ukrainian flag" width="20" height="20" />
-    </footer>
-  </div>
-
-  <!-- full page tab: calendar -->
-  <div id="calendar_tab" class="full_page_tab">
-    <div class="tab_title enable_select">
-      <h1>Kalendarz</h1>
-      <hr>
+      <article class="enable_select">
+        <p>Aby chronić prywatność uczestników, kalendarz nie jest dostępny publicznie.</p>
+        <p>Po wypełnieniu ankiety i potwierdzeniu przyjęcia, uczestnik na podany w ankiecie adres e-mail otrzyma link do kalendarza (Google Docs), w którym należy się zarejestrować.</p>
+        <img class="img_example_last" src="/resources/images/nagrania/database_example.jpeg" alt="Screenshot of an autogenerated JSON file" />
+      </article>
+      <!-- footer with ukrainian flag at the bottom -->
+      <footer>
+        <hr>
+        <p class="enable_select">OPUS, 2022</p>
+        <img src="/resources/images/ukrainian_flag_circle.png" alt="Ukrainian flag" width="20" height="20" />
+      </footer>
     </div>
-    <article class="enable_select">
-      <p>Aby chronić prywatność uczestników, kalendarz nie jest dostępny publicznie.</p>
-      <p>Po wypełnieniu ankiety i potwierdzeniu przyjęcia, uczestnik na podany w ankiecie adres e-mail otrzyma link do kalendarza (Google Docs), w którym należy się zarejestrować.</p>
-      <img class="img_example_last" src="/images/nagrania/db_example.jpeg" alt="Screenshot of an autogenerated JSON file" />
-    </article>
-    <!-- footer with ukrainian flag at the bottom -->
-    <footer>
-      <hr>
-      <p class="enable_select">OPUS, 2022</p>
-      <img src="/images/ukrainian_flag_circle.png" alt="Ukrainian flag" width="20" height="20" />
-    </footer>
-  </div>
 
-  <!-- full page tab: ulotka -->
-  <div id="ulotka_tab" class="full_page_tab">
-    <div class="tab_title enable_select">
-      <h1>Ulotka</h1>
-      <hr>
+    <!-- full page tab: ulotka -->
+    <div id="ulotka_tab" class="full_page_tab">
+      <div class="tab_title enable_select">
+        <h1>Ulotka</h1>
+        <hr>
+      </div>
+      <img class="img_example_last" src="/resources/images/nagrania/poster.jpeg" alt="Recruitment poster" />
+      <!-- footer with ukrainian flag at the bottom -->
+      <footer>
+        <hr>
+        <p class="enable_select">OPUS, 2022</p>
+        <img src="/resources/images/ukrainian_flag_circle.png" alt="Ukrainian flag" width="20" height="20" />
+      </footer>
     </div>
-    <img class="img_example_last" src="/images/nagrania/poster.jpeg" alt="Recruitment poster" />
-    <!-- footer with ukrainian flag at the bottom -->
-    <footer>
-      <hr>
-      <p class="enable_select">OPUS, 2022</p>
-      <img src="/images/ukrainian_flag_circle.png" alt="Ukrainian flag" width="20" height="20" />
-    </footer>
-  </div>
 
-  <!-- display warning message and show all tabs if javascript disabled -->
-  <noscript>
-    <link rel="stylesheet" href="/styles/no_js.css">
-    <p id="js_disabled">Warning: <wbr>JavaScript is disabled, displaying all tabs as fallback.</p>
-  </noscript>
+    <!-- display warning message and show all tabs if javascript disabled -->
+    <noscript>
+      <link rel="stylesheet" href="/resources/stylesheets/no_js.css">
+      <p id="js_disabled">Warning: <wbr>JavaScript is disabled, displaying all tabs as fallback.</p>
+    </noscript>
 
-</body>
+  </body>
 
 </html>

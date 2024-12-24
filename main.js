@@ -1,6 +1,6 @@
-import { show_top_alert, copy_to_clipboard } from "/scripts/alert.js";
-import { open_tab } from "/scripts/tab.js";
-import { toggle_language } from "/scripts/language.js";
+import { show_top_alert, copy_to_clipboard } from "/resources/scripts/alert.js";
+import { open_tab } from "/resources/scripts/tab.js";
+import { toggle_language } from "/resources/scripts/language.js";
 
 
 /**

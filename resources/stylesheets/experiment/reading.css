@@ -1,4 +1,4 @@
-@import "/styles/pico/pico.classless.css";
+@import "/resources/stylesheets//pico.classless.css";
 
 #btn_controls_container {
     margin-left: auto;
@@ -12,7 +12,7 @@
     margin-bottom: 20px;
 }
 
-#help_modal>article {
+#help_modal > article {
     padding-top: 15px;
     padding-left: 1.5rem;
     padding-right: 1.5rem;
@@ -45,7 +45,7 @@
     white-space: nowrap;
 }
 
-#info_box>p {
+#info_box > p {
     background-color: var(--primary);
     border-radius: 3px;
     color: white;
@@ -58,7 +58,7 @@
     width: 100%;
 }
 
-#info_box>p:hover {
+#info_box > p:hover {
     background-color: var(--primary-hover);
 }
 

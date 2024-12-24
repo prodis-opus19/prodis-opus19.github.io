@@ -1,44 +1,44 @@
 <!DOCTYPE html>
 <html lang="pl">
 
-<head>
-    <!-- prevent indexing by search engines; this page should be accessed by link -->
-    <meta name="robots" content="noindex">
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-    <meta charset="UTF-8">
-    <title>EXPERIMENT - Czytanie odpowiedzi</title>
-    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
-    <link rel="stylesheet" href="/styles/experiment/answering.css">
-    <meta name="description" content="A web app that displays audio-text pairs in random order.">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="module" src="./main.js" defer></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script>
-        /* prevent Firefox FOUC (Flash of unstyled content) warning */
-        let FF_FOUC_FIX;
-    </script>
-</head>
+    <head>
+        <!-- prevent indexing by search engines; this page should be accessed by link -->
+        <meta name="robots" content="noindex">
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+        <meta charset="UTF-8">
+        <title>EXPERIMENT - Czytanie odpowiedzi</title>
+        <link rel="shortcut icon" type="image/x-icon" href="/resources/images/favicon.ico">
+        <link rel="stylesheet" href="/resources/stylesheets//experiment/answering.css">
+        <meta name="description" content="A web app that displays audio-text pairs in random order.">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="module" src="./main.js" defer></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script>
+            /* prevent Firefox FOUC (Flash of unstyled content) warning */
+            let FF_FOUC_FIX;
+        </script>
+    </head>
 
-<body>
-    <div id="main_app">
-        <!-- status widget that displays the amount of pairs left in the top right corner -->
-        <p id="display_status_widget">Tutorial: 0/0</p>
-        <!-- big information block for explanations (e.g., how the experiment works, breaks) -->
-        <p id="big_info_text"></p>
-        <!-- audio tag and transcription -->
-        <div id="audio_container">
-            <p><i class="fa fa-headphones"></i> <span id="audio_text"></span></p>
-            <audio id="audio_player" src="" controls>Your browser does not support HTML audio.</audio>
+    <body>
+        <div id="main_app">
+            <!-- status widget that displays the amount of pairs left in the top right corner -->
+            <p id="display_status_widget">Tutorial: 0/0</p>
+            <!-- big information block for explanations (e.g., how the experiment works, breaks) -->
+            <p id="big_info_text"></p>
+            <!-- audio tag and transcription -->
+            <div id="audio_container">
+                <p><i class="fa fa-headphones"></i> <span id="audio_text"></span></p>
+                <audio id="audio_player" src="" controls>Your browser does not support HTML audio.</audio>
+            </div>
+            <!-- answer to be read -->
+            <p id="answer_text"></p>
+            <!-- list of answers that were read for copying -->
+            <div id="copy_container">
+                <textarea id="text_area_copy"></textarea>
+                <br>
+                <button type="button" id="btn_text_area_copy">Skopiuj tekst do schowka</button>
+            </div>
         </div>
-        <!-- answer to be read -->
-        <p id="answer_text"></p>
-        <!-- list of answers that were read for copying -->
-        <div id="copy_container">
-            <textarea id="text_area_copy"></textarea>
-            <br>
-            <button type="button" id="btn_text_area_copy">Skopiuj tekst do schowka</button>
-        </div>
-    </div>
-</body>
+    </body>
 
 </html>

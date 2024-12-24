@@ -1,5 +1,5 @@
-import { BUTTON_LINKS } from "/scripts/tab.js";
-import { show_top_alert } from "/scripts/alert.js";
+import { BUTTON_LINKS } from "/resources/scripts/tab.js";
+import { show_top_alert } from "/resources/scripts/alert.js";
 
 
 // bool check for ancient browsers
@@ -52,7 +52,7 @@ function _set_english(show_alert = true) {
         show_top_alert("Changed language to English.");
     }
     document.body.className = "hide_polish"; // hide tags with lang="pl" ID
-    document.getElementById("lang_flag").src = "images/root/flag/us.png"; // set american flag src
+    document.getElementById("lang_flag").src = "resources/images/flags/usa.png"; // set american flag src
     set_nav_btns(false); // set displayed strings to english
     document.documentElement.setAttribute("lang", "en"); //
     if (local_storage_available) { // store language in local storage (5MB)
@@ -76,7 +76,7 @@ function _set_polish(show_alert = true) {
         show_top_alert("Zmieniono język na Polski.");
     }
     document.body.className = "hide_english"; // hide tags with lang="en" ID
-    document.getElementById("lang_flag").src = "images/root/flag/pl.png"; // set polish flag src
+    document.getElementById("lang_flag").src = "resources/images/flags/pl.png"; // set polish flag src
     set_nav_btns(true);// set displayed strings to polish
     document.documentElement.setAttribute("lang", "pl"); // html lang tag
     if (local_storage_available) { // store language in local storage (5MB)

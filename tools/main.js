@@ -1,4 +1,4 @@
-import { _get_next_letter } from "/scripts/letter.js";
+import { _get_next_letter } from "/resources/scripts/letter.js";
 
 document.getElementById("btn_uniq_words").addEventListener("click", function () {
     let raw_str = document.getElementById('uniq_words').value;
