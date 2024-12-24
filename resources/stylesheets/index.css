@@ -1,6 +1,6 @@
-@import "/resources/stylesheets//base.css";
-@import "/resources/stylesheets//responsive/narrow.css" screen and (max-width: 950px);
-@import "/resources/stylesheets//responsive/mobile_all.css" screen and (max-width: 680px);
+@import "/resources/stylesheets/base.css";
+@import "/resources/stylesheets/responsive/narrow.css" screen and (max-width: 950px);
+@import "/resources/stylesheets/responsive/mobile_all.css" screen and (max-width: 680px);
 
 :root {
   --table_background: #0d0d18;
