@@ -52,7 +52,7 @@ function _set_english(show_alert = true) {
         show_top_alert("Changed language to English.");
     }
     document.body.className = "hide_polish"; // hide tags with lang="pl" ID
-    document.getElementById("lang_flag").src = "resources/images/flags/usa.png"; // set american flag src
+    document.getElementById("lang_flag").src = "resources/images/flags/gb.png"; // set uk flag src
     set_nav_btns(false); // set displayed strings to english
     document.documentElement.setAttribute("lang", "en"); //
     if (local_storage_available) { // store language in local storage (5MB)
